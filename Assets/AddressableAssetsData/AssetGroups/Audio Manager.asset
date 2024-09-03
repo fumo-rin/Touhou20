@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Audio Manager
+  m_EditorClassIdentifier: 
+  m_GroupName: Audio Manager
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 81e40c6c79239d445925ff8d5892f795
+  m_SerializeEntries:
+  - m_GUID: 34215ea08f295ea4f9e78bbe991ca3df
+    m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Audio Engine Sound
+      Effects.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audio Engine
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d0c3b1bbcee314fa91d6246890b7bf
+    m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Addressable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Audio Engine
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a5958f7d4450adc468096f84921060ec, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: efaac0f30d545244da0f9c1d411fe327, type: 2}
+    - {fileID: 11400000, guid: 1b8d46c28f06d7b41aceedb483170145, type: 2}
