@@ -1,10 +1,9 @@
-using Bremsengine;
 using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bovine
+namespace Bremsengine
 {
     #region Set Projectile
     public partial class Projectile
@@ -80,53 +79,49 @@ namespace Bovine
     {
         public ProjectileDirection Clone()
         {
-            return new ProjectileDirection(SpeedRange, direction, AngleOffset).AimTowardsTarget(aimTowardsTarget);
+            return new ProjectileDirection(projectile, direction);
         }
         public float Speed => SpeedRange.RandomBetweenXY();
-        public Vector2 Direction => direction.Rotate2D(AngleOffset);
+        public Vector2 Direction => direction.Rotate2D(AngleOffset).Rotate2D(projectile.Spread);
         public Vector2 Vector => Direction.normalized * Speed;
-
-        public ProjectileDirection AimTowardsTarget(bool state)
+        public ProjectileDirection(ProjectileSO projectile, Vector2 direction)
         {
-            aimTowardsTarget = state;
-            return this;
-        }
-        public ProjectileDirection(Vector2 speedRange, Vector2 direction, float angleOffset)
-        {
-            this.SpeedRange = speedRange;
+            this.projectile = projectile;
+            this.SpeedRange = projectile.SpeedRange;
             this.direction = direction;
-            this.AngleOffset = angleOffset;
-            aimTowardsTarget = false;
+            this.AngleOffset = 0f;
         }
         public ProjectileDirection AddAngle(float angle)
         {
             AngleOffset += angle;
             return this;
         }
-
+        ProjectileSO projectile;
         [SerializeField] public Vector2 SpeedRange;
-        [SerializeField] Vector2 direction;
+        Vector2 direction;
         [SerializeField] public float AngleOffset;
-        public bool aimTowardsTarget;
     }
     #endregion
     #region Spawning
     public partial class Projectile
     {
-        public static Projectile SpawnProjectile(ProjectileSO proj, Vector2 position, ProjectileDirection direction)
+        public delegate void SpawnCallback(Projectile p);
+        public static Projectile SpawnProjectile(ProjectileSO proj, Vector2 position, ProjectileDirection direction, SpawnCallback callback)
         {
             if (proj.projectilePrefab == null)
             {
                 return null;
             }
 
-            Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
+            Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
 
+            spawnedProjectile.projectile = proj;
             return spawnedProjectile;
-            
+
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
         }
+        /*
         public static Projectile SpawnProjectileTowardsUnit(ProjectileSO proj, Vector2 position, ProjectileDirection direction, Rigidbody2D target)
         {
             if (proj == null)
@@ -140,7 +135,7 @@ namespace Bovine
             ProjectileDirection newDirection = new(direction.SpeedRange, targetVector.normalized, direction.AngleOffset);
 
             return SpawnProjectile(proj, position, newDirection);
-        }
+        }*/
     }
     #endregion
     #region OffScreen
@@ -197,6 +192,7 @@ namespace Bovine
             projectileDamage = newDamage;
             return this;
         }
+        public float Damage => projectileDamage;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.transform.GetComponent<Transform>() is Transform t && t != null)
@@ -218,12 +214,25 @@ namespace Bovine
         }
     }
     #endregion
+    #region Faction
+    public partial class Projectile
+    {
+        public BremseFaction Faction { get; protected set; }
+        public Projectile SetFaction(BremseFaction f)
+        {
+            Faction = f;
+            return this;
+        }
+    }
+    #endregion
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(BoxCollider2D))]
     public partial class Projectile : MonoBehaviour
     {
+        ProjectileSO projectile;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] Transform rotationAnchor;
+        [SerializeField] float gravityModifier = 0f;
         protected delegate void OnUpdate(float deltaTime);
         protected OnUpdate UpdateEvent;
         protected OnUpdate FixedUpdateEvent;
@@ -248,7 +257,7 @@ namespace Bovine
             if (rb == null)
             {
                 rb = GetComponent<Rigidbody2D>();
-                rb.gravityScale = 0f;
+                rb.gravityScale = gravityModifier;
                 rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
                 rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
