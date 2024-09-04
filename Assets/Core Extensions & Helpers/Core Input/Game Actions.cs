@@ -102,7 +102,7 @@ namespace Core.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Sneak"",
+                    ""name"": ""Focus"",
                     ""type"": ""Button"",
                     ""id"": ""c821f6b1-cad5-4aeb-a7d3-eddab5bb8991"",
                     ""expectedControlType"": ""Button"",
@@ -636,7 +636,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sneak"",
+                    ""action"": ""Focus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -647,7 +647,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sneak"",
+                    ""action"": ""Focus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1282,7 +1282,7 @@ namespace Core.Input
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             m_Player_Look3rdPerson = m_Player.FindAction("Look3rdPerson", throwIfNotFound: true);
             m_Player_RightStick = m_Player.FindAction("RightStick", throwIfNotFound: true);
-            m_Player_Sneak = m_Player.FindAction("Sneak", throwIfNotFound: true);
+            m_Player_Focus = m_Player.FindAction("Focus", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1367,7 +1367,7 @@ namespace Core.Input
         private readonly InputAction m_Player_Look;
         private readonly InputAction m_Player_Look3rdPerson;
         private readonly InputAction m_Player_RightStick;
-        private readonly InputAction m_Player_Sneak;
+        private readonly InputAction m_Player_Focus;
         public struct PlayerActions
         {
             private @GameActions m_Wrapper;
@@ -1380,7 +1380,7 @@ namespace Core.Input
             public InputAction @Look => m_Wrapper.m_Player_Look;
             public InputAction @Look3rdPerson => m_Wrapper.m_Player_Look3rdPerson;
             public InputAction @RightStick => m_Wrapper.m_Player_RightStick;
-            public InputAction @Sneak => m_Wrapper.m_Player_Sneak;
+            public InputAction @Focus => m_Wrapper.m_Player_Focus;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1414,9 +1414,9 @@ namespace Core.Input
                 @RightStick.started += instance.OnRightStick;
                 @RightStick.performed += instance.OnRightStick;
                 @RightStick.canceled += instance.OnRightStick;
-                @Sneak.started += instance.OnSneak;
-                @Sneak.performed += instance.OnSneak;
-                @Sneak.canceled += instance.OnSneak;
+                @Focus.started += instance.OnFocus;
+                @Focus.performed += instance.OnFocus;
+                @Focus.canceled += instance.OnFocus;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1445,9 +1445,9 @@ namespace Core.Input
                 @RightStick.started -= instance.OnRightStick;
                 @RightStick.performed -= instance.OnRightStick;
                 @RightStick.canceled -= instance.OnRightStick;
-                @Sneak.started -= instance.OnSneak;
-                @Sneak.performed -= instance.OnSneak;
-                @Sneak.canceled -= instance.OnSneak;
+                @Focus.started -= instance.OnFocus;
+                @Focus.performed -= instance.OnFocus;
+                @Focus.canceled -= instance.OnFocus;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1684,7 +1684,7 @@ namespace Core.Input
             void OnLook(InputAction.CallbackContext context);
             void OnLook3rdPerson(InputAction.CallbackContext context);
             void OnRightStick(InputAction.CallbackContext context);
-            void OnSneak(InputAction.CallbackContext context);
+            void OnFocus(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

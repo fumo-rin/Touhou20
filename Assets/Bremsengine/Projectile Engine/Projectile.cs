@@ -117,6 +117,7 @@ namespace Bremsengine
             AddToFolder(spawnedProjectile);
 
             spawnedProjectile.projectile = proj;
+            callback?.Invoke(spawnedProjectile);
             return spawnedProjectile;
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
@@ -202,6 +203,13 @@ namespace Bremsengine
                     if (listener.OnProjectileHit(this))
                     {
                         ClearProjectile();
+                        return;
+                    }
+                }
+                if (t.TryGetComponent<IFaction>(out IFaction faction))
+                {
+                    if (faction.Faction == Faction)
+                    {
                         return;
                     }
                 }

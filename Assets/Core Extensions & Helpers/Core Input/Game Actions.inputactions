@@ -78,7 +78,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Sneak",
+                    "name": "Focus",
                     "type": "Button",
                     "id": "c821f6b1-cad5-4aeb-a7d3-eddab5bb8991",
                     "expectedControlType": "Button",
@@ -612,7 +612,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sneak",
+                    "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -623,7 +623,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sneak",
+                    "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

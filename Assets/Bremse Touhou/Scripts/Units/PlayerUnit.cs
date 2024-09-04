@@ -60,8 +60,28 @@ namespace BremseTouhou
         }
     }
     #endregion
+    #region Movement
+    public partial class PlayerUnit
+    {
+        bool sneak;
+        [SerializeField] UnitMotor sneakMotor;
+        public override UnitMotor ActiveMotor => sneak ? sneakMotor : standardMotor;
+        private static void ReadInput(ref Vector2 input)
+        {
+            input = PlayerInputController.actions == null ? Vector2.zero : PlayerInputController.actions.Player.Move.ReadValue<Vector2>();
+        }
+        private void ApplyInput(Vector2 input)
+        {
+            if (ActiveMotor == null)
+                return;
+            Debug.Log(ActiveMotor.name);
+            Move(ActiveMotor, input);
+        }
+    }
+    #endregion
     public partial class PlayerUnit : BaseUnit
     {
+        Vector2 input;
         [SerializeField] ProjectileSO testProjectile;
         private void Awake()
         {
@@ -74,6 +94,9 @@ namespace BremseTouhou
         private void Update()
         {
             AttackUpdate();
+            ReadInput(ref input);
+            ApplyInput(input);
+            sneak = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f;
         }
     }
 }

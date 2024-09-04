@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3770763736029682047}
   - component: {fileID: 9007787895666188552}
   - component: {fileID: 3634833044196561141}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Touhou player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,8 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc432343f2de9040a7e28f937b8de83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardMotor: {fileID: 11400000, guid: ebd6399bce3fbe948b3a6d0a95de75eb, type: 2}
   unitCenterAnchor: {fileID: 2234593540077475470}
+  UnitFaction: 1
   fireRate: 10
+  sneakMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
   testProjectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
 --- !u!50 &3634833044196561141
 Rigidbody2D:
@@ -100,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2234593540077475470}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Unit Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204484672073837485}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5650598462524023773}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558470829039506772}
   - component: {fileID: 3098172478990303640}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2986268348038727818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Test Projectile Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

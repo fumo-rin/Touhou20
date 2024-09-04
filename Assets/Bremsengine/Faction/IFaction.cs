@@ -29,5 +29,6 @@ namespace Bremsengine
         {
             return IsOfFaction(f);
         }
+        public void SetFaction(BremseFaction f) => Faction = f;
     }
 }
