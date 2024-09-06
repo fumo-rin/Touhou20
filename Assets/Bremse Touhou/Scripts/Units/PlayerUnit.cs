@@ -74,7 +74,6 @@ namespace BremseTouhou
         {
             if (ActiveMotor == null)
                 return;
-            Debug.Log(ActiveMotor.name);
             Move(ActiveMotor, input);
         }
     }

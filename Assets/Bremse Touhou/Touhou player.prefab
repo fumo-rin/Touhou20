@@ -66,7 +66,7 @@ MonoBehaviour:
   UnitFaction: 1
   fireRate: 10
   sneakMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
-  testProjectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
+  testProjectile: {fileID: 11400000, guid: 057451307ebe23b4ab5d018a1e0cf379, type: 2}
 --- !u!50 &3634833044196561141
 Rigidbody2D:
   serializedVersion: 4

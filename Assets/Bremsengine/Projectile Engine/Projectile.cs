@@ -62,6 +62,7 @@ namespace Bremsengine
     #region Direction
     public partial class Projectile
     {
+        ProjectileDirection currentDirection;
         public Projectile SetPosition(Vector3 position)
         {
             transform.position = position;
@@ -69,6 +70,7 @@ namespace Bremsengine
         }
         public Projectile SetDirection(ProjectileDirection direction)
         {
+            currentDirection = direction.Clone();
             rb.velocity = direction.Vector;
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
             return this;
@@ -79,17 +81,24 @@ namespace Bremsengine
     {
         public ProjectileDirection Clone()
         {
-            return new ProjectileDirection(projectile, direction);
+            return new ProjectileDirection(projectile, direction).SetSpeedMod(speedMod);
         }
         public float Speed => SpeedRange.RandomBetweenXY();
+        float speedMod;
         public Vector2 Direction => direction.Rotate2D(AngleOffset).Rotate2D(projectile.Spread);
-        public Vector2 Vector => Direction.normalized * Speed;
+        public Vector2 Vector => Direction.normalized * Speed * speedMod;
         public ProjectileDirection(ProjectileSO projectile, Vector2 direction)
         {
             this.projectile = projectile;
             this.SpeedRange = projectile.SpeedRange;
             this.direction = direction;
             this.AngleOffset = 0f;
+            this.speedMod = 1f;
+        }
+        public ProjectileDirection SetSpeedMod(float speedModifier)
+        {
+            speedMod = speedModifier;
+            return this;
         }
         public ProjectileDirection AddAngle(float angle)
         {

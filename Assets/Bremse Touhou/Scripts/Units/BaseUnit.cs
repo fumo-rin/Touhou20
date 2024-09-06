@@ -15,9 +15,10 @@ namespace BremseTouhou
         List<Vector2> currentPath;
         public virtual UnitMotor ActiveMotor => standardMotor;
         protected bool HasPath => currentPath != null && currentPath.Count > 0;
-        public void Move(UnitMotor motor, Vector2 input)
+        public void Move(UnitMotor motor, Vector2 input, float scaler = 1f)
         {
             Vector2 direction = input.normalized;
+                //* (input.magnitude * scaler).Min(1f);
             motor.Move(rb, direction, ref nextMoveTime);
         }
         protected void ProcessCurrentPath()

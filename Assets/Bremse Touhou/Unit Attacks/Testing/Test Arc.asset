@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
+  m_Name: Test Arc
+  m_EditorClassIdentifier: 
+  damage: 10
+  arc:
+  - startingAngle: 0
+    Projectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
+    ProjectileCount: 15
+    AngleCoverage: 150
+    SpeedMultiplierCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.00000025518239
+        value: 0.768608
+        inSlope: -1.1129364
+        outSlope: -1.1129364
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.39027244
+      - serializedVersion: 3
+        time: 0.480434
+        value: 0.53676987
+        inSlope: -0.018390924
+        outSlope: -0.018390924
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0000143
+        value: 0.76838714
+        inSlope: 1.0421898
+        outSlope: 1.0421898
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33683786
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - startingAngle: 180
+    Projectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
+    ProjectileCount: 10
+    AngleCoverage: 30
+    SpeedMultiplierCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.67451763
+        inSlope: 2.0860064
+        outSlope: 2.0860064
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.10806054
+      - serializedVersion: 3
+        time: 0.50126225
+        value: 0.52373886
+        inSlope: -0.0023665577
+        outSlope: -0.0023665577
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.6713977
+        inSlope: -2.1436062
+        outSlope: -2.1436062
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.10860753
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
