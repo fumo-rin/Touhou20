@@ -8,7 +8,8 @@ namespace BremseTouhou
 {
     public abstract class ProjectileEvent : ScriptableObject
     {
-        public float Delay => delay;
+        WaitForSeconds storedDelay;
+        public WaitForSeconds Delay => storedDelay == null ? storedDelay = new WaitForSeconds(delay) : storedDelay;
         [SerializeField] protected float delay = 0f;
         public abstract void PerformEvent(Projectile p, Vector2 target);
         public void QueueEvent(Projectile p, BaseUnit target)

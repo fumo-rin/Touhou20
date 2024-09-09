@@ -28,7 +28,7 @@ namespace BremseTouhou
         }
         private IEnumerator Run(ProjectileEvent e, Projectile p, BaseUnit target)
         {
-            yield return new WaitForSeconds(e.Delay);
+            yield return e.Delay;
             e.PerformEvent(p, target.Center);
         }
     }

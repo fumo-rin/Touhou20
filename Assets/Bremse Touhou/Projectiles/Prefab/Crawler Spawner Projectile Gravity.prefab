@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5096362763981196352}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 1773792273
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.87987846, g: 0.4481132, b: 1, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.3443396, g: 1, b: 0.50653017, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 5096362763981196352}
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 2971411468218337848}
-  - component: {fileID: 3014136895595306641}
+  - component: {fileID: 2471082027384130354}
   m_Layer: 7
-  m_Name: Gravity Projectile Frontal
+  m_Name: Crawler Spawner Projectile Gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1.75
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -159,12 +159,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 6647900155055438474}
-  mainCollider: {fileID: 3014136895595306641}
+  mainCollider: {fileID: 2471082027384130354}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
-  gravityModifier: 0.65
-  drag: 2
---- !u!58 &3014136895595306641
+  gravityModifier: 0.4
+  drag: 1.75
+--- !u!58 &2471082027384130354
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,4 +198,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1

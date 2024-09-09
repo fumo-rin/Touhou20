@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1773792273
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.9965842, b: 0.514151, a: 1}
@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5096362763981196352}
   - component: {fileID: 8866305672862957938}
-  - component: {fileID: 3233691898204338934}
   - component: {fileID: 2971411468218337848}
+  - component: {fileID: 659439549069327607}
   m_Layer: 7
   m_Name: Aimed Projectile
   m_TagString: Untagged
@@ -146,8 +146,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &3233691898204338934
-BoxCollider2D:
+--- !u!114 &2971411468218337848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3417849383627458229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601ea76f325b88c48af1b69bdad2a977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSprite: {fileID: 6647900155055438474}
+  mainCollider: {fileID: 659439549069327607}
+  rb: {fileID: 8866305672862957938}
+  rotationAnchor: {fileID: 5096362763981196352}
+  gravityModifier: 0
+  drag: 0
+--- !u!58 &659439549069327607
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,34 +197,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0
---- !u!114 &2971411468218337848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3417849383627458229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601ea76f325b88c48af1b69bdad2a977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainSprite: {fileID: 6647900155055438474}
-  mainCollider: {fileID: 3233691898204338934}
-  maxDistanceToCamera: 25
-  rb: {fileID: 8866305672862957938}
-  rotationAnchor: {fileID: 5096362763981196352}
-  gravityModifier: 0
-  drag: 0
+  m_Radius: 0.1

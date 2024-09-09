@@ -10,15 +10,29 @@ namespace Bremsengine
     public partial class Projectile
     {
         [SerializeField] SpriteRenderer mainSprite;
-        [SerializeField] BoxCollider2D mainCollider;
+        [SerializeField] Collider2D mainCollider;
         public Projectile SetProjectile(Projectile proj)
         {
+            if (mainCollider != null)
+            {
+                Destroy(mainCollider);
+                if (proj.mainCollider is BoxCollider2D box)
+                {
+                    mainCollider = gameObject.AddComponent<BoxCollider2D>();
+                    ((BoxCollider2D)mainCollider).size = box.size;
+                }
+                if (proj.mainCollider is CircleCollider2D circle)
+                {
+                    mainCollider = gameObject.AddComponent<CircleCollider2D>();
+                    ((CircleCollider2D)mainCollider).radius = circle.radius;
+                }
+                mainCollider.isTrigger = true;
+            }
             mainSprite.transform.name = proj.transform.name;
             mainSprite.sprite = proj.mainSprite.sprite;
             mainSprite.transform.localScale = proj.mainSprite.transform.localScale;
             mainSprite.transform.localRotation = proj.mainSprite.transform.localRotation;
             transform.localScale = proj.transform.localScale;
-            mainCollider.size = proj.mainCollider.size;
             mainSprite.color = proj.mainSprite.color;
             rb.gravityScale = proj.gravityModifier;
             rb.drag = proj.drag;
@@ -259,7 +273,6 @@ namespace Bremsengine
     }
     #endregion
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(BoxCollider))]
     public partial class Projectile : MonoBehaviour
     {
         public ProjectileSO Data => projectile;
@@ -285,8 +298,11 @@ namespace Bremsengine
                 rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
                 rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
-                mainCollider = GetComponent<BoxCollider2D>();
-                mainCollider.isTrigger = true;
+                if (GetComponent<Collider2D>() is not null and Collider2D c)
+                {
+                    mainCollider = c;
+                    c.isTrigger = true;
+                }
             }
         }
     }
