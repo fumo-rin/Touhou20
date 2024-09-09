@@ -9,9 +9,11 @@ namespace BremseTouhou
     public class ProjectileAttack : UnitAttack
     {
         [SerializeField] ProjectileSO projectile;
-        public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target)
+        public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle = 0f)
         {
+            PlaySound(owner);
             ProjectileDirection d = new(projectile, target - origin);
+            d.AddAngle(addedAngle);
             Projectile p = Projectile.SpawnProjectile(projectile, origin, d, OnProjectileSpawn);
             p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
         }

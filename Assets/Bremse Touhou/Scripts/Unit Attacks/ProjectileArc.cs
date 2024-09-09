@@ -10,8 +10,9 @@ namespace BremseTouhou
     public class ProjectileArc : UnitAttack
     {
         public List<ProjectileArcEntry> arc = new();
-        public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target)
+        public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle)
         {
+            PlaySound(owner);
             ProjectileDirection directionIteration;
             float progress;
             int iteration; 
@@ -24,7 +25,8 @@ namespace BremseTouhou
                 for (int i = 0; i < entry.ProjectileCount; i++)
                 {
                     directionIteration = new ProjectileDirection(entry.Projectile, target - origin)
-                        .AddAngle(iterationAngle);
+                        .AddAngle(iterationAngle)
+                        .AddAngle(addedAngle);
 
                     directionIteration.SetSpeedMod(entry.GetSpeed(progress));
 

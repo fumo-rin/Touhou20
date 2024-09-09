@@ -10,13 +10,14 @@ namespace BremseTouhou
     #region Projectile Hit
     public partial class PlayerUnit
     {
+        [SerializeField] AudioClipWrapper hitSound;
         protected override bool ProjectileHit(Projectile p)
         {
             if (FactionInterface.IsFriendsWith(p.Faction))
             {
                 return false;
             }
-            Debug.Log("Player Hit : " + p);
+            hitSound.Play(Center);
             return true;
         }
     }
@@ -24,6 +25,8 @@ namespace BremseTouhou
     #region Shoot Projectile
     public partial class PlayerUnit
     {
+        [SerializeField] UnitAttack TestAttack;
+        [SerializeField] UnitAttack TestFocusAttack;
         bool attackHeld;
         float nextAttackTime;
         [SerializeField] float fireRate = 10f;
@@ -56,16 +59,24 @@ namespace BremseTouhou
                 return;
             }
             nextAttackTime = Time.time + (1f / fireRate).Max(0.05f);
-            ShootProjectile(testProjectile, UnitCenter + Vector2.up.Shift(5f));
+            if (Focused)
+            {
+                TestFocusAttack.AttackTarget(this, Center, Up);
+            }
+            else
+            {
+                TestAttack.AttackTarget(this, Center, Up);
+            }
         }
     }
     #endregion
     #region Movement
     public partial class PlayerUnit
     {
-        bool sneak;
+        bool focusHeld;
+        public bool Focused => focusHeld;
         [SerializeField] UnitMotor sneakMotor;
-        public override UnitMotor ActiveMotor => sneak ? sneakMotor : standardMotor;
+        public override UnitMotor ActiveMotor => Focused ? sneakMotor : standardMotor;
         private static void ReadInput(ref Vector2 input)
         {
             input = PlayerInputController.actions == null ? Vector2.zero : PlayerInputController.actions.Player.Move.ReadValue<Vector2>();
@@ -81,7 +92,6 @@ namespace BremseTouhou
     public partial class PlayerUnit : BaseUnit
     {
         Vector2 input;
-        [SerializeField] ProjectileSO testProjectile;
         private void Awake()
         {
             BindInput();
@@ -92,10 +102,13 @@ namespace BremseTouhou
         }
         private void Update()
         {
-            AttackUpdate();
             ReadInput(ref input);
             ApplyInput(input);
-            sneak = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f;
+            focusHeld = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f;
+        }
+        private void LateUpdate()
+        {
+            AttackUpdate();
         }
     }
 }

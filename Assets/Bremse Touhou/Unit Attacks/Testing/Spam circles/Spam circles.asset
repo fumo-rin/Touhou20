@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Spam circles
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 0
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 2
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 4
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 6
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 8
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 14
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 16
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 18
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 20
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 26
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 28
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.1
+    AddedAngle: 30
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: df73ddd2b8274bd409e7c5ba0eff7df6, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.5
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 0045e156b603b3942994171e0a989239, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 1

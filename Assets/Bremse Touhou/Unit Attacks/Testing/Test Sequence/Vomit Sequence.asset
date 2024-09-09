@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Vomit Sequence
+  m_EditorClassIdentifier: 
+  damage: 10
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+    AddedDelayInSeconds: 0.05
+  - Attack: {fileID: 11400000, guid: 11eaa7d5bab7ca24faee32f00a45c14d, type: 2}
+    AddedDelayInSeconds: 0.05
+  - Attack: {fileID: 11400000, guid: 0abe3981012d3bf4eb2da8f906e03c19, type: 2}
+    AddedDelayInSeconds: 0.05
+  - Attack: {fileID: 11400000, guid: f970a0b5c65038442a33ecadcd9c65ac, type: 2}
+    AddedDelayInSeconds: 0.05
+  - Attack: {fileID: 11400000, guid: d68cf348723c3ce4ebc6b0340167cab8, type: 2}
+    AddedDelayInSeconds: 0.05

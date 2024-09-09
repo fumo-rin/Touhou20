@@ -27,7 +27,7 @@ namespace BremseTouhou
             {
                 return;
             }
-            while (currentPath.Count > 0 && currentPath[0].SquareDistanceToLessThan(UnitCenter, 1f))
+            while (currentPath.Count > 0 && currentPath[0].SquareDistanceToLessThan(Center, 1f))
             {
                 currentPath.RemoveAt(0);
             }
@@ -43,13 +43,11 @@ namespace BremseTouhou
     {
         public void ShootProjectile(ProjectileSO p, Vector2 target)
         {
-            ProjectileDirection direction = new(p,target - UnitCenter);
-            Projectile.SpawnProjectile(p, UnitCenter, direction, ApplyProjectile);
+            ProjectileDirection direction = new(p,target - Center);
+            Projectile.SpawnProjectile(p, Center, direction, ApplyProjectile);
         }
         public void ApplyProjectile(Projectile p)
         {
-            Debug.Log("Apply Projectile");
-            Debug.Log(FactionInterface.Faction.ToString());
             p.SetFaction(FactionInterface.Faction);
             p.SetDamage(10);
         }
@@ -59,7 +57,8 @@ namespace BremseTouhou
     public abstract partial class BaseUnit : IProjectileHitListener
     {
         [SerializeField] protected Transform unitCenterAnchor;
-        public Vector2 UnitCenter => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f,0.5f) : unitCenterAnchor.position;
+        public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f,0.5f) : unitCenterAnchor.position;
+        public Vector2 Up => Center + Vector2.up.Shift(5f);
         public IFaction FactionInterface => ((IFaction)this);
         BremseFaction IFaction.Faction { get; set; }
         protected abstract bool ProjectileHit(Projectile p);

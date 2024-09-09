@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415640386221739915}
   - component: {fileID: 6647900155055438474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5096362763981196352}
@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1773792273
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.9965842, b: 0.514151, a: 1}
+  m_Color: {r: 0.87987846, g: 0.4481132, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 3233691898204338934}
   - component: {fileID: 2971411468218337848}
-  m_Layer: 0
-  m_Name: Projectile
+  m_Layer: 7
+  m_Name: Gravity Projectile Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1.75
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -189,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &2971411468218337848
 MonoBehaviour:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 6647900155055438474}
   mainCollider: {fileID: 3233691898204338934}
-  maxDistanceToCamera: 25
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
-  gravityModifier: 0
+  gravityModifier: 1
+  drag: 0.4

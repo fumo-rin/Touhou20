@@ -19,6 +19,8 @@ namespace Bremsengine
             transform.localScale = proj.transform.localScale;
             mainCollider.size = proj.mainCollider.size;
             mainSprite.color = proj.mainSprite.color;
+            rb.gravityScale = proj.gravityModifier;
+            rb.drag = proj.drag;
             return this;
         }
     }
@@ -152,7 +154,7 @@ namespace Bremsengine
     public partial class Projectile
     {
         bool isOffScreen;
-        [SerializeField] float maxDistanceToCamera = 25f;
+        static float maxDistanceToCamera = 15f;
         protected bool RecalculateOffscreen => (transform.position.Z(0f).SquareDistanceToGreaterThan(Camera.main.transform.position.Z(0f), maxDistanceToCamera));
         public void ClearProjectile()
         {
@@ -243,31 +245,22 @@ namespace Bremsengine
     }
     #endregion
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(BoxCollider))]
     public partial class Projectile : MonoBehaviour
     {
+        public ProjectileSO Data => projectile;
         ProjectileSO projectile;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
-        protected delegate void OnUpdate(float deltaTime);
-        protected OnUpdate UpdateEvent;
-        protected OnUpdate FixedUpdateEvent;
-        private void Update()
-        {
-            UpdateEvent?.Invoke(Time.deltaTime);
-        }
-        private void LateUpdate()
+        [SerializeField] float drag = 0f;
+        private void FixedUpdate()
         {
             isOffScreen = RecalculateOffscreen;
             if (isOffScreen)
             {
                 ClearProjectile();
             }
-        }
-        private void FixedUpdate()
-        {
-            FixedUpdateEvent?.Invoke(Time.fixedDeltaTime);
         }
         private void OnValidate()
         {
