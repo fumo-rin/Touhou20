@@ -9,7 +9,6 @@ namespace BremseTouhou
     [CreateAssetMenu(menuName = "Bremse Touhou/Projectile Event/Crawler")]
     public class ProjectileCrawlerEvent : ProjectileEvent
     {
-        [SerializeField] float damage = 10f;
         [SerializeField] UnitAttack attack;
         [SerializeField] bool destroyOnEvent;
         [SerializeField] bool isTargeted;

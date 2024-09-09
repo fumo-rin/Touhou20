@@ -18,24 +18,24 @@ MonoBehaviour:
   - startingAngle: 0
     Projectile: {fileID: 11400000, guid: fc52bbd939202b444b34d5b2db65e885, type: 2}
     ProjectileCount: 20
-    AngleCoverage: 360
+    AngleCoverage: 150
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0.665024
-        inSlope: 1.4662844
-        outSlope: 1.4662844
+        inSlope: -3.3064797
+        outSlope: -3.3064797
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5047718
-        value: 1.405163
-        inSlope: -0.014128566
-        outSlope: -0.014128566
+        value: -1.0039937
+        inSlope: 0.031859994
+        outSlope: 0.031859994
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -43,8 +43,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 0.665024
-        inSlope: -1.4945415
-        outSlope: -1.4945415
+        inSlope: 3.3701997
+        outSlope: 3.3701997
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -52,5 +52,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 1
   projectileEvents:
   - {fileID: 11400000, guid: 8cec1019849fb364c8f371ec8ff3fc15, type: 2}

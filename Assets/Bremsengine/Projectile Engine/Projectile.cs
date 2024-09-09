@@ -1,6 +1,7 @@
 using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Bremsengine
@@ -161,12 +162,14 @@ namespace Bremsengine
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
             StopAllCoroutines();
+            activeProjectiles.Remove(this);
         }
     }
     #endregion
     #region Projectile Folder
     public partial class Projectile
     {
+        static List<Projectile> activeProjectiles = new();
         private static GameObject projectileFolder = null;
         [ContextMenu("Clear All Projectiles Globally")]
         public void ClearAllProjectiles()
@@ -175,6 +178,15 @@ namespace Bremsengine
             if (projectileFolder != null)
             {
                 Destroy(projectileFolder);
+            }
+            activeProjectiles.Clear();
+        }
+        public static Projectile[] ProjectilesWhere(System.Func<Projectile, bool> predicate) => activeProjectiles.Where(predicate).ToArray();
+        public static void ClearProjectilesOfFaction(BremseFaction f)
+        {
+            foreach (var item in ProjectilesWhere(x => x.Faction == f))
+            {
+                item.ClearProjectile();
             }
         }
         public static void AddToFolder(Projectile proj)
@@ -192,6 +204,7 @@ namespace Bremsengine
             if (projectileFolder != null)
             {
                 proj.transform.SetParent(projectileFolder.transform);
+                activeProjectiles.AddIfDoesntExist(proj);
             }
         }
     }

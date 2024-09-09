@@ -207,5 +207,5 @@ MonoBehaviour:
   mainCollider: {fileID: 3233691898204338934}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
-  gravityModifier: 0
-  drag: 4
+  gravityModifier: 0.4
+  drag: 1.75
