@@ -96,15 +96,20 @@ namespace BremseTouhou
     }
     public partial class PlayerUnit : BaseUnit
     {
-        Vector2 input;
-        private void Awake()
-        {
-            BindInput();
-            Player = this;
-        }
+        Vector2 input = new();
         private void OnDestroy()
         {
             ClearInput();
+        }
+        protected override void OnAwake()
+        {
+            Debug.Log("Player Awake");
+            if (rb == null)
+            {
+                rb = GetComponent<Rigidbody2D>();
+            }
+            BindInput();
+            Player = this;
         }
         private void Update()
         {

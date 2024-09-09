@@ -45,4 +45,4 @@ MonoBehaviour:
       m_RotationOrder: 4
     IsRandomAngle: 0
   projectileEvents:
-  - {fileID: 11400000, guid: 7e81d71dfd915bb419798c0377290741, type: 2}
+  - {fileID: 11400000, guid: 8cec1019849fb364c8f371ec8ff3fc15, type: 2}

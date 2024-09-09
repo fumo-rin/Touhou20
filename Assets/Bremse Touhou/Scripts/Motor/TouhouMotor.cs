@@ -9,6 +9,7 @@ namespace BremseTouhou
     {
         public override void Move(Rigidbody2D rb, Vector2 input, ref float nextMoveTime)
         {
+            Debug.Log(rb);
             if (Time.time < nextMoveTime)
             {
                 rb.velocity = Vector2.zero;

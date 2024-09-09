@@ -183,7 +183,7 @@ namespace Bremsengine
     #region Projectile Folder
     public partial class Projectile
     {
-        static List<Projectile> activeProjectiles = new();
+        static HashSet<Projectile> activeProjectiles = new();
         private static GameObject projectileFolder = null;
         [ContextMenu("Clear All Projectiles Globally")]
         public void ClearAllProjectiles()
@@ -218,7 +218,7 @@ namespace Bremsengine
             if (projectileFolder != null)
             {
                 proj.transform.SetParent(projectileFolder.transform);
-                activeProjectiles.AddIfDoesntExist(proj);
+                activeProjectiles.Add(proj);
             }
         }
     }
@@ -289,20 +289,21 @@ namespace Bremsengine
                 ClearProjectile();
             }
         }
-        private void OnValidate()
+        private void Awake()
         {
             if (rb == null)
             {
                 rb = GetComponent<Rigidbody2D>();
                 rb.gravityScale = gravityModifier;
-                rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            }
 
-                if (GetComponent<Collider2D>() is not null and Collider2D c)
-                {
-                    mainCollider = c;
-                    c.isTrigger = true;
-                }
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+            if (GetComponent<Collider2D>() is not null and Collider2D c)
+            {
+                mainCollider = c;
+                c.isTrigger = true;
             }
         }
     }

@@ -17,6 +17,7 @@ namespace BremseTouhou
         protected bool HasPath => currentPath != null && currentPath.Count > 0;
         public void Move(UnitMotor motor, Vector2 input, float scaler = 1f)
         {
+            Debug.Log($"motor : {motor.ToString()} input : {input.ToString("F1")}");
             Vector2 direction = input.normalized;
                 //* (input.magnitude * scaler).Min(1f);
             motor.Move(rb, direction, ref nextMoveTime);
@@ -72,15 +73,17 @@ namespace BremseTouhou
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract partial class BaseUnit : MonoBehaviour
     {
-        Rigidbody2D rb;
+        protected Rigidbody2D rb;
         [SerializeField] BremseFaction UnitFaction;
-        private void OnValidate()
+        private void Awake()
         {
             if (rb == null)
             {
                 rb = GetComponent<Rigidbody2D>();
             }
             FactionInterface.SetFaction(UnitFaction);
+            OnAwake();
         }
+        protected abstract void OnAwake();
     }
 }

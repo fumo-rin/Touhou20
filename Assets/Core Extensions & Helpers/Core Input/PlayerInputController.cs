@@ -11,6 +11,7 @@ namespace Core.Input
         PC,
         Gamepad
     }
+    [DefaultExecutionOrder(-50)]
     public class PlayerInputController : MonoBehaviour
     {
         public static Vector2 RightStickDirection => ReadStickDirection();
