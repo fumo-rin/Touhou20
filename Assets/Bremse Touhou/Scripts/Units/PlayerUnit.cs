@@ -89,12 +89,18 @@ namespace BremseTouhou
         }
     }
     #endregion
+    public partial class BaseUnit
+    {
+        protected static BaseUnit Player;
+        public static BaseUnit GameTarget => Player;
+    }
     public partial class PlayerUnit : BaseUnit
     {
         Vector2 input;
         private void Awake()
         {
             BindInput();
+            Player = this;
         }
         private void OnDestroy()
         {

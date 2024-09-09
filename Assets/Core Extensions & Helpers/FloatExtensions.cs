@@ -72,9 +72,9 @@ namespace Core.Extensions
         {
             return b ? 1f : 0f;
         }
-        public static float RandomBetween(this float f, float min, float max)
+        public static float AddRandomBetween(this float f, float min, float max)
         {
-            return f * UnityEngine.Random.Range(min, max);
+            return f + UnityEngine.Random.Range(min, max);
         }
         public static int ToInt(this float f)
         {

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
+  m_Name: Slow Frontal Crawlers Circle
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
+  arc:
+  - startingAngle: 0
+    Projectile: {fileID: 11400000, guid: fc52bbd939202b444b34d5b2db65e885, type: 2}
+    ProjectileCount: 20
+    AngleCoverage: 360
+    SpeedMultiplierCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.665024
+        inSlope: 1.4662844
+        outSlope: 1.4662844
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5047718
+        value: 1.405163
+        inSlope: -0.014128566
+        outSlope: -0.014128566
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.665024
+        inSlope: -1.4945415
+        outSlope: -1.4945415
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  projectileEvents:
+  - {fileID: 11400000, guid: 8cec1019849fb364c8f371ec8ff3fc15, type: 2}

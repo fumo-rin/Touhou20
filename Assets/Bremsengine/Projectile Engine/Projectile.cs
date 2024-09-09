@@ -160,6 +160,7 @@ namespace Bremsengine
         {
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
+            StopAllCoroutines();
         }
     }
     #endregion

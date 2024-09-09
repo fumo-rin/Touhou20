@@ -9,6 +9,7 @@ namespace BremseTouhou
     public class ProjectileAttack : UnitAttack
     {
         [SerializeField] ProjectileSO projectile;
+        [SerializeField] List<ProjectileEvent> projectileEvents = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle = 0f)
         {
             PlaySound(owner);
@@ -16,6 +17,13 @@ namespace BremseTouhou
             d.AddAngle(addedAngle);
             Projectile p = Projectile.SpawnProjectile(projectile, origin, d, OnProjectileSpawn);
             p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
+            if (owner != BaseUnit.GameTarget)
+            {
+                foreach (ProjectileEvent e in projectileEvents)
+                {
+                    e.QueueEvent(p, BaseUnit.GameTarget);
+                }
+            }
         }
     }
 }

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Crawler Spawner Sequence
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 18
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 36
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 54
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 72
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 90
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 108
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 126
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 144
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 162
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 180
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 198
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 216
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 234
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 252
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 270
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 288
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 306
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 324
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: e81cafa5879f95441b5b3a8c11dd55a2, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.025
+    AddedAngle: 342
+    Retargetting: 0

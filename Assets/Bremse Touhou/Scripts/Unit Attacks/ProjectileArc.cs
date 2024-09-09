@@ -10,12 +10,13 @@ namespace BremseTouhou
     public class ProjectileArc : UnitAttack
     {
         public List<ProjectileArcEntry> arc = new();
+        [SerializeField] List<ProjectileEvent> projectileEvents = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle)
         {
             PlaySound(owner);
             ProjectileDirection directionIteration;
             float progress;
-            int iteration; 
+            int iteration;
             float iterationAngle;
             foreach (ProjectileArcEntry entry in arc)
             {
@@ -25,8 +26,9 @@ namespace BremseTouhou
                 for (int i = 0; i < entry.ProjectileCount; i++)
                 {
                     directionIteration = new ProjectileDirection(entry.Projectile, target - origin)
-                        .AddAngle(iterationAngle)
                         .AddAngle(addedAngle);
+
+                    directionIteration.AddAngle(entry.IsRandomAngle ? entry.RandomAngle : iterationAngle);
 
                     directionIteration.SetSpeedMod(entry.GetSpeed(progress));
 
@@ -34,7 +36,7 @@ namespace BremseTouhou
 
                     iterationAngle += entry.AngleIncrement;
                     iteration++;
-                    progress = iteration == 0 ? 0f : ((float)iteration / ((float)entry.ProjectileCount -1)).Clamp(0f,1f);
+                    progress = iteration == 0 ? 0f : ((float)iteration / ((float)entry.ProjectileCount - 1)).Clamp(0f, 1f);
                 }
             }
         }
@@ -42,6 +44,14 @@ namespace BremseTouhou
         {
             Projectile p = Projectile.SpawnProjectile(projectile, origin, d, OnProjectileSpawn);
             p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
+
+            if (owner != BaseUnit.GameTarget)
+            {
+                foreach (ProjectileEvent e in projectileEvents)
+                {
+                    e.QueueEvent(p, BaseUnit.GameTarget);
+                }
+            }
             return p;
         }
     }
@@ -53,10 +63,12 @@ namespace BremseTouhou
         public int ProjectileCount;
         public float AngleCoverage;
         public AnimationCurve SpeedMultiplierCurve;
+        [SerializeField] public bool IsRandomAngle;
+        public float RandomAngle => startingAngle.AddRandomBetween(-AngleCoverage * 0.5f, AngleCoverage * 0.5f);
         public float GetSpeed(float progress)
         {
             return SpeedMultiplierCurve.Evaluate(progress);
         }
-        public float AngleIncrement => AngleCoverage / (ProjectileCount - 1);
+        public float AngleIncrement => AngleCoverage / (ProjectileCount - (AngleCoverage < 360 ? 1 : 0));
     }
 }
