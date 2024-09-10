@@ -1,3 +1,4 @@
+using Bovine;
 using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace Bremsengine
     #region Set Projectile
     public partial class Projectile
     {
-        [SerializeField] SpriteRenderer mainSprite;
+        [SerializeField] ProjectileSprite projectileSprite;
         [SerializeField] Collider2D mainCollider;
         public Projectile SetProjectile(Projectile proj)
         {
@@ -28,12 +29,12 @@ namespace Bremsengine
                 }
                 mainCollider.isTrigger = true;
             }
-            mainSprite.transform.name = proj.transform.name;
-            mainSprite.sprite = proj.mainSprite.sprite;
-            mainSprite.transform.localScale = proj.mainSprite.transform.localScale;
-            mainSprite.transform.localRotation = proj.mainSprite.transform.localRotation;
+            transform.name = proj.transform.name;
+            projectileSprite.SetSprite(proj.projectileSprite);
+            projectileSprite.transform.localScale = proj.projectileSprite.transform.localScale;
+            projectileSprite.transform.localRotation = proj.projectileSprite.transform.localRotation;
             transform.localScale = proj.transform.localScale;
-            mainSprite.color = proj.mainSprite.color;
+            projectileSprite.SetColor(proj.projectileSprite.Color);
             rb.gravityScale = proj.gravityModifier;
             rb.drag = proj.drag;
             return this;
@@ -53,7 +54,7 @@ namespace Bremsengine
             {
                 if (iterations >= MaxQueueClearAttempts)
                 {
-                    Debug.LogError("Something bad happened");
+                    Debug.LogWarning("Many Projectiles");
                     ProjectileQueue.Clear();
                     break;
                 }
@@ -141,6 +142,7 @@ namespace Bremsengine
 
             Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
+            spawnedProjectile.isActive = true;
 
             spawnedProjectile.projectile = proj;
             callback?.Invoke(spawnedProjectile);
@@ -165,18 +167,18 @@ namespace Bremsengine
         }*/
     }
     #endregion
-    #region OffScreen
+    #region Projectile Clearing
     public partial class Projectile
     {
-        bool isOffScreen;
-        static float maxDistanceToCamera = 15f;
-        protected bool RecalculateOffscreen => (transform.position.Z(0f).SquareDistanceToGreaterThan(Camera.main.transform.position.Z(0f), maxDistanceToCamera));
+        private bool isActive;
+        public bool Active => isActive;
         public void ClearProjectile()
         {
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
             StopAllCoroutines();
             activeProjectiles.Remove(this);
+            isActive = false;
         }
     }
     #endregion
@@ -281,14 +283,6 @@ namespace Bremsengine
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
         [SerializeField] float drag = 0f;
-        private void FixedUpdate()
-        {
-            isOffScreen = RecalculateOffscreen;
-            if (isOffScreen)
-            {
-                ClearProjectile();
-            }
-        }
         private void Awake()
         {
             if (rb == null)

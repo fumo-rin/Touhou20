@@ -210,5 +210,10 @@ namespace Core.Extensions
             Vector2 direction = v.normalized * magnitude;
             return v + direction;
         }
+        public static bool IsVisibleFrom(this Renderer r, Camera c)
+        {
+            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(c);
+            return GeometryUtility.TestPlanesAABB(planes, r.bounds);
+        }
     }
 }

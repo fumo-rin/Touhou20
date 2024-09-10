@@ -103,7 +103,6 @@ namespace BremseTouhou
         }
         protected override void OnAwake()
         {
-            Debug.Log("Player Awake");
             if (rb == null)
             {
                 rb = GetComponent<Rigidbody2D>();
