@@ -10,47 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Vomit Arc
+  m_Name: Airstrike 2 Line Spawner
   m_EditorClassIdentifier: 
   damage: 10
   AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 739ed9f9e8c34fb4fb54f97b92513d9f, type: 2}
-    ProjectileCount: 7
-    AngleCoverage: 60
+    Projectile: {fileID: 11400000, guid: 431d6354b3fe489439583ca1e657eb74, type: 2}
+    ProjectileCount: 55
+    AngleCoverage: 0
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.0041656494
-        value: 1.5158099
-        inSlope: -3.2671733
-        outSlope: -3.2671733
+        time: 0
+        value: 0.16660106
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.110207416
+        outWeight: 0
       - serializedVersion: 3
-        time: 0.507601
-        value: 0.70106834
-        inSlope: 0.038878918
-        outSlope: 0.038878918
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.9958191
-        value: 1.5162829
-        inSlope: 3.6245565
-        outSlope: 3.6245565
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.10057637
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     IsRandomAngle: 0
-  projectileEvents: []
+  mirrored: 0
+  projectileEvents:
+  - {fileID: 11400000, guid: 8f749e2bd80a0764580dd7b14f47aae7, type: 2}

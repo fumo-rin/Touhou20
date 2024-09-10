@@ -13,7 +13,11 @@ namespace Bremsengine
         [SerializeField] SpriteRenderer sprite;
         public Color32 Color => sprite.color;
         public void SetColor(Color32 c) => sprite.color = c;
-        public void SetSprite(Sprite s) => sprite.sprite = s;
+        public void SetSprite(Sprite s, SpriteRenderer other)
+        {
+            sprite.sprite = s;
+            sprite.sortingOrder = other.sortingOrder;
+        }
         private void OnBecameInvisible()
         {
             if (assignedProjectile.Active)

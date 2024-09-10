@@ -30,6 +30,7 @@ namespace BremseTouhou
         {
             yield return e.Delay;
             e.PerformEvent(p, target.Center);
+            e.PlaySound(p.Position);
         }
     }
 }

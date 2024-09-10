@@ -16,47 +16,47 @@ MonoBehaviour:
   AttackSound: {fileID: 0}
   attackTimeline:
   - Attack: {fileID: 11400000, guid: 85e67d9bbaaf7ce44a1b26c4cba072d0, type: 2}
-    FollowOwner: 0
+    FollowOwner: 1
     AddedDelayInSeconds: 0
     AddedAngle: 0
     Retargetting: 0
   - Attack: {fileID: 11400000, guid: a3b70912d5933a049b28a102e373f2d7, type: 2}
-    FollowOwner: 0
+    FollowOwner: 1
     AddedDelayInSeconds: 0.35
     AddedAngle: 0
     Retargetting: 0
   - Attack: {fileID: 11400000, guid: 8bece1c4d617ec24b9b18ecb472cbdb1, type: 2}
-    FollowOwner: 0
+    FollowOwner: 1
     AddedDelayInSeconds: 0.35
     AddedAngle: 0
     Retargetting: 0
   - Attack: {fileID: 11400000, guid: b76f56f4da4c5c74d965b812b8467bef, type: 2}
-    FollowOwner: 0
+    FollowOwner: 1
     AddedDelayInSeconds: 0.35
     AddedAngle: 0
     Retargetting: 0
   - Attack: {fileID: 11400000, guid: c030cf8bb396ba44aa830e2212940dd3, type: 2}
-    FollowOwner: 0
+    FollowOwner: 1
     AddedDelayInSeconds: 0.35
     AddedAngle: 0
     Retargetting: 0
   - Attack: {fileID: 11400000, guid: df73ddd2b8274bd409e7c5ba0eff7df6, type: 2}
-    FollowOwner: 0
-    AddedDelayInSeconds: 0.75
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.7
     AddedAngle: 0
     Retargetting: 1
   - Attack: {fileID: 11400000, guid: b33f860eac8af6a49aa061d7e609da32, type: 2}
-    FollowOwner: 0
-    AddedDelayInSeconds: 0.1
+    FollowOwner: 1
+    AddedDelayInSeconds: 0
     AddedAngle: 0
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: 0a11fcd2100f1fa418f8c90f51a57f7b, type: 2}
-    FollowOwner: 0
+  - Attack: {fileID: 11400000, guid: b33f860eac8af6a49aa061d7e609da32, type: 2}
+    FollowOwner: 1
     AddedDelayInSeconds: 0.1
-    AddedAngle: 0
+    AddedAngle: 2
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: 21eaba1d1588d8044b0a22f106de3e66, type: 2}
-    FollowOwner: 0
+  - Attack: {fileID: 11400000, guid: b33f860eac8af6a49aa061d7e609da32, type: 2}
+    FollowOwner: 1
     AddedDelayInSeconds: 0.1
-    AddedAngle: 0
+    AddedAngle: 4
     Retargetting: 0

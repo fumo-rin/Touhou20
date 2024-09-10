@@ -15,7 +15,7 @@ MonoBehaviour:
   damage: 10
   AttackSound: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
   arc:
-  - startingAngle: 160
+  - startingAngle: 180
     Projectile: {fileID: 11400000, guid: 7d2877a9f5b0a73498b43580d87d931b, type: 2}
     ProjectileCount: 9
     AngleCoverage: 135
@@ -52,3 +52,5 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  projectileEvents: []

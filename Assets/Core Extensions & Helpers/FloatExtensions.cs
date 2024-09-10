@@ -139,5 +139,13 @@ namespace Core.Extensions
         {
             return (f + other) * 0.5f;
         }
+        public static float AsFloat(this bool b, float trueValue, float falseValue)
+        {
+            if (b)
+            {
+                return trueValue;
+            }
+            return falseValue;
+        }
     }
 }

@@ -10,41 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Vomit Behind 2
+  m_Name: Airstrike 2 Crawler Attack
   m_EditorClassIdentifier: 
   damage: 10
   AttackSound: {fileID: 0}
   arc:
-  - startingAngle: 180
-    Projectile: {fileID: 11400000, guid: 7d2877a9f5b0a73498b43580d87d931b, type: 2}
-    ProjectileCount: 9
-    AngleCoverage: 135
+  - startingAngle: 0
+    Projectile: {fileID: 11400000, guid: 2b9da4a8f00d7d448a77df44ba2b2468, type: 2}
+    ProjectileCount: 2
+    AngleCoverage: 50
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.012761466
-        value: 1.1999886
-        inSlope: -1.0454694
-        outSlope: -1.0454694
+        time: -0.055486895
+        value: 0.069096886
+        inSlope: 0.15992992
+        outSlope: 0.15992992
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.49582464
-        value: 0.69496083
-        inSlope: -0.022577167
-        outSlope: -0.022577167
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 1
-        value: 1.199295
-        inSlope: 1.0003151
-        outSlope: 1.0003151
+        value: 0.23790081
+        inSlope: 0.15992992
+        outSlope: 0.15992992
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -52,3 +43,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 1
+  mirrored: 0
+  projectileEvents: []

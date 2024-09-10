@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Vomit Behind 4
+  m_Name: Airstrike Vomit
   m_EditorClassIdentifier: 
   damage: 10
-  AttackSound: {fileID: 0}
+  AttackSound: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
   arc:
-  - startingAngle: 200
+  - startingAngle: 180
     Projectile: {fileID: 11400000, guid: 7d2877a9f5b0a73498b43580d87d931b, type: 2}
-    ProjectileCount: 9
+    ProjectileCount: 3
     AngleCoverage: 135
     SpeedMultiplierCurve:
       serializedVersion: 2
@@ -25,12 +25,12 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0.012761466
         value: 1.1999886
-        inSlope: -1.0454694
-        outSlope: -1.0454694
-        tangentMode: 34
+        inSlope: -2.6639497
+        outSlope: -2.6639497
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.33333334
+        outWeight: 0.042577207
       - serializedVersion: 3
         time: 0.49582464
         value: 0.69496083
@@ -43,12 +43,16 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 1.199295
-        inSlope: 1.0003151
-        outSlope: 1.0003151
-        tangentMode: 34
+        inSlope: 2.630229
+        outSlope: 2.630229
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0.04079429
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents:
+  - {fileID: 11400000, guid: 65de1a3bca2033b4ea01cc73c5f46779, type: 2}

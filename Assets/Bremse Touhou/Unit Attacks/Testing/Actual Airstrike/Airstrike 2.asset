@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Airstrike 2
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 0}
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: 9b58895cfa8e3d0498ba51210142ea6f, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 1.2
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.4
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.4
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.4
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.4
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.4
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 679558aa547db034786ceddd5237f798, type: 2}
+    FollowOwner: 0
+    AddedDelayInSeconds: 0.15
+    AddedAngle: 0
+    Retargetting: 1

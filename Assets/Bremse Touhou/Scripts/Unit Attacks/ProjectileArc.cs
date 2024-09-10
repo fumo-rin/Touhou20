@@ -10,6 +10,7 @@ namespace BremseTouhou
     public class ProjectileArc : UnitAttack
     {
         public List<ProjectileArcEntry> arc = new();
+        [SerializeField] bool mirrored;
         [SerializeField] List<ProjectileEvent> projectileEvents = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle)
         {
@@ -22,7 +23,7 @@ namespace BremseTouhou
             {
                 progress = 0f;
                 iteration = 0;
-                iterationAngle = entry.startingAngle + (entry.ProjectileCount > 1 ? -entry.AngleCoverage.Multiply(0.5f) : 0f);
+                iterationAngle = (entry.startingAngle + (entry.ProjectileCount > 1 ? -entry.AngleCoverage.Multiply(0.5f) : 0f)) * mirrored.AsFloat(1f, -1f);
                 for (int i = 0; i < entry.ProjectileCount; i++)
                 {
                     directionIteration = new ProjectileDirection(entry.Projectile, target - origin)
@@ -34,7 +35,7 @@ namespace BremseTouhou
 
                     SpawnProjectile(entry.Projectile, owner, origin, directionIteration);
 
-                    iterationAngle += entry.AngleIncrement;
+                    iterationAngle += entry.AngleIncrement * mirrored.AsFloat(1f, -1f);
                     iteration++;
                     progress = iteration == 0 ? 0f : ((float)iteration / ((float)entry.ProjectileCount - 1)).Clamp(0f, 1f);
                 }

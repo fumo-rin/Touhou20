@@ -3,6 +3,7 @@ using Core.Extensions;
 using Core.Input;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace BremseTouhou
@@ -11,6 +12,8 @@ namespace BremseTouhou
     public partial class PlayerUnit
     {
         [SerializeField] AudioClipWrapper hitSound;
+        [SerializeField] TMP_Text hitCounterText;
+        int hitCounter = 0;
         protected override bool ProjectileHit(Projectile p)
         {
             if (FactionInterface.IsFriendsWith(p.Faction))
@@ -18,6 +21,8 @@ namespace BremseTouhou
                 return false;
             }
             hitSound.Play(Center);
+            hitCounter++;
+            hitCounterText.text = hitCounter.ToString();
             return true;
         }
     }

@@ -29,12 +29,16 @@ namespace Bremsengine
                 }
                 mainCollider.isTrigger = true;
             }
+            isActive = true;
             transform.name = proj.transform.name;
-            projectileSprite.SetSprite(proj.projectileSprite);
+
+            projectileSprite.SetSprite(proj.projectileSprite, proj.projectileSprite);
+            projectileSprite.SetColor(proj.projectileSprite.Color);
             projectileSprite.transform.localScale = proj.projectileSprite.transform.localScale;
             projectileSprite.transform.localRotation = proj.projectileSprite.transform.localRotation;
+
             transform.localScale = proj.transform.localScale;
-            projectileSprite.SetColor(proj.projectileSprite.Color);
+
             rb.gravityScale = proj.gravityModifier;
             rb.drag = proj.drag;
             return this;
@@ -142,7 +146,6 @@ namespace Bremsengine
 
             Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
-            spawnedProjectile.isActive = true;
 
             spawnedProjectile.projectile = proj;
             callback?.Invoke(spawnedProjectile);
@@ -174,11 +177,11 @@ namespace Bremsengine
         public bool Active => isActive;
         public void ClearProjectile()
         {
+            isActive = false;
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
             StopAllCoroutines();
             activeProjectiles.Remove(this);
-            isActive = false;
         }
     }
     #endregion
@@ -239,18 +242,18 @@ namespace Bremsengine
         {
             if (collision.transform.GetComponent<Transform>() is Transform t && t != null)
             {
+                if (t.TryGetComponent<IFaction>(out IFaction faction))
+                {
+                    if (faction.Faction == Faction)
+                    {
+                        return;
+                    }
+                }
                 if (t.TryGetComponent<IProjectileHitListener>(out IProjectileHitListener listener))
                 {
                     if (listener.OnProjectileHit(this))
                     {
                         ClearProjectile();
-                        return;
-                    }
-                }
-                if (t.TryGetComponent<IFaction>(out IFaction faction))
-                {
-                    if (faction.Faction == Faction)
-                    {
                         return;
                     }
                 }
@@ -279,6 +282,7 @@ namespace Bremsengine
     {
         public ProjectileSO Data => projectile;
         ProjectileSO projectile;
+        public Vector2 Position => transform.position;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;

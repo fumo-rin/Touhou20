@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Arc 1
   m_EditorClassIdentifier: 
   damage: 10
+  AttackSound: {fileID: 0}
   arc:
   - startingAngle: 0
     Projectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
@@ -51,3 +52,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents: []

@@ -10,37 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
-  m_Name: Vomit Sequence
+  m_Name: Airstrike Sequence
   m_EditorClassIdentifier: 
   damage: 10
   AttackSound: {fileID: 0}
   attackTimeline:
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 0
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 20
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 50
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 60
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 70
     Retargetting: 0
-  - Attack: {fileID: 11400000, guid: f08f9987010228248a2bad95bcb86dae, type: 2}
+  - Attack: {fileID: 11400000, guid: d165259a4156c1b43aa38db4ae968514, type: 2}
     FollowOwner: 0
     AddedDelayInSeconds: 0.05
     AddedAngle: 90

@@ -10,41 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Vomit Arc 4
+  m_Name: Airstrike Line
   m_EditorClassIdentifier: 
   damage: 10
-  AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  AttackSound: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 8d0d2451dd4129645bdfd63438490257, type: 2}
-    ProjectileCount: 39
-    AngleCoverage: 360
+    Projectile: {fileID: 11400000, guid: 739ed9f9e8c34fb4fb54f97b92513d9f, type: 2}
+    ProjectileCount: 9
+    AngleCoverage: 0
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.0041656494
-        value: 1.241792
-        inSlope: -1.0565823
-        outSlope: -1.0565823
+        time: 0
+        value: 0.6117284
+        inSlope: 2.570572
+        outSlope: 2.570572
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.507601
-        value: 0.70106834
-        inSlope: 0.025965929
-        outSlope: 0.025965929
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.9958191
-        value: 1.242265
-        inSlope: 1.1085142
-        outSlope: 1.1085142
+        time: 1
+        value: 3.1823003
+        inSlope: 2.570572
+        outSlope: 2.570572
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -52,3 +43,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents: []
