@@ -22,18 +22,18 @@ namespace BremseTouhou
             }
             validateDelay = delay;
         }
-        public abstract void PerformEvent(Projectile p, Vector2 target);
+        public abstract void PerformEvent(Projectile p, BaseUnit owner,Vector2 target);
         public void PlaySound(Vector2 position)
         {
             eventSound.Play(position);
         }
-        public void QueueEvent(Projectile p, BaseUnit target)
+        public void QueueEvent(Projectile p, BaseUnit owner, BaseUnit target)
         {
             if (p == null || target == null)
             {
                 Debug.LogWarning("1");
             }
-            ProjectileEventHandler.QueueEvent(this, p, target);
+            ProjectileEventHandler.QueueEvent(this, p, owner, target);
         }
     }
 }

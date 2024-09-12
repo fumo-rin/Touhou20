@@ -50,6 +50,12 @@ TagManager:
   - name: Ysorting
     uniqueID: 2121095407
     locked: 0
+  - name: Background Projectiles
+    uniqueID: 399580051
+    locked: 0
+  - name: Boss
+    uniqueID: 1539019409
+    locked: 0
   - name: Projectile
     uniqueID: 1773792273
     locked: 0

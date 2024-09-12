@@ -10,6 +10,7 @@ namespace BremseTouhou
         public float timeDelay = 0.65f;
         float nextAttack;
         public UnitAttack attack;
+        [SerializeField] BaseUnit owner;
         private void Update()
         {
             if (Time.time > nextAttack)
@@ -17,7 +18,7 @@ namespace BremseTouhou
                 nextAttack = Time.time + timeDelay;
                 if (attack is IRetargetAttack r)
                 {
-                    r.AttackWithRetargetting(null, trackedTarget, transform.position, 0f);
+                    r.AttackWithRetargetting(owner == null ? null : owner, trackedTarget, transform.position, 0f);
                     return;
                 }
                 Attack((Vector2)transform.position + (trackedTarget.Center - (Vector2)transform.position));
@@ -25,7 +26,7 @@ namespace BremseTouhou
         }
         public void Attack(Vector2 target)
         {
-            attack.AttackTarget(null, transform.position, target, 0f);
+            attack.AttackTarget(owner == null ? null : owner, transform.position, target, 0f);
         }
     }
 }

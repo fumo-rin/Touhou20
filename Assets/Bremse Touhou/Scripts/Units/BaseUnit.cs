@@ -54,11 +54,8 @@ namespace BremseTouhou
     }
     #endregion
     #region Projectile Hit
-    public abstract partial class BaseUnit : IProjectileHitListener
+    public partial class BaseUnit : IProjectileHitListener
     {
-        [SerializeField] protected Transform unitCenterAnchor;
-        public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f,0.5f) : unitCenterAnchor.position;
-        public Vector2 Up => Center + Vector2.up.Shift(5f);
         public IFaction FactionInterface => ((IFaction)this);
         BremseFaction IFaction.Faction { get; set; }
         protected abstract bool ProjectileHit(Projectile p);
@@ -68,12 +65,37 @@ namespace BremseTouhou
         }
     }
     #endregion
+    #region Health Bar
+    public partial class BaseUnit
+    {
+        public string UnitName => unitName;
+        public string unitName = "Headhunter, Leather Belt";
+        public string HealthText => $"{CurrentHealth.Ceil().Max(0f)}/{MaxHealth.Ceil()}";
+        public float MaxHealth => 10000f;
+        public float CurrentHealth => unitHealth;
+        private float unitHealth;
+
+        public void ChangeHealth(float delta)
+        {
+            unitHealth += delta;
+            OnHealthChange?.Invoke(this);
+        }
+    }
+    #endregion
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract partial class BaseUnit : MonoBehaviour
     {
+        public static BaseUnit Player;
+        public bool Alive;
+        public static BaseUnit GameTarget => Player;
+        [SerializeField] protected Transform unitCenterAnchor;
+        public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f, 0.5f) : unitCenterAnchor.position;
+        public Vector2 Up => Center + Vector2.up.Shift(5f);
         protected Rigidbody2D rb;
         [SerializeField] BremseFaction UnitFaction;
+        public delegate void HealthEvent(BaseUnit unit);
+        public HealthEvent OnHealthChange;
         private void Awake()
         {
             if (rb == null)
@@ -81,6 +103,7 @@ namespace BremseTouhou
                 rb = GetComponent<Rigidbody2D>();
             }
             FactionInterface.SetFaction(UnitFaction);
+            unitHealth = MaxHealth;
             OnAwake();
         }
         protected abstract void OnAwake();

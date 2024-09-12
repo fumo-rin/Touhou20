@@ -1,21 +1,28 @@
+using Bremsengine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BremseTouhou
 {
-    public class EnemyUnit : MonoBehaviour
+    public class EnemyUnit : BaseUnit
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] bool isBoss;
+        protected override void OnAwake()
         {
-        
+            if (isBoss)
+            {
+                BossManager.Bind(this);
+            }
         }
-
-        // Update is called once per frame
-        void Update()
+        protected override bool ProjectileHit(Projectile p)
         {
-        
+            if (FactionInterface.IsFriendsWith(p.Faction))
+            {
+                return false;
+            }
+            ChangeHealth(-p.Damage);
+            return true;
         }
     }
 }

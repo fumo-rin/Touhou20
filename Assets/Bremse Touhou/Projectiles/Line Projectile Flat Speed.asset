@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90252a6eb170c2e43adb15b74b359f61, type: 3}
-  m_Name: Tick Added Time Delay
+  m_Script: {fileID: 11500000, guid: 1cd412744301a5047af9700aadc74e7d, type: 3}
+  m_Name: Line Projectile Flat Speed
   m_EditorClassIdentifier: 
-  value: 0.05
+  projectilePrefab: {fileID: 2971411468218337848, guid: 47d08b9468505f54a9f56ac780ada1f7, type: 3}
+  angleSpread: {x: 0, y: 0}
+  <SpeedRange>k__BackingField: {x: 15, y: 15}

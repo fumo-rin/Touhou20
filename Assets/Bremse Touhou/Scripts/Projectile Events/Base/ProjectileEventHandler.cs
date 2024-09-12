@@ -22,14 +22,14 @@ namespace BremseTouhou
         {
             instance.StopAllCoroutines();
         }
-        public static void QueueEvent(ProjectileEvent e, Projectile p, BaseUnit target)
+        public static void QueueEvent(ProjectileEvent e, Projectile p, BaseUnit owner, BaseUnit target)
         {
-            p.StartCoroutine(instance.Run(e, p, target));
+            p.StartCoroutine(instance.Run(e, p, owner, target));
         }
-        private IEnumerator Run(ProjectileEvent e, Projectile p, BaseUnit target)
+        private IEnumerator Run(ProjectileEvent e, Projectile p, BaseUnit owner, BaseUnit target)
         {
             yield return e.Delay;
-            e.PerformEvent(p, target.Center);
+            e.PerformEvent(p, owner, target.Center);
             e.PlaySound(p.Position);
         }
     }

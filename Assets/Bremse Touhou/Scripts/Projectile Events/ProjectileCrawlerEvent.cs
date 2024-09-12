@@ -13,14 +13,14 @@ namespace BremseTouhou
         [SerializeField] bool destroyOnEvent;
         [SerializeField] bool isTargeted;
         static Vector2 targetIteration;
-        public override void PerformEvent(Projectile p, Vector2 target)
+        public override void PerformEvent(Projectile p, BaseUnit owner, Vector2 target)
         {
             targetIteration = target;
             if (!isTargeted)
             {
                 targetIteration = (Vector2)p.transform.position + Random.insideUnitCircle.Shift(5f);
             }
-            attack.AttackTarget(null, p.transform.position, targetIteration, 0f);
+            attack.AttackTarget(owner, p.transform.position, targetIteration, 0f);
             if (destroyOnEvent)
             {
                 Destroy(p.gameObject);

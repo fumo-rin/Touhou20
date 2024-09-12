@@ -21,7 +21,7 @@ namespace BremseTouhou
             {
                 foreach (ProjectileEvent e in projectileEvents)
                 {
-                    e.QueueEvent(p, BaseUnit.GameTarget);
+                    e.QueueEvent(p, owner, BaseUnit.GameTarget);
                 }
             }
         }

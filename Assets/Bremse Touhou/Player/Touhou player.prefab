@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3770763736029682047}
   - component: {fileID: 9007787895666188552}
   - component: {fileID: 3634833044196561141}
-  - component: {fileID: 346197301171954000}
+  - component: {fileID: 2251601642785987248}
   m_Layer: 3
   m_Name: Touhou player
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5650598462524023773}
+  - {fileID: 1204484672073837485}
   - {fileID: 2986268348038727818}
   - {fileID: 2234593540077475470}
   - {fileID: 7111413691243362559}
@@ -66,6 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: ebd6399bce3fbe948b3a6d0a95de75eb, type: 2}
+  unitName: Headhunter, Leather Belt
+  Alive: 0
   unitCenterAnchor: {fileID: 2234593540077475470}
   UnitFaction: 1
   hitSound: {fileID: 11400000, guid: e6207bd98f01fa3408e50cf800258423, type: 2}
@@ -100,9 +102,9 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!61 &346197301171954000
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!58 &2251601642785987248
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,18 +136,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05}
-  m_EdgeRadius: 0
+  m_Radius: 0.05
 --- !u!1 &388915884582359795
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,13 +193,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649692178249870352}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 558470829039506772}
-  m_Father: {fileID: 5650598462524023773}
+  m_Father: {fileID: 2435530938223203369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671057195371111674
 GameObject:
@@ -479,38 +471,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &3235096848159870084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5650598462524023773}
-  m_Layer: 3
-  m_Name: Animator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5650598462524023773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3235096848159870084}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1204484672073837485}
-  m_Father: {fileID: 2435530938223203369}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4688955517349137195
 GameObject:
   m_ObjectHideFlags: 0

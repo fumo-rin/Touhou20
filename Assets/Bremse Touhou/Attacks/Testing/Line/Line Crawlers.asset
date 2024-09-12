@@ -10,47 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Frontal Crawlers
+  m_Name: Line Crawlers
   m_EditorClassIdentifier: 
   damage: 10
-  AttackSound: {fileID: 0}
+  AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 05d96bf1164904345a17e83a4b83e66e, type: 2}
-    ProjectileCount: 5
-    AngleCoverage: 50
+    Projectile: {fileID: 11400000, guid: 07a64a6f025af0c4ca29509f13627e60, type: 2}
+    ProjectileCount: 15
+    AngleCoverage: 0
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.4720192
-        inSlope: 0.53365964
-        outSlope: 0.53365964
-        tangentMode: 0
+        value: 0.4
+        inSlope: 1.6
+        outSlope: 1.6
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.92420256
-      - serializedVersion: 3
-        time: 0.5023735
-        value: 0.70642877
-        inSlope: 0.0023026916
-        outSlope: 0.0023026916
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 1
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.4720192
-        inSlope: -0.46894684
-        outSlope: -0.46894684
-        tangentMode: 0
+        value: 2
+        inSlope: 1.6
+        outSlope: 1.6
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0.5356438
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    IsRandomAngle: 1
-  projectileEvents: []
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents:
+  - {fileID: 11400000, guid: 8cec1019849fb364c8f371ec8ff3fc15, type: 2}
