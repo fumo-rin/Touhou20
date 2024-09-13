@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65a9cbfe11bea241b9c57028c1e34d8, type: 3}
+  m_Name: Test Boss
+  m_EditorClassIdentifier: 
+  unit: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+  overrideSpawnpoint: {fileID: 11400000, guid: 6d84ce5da67a74145a665fc353a4ed23, type: 2}

@@ -20,6 +20,9 @@ namespace Core.Extensions
             if (sound is AudioClipWrapper audio && audio.soundClips != null)
             {
                 ACWrapperEntry entry = audio.soundClips[index];
+                if (entry.Muted)
+                    return;
+
                 a.clip = entry.clip;
                 a.pitch = entry.PitchOrigin.Spread(entry.PitchVariancePercent);
                 a.volume = sound.GetVolume(index);

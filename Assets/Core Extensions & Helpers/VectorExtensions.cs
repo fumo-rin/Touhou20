@@ -205,15 +205,10 @@ namespace Core.Extensions
         public static float TravelTime(this Vector2 v, float speed) => v.magnitude / speed;
         public static Vector2 Floor(this Vector2 v) => new(v.x.Floor(), v.y.Floor());
         public static Vector2 Quantize(this Vector2 v, float steps) => (v * steps).Floor() / steps;
-        public static Vector2 Shift(this Vector2 v, float magnitude)
+        public static Vector2 ScaleToMagnitude(this Vector2 v, float magnitude)
         {
             Vector2 direction = v.normalized * magnitude;
             return v + direction;
-        }
-        public static bool IsVisibleFrom(this Renderer r, Camera c)
-        {
-            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(c);
-            return GeometryUtility.TestPlanesAABB(planes, r.bounds);
         }
     }
 }

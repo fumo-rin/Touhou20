@@ -6,7 +6,6 @@ namespace BremseTouhou
 {
     public class TestAttackTimer : MonoBehaviour
     {
-        public BaseUnit trackedTarget;
         public float timeDelay = 0.65f;
         float nextAttack;
         public UnitAttack attack;
@@ -16,15 +15,20 @@ namespace BremseTouhou
             if (Time.time > nextAttack)
             {
                 nextAttack = Time.time + timeDelay;
-                if (attack is IRetargetAttack r)
+                if (!owner.HasTarget)
                 {
-                    r.AttackWithRetargetting(owner == null ? null : owner, trackedTarget, transform.position, 0f);
+                    AttackPosition(owner.Center + Vector2.down);
                     return;
                 }
-                Attack((Vector2)transform.position + (trackedTarget.Center - (Vector2)transform.position));
+                if (attack is IRetargetAttack r)
+                {
+                    r.AttackWithRetargetting(owner, owner.Target, transform.position, 0f);
+                    return;
+                }
+                AttackPosition((Vector2)transform.position + (owner.Target.Center - (Vector2)transform.position));
             }
         }
-        public void Attack(Vector2 target)
+        private void AttackPosition(Vector2 target)
         {
             attack.AttackTarget(owner == null ? null : owner, transform.position, target, 0f);
         }

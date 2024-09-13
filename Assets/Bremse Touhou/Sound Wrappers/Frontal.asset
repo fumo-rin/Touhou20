@@ -17,14 +17,22 @@ MonoBehaviour:
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 52f34865def94684d8f685ca9b3521fc, type: 3}
     PitchVariancePercent: 5
-    PitchOrigin: 0.6
-    Volume: 0.668
+    PitchOrigin: 1.08
+    Volume: 1
+    Muted: 0
   - clip: {fileID: 8300000, guid: ac2975dddd9e34042b6a36a8e695f153, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 1
-    Volume: 0.572
+    Volume: 0.826
+    Muted: 0
   - clip: {fileID: 8300000, guid: 3d6b8c6df31e7cf43b609fcec702a139, type: 3}
     PitchVariancePercent: 11.4
-    PitchOrigin: 2.65
-    Volume: 0.139
+    PitchOrigin: 1.39
+    Volume: 0.179
+    Muted: 0
+  - clip: {fileID: 8300000, guid: 2bcf799b4fe5e084f8de65eac1101aa9, type: 3}
+    PitchVariancePercent: 11.4
+    PitchOrigin: 1.18
+    Volume: 0.472
+    Muted: 0
   <Is3D>k__BackingField: 1

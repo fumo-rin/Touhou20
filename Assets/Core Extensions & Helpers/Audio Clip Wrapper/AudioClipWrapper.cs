@@ -35,5 +35,6 @@ namespace Core.Extensions
         public float PitchOrigin = 1f;
         [Range(0.01f,1f)]
         public float Volume = 0.7f;
+        public bool Muted;
     }
 }

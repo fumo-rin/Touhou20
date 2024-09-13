@@ -82,6 +82,19 @@ namespace BremseTouhou
         }
     }
     #endregion
+    #region Target
+    public partial class BaseUnit
+    {
+        [SerializeField] BaseUnit editorOverride;
+        BaseUnit target;
+        public BaseUnit Target => editorOverride ?? target;
+        public bool HasTarget => Target != null;
+        public void SetTarget(BaseUnit t)
+        {
+            target = t;
+        }
+    }
+    #endregion
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract partial class BaseUnit : MonoBehaviour
@@ -91,7 +104,7 @@ namespace BremseTouhou
         public static BaseUnit GameTarget => Player;
         [SerializeField] protected Transform unitCenterAnchor;
         public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f, 0.5f) : unitCenterAnchor.position;
-        public Vector2 Up => Center + Vector2.up.Shift(5f);
+        public Vector2 Up => Center + Vector2.up.ScaleToMagnitude(5f);
         protected Rigidbody2D rb;
         [SerializeField] BremseFaction UnitFaction;
         public delegate void HealthEvent(BaseUnit unit);

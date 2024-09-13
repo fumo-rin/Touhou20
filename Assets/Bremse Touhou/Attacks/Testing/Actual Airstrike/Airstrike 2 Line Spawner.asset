@@ -16,34 +16,34 @@ MonoBehaviour:
   AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 431d6354b3fe489439583ca1e657eb74, type: 2}
-    ProjectileCount: 55
+    Projectile: {fileID: 11400000, guid: 07a64a6f025af0c4ca29509f13627e60, type: 2}
+    ProjectileCount: 35
     AngleCoverage: 0
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.16660106
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        value: 0.050357744
+        inSlope: 0.94964224
+        outSlope: 0.94964224
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
+        inSlope: 0.94964224
+        outSlope: 0.94964224
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    IsRandomAngle: 0
+    IsRandomAngle: 1
   mirrored: 0
   projectileEvents:
   - {fileID: 11400000, guid: 8f749e2bd80a0764580dd7b14f47aae7, type: 2}

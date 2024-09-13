@@ -18,13 +18,21 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 51a437b74c6848245b166babbfd68a9a, type: 3}
     PitchVariancePercent: 10
     PitchOrigin: 1.5
-    Volume: 0.325
+    Volume: 0.259
+    Muted: 1
   - clip: {fileID: 8300000, guid: 2790318f3fcf86b40adadb459f6f7af2, type: 3}
     PitchVariancePercent: 10
     PitchOrigin: 1
-    Volume: 0.781
+    Volume: 0.629
+    Muted: 0
   - clip: {fileID: 8300000, guid: b51539351a926754899c22cb267cf4cb, type: 3}
     PitchVariancePercent: 10
     PitchOrigin: 2
-    Volume: 0.567
+    Volume: 0.438
+    Muted: 0
+  - clip: {fileID: 8300000, guid: 4c41ffc58643d3244b77780da9fec425, type: 3}
+    PitchVariancePercent: 10
+    PitchOrigin: 1
+    Volume: 1
+    Muted: 0
   <Is3D>k__BackingField: 1

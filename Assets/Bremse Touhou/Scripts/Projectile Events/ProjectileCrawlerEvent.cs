@@ -18,7 +18,7 @@ namespace BremseTouhou
             targetIteration = target;
             if (!isTargeted)
             {
-                targetIteration = (Vector2)p.transform.position + Random.insideUnitCircle.Shift(5f);
+                targetIteration = (Vector2)p.transform.position + Random.insideUnitCircle.ScaleToMagnitude(5f);
             }
             attack.AttackTarget(owner, p.transform.position, targetIteration, 0f);
             if (destroyOnEvent)

@@ -82,7 +82,6 @@ namespace BremseTouhou
             {
                 return;
             }
-            Debug.Log("Test");
             BossEntry entry = new BossEntry();
             entry.unit = boss;
             entry.healthBar = Instantiate(instance.healthbarPrefab, instance.healthbarSocket);
