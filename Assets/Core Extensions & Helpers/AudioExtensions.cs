@@ -15,13 +15,14 @@ namespace Core.Extensions
             a.Play();
             return true;
         }
-        public static void PlayWrapper(this AudioSource a, AudioClipWrapper sound)
+        public static void PlayWrapper(this AudioSource a, AudioClipWrapper sound, int index)
         {
-            if (sound is AudioClipWrapper audio && audio.clip != null)
+            if (sound is AudioClipWrapper audio && audio.soundClips != null)
             {
-                a.clip = audio.clip;
-                a.pitch = sound.PitchOrigin + sound.PitchVariance.RandomPositiveNegativeRange();
-                a.volume = sound.Volume;
+                ACWrapperEntry entry = audio.soundClips[index];
+                a.clip = entry.clip;
+                a.pitch = entry.PitchOrigin.Spread(entry.PitchVariancePercent);
+                a.volume = sound.GetVolume(index);
                 a.Play();
                 a.Set3D(sound);
             }

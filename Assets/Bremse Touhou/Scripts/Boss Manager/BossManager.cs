@@ -53,7 +53,6 @@ namespace BremseTouhou
         {
             if (instance != this)
             {
-                Debug.Log("!");
                 instance = this;
                 bossList = new();
             }

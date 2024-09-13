@@ -18,18 +18,30 @@ MonoBehaviour:
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 0
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1
     AddedDelayInSeconds: 0.025
+    AddedAngle: 0
+    Retargetting: 0

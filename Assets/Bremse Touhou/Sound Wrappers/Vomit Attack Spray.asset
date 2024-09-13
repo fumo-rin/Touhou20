@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
+  m_Name: Vomit Attack Spray
+  m_EditorClassIdentifier: 
+  SoundName: Spray
+  soundVolume: 0.566
+  <soundClips>k__BackingField:
+  - clip: {fileID: 8300000, guid: 46ec5a91be702f248a1ecb5f224a525c, type: 3}
+    PitchVariancePercent: 10
+    PitchOrigin: 1.82
+    Volume: 0.134
+  - clip: {fileID: 8300000, guid: fd9491dba18714441a3dc2fbf7aa4b60, type: 3}
+    PitchVariancePercent: 10
+    PitchOrigin: 1
+    Volume: 0.477
+  - clip: {fileID: 8300000, guid: 45243b645e8581b4ab4e3971e964b9aa, type: 3}
+    PitchVariancePercent: 0
+    PitchOrigin: 0.66
+    Volume: 0.269
+  <Is3D>k__BackingField: 0

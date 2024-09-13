@@ -43,3 +43,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents: []

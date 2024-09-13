@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Frontal Arc
   m_EditorClassIdentifier: 
   damage: 10
+  AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
   arc:
   - startingAngle: 0
     Projectile: {fileID: 11400000, guid: e7f83038a1e16a04ea6a8722c231520d, type: 2}
@@ -51,3 +52,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents: []

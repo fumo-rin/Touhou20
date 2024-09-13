@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: c2ecc1a1307586b449fa9fc49c881f50
   m_currentHash:
     serializedVersion: 2
-    Hash: 4ecf00ba7496e681bb57fae0907773d4
+    Hash: 848be0b467bcf254c73c568cd0b2db8d
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -89,6 +89,8 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Audio Engine
+    - Dynamic Channels
+    - Single Channels
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3f7df906c1e29f34aa7bdfebec3afd69, type: 2}

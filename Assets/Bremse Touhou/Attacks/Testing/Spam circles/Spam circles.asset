@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spam circles
   m_EditorClassIdentifier: 
   damage: 10
-  AttackSound: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  AttackSound: {fileID: 0}
   attackTimeline:
   - Attack: {fileID: 11400000, guid: dbfbea85b1da92d4b9df5ab1d64da729, type: 2}
     FollowOwner: 1

@@ -8,13 +8,16 @@ namespace Core.Extensions
     [DefaultExecutionOrder(5)]
     public static partial class AudioEngine
     {
-        public static AudioMixerGroup SoundEffectsGroup { get; private set; }
+        public static AudioMixerGroup RandomChannels { get; private set; }
+        public static AudioMixerGroup TargetChannels { get; private set; }
+        const string DynamicChannelsKey = "Dynamic Channels";
+        const string SingleChannelsKey = "Single Channels";
         const string AudioEngineAddressableKey = "Audio Engine";
         const string AudioEngine3DPlayerName = "3D Audio Channel";
         const string AudioEngine2DPlayerName = "2D Audio Channel";
         public static AudioSource Source3D;
         public static AudioSource Source2D;
-        public const int SoundChannels = 16;
+        public const int SoundChannels = 32;
         static GameObject root;
         static Queue<AudioSource> SoundQueue;
         static List<AudioSource> SoundStack;
@@ -42,16 +45,27 @@ namespace Core.Extensions
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         public static void AfterSceneLoad()
         {
-            foreach (AudioMixerGroup group in AddressablesTools.LoadKeys<AudioMixerGroup>("Audio Engine"))
+            foreach (AudioMixerGroup group in AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey))
             {
                 if (group == null)
                     continue;
 
-                SoundEffectsGroup = group;
+                RandomChannels = group;
             }
-            if (SoundEffectsGroup == null)
+            foreach (AudioMixerGroup group in AddressablesTools.LoadKeys<AudioMixerGroup>(SingleChannelsKey))
             {
-                Debug.LogWarning("Failed to find Mixer group : Audio Engine Sound Effects");
+                if (group == null)
+                    continue;
+
+                TargetChannels = group;
+            }
+            if (RandomChannels == null)
+            {
+                Debug.LogWarning("Failed to find Mixer group for Audio Engine / Random Channels. See AudioEngine.cs to find the addressables string key for RandomChannelsKey");
+            }
+            if (TargetChannels == null)
+            {
+                Debug.LogWarning("Failed to find Mixer group for Audio Engine / Target Channels. See AudioEngine.cs to find the addressables string key for TargetChannelsKey");
             }
             List<AudioSource> sources = new();
             foreach (GameObject g in AddressablesTools.LoadKeys<GameObject>(AudioEngineAddressableKey))
@@ -73,16 +87,19 @@ namespace Core.Extensions
             }
             foreach (var channel in SoundStack)
             {
-                channel.outputAudioMixerGroup = SoundEffectsGroup;
+                channel.outputAudioMixerGroup = RandomChannels;
             }
         }
         private static void PlayWrapper(AudioClipWrapper a, Vector2 position)
         {
-            SoundIteration = SoundQueue.Dequeue();
-            SoundQueue.Enqueue(SoundIteration);
+            for (int i = 0; i < a.soundClips.Count; i++)
+            {
+                SoundIteration = SoundQueue.Dequeue();
+                SoundQueue.Enqueue(SoundIteration);
 
-            SoundIteration.transform.position = position;
-            SoundIteration.PlayWrapper(a);
+                SoundIteration.transform.position = position;
+                SoundIteration.PlayWrapper(a, i);
+            }
         }
         public static void Play(this AudioClipWrapper a, Vector2 position)
         {
