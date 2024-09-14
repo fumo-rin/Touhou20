@@ -17,6 +17,8 @@ namespace Bremsengine
         {
             sprite.sprite = s;
             sprite.sortingOrder = other.sortingOrder;
+            sprite.sharedMaterial = other.sharedMaterial;
+            sprite.sortingLayerID = other.sortingLayerID;
         }
         private void OnBecameInvisible()
         {

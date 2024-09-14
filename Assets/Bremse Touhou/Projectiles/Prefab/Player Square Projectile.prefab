@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7415640386221739915}
-  - component: {fileID: 4754307041942461484}
+  - component: {fileID: 7461712970873652857}
   - component: {fileID: 6647900155055438474}
   m_Layer: 7
   m_Name: Sprite
@@ -28,12 +28,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.66, y: 0.13, z: 1}
+  m_LocalScale: {x: 0.3471366, y: 0.11100464, z: 0.6866}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5096362763981196352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4754307041942461484
+--- !u!114 &7461712970873652857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e2ae452df1a04874e8722f9924efed1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_SortingLayerID: -134274437
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1230796880, guid: c09c435ea1807ba43a09bddd58b7ad1b, type: 3}
-  m_Color: {r: 0.08018869, g: 0.36641175, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 6966a26a125205f41b43c1ddb5df0946, type: 3}
+  m_Color: {r: 1, g: 0.81695867, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,9 +111,8 @@ GameObject:
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 3233691898204338934}
   - component: {fileID: 2971411468218337848}
-  - component: {fileID: 142807703605679598}
   m_Layer: 7
-  m_Name: Player Focus projectile
+  m_Name: Player Square Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +204,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.14}
+  m_Size: {x: 0.38, y: 0.10783103}
   m_EdgeRadius: 0
 --- !u!114 &2971411468218337848
 MonoBehaviour:
@@ -219,21 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601ea76f325b88c48af1b69bdad2a977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSprite: {fileID: 4754307041942461484}
+  projectileSprite: {fileID: 7461712970873652857}
   mainCollider: {fileID: 3233691898204338934}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 0
---- !u!210 &142807703605679598
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3417849383627458229}
-  m_Enabled: 1
-  m_SortingLayerID: -134274437
-  m_SortingLayer: 1
-  m_SortingOrder: -10
-  m_SortAtRoot: 1

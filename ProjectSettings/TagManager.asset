@@ -41,17 +41,17 @@ TagManager:
   - name: Background
     uniqueID: 1966905039
     locked: 0
+  - name: Background Projectiles
+    uniqueID: 399580051
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player Projectile
     uniqueID: 4160692859
     locked: 0
-  - name: Ysorting
-    uniqueID: 2121095407
-    locked: 0
-  - name: Background Projectiles
-    uniqueID: 399580051
+  - name: Player
+    uniqueID: 109278603
     locked: 0
   - name: Boss
     uniqueID: 1539019409
