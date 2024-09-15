@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16331834, y: 0.16331834, z: 0.108878896}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5096362763981196352}
@@ -86,10 +86,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1773792273
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bf0d06127eb4f074a98e884fccefc729, type: 3}
-  m_Color: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 158eec2bc4f316b47bc6473dece750b6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5096362763981196352}
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 2971411468218337848}
-  - component: {fileID: 659439549069327607}
+  - component: {fileID: 9167763196187541489}
   m_Layer: 7
   m_Name: Aimed Projectile
   m_TagString: Untagged
@@ -174,13 +174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 5966523664819976535}
-  mainCollider: {fileID: 659439549069327607}
+  mainCollider: {fileID: 9167763196187541489}
+  target: {fileID: 0}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 0
---- !u!58 &659439549069327607
-CircleCollider2D:
+--- !u!70 &9167763196187541489
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,9 +209,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_Size: {x: 0.2, y: 0.2}
+  m_Direction: 1

@@ -32,6 +32,11 @@ namespace BremseTouhou
                 {
                     continue;
                 }
+                if (!owner.Active || !owner.Alive)
+                {
+                    yield break;
+                }
+
                 entry = t.attackTimeline[i];
 
                 if (entry.AddedDelayInSeconds > 0f)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Bremsengine
 {
@@ -10,25 +11,19 @@ namespace Bremsengine
     public partial class Projectile
     {
         [SerializeField] ProjectileSprite projectileSprite;
-        [SerializeField] Collider2D mainCollider;
+        [SerializeField] CapsuleCollider2D mainCollider;
+        [SerializeField] Transform target;
+        public Projectile SetTarget(Transform target)
+        {
+            this.target = target;
+            return this;
+        }
         public Projectile SetProjectile(Projectile proj)
         {
-            if (mainCollider != null)
-            {
-                Destroy(mainCollider);
-                if (proj.mainCollider is BoxCollider2D box)
-                {
-                    mainCollider = gameObject.AddComponent<BoxCollider2D>();
-                    ((BoxCollider2D)mainCollider).size = box.size;
-                }
-                if (proj.mainCollider is CircleCollider2D circle)
-                {
-                    mainCollider = gameObject.AddComponent<CircleCollider2D>();
-                    ((CircleCollider2D)mainCollider).radius = circle.radius;
-                }
-                mainCollider.isTrigger = true;
-            }
             isActive = true;
+
+            mainCollider.size = proj.mainCollider.size;
+
             transform.name = proj.transform.name;
 
             projectileSprite.SetSprite(proj.projectileSprite, proj.projectileSprite);
@@ -42,6 +37,22 @@ namespace Bremsengine
             rb.drag = proj.drag;
             return this;
         }
+        public Projectile SetIgnoreCollision(Collider2D c)
+        {
+            if (ignoredCollision != null)
+            {
+                Physics2D.IgnoreCollision(ignoredCollision, mainCollider, false);
+            }
+            if (c == null)
+            {
+                ignoredCollision = null;
+                return this;
+            }
+            Physics2D.IgnoreCollision(mainCollider, c, true);
+            ignoredCollision = c;
+            return this;
+        }
+        Collider2D ignoredCollision;
     }
     #endregion
     #region Queue
@@ -92,7 +103,8 @@ namespace Bremsengine
         public Projectile SetDirection(ProjectileDirection direction)
         {
             currentDirection = direction.Clone();
-            rb.velocity = direction.Vector;
+            rb.velocity = direction.Direction;
+            transform.position += (Vector3)direction.DirectionalOffset;
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
             return this;
         }
@@ -106,8 +118,8 @@ namespace Bremsengine
         }
         public float Speed => SpeedRange.RandomBetweenXY();
         float speedMod;
-        public Vector2 Direction => direction.Rotate2D(AngleOffset).Rotate2D(projectile.Spread);
-        public Vector2 Vector => Direction.normalized * Speed * speedMod;
+        private Vector2 RotatedDirection => direction.Rotate2D(AngleOffset).Rotate2D(projectile.Spread);
+        public Vector2 Direction => RotatedDirection.normalized * Speed * speedMod;
         public ProjectileDirection(ProjectileSO projectile, Vector2 direction)
         {
             this.projectile = projectile;
@@ -115,10 +127,16 @@ namespace Bremsengine
             this.direction = direction;
             this.AngleOffset = 0f;
             this.speedMod = 1f;
+            this.directionalOffset = 0f;
         }
         public ProjectileDirection SetSpeedMod(float speedModifier)
         {
             speedMod = speedModifier;
+            return this;
+        }
+        public ProjectileDirection SetDirectionalOffset(float offset)
+        {
+            directionalOffset = offset;
             return this;
         }
         public ProjectileDirection AddAngle(float angle)
@@ -129,25 +147,28 @@ namespace Bremsengine
         ProjectileSO projectile;
         [SerializeField] public Vector2 SpeedRange;
         Vector2 direction;
+        float directionalOffset;
         [SerializeField] public float AngleOffset;
+        public Vector2 DirectionalOffset => Direction.ScaleToMagnitude(directionalOffset);
     }
     #endregion
     #region Spawning
     public partial class Projectile
     {
-        public delegate void SpawnCallback(Projectile p);
-        public static Projectile SpawnProjectile(ProjectileSO proj, Vector2 position, ProjectileDirection direction, SpawnCallback callback)
+        public delegate void SpawnCallback(Projectile p, Transform owner, Transform target);
+        public static Projectile SpawnProjectile(ProjectileSO proj, Transform owner, Vector2 position, ProjectileDirection direction, SpawnCallback callback, Transform target)
         {
             if (proj.projectilePrefab == null)
             {
                 return null;
             }
-
+            direction.SetDirectionalOffset(proj.DirectionalOffset);
             Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
 
             spawnedProjectile.projectile = proj;
-            callback?.Invoke(spawnedProjectile);
+
+            callback?.Invoke(spawnedProjectile, owner, target);
             return spawnedProjectile;
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
@@ -176,6 +197,11 @@ namespace Bremsengine
         public bool Active => isActive;
         public void ClearProjectile()
         {
+            if (gameObject == null)
+            {
+                activeProjectiles.Remove(this);
+                return;
+            }
             isActive = false;
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
@@ -282,6 +308,7 @@ namespace Bremsengine
         public ProjectileSO Data => projectile;
         ProjectileSO projectile;
         public Vector2 Position => transform.position;
+        public Vector2 Velocity => rb.velocity;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
@@ -297,7 +324,7 @@ namespace Bremsengine
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
-            if (GetComponent<Collider2D>() is not null and Collider2D c)
+            if (GetComponent<CapsuleCollider2D>() is not null and CapsuleCollider2D c)
             {
                 mainCollider = c;
                 c.isTrigger = true;

@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5096362763981196352}
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 2971411468218337848}
-  - component: {fileID: 2471082027384130354}
+  - component: {fileID: 5740530327902532712}
   m_Layer: 7
   m_Name: Crawler Spawner Projectile High Drag
   m_TagString: Untagged
@@ -174,13 +174,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 662614830162066273}
-  mainCollider: {fileID: 2471082027384130354}
+  mainCollider: {fileID: 5740530327902532712}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 2.5
---- !u!58 &2471082027384130354
-CircleCollider2D:
+--- !u!70 &5740530327902532712
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,9 +208,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
+  m_Size: {x: 0.5, y: 0.5}
+  m_Direction: 1

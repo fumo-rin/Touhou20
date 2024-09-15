@@ -11,11 +11,19 @@ namespace BremseTouhou
         public List<TimelineEntry> attackTimeline = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle)
         {
+            if (!owner.Alive || !owner.Active)
+            {
+                return;
+            }
             PlaySound(owner);
             AttackTimelineHandler.StartTimeline(this, owner, origin, target, addedAngle);
         }
         public void AttackWithRetargetting(BaseUnit owner, BaseUnit target, Vector2 origin, float addedAngle)
         {
+            if (!owner.Alive || !owner.Active)
+            {
+                return;
+            }
             PlaySound(owner);
             AttackTimelineHandler.StartTimeline(this, owner, origin, target.Center, addedAngle, target);
         }

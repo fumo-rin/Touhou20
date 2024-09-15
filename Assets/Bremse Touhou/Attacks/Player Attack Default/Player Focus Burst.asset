@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Focus Burst
   m_EditorClassIdentifier: 
   damage: 30
-  AttackSound: {fileID: 11400000, guid: 0ef250c97d75ec548aef1d1cd91717b5, type: 2}
+  AttackSound: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
   attackTimeline:
   - Attack: {fileID: 11400000, guid: f70b8acea4207884caaf0d84c637530a, type: 2}
     FollowOwner: 1

@@ -18,7 +18,7 @@ namespace BremseTouhou
                 DontDestroyOnLoad(g);
             }
         }
-        private static void ClearEvents()
+        private static void ClearAllEvents()
         {
             instance.StopAllCoroutines();
         }
@@ -29,7 +29,16 @@ namespace BremseTouhou
         private IEnumerator Run(ProjectileEvent e, Projectile p, BaseUnit owner, BaseUnit target)
         {
             yield return e.Delay;
-            e.PerformEvent(p, owner, target.Center);
+            Vector2 eventTarget = p.Position + p.Velocity;
+            if (target != null)
+            {
+                eventTarget = target.Center;
+            }
+            if (!owner.Active || !owner.Alive)
+            {
+                yield break;
+            }
+            e.PerformEvent(p, owner, eventTarget);
             e.PlaySound(p.Position);
         }
     }

@@ -86,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1773792273
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1230796880, guid: c09c435ea1807ba43a09bddd58b7ad1b, type: 3}
   m_Color: {r: 0.5137255, g: 0.794029, b: 1, a: 1}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5096362763981196352}
   - component: {fileID: 8866305672862957938}
   - component: {fileID: 2971411468218337848}
-  - component: {fileID: 5417242752087979963}
+  - component: {fileID: 2522600465060998418}
   m_Layer: 7
   m_Name: Large Projectile
   m_TagString: Untagged
@@ -174,13 +174,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 7461712970873652857}
-  mainCollider: {fileID: 5417242752087979963}
+  mainCollider: {fileID: 2522600465060998418}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 0
---- !u!58 &5417242752087979963
-CircleCollider2D:
+--- !u!70 &2522600465060998418
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -212,5 +212,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
+  m_Size: {x: 0.4, y: 0.4}
+  m_Direction: 1

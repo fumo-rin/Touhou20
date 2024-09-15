@@ -15,6 +15,11 @@ namespace BremseTouhou
             if (Time.time > nextAttack)
             {
                 nextAttack = Time.time + timeDelay;
+                if (owner == null)
+                {
+                    AttackPosition((Vector2)transform.position + Vector2.down);
+                    return;
+                }
                 if (!owner.HasTarget)
                 {
                     AttackPosition(owner.Center + Vector2.down);

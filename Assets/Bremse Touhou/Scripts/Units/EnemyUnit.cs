@@ -8,7 +8,7 @@ namespace BremseTouhou
 {
     public class EnemyUnit : BaseUnit
     {
-        [SerializeField] bool isBoss;
+        [field: SerializeField] public bool isBoss { get; private set; }
         protected override void OnAwake()
         {
             if (isBoss)
@@ -24,16 +24,6 @@ namespace BremseTouhou
             }
             ChangeHealth(-p.Damage);
             return true;
-        }
-        private Vector2 Funni()
-        {
-            Vector2 funni = ((Vector2)(new Vector3().X(10f).Y(10f)))
-                .Rotate2D(10f)
-                .Quantize(2f)
-                .ScaleToMagnitude(5f)
-                .Bounce(Vector2.up, 1f)
-                .Rotate2D(360f);
-            return funni;
         }
     }
 }

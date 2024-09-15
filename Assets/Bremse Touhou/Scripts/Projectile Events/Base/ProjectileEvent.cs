@@ -29,7 +29,7 @@ namespace BremseTouhou
         }
         public void QueueEvent(Projectile p, BaseUnit owner, BaseUnit target)
         {
-            if (p == null || target == null)
+            if (p == null)
             {
                 Debug.LogWarning("1");
             }

@@ -13,18 +13,21 @@ MonoBehaviour:
   m_Name: Boss Death Sound
   m_EditorClassIdentifier: 
   SoundName: Thunder
-  soundVolume: 0.7
+  soundVolume: 1
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: baada6aaf6ded4a4daff82c793a04f1d, type: 3}
     PitchVariancePercent: 0
-    PitchOrigin: 0.87
-    Volume: 0.831
-  - clip: {fileID: 8300000, guid: c7bac5d903079254983fb5081bac7211, type: 3}
+    PitchOrigin: 1
+    Volume: 1
+    Muted: 1
+  - clip: {fileID: 8300000, guid: e6f9851764bf1534386dfcfaafbc5a1e, type: 3}
     PitchVariancePercent: 0
-    PitchOrigin: 0.65
-    Volume: 0.538
-  - clip: {fileID: 8300000, guid: 3d6b8c6df31e7cf43b609fcec702a139, type: 3}
+    PitchOrigin: 1
+    Volume: 1
+    Muted: 0
+  - clip: {fileID: 0}
     PitchVariancePercent: 0
-    PitchOrigin: 1.58
-    Volume: 0.794
+    PitchOrigin: 3
+    Volume: 0.139
+    Muted: 0
   <Is3D>k__BackingField: 1

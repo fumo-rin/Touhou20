@@ -208,7 +208,7 @@ namespace Core.Extensions
         public static Vector2 ScaleToMagnitude(this Vector2 v, float magnitude)
         {
             Vector2 direction = v.normalized * magnitude;
-            return v + direction;
+            return direction;
         }
     }
 }

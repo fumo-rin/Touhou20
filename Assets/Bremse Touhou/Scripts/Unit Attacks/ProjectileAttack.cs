@@ -15,14 +15,12 @@ namespace BremseTouhou
             PlaySound(owner);
             ProjectileDirection d = new(projectile, target - origin);
             d.AddAngle(addedAngle);
-            Projectile p = Projectile.SpawnProjectile(projectile, origin, d, OnProjectileSpawn);
+            Projectile p = Projectile.SpawnProjectile(projectile, owner.transform, origin, d, OnProjectileSpawn, owner.TargetTransform);
             p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
-            if (owner != BaseUnit.GameTarget)
+
+            foreach (ProjectileEvent e in projectileEvents)
             {
-                foreach (ProjectileEvent e in projectileEvents)
-                {
-                    e.QueueEvent(p, owner, BaseUnit.GameTarget);
-                }
+                e.QueueEvent(p, owner, owner.Target);
             }
         }
     }

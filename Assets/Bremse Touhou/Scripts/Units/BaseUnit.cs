@@ -3,6 +3,7 @@ using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace BremseTouhou
@@ -18,7 +19,7 @@ namespace BremseTouhou
         public void Move(UnitMotor motor, Vector2 input, float scaler = 1f)
         {
             Vector2 direction = input.normalized;
-                //* (input.magnitude * scaler).Min(1f);
+            //* (input.magnitude * scaler).Min(1f);
             motor.Move(rb, direction, ref nextMoveTime);
         }
         protected void ProcessCurrentPath()
@@ -38,21 +39,6 @@ namespace BremseTouhou
         }
     }
     #endregion
-    #region Shoot Projectile
-    public abstract partial class BaseUnit
-    {
-        public void ShootProjectile(ProjectileSO p, Vector2 target)
-        {
-            ProjectileDirection direction = new(p,target - Center);
-            Projectile.SpawnProjectile(p, Center, direction, ApplyProjectile);
-        }
-        public void ApplyProjectile(Projectile p)
-        {
-            p.SetFaction(FactionInterface.Faction);
-            p.SetDamage(10);
-        }
-    }
-    #endregion
     #region Projectile Hit
     public partial class BaseUnit : IProjectileHitListener
     {
@@ -65,7 +51,7 @@ namespace BremseTouhou
         }
     }
     #endregion
-    #region Health Bar
+    #region Health & Activity
     public partial class BaseUnit
     {
         public string UnitName => unitName;
@@ -74,20 +60,41 @@ namespace BremseTouhou
         public float MaxHealth => 10000f;
         public float CurrentHealth => unitHealth;
         private float unitHealth;
-
         public void ChangeHealth(float delta)
         {
-            unitHealth += delta;
+            if (unitHealth <= 0f)
+                return;
+
+            unitHealth = (unitHealth + delta).Max(0f);
+            if (unitHealth <= 0f)
+            {
+                Kill();
+            }
             OnHealthChange?.Invoke(this);
+        }
+        public void SetActive(bool state)
+        {
+            Active = state;
+        }
+        private void Kill()
+        {
+            Debug.Log("Death");
+            gameObject.SetActive(false);
+            if (this is EnemyUnit enemy)
+            {
+                if (enemy.isBoss) TouhouManager.PlayBossKillSound();
+            }
+            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy);
         }
     }
     #endregion
     #region Target
     public partial class BaseUnit
     {
-        [SerializeField] BaseUnit editorOverride;
+        [SerializeField] BaseUnit targetEditorOverride;
         BaseUnit target;
-        public BaseUnit Target => editorOverride ?? target;
+        public BaseUnit Target => targetEditorOverride ?? target;
+        public Transform TargetTransform => Target == null ? null : Target.transform;
         public bool HasTarget => Target != null;
         public void SetTarget(BaseUnit t)
         {
@@ -100,7 +107,8 @@ namespace BremseTouhou
     public abstract partial class BaseUnit : MonoBehaviour
     {
         public static BaseUnit Player;
-        public bool Alive;
+        public bool Alive => CurrentHealth > 0f;
+        public bool Active;
         public static BaseUnit GameTarget => Player;
         [SerializeField] protected Transform unitCenterAnchor;
         public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f, 0.5f) : unitCenterAnchor.position;
@@ -109,6 +117,9 @@ namespace BremseTouhou
         [SerializeField] BremseFaction UnitFaction;
         public delegate void HealthEvent(BaseUnit unit);
         public HealthEvent OnHealthChange;
+        [SerializeField] Collider2D unitCollider;
+        public Collider2D Collider => unitCollider;
+        public static LayerMask EnemyLayer { get; } = 1 << 6;
         private void Awake()
         {
             if (rb == null)

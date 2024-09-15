@@ -43,15 +43,12 @@ namespace BremseTouhou
         }
         private Projectile SpawnProjectile(ProjectileSO projectile, BaseUnit owner, Vector2 origin, ProjectileDirection d)
         {
-            Projectile p = Projectile.SpawnProjectile(projectile, origin, d, OnProjectileSpawn);
+            Projectile p = Projectile.SpawnProjectile(projectile, !owner ? null : owner.transform, origin, d, OnProjectileSpawn, owner.TargetTransform);
             p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
 
-            if (owner != BaseUnit.GameTarget)
+            foreach (ProjectileEvent e in projectileEvents)
             {
-                foreach (ProjectileEvent e in projectileEvents)
-                {
-                    e.QueueEvent(p, owner, BaseUnit.GameTarget);
-                }
+                e.QueueEvent(p, owner, owner.Target);
             }
             return p;
         }

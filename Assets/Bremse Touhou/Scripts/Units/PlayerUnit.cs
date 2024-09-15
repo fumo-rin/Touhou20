@@ -30,6 +30,7 @@ namespace BremseTouhou
     #region Shoot Projectile
     public partial class PlayerUnit
     {
+        [SerializeField] AimAssist testAimProfile;
         [SerializeField] UnitAttack TestAttack;
         [SerializeField] UnitAttack TestFocusAttack;
         bool attackHeld;
@@ -64,13 +65,24 @@ namespace BremseTouhou
                 return;
             }
             nextAttackTime = Time.time + (1f / fireRate).Max(0.05f);
-            if (Focused)
+            BaseUnit aimTarget = null;
+            if (testAimProfile && testAimProfile.FetchTarget(this, out BaseUnit t))
             {
-                TestFocusAttack.AttackTarget(this, Center, Up);
+                aimTarget = t;
+                SetTarget(aimTarget);
             }
             else
             {
-                TestAttack.AttackTarget(this, Center, Up);
+                SetTarget(null);
+            }
+            Vector2 target = aimTarget ? aimTarget.Center : Up;
+            if (Focused)
+            {
+                TestFocusAttack.AttackTarget(this, Center, target);
+            }
+            else
+            {
+                TestAttack.AttackTarget(this, Center, target);
             }
         }
     }
