@@ -70,9 +70,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission: 6
+    - _Emission: 1
     - _Use_Emission_Map: 0
     m_Colors:
-    - _Color: {r: 101.66628, g: 0, b: 72.05935, a: 1}
+    - _Color: {r: 811.5882, g: 0, b: 324.8726, a: 1}
     - _EmissionColor: {r: 1024, g: 1024, b: 1024, a: 1}
   m_BuildTextureStacks: []

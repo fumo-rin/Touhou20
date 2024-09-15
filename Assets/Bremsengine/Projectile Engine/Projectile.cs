@@ -215,10 +215,10 @@ namespace Bremsengine
     {
         static HashSet<Projectile> activeProjectiles = new();
         private static GameObject projectileFolder = null;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         [ContextMenu("Clear All Projectiles Globally")]
-        public void ClearAllProjectiles()
+        public static void ClearAllProjectiles()
         {
-            projectileFolder.transform.position = Vector2.zero;
             if (projectileFolder != null)
             {
                 Destroy(projectileFolder);
@@ -228,7 +228,7 @@ namespace Bremsengine
         public static Projectile[] ProjectilesWhere(System.Func<Projectile, bool> predicate) => activeProjectiles.Where(predicate).ToArray();
         public static void ClearProjectilesOfFaction(BremseFaction f)
         {
-            foreach (var item in ProjectilesWhere(x => x.Faction == f))
+            foreach (var item in ProjectilesWhere(x => x != null && x.Faction == f))
             {
                 item.ClearProjectile();
             }

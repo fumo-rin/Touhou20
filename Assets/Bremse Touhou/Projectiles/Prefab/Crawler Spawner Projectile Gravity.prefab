@@ -175,9 +175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 1740623207872539337}
   mainCollider: {fileID: 5809651684228898669}
+  target: {fileID: 0}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
-  gravityModifier: 0.4
+  gravityModifier: 0.25
   drag: 1.75
 --- !u!70 &5809651684228898669
 CapsuleCollider2D:

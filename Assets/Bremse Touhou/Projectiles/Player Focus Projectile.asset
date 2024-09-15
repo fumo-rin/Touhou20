@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2971411468218337848, guid: 6ff45e8337d252d48b683d9a6125aaa6, type: 3}
   angleSpread: {x: -0.25, y: 0.25}
+  directionalOffset: 0.5
   <SpeedRange>k__BackingField: {x: 27, y: 29}

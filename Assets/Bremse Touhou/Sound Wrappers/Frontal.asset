@@ -35,4 +35,5 @@ MonoBehaviour:
     PitchOrigin: 1.18
     Volume: 0.472
     Muted: 0
+  <singleChannel>k__BackingField: 0
   <Is3D>k__BackingField: 1

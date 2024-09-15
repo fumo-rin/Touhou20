@@ -11,6 +11,7 @@ namespace Core.Extensions
         [Range(0f,1f)]
         [SerializeField] float soundVolume = 0.7f;
         [field: SerializeField] public List<ACWrapperEntry> soundClips { get; private set; } = new();
+        [field: SerializeField] public bool singleChannel { get; private set; } = false;
         [field: SerializeField] public bool Is3D { get; private set; }
         [ContextMenu("Play Sound")]
         public void EditorPlaySound()

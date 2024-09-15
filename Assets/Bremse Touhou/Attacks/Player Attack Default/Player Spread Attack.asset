@@ -17,8 +17,8 @@ MonoBehaviour:
   arc:
   - startingAngle: 0
     Projectile: {fileID: 11400000, guid: 057451307ebe23b4ab5d018a1e0cf379, type: 2}
-    ProjectileCount: 7
-    AngleCoverage: 40
+    ProjectileCount: 5
+    AngleCoverage: 20
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:

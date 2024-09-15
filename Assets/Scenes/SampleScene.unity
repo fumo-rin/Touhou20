@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 2.7
   attack: {fileID: 11400000, guid: 5ddad7c46a108e64da30d07604048881, type: 2}
-  owner: {fileID: 0}
+  owner: {fileID: 2052616502}
 --- !u!212 &134988727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000091552734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1543,7 +1543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &642660284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,8 +1556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cf69f17c9c97447891d5450e58836e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDelay: 0.5
-  attack: {fileID: 11400000, guid: a8b43e8c47c4e2649b6072842481a436, type: 2}
+  timeDelay: 0.1
+  attack: {fileID: 11400000, guid: ad41d855449c1f34a985bd77654ee8d8, type: 2}
   owner: {fileID: 2052616502}
 --- !u!212 &642660285
 SpriteRenderer:
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 2.75
   attack: {fileID: 11400000, guid: 66e82f614261a4241b8d6b39bb58842e, type: 2}
-  owner: {fileID: 0}
+  owner: {fileID: 2052616502}
 --- !u!212 &772327429
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 4
   attack: {fileID: 11400000, guid: e321a68e466c1e240b2ff8bf3499d0dc, type: 2}
-  owner: {fileID: 0}
+  owner: {fileID: 2052616502}
 --- !u!212 &863327475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 4
   attack: {fileID: 11400000, guid: f10dfebf6c94c97448ea5b0e3d8484b4, type: 2}
-  owner: {fileID: 0}
+  owner: {fileID: 2052616502}
 --- !u!212 &1637474560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4040,7 +4040,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 7, z: 0}
-  m_LocalScale: {x: 19, y: 3, z: 1}
+  m_LocalScale: {x: 19, y: 3.8901, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 385401412}
@@ -4285,7 +4285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 4.5
   attack: {fileID: 11400000, guid: 8d013dfe035f3a8439ea3af984f456b5, type: 2}
-  owner: {fileID: 0}
+  owner: {fileID: 2052616502}
 --- !u!212 &2043106340
 SpriteRenderer:
   m_ObjectHideFlags: 0

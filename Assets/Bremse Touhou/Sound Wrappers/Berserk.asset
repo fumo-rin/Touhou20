@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
   m_Name: Berserk
   m_EditorClassIdentifier: 
-  SoundName: Headhunter, Leather Belt
-  soundVolume: 1
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 9ea6080a1a1cc8042b2970d3e828235c, type: 3}
     PitchVariancePercent: 0
@@ -30,4 +28,7 @@ MonoBehaviour:
     PitchOrigin: 1
     Volume: 1
     Muted: 0
-  <Is3D>k__BackingField: 1
+  SoundName: Headhunter, Leather Belt
+  soundVolume: 1
+  <singleChannel>k__BackingField: 1
+  <Is3D>k__BackingField: 0

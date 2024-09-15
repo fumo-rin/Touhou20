@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Swoosh
   m_EditorClassIdentifier: 
   SoundName: Player Weapon
-  soundVolume: 0.3
+  soundVolume: 0.35
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: b51539351a926754899c22cb267cf4cb, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 2.97
-    Volume: 0.15
+    Volume: 0.659
     Muted: 0
   - clip: {fileID: 8300000, guid: a1986f3b8e092da4b88263c7f32046be, type: 3}
     PitchVariancePercent: 5
@@ -28,6 +28,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 143af502f5f90b144b88569ca7964315, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 3
-    Volume: 0.1
+    Volume: 0.135
     Muted: 0
+  <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1
