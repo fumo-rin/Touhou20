@@ -25,6 +25,16 @@ namespace Core.Extensions
                 return soundVolume * 0.7f;
             return soundClips[index].Volume * soundVolume;
         }
+        private void OnValidate()
+        {
+            this.FindEnumerableError(nameof(soundClips), soundClips);
+            this.FindStringError(nameof(SoundName) ,SoundName);
+        }
+        private void Awake()
+        {
+            this.FindEnumerableError(nameof(soundClips), soundClips);
+            this.FindStringError(nameof(SoundName), SoundName);
+        }
     }
     [System.Serializable]
     public class ACWrapperEntry
@@ -37,5 +47,6 @@ namespace Core.Extensions
         [Range(0.01f,1f)]
         public float Volume = 0.7f;
         public bool Muted;
+        public string name => clip.name;
     }
 }

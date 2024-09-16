@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Player Spread Attack
+  m_Name: Ice Storm Walkers Arc
   m_EditorClassIdentifier: 
-  damage: 5
-  AttackSound: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+  damage: 10
+  AttackSound: {fileID: 0}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 057451307ebe23b4ab5d018a1e0cf379, type: 2}
+    Projectile: {fileID: 11400000, guid: 7f0530808d51fc84191f46a83fb54c8f, type: 2}
     ProjectileCount: 5
-    AngleCoverage: 35
+    AngleCoverage: 360
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:

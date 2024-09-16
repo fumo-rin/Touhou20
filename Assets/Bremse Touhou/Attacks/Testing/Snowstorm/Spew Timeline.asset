@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Spew Timeline
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: 9f2f240fbda12084081085da9d0face4, type: 2}
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 1
+    AddedAngle: 0
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -4
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -8
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -12
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -16
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -20
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -24
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -28
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -32
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -36
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -40
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -44
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -48
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -52
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -56
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -60
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -64
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -68
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -72
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -76
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -80
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -84
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -88
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -92
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -96
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -100
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -104
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -108
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -112
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -116
+    Retargetting: 0
+  - Attack: {fileID: 11400000, guid: d8710838edc108449a988cc25825e226, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0.05
+    AddedAngle: -120
+    Retargetting: 0

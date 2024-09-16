@@ -52,6 +52,18 @@ namespace Bremsengine
             ignoredCollision = c;
             return this;
         }
+        public Projectile Post_AddVelocity(float v)
+        {
+            rb.velocity += rb.velocity.ScaleToMagnitude(v);
+            return this;
+        }
+        public Projectile Post_AddRotation(float r)
+        {
+            rb.velocity = rb.velocity.Rotate2D(r);
+            rb.rotation += r;
+            
+            return this;
+        }
         Collider2D ignoredCollision;
     }
     #endregion

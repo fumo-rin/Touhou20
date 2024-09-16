@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
+  m_Name: Crawler Tri Shot
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
+  arc:
+  - startingAngle: 0
+    Projectile: {fileID: 11400000, guid: b7e08ee0b1db4314094cfb41be466934, type: 2}
+    ProjectileCount: 24
+    AngleCoverage: 32
+    SpeedMultiplierCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.8648148
+        inSlope: 0.048401937
+        outSlope: 0.048401937
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.49171248
+        value: 0.88861465
+        inSlope: 0.0007891841
+        outSlope: 0.0007891841
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.8648148
+        inSlope: -0.04682357
+        outSlope: -0.04682357
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    IsRandomAngle: 0
+  mirrored: 0
+  projectileEvents:
+  - {fileID: 11400000, guid: 1fca5e660b4f3a549bcedc82a0f625dc, type: 2}

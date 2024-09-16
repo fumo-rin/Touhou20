@@ -76,7 +76,7 @@ MonoBehaviour:
   hitCounterText: {fileID: 3828443284268709647}
   testAimProfile: {fileID: 11400000, guid: 815d48c08bbd1024ea288a8f7d25c70b, type: 2}
   TestAttack: {fileID: 11400000, guid: 5834fc61072241b498278217b0fea56f, type: 2}
-  TestFocusAttack: {fileID: 11400000, guid: 55a19f7535e7e3f489608dcc5bfb6110, type: 2}
+  TestFocusAttack: {fileID: 11400000, guid: 905bf729cb2da5e428503f1e43bbe742, type: 2}
   fireRate: 12
   sneakMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
 --- !u!50 &3634833044196561141

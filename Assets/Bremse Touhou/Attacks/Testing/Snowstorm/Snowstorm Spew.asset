@@ -10,39 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408dd08f9822e0a4a99908616625c5b3, type: 3}
-  m_Name: Player Spread Attack
+  m_Name: Snowstorm Spew
   m_EditorClassIdentifier: 
-  damage: 5
-  AttackSound: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+  damage: 10
+  AttackSound: {fileID: 11400000, guid: 1c0ddc1d8a1bd7243967c93536b376d4, type: 2}
   arc:
   - startingAngle: 0
-    Projectile: {fileID: 11400000, guid: 057451307ebe23b4ab5d018a1e0cf379, type: 2}
-    ProjectileCount: 5
-    AngleCoverage: 35
+    Projectile: {fileID: 11400000, guid: db9cf8fe077c9db4c96bf02812b4a47f, type: 2}
+    ProjectileCount: 1
+    AngleCoverage: 150
     SpeedMultiplierCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: -1.3696032
+        inSlope: -0.2501626
+        outSlope: -0.2501626
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: -1.6197658
+        inSlope: -0.2501626
+        outSlope: -0.2501626
         tangentMode: 34
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    IsRandomAngle: 0
+    IsRandomAngle: 1
   mirrored: 0
-  projectileEvents: []
+  projectileEvents:
+  - {fileID: 11400000, guid: f92131a0373677649aa7585677ddcdd4, type: 2}

@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
-  m_Name: Boss Death Sound
+  m_Name: Swoosh
   m_EditorClassIdentifier: 
+  SoundName: Player Weapon
+  soundVolume: 0.35
   <soundClips>k__BackingField:
-  - clip: {fileID: 8300000, guid: 5d4ecfe355d940642a050b5e000ce00a, type: 3}
-    PitchVariancePercent: 0
-    PitchOrigin: 1.15
-    Volume: 1
+  - clip: {fileID: 8300000, guid: b51539351a926754899c22cb267cf4cb, type: 3}
+    PitchVariancePercent: 5
+    PitchOrigin: 3
+    Volume: 0.208
     Muted: 0
-  SoundName: Boss Kill Sound
-  soundVolume: 0.589
+  - clip: {fileID: 8300000, guid: a1986f3b8e092da4b88263c7f32046be, type: 3}
+    PitchVariancePercent: 5
+    PitchOrigin: 3
+    Volume: 0.7
+    Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

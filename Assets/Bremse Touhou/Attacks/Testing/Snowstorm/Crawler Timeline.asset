@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77055add7b676449a1b8836021b4951, type: 3}
+  m_Name: Crawler Timeline
+  m_EditorClassIdentifier: 
+  damage: 10
+  AttackSound: {fileID: 0}
+  attackTimeline:
+  - Attack: {fileID: 11400000, guid: 4115cdd589df74a47ac39fe643ee26bc, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: d3b08318c0d621844ad03efee0b48220, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 1
+  - Attack: {fileID: 11400000, guid: 520b60cf06a65c54aaeecb64a9882f5c, type: 2}
+    FollowOwner: 1
+    AddedDelayInSeconds: 0
+    AddedAngle: 0
+    Retargetting: 0
