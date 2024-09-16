@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8892347171151863687
+--- !u!114 &-9095013102344203624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,19 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 768
-    y: 360
-    width: 160
-    height: 75
-  ID: 79339782-4593-4dc0-b563-98d0b2726985
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -1884
+    y: 70
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -2190
+    y: 100
+    width: 300
+    height: 300
+  ID: 25e21581-7938-4345-abf1-7f44354c913b
+  spawnDelay: 0
   graph: {fileID: 11400000}
---- !u!114 &-5538265411661731831
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &-7287118160683429034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,19 +37,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 768
-    y: 525
-    width: 160
-    height: 75
-  ID: 62b31512-5a99-4683-a7f1-920f294719b3
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -1116
+    y: 89
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -1422
+    y: 119
+    width: 250
+    height: 250
+  ID: 38e6fa96-78f4-4ddd-90a0-831a0307155b
+  spawnDelay: 0
   graph: {fileID: 11400000}
---- !u!114 &-861156077365902848
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &-6503108960260756690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,18 +65,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 544
-    y: 547
-    width: 160
-    height: 75
-  ID: 0d3c49fe-acc8-4a7e-af70-03afcb75288e
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -995
+    y: 513
+    width: 450
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -1253
+    y: 543
+    width: 256
+    height: 256
+  ID: c68d2e6c-237d-4d47-88db-cf68791eddfa
+  spawnDelay: 0
   graph: {fileID: 11400000}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &-4766674025120234640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -422
+    y: 125
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -648
+    y: 155
+    width: 250
+    height: 250
+  ID: 9bd1a26f-25c8-46cf-85ab-4668c50f0b68
+  spawnDelay: 0
+  graph: {fileID: 11400000}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &-4151628882259502911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -1117
+    y: 38
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -1453
+    y: 68
+    width: 250
+    height: 250
+  ID: bc55c4ca-68e2-4208-a8e9-c6557d80f651
+  spawnDelay: 0
+  graph: {fileID: 11400000}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &-1426563867295654350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 540
+    y: 34
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 284
+    y: 64
+    width: 250
+    height: 250
+  ID: b080034a-f8ac-4f8d-a0b5-929825c7c510
+  spawnDelay: 0
+  graph: {fileID: 11400000}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,13 +181,16 @@ MonoBehaviour:
   m_Name: New Projectile Graph SO
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -5538265411661731831}
-  - {fileID: 6263467561637976400}
-  - {fileID: -8892347171151863687}
-  - {fileID: 8888442785195135740}
-  - {fileID: -861156077365902848}
-  - {fileID: 5036660618134787883}
---- !u!114 &5036660618134787883
+  - {fileID: 4404479542924938747}
+  - {fileID: -6503108960260756690}
+  - {fileID: 4746958822535231826}
+  - {fileID: 4595622936568008154}
+  - {fileID: -9095013102344203624}
+  - {fileID: -4151628882259502911}
+  - {fileID: -7287118160683429034}
+  - {fileID: -4766674025120234640}
+  - {fileID: -1426563867295654350}
+--- !u!114 &4404479542924938747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,19 +199,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 599
-    y: 289
-    width: 160
-    height: 75
-  ID: 4ff4bace-e3cd-48c4-8fca-b1a438902d79
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -918
+    y: 630
+    width: 450
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -1176
+    y: 660
+    width: 256
+    height: 256
+  ID: 9ddee0da-50d6-4f1c-9590-aec45a8b3a7f
+  spawnDelay: 0
   graph: {fileID: 11400000}
---- !u!114 &6263467561637976400
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &4595622936568008154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,19 +227,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 920
-    y: 383
-    width: 160
-    height: 75
-  ID: fb1224e5-af5e-41b6-b32e-4aa9b94ad5df
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -1811
+    y: 586
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -2117
+    y: 616
+    width: 256
+    height: 256
+  ID: 798d3203-29aa-4869-9483-be27e544d118
+  spawnDelay: 0
   graph: {fileID: 11400000}
---- !u!114 &8888442785195135740
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+--- !u!114 &4746958822535231826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,15 +255,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b604e8d80fc4004c98df78f1475689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 463
-    y: 414
-    width: 160
-    height: 75
-  ID: 838cef25-af5f-44b6-8804-5f68b9248d8b
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+    x: -1819
+    y: 898
+    width: 450
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -2125
+    y: 928
+    width: 256
+    height: 256
+  ID: 7be7235f-fef8-4cb6-aec1-db29ce93a6d3
+  spawnDelay: 0
   graph: {fileID: 11400000}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}

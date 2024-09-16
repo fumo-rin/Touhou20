@@ -5,10 +5,6 @@ using UnityEngine;
 using Core;
 using System.Linq;
 
-
-
-
-
 #if UNITY_EDITOR
 using UnityEditor.Callbacks;
 namespace Bremsengine
@@ -48,7 +44,7 @@ namespace Bremsengine
             LoadCache();
         }
         private static List<ProjectileTypeSO> projectilePrefabs;
-        public static List<ProjectileTypeSO> Cache => LoadCache();
+        public static List<ProjectileTypeSO> ProjectileTypeLookup => LoadCache();
         private const string ProjectileAddressablesKey = "Projectile Types";
         private static List<ProjectileTypeSO> LoadCache()
         {
@@ -61,6 +57,27 @@ namespace Bremsengine
                 }
             }
             return projectilePrefabs;
+        }
+    }
+    #endregion
+    #region Grid
+    public partial class ProjectileGraphEditor
+    {
+        Vector2 gridOffset;
+        Vector2 gridDrag;
+        const float gridLarge = 100f;
+        const float gridSmall = 25f;
+
+        bool isDraggingGrid;
+        private void DragGrid(Vector2 delta)
+        {
+            if (isDraggingGrid)
+            {
+                foreach (var item in AllNodes)
+                {
+                    item.DragNode(delta);
+                }
+            }
         }
     }
     #endregion
@@ -92,8 +109,62 @@ namespace Bremsengine
     #region Events
     public partial class ProjectileGraphEditor
     {
+        private static ProjectileNodeSO currentEventNode;
+        #region Mouse Down
+        private void ProcessMouseDownEvent(Event e)
+        {
+            if (e.button == 1)
+            {
+                ShowContextMenu(e);
+            }
+            if (e.button == 0)
+            {
+                if (IsMouseOverNode(e, out ProjectileNodeSO drag))
+                {
+                    if (drag != null)
+                    {
+                        dragNode = drag;
+                    }
+                }
+                else
+                {
+                    isDraggingGrid = true;
+                }
+            }
+        }
+        #endregion
+        #region Mouse Up
+        private void ProcessMouseUpEvent(Event e)
+        {
+            if (e.button == 0)
+            {
+                dragNode = null;
+                isDraggingGrid = false;
+            }
+        }
+        #endregion
+        #region Mouse Drag
+        private static ProjectileNodeSO dragNode;
+        public static void ForceEndDrag()
+        {
+            dragNode = null;
+            Debug.Log("Force Ended Drag");
+        }
+        private void ProcessMouseDrag(Event e)
+        {
+            if (dragNode)
+            {
+                dragNode.DragNode(e.delta);
+            }
+            DragGrid(e.delta);
+        }
+        #endregion
         private void ProcessEvents(Event e)
         {
+            if (IsMouseOverNode(e, out currentEventNode))
+            {
+                currentEventNode.ProcessEvents(e);
+            }
             ProcessProjectileGraphEvents(e);
         }
         private void ProcessProjectileGraphEvents(Event e)
@@ -103,31 +174,57 @@ namespace Bremsengine
                 case EventType.MouseDown:
                     ProcessMouseDownEvent(e);
                     break;
+                case EventType.MouseUp:
+                    ProcessMouseUpEvent(e);
+                    break;
+                case EventType.MouseDrag:
+                    ProcessMouseDrag(e);
+                    break;
                 default:
                     break;
             }
         }
-        #region Mouse Down
-        private void ProcessMouseDownEvent(Event e)
-        {
-            if (e.button == 1)
-            {
-                ShowContextMenu(e.mousePosition);
-            }
-        }
-        private void ShowContextMenu(Vector2 position)
+        private void ShowContextMenu(Event e)
         {
             GenericMenu menu = new GenericMenu();
-            menu.AddItem(new GUIContent("Create Projectile Node"), false, CreateProjectileNode, position);
+            Vector2 position = e.mousePosition;
+            ProjectileNodeSO mouseOver = null;
+            if (IsMouseOverNode(e, out mouseOver))
+            {
+                menu.AddItem(new GUIContent("Remove Projectile Node"), false, DestroyNode, mouseOver);
+            }
+            if (mouseOver == null)
+            {
+                menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
+                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddSingleProjectile, position);
+                if (ActiveGraph.CanUndo)
+                {
+                    menu.AddItem(new GUIContent("Undo Delete"), false, UndoLastDelete);
+                }
+            }
             menu.ShowAsContext();
         }
-        #endregion
+        private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
+        {
+            node = null;
+            for (int i = 0; i < ActiveGraph.nodes.Count; i++)
+            {
+                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition))
+                {
+                    node = ActiveGraph.nodes[i];
+                    break;
+                }
+            }
+            return node != null;
+        }
     }
     #endregion
-    #region Active Nodes
+    #region Projectile Nodes
     public partial class ProjectileGraphEditor
     {
-        private void CreateProjectileNode(object mousePositionObject)
+        private List<ProjectileNodeSO> AllNodes => ActiveGraph.nodes;
+        #region Add Single Projectile
+        private void AddSingleProjectile(object mousePositionObject)
         {
             LoadCache();
             if (projectilePrefabs == null || projectilePrefabs.Count <= 0)
@@ -135,16 +232,25 @@ namespace Bremsengine
                 Debug.LogWarning("projectiles arent initialized properly or doesnt exist");
                 return;
             }
-            CreateProjectileNode(mousePositionObject, projectilePrefabs[0]);
-        }
-        private void CreateProjectileNode(object mousePositionObject, ProjectileTypeSO prefab)
-        {
+
             Vector2 mousePosition = (Vector2)mousePositionObject;
-            ProjectileNodeSO newNode = ScriptableObject.CreateInstance<ProjectileNodeSO>();
-            newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y), ActiveGraph, prefab);
-            
+            ProjectileNodeSO newNode = ScriptableObject.CreateInstance<SingleProjectileNode>();
+            newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
+
             AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
             AssetDatabase.SaveAssets();
+        }
+        #endregion
+        #region Add Projectile Arc
+
+        #endregion
+        private void DestroyNode(object node)
+        {
+            ActiveGraph.RemoveAndAddToUndo(node);
+        }
+        private void UndoLastDelete()
+        {
+            ActiveGraph.UndoLast();
         }
     }
     #endregion
@@ -152,8 +258,6 @@ namespace Bremsengine
     {
         private GUIStyle projectileNodeStyle;
 
-        private const float nodeWidth = 160f;
-        private const float nodeHeight = 75f;
         private const int nodePadding = 25;
         private const int nodeBorder = 12;
 
@@ -165,9 +269,9 @@ namespace Bremsengine
             projectileNodeStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
             projectileNodeStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
         }
-        Rect NodeRect(float x, float y)
+        public static Rect NodeRect(float x, float y, float w, float h)
         {
-            return new Rect(new Vector2(x, y), new Vector2(nodeWidth, nodeHeight));
+            return new Rect(new Vector2(x, y), new Vector2(w, h));
         }
     }
 }

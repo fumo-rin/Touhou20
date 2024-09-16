@@ -10,9 +10,6 @@ namespace Bremsengine
     #region Set Projectile
     public partial class Projectile
     {
-        [SerializeField] ProjectileSprite projectileSprite;
-        [SerializeField] CapsuleCollider2D mainCollider;
-        [SerializeField] Transform target;
         public Projectile SetTarget(Transform target)
         {
             this.target = target;
@@ -61,7 +58,7 @@ namespace Bremsengine
         {
             rb.velocity = rb.velocity.Rotate2D(r);
             rb.rotation += r;
-            
+
             return this;
         }
         Collider2D ignoredCollision;
@@ -72,7 +69,7 @@ namespace Bremsengine
     {
         public static Queue<Projectile> ProjectileQueue = new Queue<Projectile>();
         const int MaxQueueClearAttempts = 2500;
-        public static Projectile CreateFromQueue(Projectile proj, Vector2 position, ProjectileDirection direction)
+        public static Projectile OldCreateFromQueue(Projectile proj, Vector2 position, ProjectileDirection direction)
         {
             Projectile projectile = null;
             int iterations = 0;
@@ -101,12 +98,44 @@ namespace Bremsengine
             projectile.SetProjectile(proj);
             return projectile;
         }
+        public static Projectile NewCreateFromQueue(Projectile proj, Vector2 position, ProjectileNodeDirection direction)
+        {
+
+            Projectile projectile = null;
+            int iterations = 0;
+            while (ProjectileQueue.Count > 0 && ProjectileQueue.Peek() == null)
+            {
+                if (iterations >= MaxQueueClearAttempts)
+                {
+                    Debug.LogWarning("Many Projectiles");
+                    ProjectileQueue.Clear();
+                    break;
+                }
+                iterations++;
+                ProjectileQueue.Dequeue();
+            }
+            if (ProjectileQueue.Count > 0)
+            {
+                projectile = ProjectileQueue.Dequeue();
+                projectile.gameObject.SetActive(true);
+            }
+            else
+            {
+                projectile = Instantiate(proj, position, Quaternion.identity);
+            }
+            projectile.SetPosition(position);
+            projectile.SetProjectile(proj);
+
+
+            return projectile;
+        }
     }
     #endregion
     #region Direction
     public partial class Projectile
     {
         ProjectileDirection currentDirection;
+        ProjectileNodeDirection currentNodeDirection;
         public Projectile SetPosition(Vector3 position)
         {
             transform.position = position;
@@ -115,6 +144,14 @@ namespace Bremsengine
         public Projectile SetDirection(ProjectileDirection direction)
         {
             currentDirection = direction.Clone();
+            rb.velocity = direction.Direction;
+            transform.position += (Vector3)direction.DirectionalOffset;
+            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
+            return this;
+        }
+        public Projectile SetDirection(ProjectileNodeDirection direction)
+        {
+            currentNodeDirection = direction.Clone();
             rb.velocity = direction.Direction;
             transform.position += (Vector3)direction.DirectionalOffset;
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
@@ -175,7 +212,7 @@ namespace Bremsengine
                 return null;
             }
             direction.SetDirectionalOffset(proj.DirectionalOffset);
-            Projectile spawnedProjectile = CreateFromQueue(proj.projectilePrefab, position, direction);
+            Projectile spawnedProjectile = OldCreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
 
             spawnedProjectile.projectile = proj;
@@ -184,6 +221,14 @@ namespace Bremsengine
             return spawnedProjectile;
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
+        }
+        public static void SpawnProjectileGraph(ProjectileGraphSO graph, Transform owner, Transform target, Vector2 ownerFallbackPosition, SpawnCallback callback)
+        {
+            List<Projectile> spawned = graph.SpawnGraph(owner, target, ownerFallbackPosition);
+            foreach (var item in spawned)
+            {
+                callback?.Invoke(item, owner, target);
+            }
         }
         /*
         public static Projectile SpawnProjectileTowardsUnit(ProjectileSO proj, Vector2 position, ProjectileDirection direction, Rigidbody2D target)
@@ -317,6 +362,9 @@ namespace Bremsengine
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class Projectile : MonoBehaviour
     {
+        [SerializeField] ProjectileSprite projectileSprite;
+        [SerializeField] CapsuleCollider2D mainCollider;
+        [SerializeField] Transform target;
         public ProjectileSO Data => projectile;
         ProjectileSO projectile;
         public Vector2 Position => transform.position;
@@ -325,6 +373,7 @@ namespace Bremsengine
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
         [SerializeField] float drag = 0f;
+        public Texture Texture => projectileSprite == null ? null : projectileSprite.Texture;
         private void Awake()
         {
             if (rb == null)

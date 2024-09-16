@@ -11,6 +11,7 @@ namespace Bremsengine
         public static implicit operator Sprite(ProjectileSprite p) => p.sprite.sprite;
         [SerializeField] Projectile assignedProjectile;
         [SerializeField] SpriteRenderer sprite;
+        public Texture Texture => sprite.sprite.texture;
         public Color32 Color => sprite.color;
         public void SetColor(Color32 c) => sprite.color = c;
         public void SetSprite(Sprite s, SpriteRenderer other)
