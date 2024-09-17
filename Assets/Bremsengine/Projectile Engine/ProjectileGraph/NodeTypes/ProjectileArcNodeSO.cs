@@ -17,7 +17,6 @@ namespace Bremsengine
             startingAngle = EditorGUILayout.Slider("Starting Angle", startingAngle, -180, 180f);
             RandomAngle = EditorGUILayout.Toggle("Random Angle", RandomAngle);
         }
-
         protected override void OnInitialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
 
@@ -26,11 +25,11 @@ namespace Bremsengine
 #endif
     public partial class ProjectileArcNodeSO : ProjectileNodeSO
     {
-        private float projectileCountFloat = 7f;
+        public float projectileCountFloat = 7f;
         private int ProjectileCount => projectileCountFloat.ToInt();
-        private float AngleCoverage;
-        private float startingAngle;
-        private bool RandomAngle;
+        public float AngleCoverage;
+        public float startingAngle;
+        public bool RandomAngle;
         public float AngleIncrement => AngleCoverage / (ProjectileCount - (AngleCoverage < 360 ? 1 : 0));
         public override void Spawn(in List<Projectile> l, Transform owner, Transform target, Vector2 lastTargetPosition)
         {

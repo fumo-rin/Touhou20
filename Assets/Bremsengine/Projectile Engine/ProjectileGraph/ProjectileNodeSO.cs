@@ -101,8 +101,8 @@ namespace Bremsengine
             EditorGUI.DrawPreviewTexture(new(25f, 25f, 200f, 200f), previewTexture);
             if (EditorGUI.EndChangeCheck())
             {
-                ProjectileGraphEditor.ForceEndDrag();
                 EditorUtility.SetDirty(this);
+                AssetDatabase.SaveAssetIfDirty(this);
             }
             GUILayout.EndArea();
         }
@@ -134,7 +134,7 @@ namespace Bremsengine
         Vector2 direction;
         float AngleOffset;
         float Spread;
-        float Speed;
+        float Speed;                          
         float directionalOffset;
         public ProjectileNodeDirection Clone()
         {
@@ -179,19 +179,19 @@ namespace Bremsengine
             directionalOffset = offset;
             return this;
         }
-        private Vector2 RotatedDirection => direction.Rotate2D(AngleOffset).Rotate2D(Spread);
+        private Vector2 RotatedDirection => direction.Rotate2D(AngleOffset).Rotate2D(Spread.RandomPositiveNegativeRange());
         public Vector2 Direction => RotatedDirection.ScaleToMagnitude(Speed);
     }
     #endregion
     #region Direction
     public partial class ProjectileNodeSO
     {
-        protected float ProjectileDamage = 10f;
-        protected Vector2 staticDirection = Vector2.zero;
-        protected float directionalOffset = 0f;
-        protected float spread = 0f;
-        protected float speed = 10f;
-        protected float addedAngle = 0f;
+        public float ProjectileDamage = 10f;
+        public Vector2 staticDirection = Vector2.zero;
+        public float directionalOffset = 0f;
+        public float spread = 0f;
+        public float speed = 10f;
+        public float addedAngle = 0f;
         public ProjectileNodeDirection BuildDirection(Transform owner, Transform target)
         {
             ProjectileNodeDirection direction = new(owner, target, staticDirection);

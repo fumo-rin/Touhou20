@@ -121,10 +121,10 @@ namespace Bremsengine
         #region Mouse Down
         private void ProcessMouseDownEvent(Event e)
         {
-            bool StartDrag(Event e)
+            bool StartDragItem(Event e)
             {
                 ForceEndDrag();
-                if (e.button == 0)
+                if (e.button == 2)
                 {
                     if (IsMouseOverNode(e, out ProjectileNodeSO drag))
                     {
@@ -138,7 +138,7 @@ namespace Bremsengine
             }
             void DragGrid(Event e)
             {
-                if (e.button != 1 && !IsMouseOverNode(e, out _))
+                if (e.button == 2 && !IsMouseOverNode(e, out _))
                 {
                     isDraggingGrid = true;
                 }
@@ -147,7 +147,7 @@ namespace Bremsengine
             {
                 ShowContextMenu(e);
             }
-            if (!StartDrag(e))
+            if (!StartDragItem(e))
             {
                 DragGrid(e);
             }
@@ -156,7 +156,7 @@ namespace Bremsengine
         #region Mouse Up
         private void ProcessMouseUpEvent(Event e)
         {
-            if (e.button == 0)
+            if (e.button == 2)
             {
                 dragNode = null;
                 isDraggingGrid = false;
@@ -245,11 +245,15 @@ namespace Bremsengine
         #region Add Single Projectile
         private void AddSingleProjectile(object mousePositionObject)
         {
+            LoadCache();
             ProjectileNodeSO newNode = null;
             Vector2 mousePosition = (Vector2)mousePositionObject;
             newNode = ScriptableObject.CreateInstance<SingleProjectileNodeSO>();
             if (newNode != null)
             {
+                Debug.Log(ActiveGraph);
+                Debug.Log(projectilePrefabs.Count);
+                Debug.Log(newNode);
                 newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
 
                 AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
@@ -260,6 +264,7 @@ namespace Bremsengine
         #region Add Projectile Arc
         private void AddProjectileArc(object mousePositionObject)
         {
+            LoadCache();
             ProjectileNodeSO newNode = null;
             Vector2 mousePosition = (Vector2)mousePositionObject;
             newNode = ScriptableObject.CreateInstance<ProjectileArcNodeSO>();

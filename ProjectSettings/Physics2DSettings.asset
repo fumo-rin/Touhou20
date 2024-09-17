@@ -28,8 +28,8 @@ Physics2DSettings:
     m_CollideContactsPerJob: 100
     m_ClearFlagsPerJob: 200
     m_ClearBodyForcesPerJob: 200
-    m_SyncDiscreteFixturesPerJob: 50
-    m_SyncContinuousFixturesPerJob: 50
+    m_SyncDiscreteFixturesPerJob: 60
+    m_SyncContinuousFixturesPerJob: 60
     m_FindNearestContactsPerJob: 100
     m_UpdateTriggerContactsPerJob: 100
     m_IslandSolverCostThreshold: 100
@@ -38,11 +38,11 @@ Physics2DSettings:
     m_IslandSolverJointCostScale: 10
     m_IslandSolverBodiesPerJob: 50
     m_IslandSolverContactsPerJob: 50
-  m_SimulationMode: 0
+  m_SimulationMode: 1
   m_QueriesHitTriggers: 1
   m_QueriesStartInColliders: 1
   m_CallbacksOnDisable: 1
   m_ReuseCollisionCallbacks: 1
   m_AutoSyncTransforms: 0
-  m_GizmoOptions: 10
+  m_GizmoOptions: 31
   m_LayerCollisionMatrix: c90000000000000000000000c101000000000000000000008900000049000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

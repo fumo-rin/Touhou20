@@ -56,7 +56,7 @@ MonoBehaviour:
   UnitFaction: 2
   unitCollider: {fileID: 990701229308025543}
   <isBoss>k__BackingField: 1
-  addedAttackDelay: 0
+  addedAttackDelay: 0.5
   testAttackEvent:
     m_PersistentCalls:
       m_Calls:
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc7c75f93ef0144788061ce299370ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 7c8bc65a2250ab143aecffdd8fe76adb, type: 2}
+  graph: {fileID: 11400000, guid: 67471af5fdb23ee4a97369386e4ef632, type: 2}
   testTarget: {fileID: 0}
   owner: {fileID: 7025743821825117553}
   faction: 2
