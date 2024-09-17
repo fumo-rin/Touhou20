@@ -49,17 +49,19 @@ namespace Bremsengine
     public partial class ProjectileGraphSO : ScriptableObject
     {
         public List<ProjectileNodeSO> nodes = new();
+        /// <summary>
+        /// Should be Called as Projectile.SpawnProjectileGraph
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <param name="target"></param>
+        /// <param name="fallbackPosition"></param>
+        /// <returns></returns>
         public List<Projectile> SpawnGraph(Transform owner, Transform target, Vector2 fallbackPosition)
         {
             List<Projectile> spawns = new List<Projectile>();
             foreach (ProjectileNodeSO node in nodes)
             {
-                foreach (var item in node.Spawn(owner, target, fallbackPosition))
-                {
-                    if (item == null)
-                        continue;
-                    spawns.Add(item);
-                }
+                node.Spawn(spawns, owner, target, fallbackPosition);
             }
             return spawns;
         }

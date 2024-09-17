@@ -4,6 +4,9 @@ using UnityEditor;
 using UnityEngine;
 using Core;
 using System.Linq;
+using System;
+
+
 
 #if UNITY_EDITOR
 using UnityEditor.Callbacks;
@@ -55,6 +58,11 @@ namespace Bremsengine
                 {
                     projectilePrefabs.Add(item);
                 }
+            }
+            if (projectilePrefabs == null || projectilePrefabs.Count <= 0)
+            {
+                Debug.LogWarning("projectiles arent initialized properly or doesnt exist");
+                return null;
             }
             return projectilePrefabs;
         }
@@ -113,23 +121,35 @@ namespace Bremsengine
         #region Mouse Down
         private void ProcessMouseDownEvent(Event e)
         {
+            bool StartDrag(Event e)
+            {
+                ForceEndDrag();
+                if (e.button == 0)
+                {
+                    if (IsMouseOverNode(e, out ProjectileNodeSO drag))
+                    {
+                        if (drag != null)
+                        {
+                            dragNode = drag;
+                        }
+                    }
+                }
+                return dragNode != null;
+            }
+            void DragGrid(Event e)
+            {
+                if (e.button != 1 && !IsMouseOverNode(e, out _))
+                {
+                    isDraggingGrid = true;
+                }
+            }
             if (e.button == 1)
             {
                 ShowContextMenu(e);
             }
-            if (e.button == 0)
+            if (!StartDrag(e))
             {
-                if (IsMouseOverNode(e, out ProjectileNodeSO drag))
-                {
-                    if (drag != null)
-                    {
-                        dragNode = drag;
-                    }
-                }
-                else
-                {
-                    isDraggingGrid = true;
-                }
+                DragGrid(e);
             }
         }
         #endregion
@@ -148,7 +168,6 @@ namespace Bremsengine
         public static void ForceEndDrag()
         {
             dragNode = null;
-            Debug.Log("Force Ended Drag");
         }
         private void ProcessMouseDrag(Event e)
         {
@@ -196,7 +215,7 @@ namespace Bremsengine
             if (mouseOver == null)
             {
                 menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
-                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddSingleProjectile, position);
+                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
                 if (ActiveGraph.CanUndo)
                 {
                     menu.AddItem(new GUIContent("Undo Delete"), false, UndoLastDelete);
@@ -226,24 +245,34 @@ namespace Bremsengine
         #region Add Single Projectile
         private void AddSingleProjectile(object mousePositionObject)
         {
-            LoadCache();
-            if (projectilePrefabs == null || projectilePrefabs.Count <= 0)
-            {
-                Debug.LogWarning("projectiles arent initialized properly or doesnt exist");
-                return;
-            }
-
+            ProjectileNodeSO newNode = null;
             Vector2 mousePosition = (Vector2)mousePositionObject;
-            ProjectileNodeSO newNode = ScriptableObject.CreateInstance<SingleProjectileNode>();
-            newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
+            newNode = ScriptableObject.CreateInstance<SingleProjectileNodeSO>();
+            if (newNode != null)
+            {
+                newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
 
-            AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
-            AssetDatabase.SaveAssets();
+                AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
         }
         #endregion
         #region Add Projectile Arc
+        private void AddProjectileArc(object mousePositionObject)
+        {
+            ProjectileNodeSO newNode = null;
+            Vector2 mousePosition = (Vector2)mousePositionObject;
+            newNode = ScriptableObject.CreateInstance<ProjectileArcNodeSO>();
+            if (newNode != null)
+            {
+                newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
 
+                AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
         #endregion
+        #region Destroy & Undo Destroy Node
         private void DestroyNode(object node)
         {
             ActiveGraph.RemoveAndAddToUndo(node);
@@ -252,6 +281,7 @@ namespace Bremsengine
         {
             ActiveGraph.UndoLast();
         }
+        #endregion
     }
     #endregion
     public partial class ProjectileGraphEditor : UnityEditor.EditorWindow

@@ -5529,6 +5529,10 @@ PrefabInstance:
       propertyPath: targetEditorOverride
       value: 
       objectReference: {fileID: 2135658741}
+    - target: {fileID: 6154838771780872351, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testTarget
+      value: 
+      objectReference: {fileID: 2135658742}
     - target: {fileID: 7025743821825117553, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

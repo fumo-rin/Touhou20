@@ -3,6 +3,7 @@ using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BremseTouhou
 {
@@ -24,6 +25,17 @@ namespace BremseTouhou
             }
             ChangeHealth(-p.Damage);
             return true;
+        }
+        float nextAttackTime;
+        [SerializeField] float addedAttackDelay = 0.4f;
+        [SerializeField] UnityEvent testAttackEvent;
+        private void Update()
+        {
+            if (nextAttackTime <= Time.time)
+            {
+                nextAttackTime = Time.time + addedAttackDelay;
+                testAttackEvent?.Invoke();
+            }
         }
     }
 }

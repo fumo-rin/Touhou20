@@ -100,7 +100,6 @@ namespace Bremsengine
         }
         public static Projectile NewCreateFromQueue(Projectile proj, Vector2 position, ProjectileNodeDirection direction)
         {
-
             Projectile projectile = null;
             int iterations = 0;
             while (ProjectileQueue.Count > 0 && ProjectileQueue.Peek() == null)
@@ -125,7 +124,7 @@ namespace Bremsengine
             }
             projectile.SetPosition(position);
             projectile.SetProjectile(proj);
-
+            projectile.NewSetDirection(direction);
 
             return projectile;
         }
@@ -149,7 +148,7 @@ namespace Bremsengine
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
             return this;
         }
-        public Projectile SetDirection(ProjectileNodeDirection direction)
+        public Projectile NewSetDirection(ProjectileNodeDirection direction)
         {
             currentNodeDirection = direction.Clone();
             rb.velocity = direction.Direction;
@@ -211,6 +210,7 @@ namespace Bremsengine
             {
                 return null;
             }
+            CountProjectiles++;
             direction.SetDirectionalOffset(proj.DirectionalOffset);
             Projectile spawnedProjectile = OldCreateFromQueue(proj.projectilePrefab, position, direction);
             AddToFolder(spawnedProjectile);
@@ -222,11 +222,12 @@ namespace Bremsengine
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
         }
-        public static void SpawnProjectileGraph(ProjectileGraphSO graph, Transform owner, Transform target, Vector2 ownerFallbackPosition, SpawnCallback callback)
+        public static void SpawnProjectileGraph(ProjectileGraphSO graph, Transform owner, Transform target, Vector2 overridePosition, SpawnCallback callback)
         {
-            List<Projectile> spawned = graph.SpawnGraph(owner, target, ownerFallbackPosition);
+            List<Projectile> spawned = graph.SpawnGraph(owner, target, overridePosition);
             foreach (var item in spawned)
             {
+                CountProjectiles++;
                 callback?.Invoke(item, owner, target);
             }
         }
@@ -259,6 +260,7 @@ namespace Bremsengine
                 activeProjectiles.Remove(this);
                 return;
             }
+            CountProjectiles--;
             isActive = false;
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
@@ -270,12 +272,14 @@ namespace Bremsengine
     #region Projectile Folder
     public partial class Projectile
     {
+        public static int CountProjectiles { get; private set; }
         static HashSet<Projectile> activeProjectiles = new();
         private static GameObject projectileFolder = null;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         [ContextMenu("Clear All Projectiles Globally")]
         public static void ClearAllProjectiles()
         {
+            CountProjectiles = 0;
             if (projectileFolder != null)
             {
                 Destroy(projectileFolder);

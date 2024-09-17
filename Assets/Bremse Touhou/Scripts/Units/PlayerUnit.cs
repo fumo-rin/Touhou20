@@ -132,5 +132,9 @@ namespace BremseTouhou
         {
             AttackUpdate();
         }
+        private void OnApplicationQuit()
+        {
+            Debug.Log(Projectile.CountProjectiles);
+        }
     }
 }

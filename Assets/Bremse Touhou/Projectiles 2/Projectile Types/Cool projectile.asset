@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a7b91db6c6745847ae5711e24b2f387, type: 3}
-  m_Name: Standard Projectile
+  m_Name: Cool projectile
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 6413974022808271313, guid: 2ec31ff7d30682c4a969dd85bb1c96b3, type: 3}
+  Prefab: {fileID: 6413974022808271313, guid: 86ca9dada8c1377499a89023be151ada, type: 3}
