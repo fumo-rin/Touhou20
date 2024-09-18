@@ -10,11 +10,10 @@ namespace Bremsengine
 {
     #region Editor
 #if UNITY_EDITOR
-    public partial class ProjectileNodeSO
+    public partial class ProjectileNodeSO : ProjectileGraphComponent
     {
-        public abstract string GetHeaderName();
+        protected static List<ProjectileTypeSO> ProjectileCache => ProjectileGraphEditor.ProjectileTypeLookup;
         const float spritePreviewSize = 250f;
-        [HideInInspector] public Rect rect;
         [HideInInspector] public Rect projectileImagePreview;
         Texture previewTexture;
         public void SetPreviewTexture(ProjectileTypeSO p)
@@ -22,21 +21,15 @@ namespace Bremsengine
             if (p.Prefab != null && p.Prefab.Texture is Texture t and not null)
                 previewTexture = t;
         }
-        protected Rect NodeRect(float x, float y, float w, float h)
-        {
-            return new Rect(new Vector2(x, y), new Vector2(w, h));
-        }
         protected Rect NodeRectPreview(float x, float y)
         {
             return new Rect(new Vector2(x - 256, y), new Vector2(250f, 250f));
         }
-        protected static List<ProjectileTypeSO> ProjectileCache => ProjectileGraphEditor.ProjectileTypeLookup;
-        protected abstract void OnInitialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type);
         public void Reinitalize()
         {
-            Initialize(rect, graph, ProjectileType);
+            OnInitialize(rect.position, graph, ProjectileType);
         }
-        public void Initialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type)
+        protected override void OnInitialize(Vector2 position, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
             this.graph = graph;
             this.name = "Projectile Node";
@@ -44,17 +37,13 @@ namespace Bremsengine
             {
                 this.ID = Guid.NewGuid().ToString();
             }
-            this.rect = rect;
-            this.projectileImagePreview = NodeRectPreview(rect.x, rect.y + 30);
+            this.rect = GetRect(position);
+            this.projectileImagePreview = NodeRectPreview(position.x, position.y + 30);
             graph.nodes.AddIfDoesntExist(this);
             this.ProjectileType = type;
-            this.rect = NodeRect(rect.x, rect.y, 350f, 700f);
-            OnInitialize(rect, graph, type);
         }
-        protected abstract void OnDraw(GUIStyle style);
-        public void Draw(GUIStyle style)
+        protected override void OnDraw(GUIStyle style)
         {
-            GUILayout.BeginArea(rect, style);
             EditorGUI.BeginChangeCheck();
             ProjectileDamage = EditorGUILayout.Slider("Damage", ProjectileDamage, 1f, 100f);
             NodeActive = EditorGUILayout.Toggle("Is Active", NodeActive);
@@ -72,17 +61,16 @@ namespace Bremsengine
             spread = EditorGUILayout.Slider("Spread", spread, 0f, 60f);
             speed = EditorGUILayout.Slider("Speed", speed, 0f, 35f);
             addedAngle = EditorGUILayout.Slider("Added Angle", addedAngle, -180f, 180f);
-
-            OnDraw(style);
-
-            GUILayout.EndArea();
-            GUILayout.BeginArea(projectileImagePreview, style);
-            EditorGUI.DrawPreviewTexture(new(25f, 25f, 200f, 200f), previewTexture);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
                 AssetDatabase.SaveAssetIfDirty(this);
             }
+        }
+        protected override void SecondaryDraw(GUIStyle style)
+        {
+            GUILayout.BeginArea(projectileImagePreview, style);
+            EditorGUI.DrawPreviewTexture(new(25f, 25f, 200f, 200f), previewTexture);
             GUILayout.EndArea();
         }
         protected void DrawLabel(string label, bool hasSpaceAbove = true)
@@ -188,15 +176,12 @@ namespace Bremsengine
         }
     }
     #endregion
-    public abstract partial class ProjectileNodeSO : ScriptableObject
+    public abstract partial class ProjectileNodeSO : ProjectileGraphComponent
     {
         public ProjectileTypeSO ProjectileType;
-        public string ID;
         public float spawnDelay;
         public List<ProjectileEventSO> linkedProjectileEvents = new();
         public abstract void Spawn(in List<Projectile> list, Transform owner, Transform target, Vector2 lastTargetPosition, TriggeredEvent triggeredEvent);
-
-        [HideInInspector] public ProjectileGraphSO graph;
         public void SendProjectileEvents(Projectile p, TriggeredEvent triggeredEvent)
         {
             triggeredEvent.Bind(this);

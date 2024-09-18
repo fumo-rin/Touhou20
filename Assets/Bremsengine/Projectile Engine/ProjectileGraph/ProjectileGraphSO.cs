@@ -73,15 +73,10 @@ namespace Bremsengine
 
                 }
             }
-            foreach (ProjectileNodeSO node in nodes)
+            foreach (ProjectileGraphComponent c in components)
             {
-                node.Draw(style);
-                ProjectileGraphEditor.DrawHeader(node.rect, node.GetHeaderName());
-            }
-            foreach (ProjectileEventSO e in knownEvents)
-            {
-                e.Draw(style);
-                ProjectileGraphEditor.DrawHeader(e.rect, e.GetEventName());
+                c.Draw(style);
+                ProjectileGraphEditor.DrawHeader(c.rect, c.GetGraphComponentName());
             }
         }
     }
@@ -99,35 +94,50 @@ namespace Bremsengine
             UndoStack.Clear();
             AssetDatabase.SaveAssets();
         }
-        public Stack<ProjectileNodeSO> UndoStack = new Stack<ProjectileNodeSO>();
+        private Stack<ProjectileGraphComponent> UndoStack = new Stack<ProjectileGraphComponent>();
         public bool CanUndo => UndoStack != null && UndoStack.Count > 0;
-        public ProjectileNodeSO UndoLast()
+        private ProjectileGraphComponent UndoLast()
         {
             if (!CanUndo)
                 return null;
-            ProjectileNodeSO undo = UndoStack.Pop();
-            nodes.Add(undo);
+            ProjectileGraphComponent undo = UndoStack.Pop();
+            if (undo is ProjectileNodeSO node)
+            {
+                nodes.Add(node);
+            }
+            components.Add(undo);
             return undo;
         }
-        public void RemoveAndAddToUndo(object node)
+        private void RemoveAndAddToUndo(ProjectileGraphComponent c)
         {
-            RemoveAndAddToUndo(node as ProjectileNodeSO);
-        }
-        public void RemoveAndAddToUndo(ProjectileNodeSO node)
-        {
-            if (node is not null and ProjectileNodeSO n)
+            if (c is not null and ProjectileNodeSO n)
             {
                 nodes.Remove(n);
-                UndoStack.Push(n);
             }
+            components.Remove(c);
+            UndoStack.Push(c);
+            c.OnGraphDelete();
+        }
+    }
+    #endregion
+    #region Destroy & Undo Destroy Node
+    public partial class ProjectileGraphSO
+    {
+        public void DestroyComponent(object node)
+        {
+            RemoveAndAddToUndo((ProjectileGraphComponent)node);
+        }
+        public void UndoLastDelete()
+        {
+            UndoLast();
         }
     }
     #endregion
 #endif
-    #region Projectile Events
+    #region Graph Components
     public partial class ProjectileGraphSO
     {
-        public List<ProjectileEventSO> knownEvents = new();
+        public List<ProjectileGraphComponent> components = new();
     }
     #endregion
     [CreateAssetMenu(menuName = "Bremsengine/Projectile2/Graph")]

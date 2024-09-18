@@ -6,8 +6,6 @@ using Core;
 using System.Linq;
 using System;
 using Core.Extensions;
-
-
 #if UNITY_EDITOR
 using UnityEditor.Callbacks;
 namespace Bremsengine
@@ -82,13 +80,9 @@ namespace Bremsengine
         {
             if (isDraggingGrid)
             {
-                foreach (var item in AllNodes)
+                foreach (var item in ActiveGraph.components)
                 {
-                    item.DragNode(delta);
-                }
-                foreach (var item in AllEvents)
-                {
-                    item.DragEvent(delta);
+                    item.Drag(delta);
                 }
                 ActiveGraph.DragPreviewLine(delta);
             }
@@ -231,7 +225,7 @@ namespace Bremsengine
             {
                 if (dragNode)
                 {
-                    dragNode.DragNode(e.delta);
+                    dragNode.Drag(e.delta);
                 }
                 if (projectileEventDragSelection)
                 {
@@ -274,7 +268,6 @@ namespace Bremsengine
             ProjectileEventSO mouseOverProjectileEvent = null;
             if (IsMouseOverNode(e, out mouseOverNode))
             {
-                menu.AddItem(new GUIContent("Remove Projectile Node"), false, DestroyNode, mouseOverNode);
                 if (ActiveGraph.Developing)
                 {
                     menu.AddItem(new GUIContent("(Developing) Re Initialize Node"), false, mouseOverNode.Reinitalize);
@@ -282,11 +275,14 @@ namespace Bremsengine
             }
             if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
             {
-                menu.AddItem(new GUIContent("Remove Projectile Event"), false, DestroyEvent, mouseOverProjectileEvent);
                 if (ActiveGraph.Developing)
                 {
                     menu.AddItem(new GUIContent("(Developing) Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
                 }
+            }
+            if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
+            {
+                menu.AddItem(new GUIContent("Remove Projectile Node"), false, ActiveGraph.DestroyComponent, c);
             }
             bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
             if (mouseOverNode == null)
@@ -295,7 +291,7 @@ namespace Bremsengine
                 menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
                 if (ActiveGraph.CanUndo)
                 {
-                    menu.AddItem(new GUIContent("Undo Delete"), false, UndoLastDelete);
+                    menu.AddItem(new GUIContent("Undo Delete"), false, ActiveGraph.UndoLastDelete);
                 }
             }
             if (mouseOverProjectileEvent == null)
@@ -307,14 +303,27 @@ namespace Bremsengine
         }
         #endregion
         #region Mouse Over Projectile Event
+        private bool IsMouseOverComponent(Event e, out ProjectileGraphComponent c)
+        {
+            c = null;
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
+            {
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileGraphComponent found and not null)
+                {
+                    c = found;
+                    break;
+                }
+            }
+            return c != null;
+        }
         private bool IsMouseOverProjectileEvent(Event e, out ProjectileEventSO foundEvent)
         {
             foundEvent = null;
-            for (int i = 0; i < ActiveGraph.knownEvents.Count; i++)
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
             {
-                if (ActiveGraph.knownEvents[i].IsMouseOver(e.mousePosition))
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileEventSO found and not null)
                 {
-                    foundEvent = ActiveGraph.knownEvents[i];
+                    foundEvent = found;
                     break;
                 }
             }
@@ -327,7 +336,7 @@ namespace Bremsengine
             node = null;
             for (int i = 0; i < ActiveGraph.nodes.Count; i++)
             {
-                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition))
+                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition) && ActiveGraph.nodes[i] is ProjectileNodeSO found and not null)
                 {
                     node = ActiveGraph.nodes[i];
                     break;
@@ -341,8 +350,6 @@ namespace Bremsengine
     #region Projectile Nodes & Events
     public partial class ProjectileGraphEditor
     {
-        private List<ProjectileEventSO> AllEvents => ActiveGraph.knownEvents;
-        private List<ProjectileNodeSO> AllNodes => ActiveGraph.nodes;
         #region Add Single Projectile
         private void AddSingleProjectile(object mousePositionObject)
         {
@@ -355,7 +362,7 @@ namespace Bremsengine
                 Debug.Log(ActiveGraph);
                 Debug.Log(projectilePrefabs.Count);
                 Debug.Log(newNode);
-                newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
+                newNode.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
 
                 AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
                 AssetDatabase.SaveAssets();
@@ -371,7 +378,7 @@ namespace Bremsengine
             newNode = ScriptableObject.CreateInstance<ProjectileArcNodeSO>();
             if (newNode != null)
             {
-                newNode.Initialize(NodeRect(mousePosition.x, mousePosition.y, 160f, 75f), ActiveGraph, projectilePrefabs[0]);
+                newNode.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
 
                 AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
                 AssetDatabase.SaveAssets();
@@ -382,7 +389,7 @@ namespace Bremsengine
         private void AddPlaySoundEvent(object mousePosition)
         {
             LoadCache();
-            ProjectileEventSO newEvent = null;
+            ProjectileGraphComponent newEvent = null;
             newEvent = ScriptableObject.CreateInstance<PlaySoundEventSO>();
             if (newEvent != null)
             {
@@ -409,34 +416,14 @@ namespace Bremsengine
         #region Add Crawler Event
 
         #endregion
-        #region Destroy & Undo Destroy Node
-        private void DestroyNode(object node)
-        {
-            ActiveGraph.RemoveAndAddToUndo(node);
-        }
-        private void DestroyEvent(object node)
-        {
-            if (node is ProjectileEventSO e)
-            {
-                e.DeleteEvent();
-            }
-        }
-        private void UndoLastDelete()
-        {
-            ActiveGraph.UndoLast();
-        }
-        #endregion
     }
     #endregion
     #region Drag
     public partial class ProjectileNodeSO
     {
-        public void DragNode(Vector2 delta)
+        public override void OnDrag(Vector2 delta)
         {
             projectileImagePreview.position += delta;
-            rect.position += delta;
-            GUI.changed = true;
-            this.Dirty();
         }
     }
     public partial class ProjectileEventSO
@@ -485,10 +472,6 @@ namespace Bremsengine
             projectileNodeStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
 
             SetHeaderTexture(null);
-        }
-        public static Rect NodeRect(float x, float y, float w, float h)
-        {
-            return new Rect(new Vector2(x, y), new Vector2(w, h));
         }
         public static void SetDirty(UnityEngine.Object target)
         {

@@ -9,64 +9,36 @@ namespace Bremsengine
 {
     #region Editor
 #if UNITY_EDITOR
-    public abstract partial class ProjectileEventSO : ScriptableObject
+    public abstract partial class ProjectileEventSO : ProjectileGraphComponent
     {
-        protected abstract Rect GetRect(Vector2 mousePosition);
-        public abstract string GetEventName();
-        [HideInInspector] public Rect rect;
-        [HideInInspector] public ProjectileGraphSO graph;
-        protected abstract void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph);
-        protected abstract void OnDraw(GUIStyle style);
-        public void Initialize(Vector2 mousePosition, ProjectileGraphSO graph)
+        protected override Rect GetRect(Vector2 mousePosition)
         {
-            rect = GetRect(mousePosition);
-            this.graph = graph;
-            this.name = GetEventName();
-            if (string.IsNullOrEmpty(ID))
-            {
-                this.ID = Guid.NewGuid().ToString();
-            }
-            graph.knownEvents.AddIfDoesntExist(this);
-            OnInitialize(mousePosition, graph);
+            return new Rect(mousePosition, new(160f, 75f));
         }
-        public bool IsMouseOver(Vector2 mousePosition)
+        public override string GetGraphComponentName()
         {
-            return rect.Contains(mousePosition);
+            return "Headhunter, Leather Belt";
         }
         public void Reinitialize()
         {
-            Initialize(new(rect.x, rect.y), graph);
+            OnInitialize(new(rect.x, rect.y), graph, null);
         }
-        public void Draw(GUIStyle style)
+        protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
-            GUILayout.BeginArea(rect, style);
-            EditorGUI.BeginChangeCheck();
 
-            OnDraw(style);
-
-            if (EditorGUI.EndChangeCheck())
-            {
-                EditorUtility.SetDirty(this);
-                AssetDatabase.SaveAssetIfDirty(this);
-            }
-            GUILayout.EndArea();
         }
-        public void DeleteEvent()
+        public override void OnGraphDelete()
         {
             foreach (var item in graph.nodes)
             {
                 item.linkedProjectileEvents.Remove(this);
             }
-            graph.knownEvents.Remove(this);
-            DestroyImmediate(this, true);
-            AssetDatabase.SaveAssets();
         }
     }
 #endif
     #endregion
-    public abstract partial class ProjectileEventSO : ScriptableObject
+    public abstract partial class ProjectileEventSO : ProjectileGraphComponent
     {
-        public string ID;
         public float EventDelay = 0f;
         public void QueueEvents(Projectile p, ProjectileNodeSO node, TriggeredEvent e)
         {

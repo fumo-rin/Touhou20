@@ -8,15 +8,22 @@ namespace Bremsengine
 #if UNITY_EDITOR
     public partial class SingleProjectileNodeSO
     {
-        public override string GetHeaderName()
+        protected override void OnDraw(GUIStyle style)
         {
-            return "Single Projectile";
+            base.OnDraw(style);
         }
-        protected override void OnInitialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type)
+        protected override Rect GetRect(Vector2 mousePosition)
+        {
+            return new(mousePosition.x, mousePosition.y, 350f, 400f);
+        }
+
+        public override string GetGraphComponentName()
         {
 
+            return "Single Projectile";
         }
-        protected override void OnDraw(GUIStyle style)
+
+        public override void OnGraphDelete()
         {
 
         }

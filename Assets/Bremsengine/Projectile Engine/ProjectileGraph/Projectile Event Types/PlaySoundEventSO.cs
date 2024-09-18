@@ -11,10 +11,16 @@ namespace Bremsengine
 #if UNITY_EDITOR
     public partial class PlaySoundEventSO
     {
-        public override string GetEventName()
+        public override string GetGraphComponentName()
         {
             return $"(Delay:{EventDelay}){(acw == null ? "None":acw.name)}";
         }
+
+        public override void OnDrag(Vector2 delta)
+        {
+
+        }
+
         protected override Rect GetRect(Vector2 mousePosition)
         {
             return new Rect(mousePosition.x, mousePosition.y, 200f, 50f);
@@ -37,7 +43,7 @@ namespace Bremsengine
                 Reinitialize();
             }
         }
-        protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph)
+        protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
 
         }
