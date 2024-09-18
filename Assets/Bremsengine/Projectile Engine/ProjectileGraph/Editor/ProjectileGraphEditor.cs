@@ -5,7 +5,7 @@ using UnityEngine;
 using Core;
 using System.Linq;
 using System;
-
+using Core.Extensions;
 
 
 #if UNITY_EDITOR
@@ -25,6 +25,7 @@ namespace Bremsengine
                 OpenWindow();
 
                 ActiveGraph = graph;
+                ActiveGraph.SetActiveGraph();
                 return true;
             }
             return false;
@@ -85,6 +86,11 @@ namespace Bremsengine
                 {
                     item.DragNode(delta);
                 }
+                foreach (var item in AllEvents)
+                {
+                    item.DragEvent(delta);
+                }
+                ActiveGraph.DragPreviewLine(delta);
             }
         }
     }
@@ -106,18 +112,25 @@ namespace Bremsengine
         }
         private void DrawNodes()
         {
-            foreach (ProjectileNodeSO node in ActiveGraph.nodes)
-            {
-                node.Draw(projectileNodeStyle);
-            }
+            ActiveGraph.Draw(projectileNodeStyle);
             GUI.changed = true;
+        }
+        public static void DrawHeader(Rect rect, string title, float height = 40f)
+        {
+            float width = rect.width - 25f;
+            Rect header = new(new(rect.center.x - (width * 0.5f), rect.center.y + -(rect.height * 0.5f) - height), new(width, height));
+            GUILayout.BeginArea(header, title, HeaderStyle);
+            //EditorGUILayout.LabelField(title);
+            GUILayout.EndArea();
         }
     }
     #endregion
-    #region Events
+    #region Input Events
     public partial class ProjectileGraphEditor
     {
-        private static ProjectileNodeSO currentEventNode;
+        ProjectileEventSO projectileEventDragSelection;
+        static bool CursorMoveDrag;
+        static Vector2 DragLinePreviewStart;
         #region Mouse Down
         private void ProcessMouseDownEvent(Event e)
         {
@@ -131,14 +144,32 @@ namespace Bremsengine
                         if (drag != null)
                         {
                             dragNode = drag;
+                            CursorMoveDrag = true;
+                            return true;
+                        }
+                    }
+                    if (IsMouseOverProjectileEvent(e, out projectileEventDragSelection))
+                    {
+                        if (projectileEventDragSelection != null)
+                        {
+                            CursorMoveDrag = true;
+                            return true;
                         }
                     }
                 }
-                return dragNode != null;
+                if (e.button == 0)
+                {
+                    if (IsMouseOverProjectileEvent(e, out projectileEventDragSelection))
+                    {
+                        DragLinePreviewStart = e.mousePosition;
+                        ActiveGraph.StartLine(e.mousePosition);
+                    }
+                }
+                return false;
             }
-            void DragGrid(Event e)
+            void TryDragGrid(Event e)
             {
-                if (e.button == 2 && !IsMouseOverNode(e, out _))
+                if (e.button == 2 && !IsMouseOverNode(e, out _) && !IsMouseOverProjectileEvent(e, out _))
                 {
                     isDraggingGrid = true;
                 }
@@ -149,18 +180,43 @@ namespace Bremsengine
             }
             if (!StartDragItem(e))
             {
-                DragGrid(e);
+                TryDragGrid(e);
             }
         }
         #endregion
         #region Mouse Up
         private void ProcessMouseUpEvent(Event e)
         {
+            CursorMoveDrag = false;
             if (e.button == 2)
             {
                 dragNode = null;
                 isDraggingGrid = false;
             }
+            if (e.button == 0)
+            {
+                if (projectileEventDragSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover))
+                {
+                    EditorGUI.BeginChangeCheck();
+
+                    Debug.Log("Add event: " + projectileEventDragSelection.name + " to :" + hover.name);
+                    hover.linkedProjectileEvents.AddIfDoesntExist(projectileEventDragSelection);
+                    EditorUtility.SetDirty(hover);
+                    EditorUtility.SetDirty(ActiveGraph);
+
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        EditorUtility.SetDirty(this);
+                        AssetDatabase.SaveAssetIfDirty(this);
+                    }
+                }
+                if (ActiveGraph.previewLine && IsMouseOverNode(e, out ProjectileNodeSO lineToNode))
+                {
+
+                }
+                ActiveGraph.EndPreviewLine();
+            }
+            projectileEventDragSelection = null;
         }
         #endregion
         #region Mouse Drag
@@ -171,20 +227,25 @@ namespace Bremsengine
         }
         private void ProcessMouseDrag(Event e)
         {
-            if (dragNode)
+            if (CursorMoveDrag)
             {
-                dragNode.DragNode(e.delta);
+                if (dragNode)
+                {
+                    dragNode.DragNode(e.delta);
+                }
+                if (projectileEventDragSelection)
+                {
+                    projectileEventDragSelection.DragEvent(e.delta);
+                }
             }
             DragGrid(e.delta);
         }
         #endregion
+        #region Process Events
         private void ProcessEvents(Event e)
         {
-            if (IsMouseOverNode(e, out currentEventNode))
-            {
-                currentEventNode.ProcessEvents(e);
-            }
             ProcessProjectileGraphEvents(e);
+            ActiveGraph.ProcessPreviewLine(e);
         }
         private void ProcessProjectileGraphEvents(Event e)
         {
@@ -203,16 +264,32 @@ namespace Bremsengine
                     break;
             }
         }
+        #endregion
+        #region Show Context Menu
         private void ShowContextMenu(Event e)
         {
             GenericMenu menu = new GenericMenu();
             Vector2 position = e.mousePosition;
-            ProjectileNodeSO mouseOver = null;
-            if (IsMouseOverNode(e, out mouseOver))
+            ProjectileNodeSO mouseOverNode = null;
+            ProjectileEventSO mouseOverProjectileEvent = null;
+            if (IsMouseOverNode(e, out mouseOverNode))
             {
-                menu.AddItem(new GUIContent("Remove Projectile Node"), false, DestroyNode, mouseOver);
+                menu.AddItem(new GUIContent("Remove Projectile Node"), false, DestroyNode, mouseOverNode);
+                if (ActiveGraph.Developing)
+                {
+                    menu.AddItem(new GUIContent("(Developing) Re Initialize Node"), false, mouseOverNode.Reinitalize);
+                }
             }
-            if (mouseOver == null)
+            if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
+            {
+                menu.AddItem(new GUIContent("Remove Projectile Event"), false, DestroyEvent, mouseOverProjectileEvent);
+                if (ActiveGraph.Developing)
+                {
+                    menu.AddItem(new GUIContent("(Developing) Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
+                }
+            }
+            bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
+            if (mouseOverNode == null)
             {
                 menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
                 menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
@@ -221,8 +298,30 @@ namespace Bremsengine
                     menu.AddItem(new GUIContent("Undo Delete"), false, UndoLastDelete);
                 }
             }
+            if (mouseOverProjectileEvent == null)
+            {
+                menu.AddItem(new GUIContent("Add Play Sound Event"), false, AddPlaySoundEvent, position);
+                menu.AddItem(new GUIContent("Add Crawler Event"), false, AddCrawlerEvent, position);
+            }
             menu.ShowAsContext();
         }
+        #endregion
+        #region Mouse Over Projectile Event
+        private bool IsMouseOverProjectileEvent(Event e, out ProjectileEventSO foundEvent)
+        {
+            foundEvent = null;
+            for (int i = 0; i < ActiveGraph.knownEvents.Count; i++)
+            {
+                if (ActiveGraph.knownEvents[i].IsMouseOver(e.mousePosition))
+                {
+                    foundEvent = ActiveGraph.knownEvents[i];
+                    break;
+                }
+            }
+            return foundEvent != null;
+        }
+        #endregion
+        #region Mouse Over Node
         private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
         {
             node = null;
@@ -236,11 +335,13 @@ namespace Bremsengine
             }
             return node != null;
         }
+        #endregion
     }
     #endregion
-    #region Projectile Nodes
+    #region Projectile Nodes & Events
     public partial class ProjectileGraphEditor
     {
+        private List<ProjectileEventSO> AllEvents => ActiveGraph.knownEvents;
         private List<ProjectileNodeSO> AllNodes => ActiveGraph.nodes;
         #region Add Single Projectile
         private void AddSingleProjectile(object mousePositionObject)
@@ -277,10 +378,48 @@ namespace Bremsengine
             }
         }
         #endregion
+        #region Add Play Sound Event
+        private void AddPlaySoundEvent(object mousePosition)
+        {
+            LoadCache();
+            ProjectileEventSO newEvent = null;
+            newEvent = ScriptableObject.CreateInstance<PlaySoundEventSO>();
+            if (newEvent != null)
+            {
+                newEvent.Initialize((Vector2)mousePosition, ActiveGraph);
+
+                AssetDatabase.AddObjectToAsset(newEvent, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
+        private void AddCrawlerEvent(object mousePosition)
+        {
+            LoadCache();
+            ProjectileEventSO newEvent = null;
+            newEvent = ScriptableObject.CreateInstance<CrawlerEventSO>();
+            if (newEvent != null)
+            {
+                newEvent.Initialize((Vector2)mousePosition, ActiveGraph);
+
+                AssetDatabase.AddObjectToAsset(newEvent, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
+        #endregion
+        #region Add Crawler Event
+
+        #endregion
         #region Destroy & Undo Destroy Node
         private void DestroyNode(object node)
         {
             ActiveGraph.RemoveAndAddToUndo(node);
+        }
+        private void DestroyEvent(object node)
+        {
+            if (node is ProjectileEventSO e)
+            {
+                e.DeleteEvent();
+            }
         }
         private void UndoLastDelete()
         {
@@ -289,25 +428,78 @@ namespace Bremsengine
         #endregion
     }
     #endregion
+    #region Drag
+    public partial class ProjectileNodeSO
+    {
+        public void DragNode(Vector2 delta)
+        {
+            projectileImagePreview.position += delta;
+            rect.position += delta;
+            GUI.changed = true;
+            this.Dirty();
+        }
+    }
+    public partial class ProjectileEventSO
+    {
+        public void DragEvent(Vector2 delta)
+        {
+            rect.position += delta;
+            GUI.changed = true;
+            this.Dirty();
+        }
+    }
+    #endregion
     public partial class ProjectileGraphEditor : UnityEditor.EditorWindow
     {
+        public static void SetHeaderTexture(Texture2D tex)
+        {
+            int headerPaddingX = 10;
+            int headerPaddingY = 5;
+            int border = 12;
+            HeaderStyle = new();
+            HeaderStyle.normal.textColor = Color.white;
+            HeaderStyle.normal.background = TextureOrFallback(tex);
+            HeaderStyle.padding = new RectOffset(headerPaddingX, headerPaddingY, headerPaddingX, 0);
+            HeaderStyle.border = new RectOffset(border, border, border, border);
+            HeaderStyle.richText = true;
+            HeaderStyle.fontSize = 16;
+        }
+        private static Texture2D headerTexture;
         private GUIStyle projectileNodeStyle;
+        public static GUIStyle HeaderStyle;
+        private static Texture2D cachedFallbackTexture;
+        public static Texture2D FallbackTexture => cachedFallbackTexture == null ? cachedFallbackTexture = EditorGUIUtility.Load("node1") as Texture2D : cachedFallbackTexture;
 
         private const int nodePadding = 25;
         private const int nodeBorder = 12;
-
+        public static Texture2D TextureOrFallback(Texture2D tex)
+        {
+            return tex == null ? FallbackTexture : tex;
+        }
         private void OnEnable()
         {
             projectileNodeStyle = new GUIStyle();
             projectileNodeStyle.normal.textColor = Color.white;
-            projectileNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
+            projectileNodeStyle.normal.background = TextureOrFallback(null);
             projectileNodeStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
             projectileNodeStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
+
+            SetHeaderTexture(null);
         }
         public static Rect NodeRect(float x, float y, float w, float h)
         {
             return new Rect(new Vector2(x, y), new Vector2(w, h));
         }
+        public static void SetDirty(UnityEngine.Object target)
+        {
+            EditorUtility.SetDirty(target);
+        }
     }
+    #region Helper
+    public static partial class ProjectileGraphHelper
+    {
+        public static void Dirty(this UnityEngine.Object o) => EditorUtility.SetDirty(o);
+    }
+    #endregion
 }
 #endif

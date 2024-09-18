@@ -134,7 +134,7 @@ namespace BremseTouhou
         }
         private void OnApplicationQuit()
         {
-            Debug.Log(Projectile.CountProjectiles);
+            Debug.Log("Projectile Count at Game Close : "+ Projectile.CountProjectiles);
         }
     }
 }

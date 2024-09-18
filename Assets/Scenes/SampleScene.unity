@@ -5508,22 +5508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1564209873}
     m_Modifications:
-    - target: {fileID: 170594940269795490, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
-      propertyPath: trackedTarget
-      value: 
-      objectReference: {fileID: 2135658741}
     - target: {fileID: 2810120549550396217, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: m_Name
       value: Test Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 2810120549550396217, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
-      propertyPath: editorOverride
-      value: 
-      objectReference: {fileID: 2135658741}
     - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: targetEditorOverride
       value: 

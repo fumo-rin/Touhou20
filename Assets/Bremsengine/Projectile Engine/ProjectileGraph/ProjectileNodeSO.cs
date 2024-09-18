@@ -10,37 +10,9 @@ namespace Bremsengine
 {
     #region Editor
 #if UNITY_EDITOR
-    #region Drag
     public partial class ProjectileNodeSO
     {
-        public void DragNode(Vector2 delta)
-        {
-            rect.position += delta;
-            projectileImagePreview.position += delta;
-            EditorUtility.SetDirty(this);
-            GUI.changed = true;
-        }
-    }
-    #endregion
-    #region Events
-    public partial class ProjectileNodeSO
-    {
-        public void ProcessEvents(Event e)
-        {
-            switch (e.type)
-            {
-                case EventType.MouseDown:
-                    break;
-                case EventType.MouseUp:
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-    #endregion
-    public partial class ProjectileNodeSO
-    {
+        public abstract string GetHeaderName();
         const float spritePreviewSize = 250f;
         [HideInInspector] public Rect rect;
         [HideInInspector] public Rect projectileImagePreview;
@@ -60,6 +32,10 @@ namespace Bremsengine
         }
         protected static List<ProjectileTypeSO> ProjectileCache => ProjectileGraphEditor.ProjectileTypeLookup;
         protected abstract void OnInitialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type);
+        public void Reinitalize()
+        {
+            Initialize(rect, graph, ProjectileType);
+        }
         public void Initialize(Rect rect, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
             this.graph = graph;
@@ -70,15 +46,15 @@ namespace Bremsengine
             graph.nodes.AddIfDoesntExist(this);
             this.ProjectileType = type;
             this.rect = NodeRect(rect.x, rect.y, 350f, 700f);
+            OnInitialize(rect, graph, type);
         }
         protected abstract void OnDraw(GUIStyle style);
         public void Draw(GUIStyle style)
         {
             GUILayout.BeginArea(rect, style);
             EditorGUI.BeginChangeCheck();
-
-            DrawLabel("Base Projectile", true);
             ProjectileDamage = EditorGUILayout.Slider("Damage", ProjectileDamage, 1f, 100f);
+            NodeActive = EditorGUILayout.Toggle("Is Active", NodeActive);
             int selected = ProjectileCache.FindIndex(x => x == ProjectileType);
             int selection = EditorGUILayout.Popup("", selected, GetProjectileTypesToDisplay());
 
@@ -106,9 +82,9 @@ namespace Bremsengine
             }
             GUILayout.EndArea();
         }
-        protected void DrawLabel(string label, bool isFirst = false)
+        protected void DrawLabel(string label, bool hasSpaceAbove = true)
         {
-            if (!isFirst)
+            if (hasSpaceAbove)
                 EditorGUILayout.Space();
             EditorGUILayout.LabelField(label);
             EditorGUILayout.Space();
@@ -134,8 +110,9 @@ namespace Bremsengine
         Vector2 direction;
         float AngleOffset;
         float Spread;
-        float Speed;                          
+        float Speed;
         float directionalOffset;
+        float speedMod;
         public ProjectileNodeDirection Clone()
         {
             return new ProjectileNodeDirection()
@@ -146,6 +123,8 @@ namespace Bremsengine
                 direction = this.direction,
                 Spread = this.Spread,
                 Speed = this.Speed,
+                speedMod = this.speedMod,
+                directionalOffset = this.directionalOffset
             };
         }
         public Vector2 DirectionalOffset => Direction.ScaleToMagnitude(directionalOffset);
@@ -158,10 +137,16 @@ namespace Bremsengine
             this.AngleOffset = 0f;
             this.Speed = 0f;
             this.directionalOffset = 0.25f;
+            this.speedMod = 1f;
         }
         public ProjectileNodeDirection SetSpeed(float speed)
         {
-            Speed = speed;
+            Speed = speed * speedMod;
+            return this;
+        }
+        public ProjectileNodeDirection AddSpeedModifier(float speedMod)
+        {
+            this.speedMod *= speedMod;
             return this;
         }
         public ProjectileNodeDirection AddAngle(float angle)
@@ -186,6 +171,7 @@ namespace Bremsengine
     #region Direction
     public partial class ProjectileNodeSO
     {
+        public bool NodeActive = true;
         public float ProjectileDamage = 10f;
         public Vector2 staticDirection = Vector2.zero;
         public float directionalOffset = 0f;
@@ -204,15 +190,28 @@ namespace Bremsengine
         public ProjectileTypeSO ProjectileType;
         public string ID;
         public float spawnDelay;
-        List<object> linkedProjectileEvents = new();
-        public abstract void Spawn(in List<Projectile> list, Transform owner, Transform target, Vector2 lastTargetPosition);
+        public List<ProjectileEventSO> linkedProjectileEvents = new();
+        public abstract void Spawn(in List<Projectile> list, Transform owner, Transform target, Vector2 lastTargetPosition, TriggeredEvent triggeredEvent);
 
         [HideInInspector] public ProjectileGraphSO graph;
-        public void SendProjectileEvents(Projectile p)
+        public void SendProjectileEvents(Projectile p, TriggeredEvent triggeredEvent)
+        {
+            triggeredEvent.Bind(this);
+            foreach (var linkedEvent in linkedProjectileEvents)
+            {
+                SendProjectileEvents(p, linkedEvent, triggeredEvent);
+            }
+        }
+        private void SendProjectileEvents(Projectile p, ProjectileEventSO projectileEvent, TriggeredEvent triggeredEvent)
         {
             if (p == null)
+            {
                 return;
-
+            }
+            foreach (ProjectileEventSO e in linkedProjectileEvents)
+            {
+                e.QueueEvents(p, this, triggeredEvent);
+            }
         }
         protected Projectile CreateProjectile(Projectile p, Vector2 position, ProjectileNodeDirection direction)
         {
@@ -221,7 +220,6 @@ namespace Bremsengine
             direction.SetSpread(spread);
             direction.SetDirectionalOffset(directionalOffset);
             Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(ProjectileDamage);
-            SendProjectileEvents(spawnProjectile);
             return spawnProjectile;
         }
     }

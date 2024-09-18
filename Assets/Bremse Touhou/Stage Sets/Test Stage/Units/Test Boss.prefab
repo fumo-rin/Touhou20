@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2810120549550396217}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   UnitFaction: 2
   unitCollider: {fileID: 990701229308025543}
   <isBoss>k__BackingField: 1
-  addedAttackDelay: 0.5
+  addedAttackDelay: 0.24
   testAttackEvent:
     m_PersistentCalls:
       m_Calls:
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc7c75f93ef0144788061ce299370ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 67471af5fdb23ee4a97369386e4ef632, type: 2}
+  graph: {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
   testTarget: {fileID: 0}
   owner: {fileID: 7025743821825117553}
   faction: 2

@@ -23,6 +23,11 @@ namespace Bremsengine
         Vector2 OverridePosition => Target == null ? fallbackDirection : Target.position;
         public void ShootCurrentGraph()
         {
+            if (graph == null)
+            {
+                Debug.Log("Missing Projectile attack graph");
+                return;
+            }
             Projectile.SpawnProjectileGraph(graph, owner, testTarget, OverridePosition, OnProjectileSpawn);
         }
         private void OnProjectileSpawn(Projectile p, Transform owner, Transform target)

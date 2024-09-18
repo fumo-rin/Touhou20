@@ -229,6 +229,7 @@ namespace Bremsengine
             {
                 CountProjectiles++;
                 callback?.Invoke(item, owner, target);
+                AddToFolder(item);
             }
         }
         /*

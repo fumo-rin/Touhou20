@@ -57,7 +57,7 @@ namespace BremseTouhou
         public string UnitName => unitName;
         public string unitName = "Headhunter, Leather Belt";
         public string HealthText => $"{CurrentHealth.Ceil().Max(0f)}/{MaxHealth.Ceil()}";
-        public float MaxHealth => 10000f;
+        public float MaxHealth => 1000f;
         public float CurrentHealth => unitHealth;
         private float unitHealth;
         public void ChangeHealth(float delta)

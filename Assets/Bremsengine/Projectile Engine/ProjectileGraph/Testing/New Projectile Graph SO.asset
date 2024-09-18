@@ -1,0 +1,607 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8626927022194641280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 379
+    y: 532
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 123
+    y: 562
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0.25
+  spread: 5
+  speed: 16.4
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: e39374fb-f758-4733-ab4c-eb8070d445f4
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -1891589245192417802}
+  graph: {fileID: 11400000}
+  projectileCountFloat: 60
+  AngleCoverage: 180
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.039138794
+      value: 1.008606
+      inSlope: -4.7462215
+      outSlope: -4.7462215
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.48724097
+      value: -1.4897089
+      inSlope: 0.13016081
+      outSlope: 0.13016081
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.98732436
+      value: 1.0139802
+      inSlope: -0.574192
+      outSlope: -0.574192
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29580855
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-5181252609930589887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 38
+    y: 66
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -218
+    y: 96
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0.5
+  spread: 0
+  speed: 5
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  ID: afffcaa0-0afe-46e2-98b9-ebc1971f8481
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -1891589245192417802}
+  graph: {fileID: 11400000}
+  projectileCountFloat: 15
+  AngleCoverage: 110
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.004180908
+      value: 0.13324404
+      inSlope: 1.5204356
+      outSlope: 1.5204356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.8787069
+    - serializedVersion: 3
+      time: 0.5
+      value: 2
+      inSlope: 5.9257236
+      outSlope: -8.395726
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.18076661
+      outWeight: 0.36809874
+    - serializedVersion: 3
+      time: 1.0030773
+      value: 0.09999403
+      inSlope: -1.803385
+      outSlope: -1.803385
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.9803259
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-1891589245192417802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)Swoosh
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 700
+    y: 188
+    width: 200
+    height: 50
+  graph: {fileID: 11400000}
+  ID: 99e6b169-f6de-4e13-a32c-45b627314479
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: New Projectile Graph SO
+  m_EditorClassIdentifier: 
+  headerTexture: {fileID: 2800000, guid: 349cb901f0379fe458415dea963b911e, type: 3}
+  previewLine: 0
+  connectingLineWidth: 3
+  knownEvents:
+  - {fileID: -1891589245192417802}
+  Developing: 0
+  nodes:
+  - {fileID: 2483830047618907254}
+  - {fileID: 1510528837960982465}
+  - {fileID: -5181252609930589887}
+  - {fileID: -8626927022194641280}
+--- !u!114 &629493814051371968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 859
+    y: 237
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 603
+    y: 267
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: d740832b-189d-439b-9669-32a9ee7d20b8
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  graph: {fileID: 11400000}
+  projectileCountFloat: 7
+  AngleCoverage: 104
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1510528837960982465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1447
+    y: 213
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 1191
+    y: 243
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: 50
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: 8aa74bea-9d73-4c64-897e-0ce8ad4954e9
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -1891589245192417802}
+  graph: {fileID: 11400000}
+--- !u!114 &2211661194277907331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 442
+    y: 324
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 186
+    y: 354
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: -180
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: bc24ead1-659c-4584-a6d7-3db67b5203ef
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: 0}
+  graph: {fileID: 11400000}
+  projectileCountFloat: 7
+  AngleCoverage: 69
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2479547642731671862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1101
+    y: 334
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 845
+    y: 364
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: -60
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: 5e2369bb-e9f5-48b5-a89e-70e02ef39b2c
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: 0}
+  graph: {fileID: 11400000}
+  projectileCountFloat: 7
+  AngleCoverage: 91
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2483830047618907254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 996
+    y: 665
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 740
+    y: 695
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: 32
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: 053879c9-4f65-4ca3-aa9e-5d8f10126cee
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -1891589245192417802}
+  graph: {fileID: 11400000}
+--- !u!114 &3478594852342224582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 332
+    y: 262
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 76
+    y: 292
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: a04b6191-71b6-4191-9a6b-bcb60fad6789
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  graph: {fileID: 11400000}
+  projectileCountFloat: 7
+  AngleCoverage: 0
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5731125
+      inSlope: 0.853775
+      outSlope: 0.853775
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.0070762634
+      outSlope: 0.0070762634
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.58018875
+      inSlope: -0.8396225
+      outSlope: -0.8396225
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5709832954337831271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 439
+    y: 484
+    width: 350
+    height: 700
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 183
+    y: 514
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 10
+  addedAngle: 150
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ID: e5f72ae9-26a4-499b-b637-0d77653a0024
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: 0}
+  graph: {fileID: 11400000}
+  projectileCountFloat: 7
+  AngleCoverage: 87
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
