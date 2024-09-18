@@ -22,7 +22,10 @@ namespace Bremsengine
             rect = GetRect(mousePosition);
             this.graph = graph;
             this.name = GetEventName();
-            this.ID = Guid.NewGuid().ToString();
+            if (string.IsNullOrEmpty(ID))
+            {
+                this.ID = Guid.NewGuid().ToString();
+            }
             graph.knownEvents.AddIfDoesntExist(this);
             OnInitialize(mousePosition, graph);
         }

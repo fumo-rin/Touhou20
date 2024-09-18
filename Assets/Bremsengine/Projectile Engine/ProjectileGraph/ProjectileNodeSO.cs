@@ -40,7 +40,10 @@ namespace Bremsengine
         {
             this.graph = graph;
             this.name = "Projectile Node";
-            this.ID = Guid.NewGuid().ToString();
+            if (string.IsNullOrEmpty(ID))
+            {
+                this.ID = Guid.NewGuid().ToString();
+            }
             this.rect = rect;
             this.projectileImagePreview = NodeRectPreview(rect.x, rect.y + 30);
             graph.nodes.AddIfDoesntExist(this);

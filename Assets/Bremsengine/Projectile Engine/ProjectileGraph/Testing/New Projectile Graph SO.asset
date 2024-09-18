@@ -14,30 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 379
-    y: 532
+    x: 833
+    y: 288
     width: 350
     height: 700
   projectileImagePreview:
     serializedVersion: 2
-    x: 123
-    y: 562
+    x: 577
+    y: 318
     width: 250
     height: 250
   NodeActive: 1
   ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0.25
-  spread: 5
+  spread: 0
   speed: 16.4
   addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   ID: e39374fb-f758-4733-ab4c-eb8070d445f4
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -1891589245192417802}
   graph: {fileID: 11400000}
-  projectileCountFloat: 60
+  projectileCountFloat: 15
   AngleCoverage: 180
   startingAngle: 0
   RandomAngle: 0
@@ -69,31 +69,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.039138794
-      value: 1.008606
-      inSlope: -4.7462215
-      outSlope: -4.7462215
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.48724097
-      value: -1.4897089
-      inSlope: 0.13016081
-      outSlope: 0.13016081
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.98732436
-      value: 1.0139802
-      inSlope: -0.574192
-      outSlope: -0.574192
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.29580855
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -112,14 +103,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 38
-    y: 66
+    x: 106
+    y: -162
     width: 350
     height: 700
   projectileImagePreview:
     serializedVersion: 2
-    x: -218
-    y: 96
+    x: -150
+    y: -132
     width: 250
     height: 250
   NodeActive: 1
@@ -210,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 700
-    y: 188
+    x: 768
+    y: -40
     width: 200
     height: 50
   graph: {fileID: 11400000}
@@ -237,8 +228,6 @@ MonoBehaviour:
   - {fileID: -1891589245192417802}
   Developing: 0
   nodes:
-  - {fileID: 2483830047618907254}
-  - {fileID: 1510528837960982465}
   - {fileID: -5181252609930589887}
   - {fileID: -8626927022194641280}
 --- !u!114 &629493814051371968
@@ -307,14 +296,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1447
-    y: 213
+    x: 962
+    y: 159
     width: 350
     height: 700
   projectileImagePreview:
     serializedVersion: 2
-    x: 1191
-    y: 243
+    x: 706
+    y: 189
     width: 250
     height: 250
   NodeActive: 1
@@ -324,7 +313,7 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 50
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   ID: 8aa74bea-9d73-4c64-897e-0ce8ad4954e9
   spawnDelay: 0
   linkedProjectileEvents:
@@ -450,14 +439,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 996
-    y: 665
+    x: 905
+    y: 408
     width: 350
     height: 700
   projectileImagePreview:
     serializedVersion: 2
-    x: 740
-    y: 695
+    x: 649
+    y: 438
     width: 250
     height: 250
   NodeActive: 1
@@ -467,7 +456,7 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 32
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   ID: 053879c9-4f65-4ca3-aa9e-5d8f10126cee
   spawnDelay: 0
   linkedProjectileEvents:
