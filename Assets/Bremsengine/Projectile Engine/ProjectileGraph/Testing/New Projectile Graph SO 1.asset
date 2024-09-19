@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1130
-    y: 555
+    x: 737
+    y: 492
     width: 350
     height: 700
   ID: 1b47a5bc-230f-4f3c-9bae-cc1226bacb84
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 874
-    y: 585
+    x: 481
+    y: 522
     width: 250
     height: 250
   NodeActive: 1
@@ -102,16 +102,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1314
-    y: 326
+    x: 921
+    y: 263
     width: 350
     height: 700
   ID: 09ce4586-113b-458f-a443-3f4d7abf5050
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1058
-    y: 356
+    x: 665
+    y: 293
     width: 250
     height: 250
   NodeActive: 1
@@ -299,16 +299,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 364
-    y: 393
+    x: -29
+    y: 330
     width: 350
     height: 700
   ID: 76ca8d56-d768-40f8-ba5f-674e4e5626ca
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 108
-    y: 423
+    x: -285
+    y: 360
     width: 250
     height: 250
   NodeActive: 1
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 717
-    y: 177
+    x: 324
+    y: 114
     width: 350
     height: 100
   ID: 2ceb7c93-659b-46d7-a11e-74ecb58bb81a
@@ -491,16 +491,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 818
-    y: 680
+    x: 425
+    y: 617
     width: 350
     height: 700
   ID: f5f65d02-2845-4024-8378-a95938bcf1ac
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 562
-    y: 710
+    x: 169
+    y: 647
     width: 250
     height: 250
   NodeActive: 1
@@ -579,16 +579,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 498
-    y: 645
+    x: 105
+    y: 582
     width: 350
     height: 700
   ID: a8c4fc87-b5d3-46a8-9f90-9754f0e6aadd
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 242
-    y: 675
+    x: -151
+    y: 612
     width: 250
     height: 250
   NodeActive: 1

@@ -70,14 +70,14 @@ namespace Bremsengine
     #region Grid
     public partial class ProjectileGraphEditor
     {
-        Vector2 gridOffset;
-        Vector2 gridDrag;
         const float gridLarge = 100f;
         const float gridSmall = 25f;
+        Vector2 graphDrag;
 
         bool isDraggingGrid;
         private void DragGrid(Vector2 delta)
         {
+            graphDrag = delta;
             if (isDraggingGrid)
             {
                 foreach (var item in ActiveGraph.components)
@@ -99,12 +99,32 @@ namespace Bremsengine
                 return;
             }
             ProcessEvents(Event.current);
-            DrawNodes();
+            DrawGrid(gridSmall, 60, Color.gray);
+            DrawGrid(gridLarge, 100, Color.gray);
+            DrawGraph();
 
             if (GUI.changed)
                 Repaint();
         }
-        private void DrawNodes()
+        void DrawGrid(float gridSize, byte gridOpacity, Color color)
+        {
+            int vLineCount = Mathf.CeilToInt((position.width + gridSize) / gridSize);
+            int hLineCount = Mathf.CeilToInt((position.height + gridSize) / gridSize);
+            Handles.color = color.Opacity((byte)gridOpacity);
+
+            Vector2 graphOffset = graphDrag * 0.5f;
+            Debug.Log(hLineCount + " ; " + vLineCount);
+            for (int i = 0; i < vLineCount; i++)
+            {
+                Handles.DrawLine(new Vector2(gridSize * i, -gridSize) + graphOffset, new Vector2(gridSize * i, gridSize + position.height) + graphOffset);
+            }
+            for (int j = 0; j < hLineCount; j++)
+            {
+                Handles.DrawLine(new Vector2(-gridSize, gridSize * j) + graphOffset, new Vector2(position.width + gridSize, gridSize * j) + graphOffset);
+            }
+            Handles.color = Color.white;
+        }
+        private void DrawGraph()
         {
             ActiveGraph.Draw(projectileNodeStyle);
             GUI.changed = true;
@@ -238,6 +258,7 @@ namespace Bremsengine
         #region Process Events
         private void ProcessEvents(Event e)
         {
+            graphDrag = Vector2.zero;
             ProcessProjectileGraphEvents(e);
             ActiveGraph.ProcessPreviewLine(e);
         }
