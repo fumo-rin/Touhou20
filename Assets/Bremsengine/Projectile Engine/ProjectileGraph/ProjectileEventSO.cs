@@ -27,6 +27,10 @@ namespace Bremsengine
         {
 
         }
+        protected override void OnDraw(GUIStyle style)
+        {
+            EventDelay = EditorGUILayout.Slider("Event Delay", EventDelay, 0f, 10f);
+        }
         public override void OnGraphDelete()
         {
             foreach (var item in graph.nodes)

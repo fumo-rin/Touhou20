@@ -73,16 +73,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 297
-    y: 187
+    x: 329
+    y: 117
     width: 350
     height: 700
   ID: 76ca8d56-d768-40f8-ba5f-674e4e5626ca
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 41
-    y: 217
+    x: 73
+    y: 147
     width: 250
     height: 250
   NodeActive: 1
@@ -102,13 +102,49 @@ MonoBehaviour:
   RandomAngle: 0
   arcProgressionSpeed:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   arcProgressionAngleMultiplier:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -148,16 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 939
-    y: 441
+    x: 971
+    y: 371
     width: 350
     height: 400
   ID: e49d3467-0f44-4162-a701-6daf025dee3b
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 683
-    y: 471
+    x: 715
+    y: 401
     width: 250
     height: 250
   NodeActive: 1
@@ -185,11 +221,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 918
-    y: 66
+    x: 950
+    y: -4
     width: 200
     height: 50
   ID: 8d6bc08c-93a3-44bd-b2ac-f3dc3fec9433
   graph: {fileID: 11400000}
   EventDelay: 0
-  acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+  acw: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}

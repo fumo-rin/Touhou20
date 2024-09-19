@@ -73,13 +73,6 @@ namespace Bremsengine
             EditorGUI.DrawPreviewTexture(new(25f, 25f, 200f, 200f), previewTexture);
             GUILayout.EndArea();
         }
-        protected void DrawLabel(string label, bool hasSpaceAbove = true)
-        {
-            if (hasSpaceAbove)
-                EditorGUILayout.Space();
-            EditorGUILayout.LabelField(label);
-            EditorGUILayout.Space();
-        }
         public string[] GetProjectileTypesToDisplay()
         {
             string[] projectileArray = new string[ProjectileCache.Count];

@@ -23,15 +23,16 @@ namespace Bremsengine
 
         protected override Rect GetRect(Vector2 mousePosition)
         {
-            return new Rect(mousePosition.x, mousePosition.y, 200f, 50f);
+            return new Rect(mousePosition.x, mousePosition.y, 350f, 75f);
         }
 
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-
+            AddSpace(4);
+            base.OnDraw(style);
             AudioClipWrapper old = acw;
-            acw = (AudioClipWrapper)EditorGUI.ObjectField(new(10f, 10f, 150f, 20f), acw, typeof(AudioClipWrapper), false);
+            acw = (AudioClipWrapper)EditorGUI.ObjectField(new(25f, 25f, 150f, 20f), acw, typeof(AudioClipWrapper), false);
 
             if (EditorGUI.EndChangeCheck())
             {

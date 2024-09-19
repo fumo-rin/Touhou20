@@ -9,6 +9,7 @@ namespace Bremsengine
     #region Editor
 #if UNITY_EDITOR
     using UnityEditor;
+    #region Base Class
     public abstract partial class ProjectileGraphComponent
     {
         [HideInInspector] public Rect rect;
@@ -37,16 +38,6 @@ namespace Bremsengine
             graph.components.AddIfDoesntExist(this);
             OnInitialize(mousePosition, graph, type);
         }
-        public bool IsMouseOver(Vector2 mousePosition)
-        {
-            return rect.Contains(mousePosition);
-        }
-        public void DeleteComponent()
-        {
-            OnGraphDelete();
-            graph.components.Remove(this);
-            AssetDatabase.SaveAssets();
-        }
         public void Draw(GUIStyle style)
         {
             GUILayout.BeginArea(rect, style);
@@ -64,6 +55,36 @@ namespace Bremsengine
         }
         protected virtual void SecondaryDraw(GUIStyle style) { }
     }
+    #endregion
+    #region Functions
+    public abstract partial class ProjectileGraphComponent
+    {
+        protected void DrawLabel(string label, bool hasSpaceAbove = true)
+        {
+            if (hasSpaceAbove)
+                AddSpace(1);
+            EditorGUILayout.LabelField(label);
+            AddSpace(1);
+        }
+        public bool IsMouseOver(Vector2 mousePosition)
+        {
+            return rect.Contains(mousePosition);
+        }
+        public void DeleteComponent()
+        {
+            OnGraphDelete();
+            graph.components.Remove(this);
+            AssetDatabase.SaveAssets();
+        }
+        public void AddSpace(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                EditorGUILayout.Space();
+            }
+        }
+    }
+    #endregion
 #endif
     #endregion
     public abstract partial class ProjectileGraphComponent : ScriptableObject
