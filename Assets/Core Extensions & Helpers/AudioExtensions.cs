@@ -26,8 +26,8 @@ namespace Core.Extensions
                 a.clip = entry.clip;
                 a.pitch = entry.PitchOrigin.Spread(entry.PitchVariancePercent);
                 a.volume = sound.GetVolume(index);
-                a.Play();
                 a.Set3D(sound);
+                a.Play();
             }
         }
         private static void Set3D(this AudioSource a, AudioClipWrapper w, float? maxDistance = null)

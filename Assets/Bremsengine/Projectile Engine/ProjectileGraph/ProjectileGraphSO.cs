@@ -23,13 +23,13 @@ namespace Bremsengine
         {
             previewLinePosition += delta;
         }
-        public void DrawLink(ProjectileNodeSO node, ProjectileEventSO e)
+        public void DrawLink(ProjectileGraphComponent a, ProjectileGraphComponent b)
         {
-            if (node == null || e == null)
+            if (a == null || b == null)
             {
                 return;
             }
-            DrawLine(node.rect, e.rect);
+            DrawLine(a.rect, b.rect);
         }
         public void DrawLine(Rect a, Rect b)
         {
@@ -71,6 +71,13 @@ namespace Bremsengine
                 {
                     DrawLink(node, link);
 
+                }
+            }
+            foreach(ProjectileEmitterSO emitter in emitters)
+            {
+                foreach (var link in emitter.linkedNodes)
+                {
+                    DrawLink(emitter, link);
                 }
             }
             foreach (ProjectileGraphComponent c in components)
@@ -145,6 +152,7 @@ namespace Bremsengine
     {
         public bool Developing;
         public List<ProjectileNodeSO> nodes = new();
+        public List<ProjectileEmitterSO> emitters = new();
         /// <summary>
         /// Should be Called as Projectile.SpawnProjectileGraph
         /// </summary>
@@ -152,22 +160,20 @@ namespace Bremsengine
         /// <param name="target"></param>
         /// <param name="fallbackPosition"></param>
         /// <returns></returns>
-        public List<Projectile> SpawnGraph(Transform owner, Transform target, Vector2 fallbackPosition)
+        public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
-            List<Projectile> spawns = new List<Projectile>();
             TriggeredEvent projectileEvents = new TriggeredEvent();
-            foreach (ProjectileNodeSO node in nodes)
+            /*foreach (ProjectileNodeSO node in nodes)
             {
                 if (!node.NodeActive)
                     continue;
-                node.Spawn(spawns, owner, target, fallbackPosition, projectileEvents);
+                //node.Spawn(spawns, input, projectileEvents);
+                //callback?.Invoke(, input.Owner, input.Target);
+            }*/
+            foreach (ProjectileEmitterSO emitter in emitters)
+            {
+                emitter.Trigger(projectileEvents, input, callback);
             }
-            BroadcastTriggeredEvents(projectileEvents);
-            return spawns;
-        }
-        public static void BroadcastTriggeredEvents(TriggeredEvent triggeredEvents)
-        {
-
         }
     }
 }

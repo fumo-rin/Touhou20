@@ -5008,7 +5008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2033812176
 Transform:
   m_ObjectHideFlags: 0
@@ -5516,6 +5516,10 @@ PrefabInstance:
       propertyPath: targetEditorOverride
       value: 
       objectReference: {fileID: 2135658741}
+    - target: {fileID: 6125312795218725489, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6154838771780872351, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: testTarget
       value: 

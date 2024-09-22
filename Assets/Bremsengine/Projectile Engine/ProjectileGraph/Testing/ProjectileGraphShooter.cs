@@ -28,7 +28,13 @@ namespace Bremsengine
                 Debug.Log("Missing Projectile attack graph");
                 return;
             }
-            Projectile.SpawnProjectileGraph(graph, owner, testTarget, OverridePosition, OnProjectileSpawn);
+            ProjectileGraphInput input = new()
+            {
+                Target = Target,
+                Owner = owner,
+                Origin = owner.position,
+            };
+            Projectile.SpawnProjectileGraph(graph, input, OnProjectileSpawn);
         }
         private void OnProjectileSpawn(Projectile p, Transform owner, Transform target)
         {

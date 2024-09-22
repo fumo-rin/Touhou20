@@ -113,7 +113,6 @@ namespace Bremsengine
             Handles.color = color.Opacity((byte)gridOpacity);
 
             Vector2 graphOffset = graphDrag * 0.5f;
-            Debug.Log(hLineCount + " ; " + vLineCount);
             for (int i = 0; i < vLineCount; i++)
             {
                 Handles.DrawLine(new Vector2(gridSize * i, -gridSize) + graphOffset, new Vector2(gridSize * i, gridSize + position.height) + graphOffset);
@@ -143,6 +142,7 @@ namespace Bremsengine
     public partial class ProjectileGraphEditor
     {
         ProjectileEventSO projectileEventDragSelection;
+        ProjectileEmitterSO emitterSelection;
         static bool CursorMoveDrag;
         static Vector2 DragLinePreviewStart;
         #region Mouse Down
@@ -170,10 +170,23 @@ namespace Bremsengine
                             return true;
                         }
                     }
+                    if (IsMouseOverEmitter(e, out emitterSelection))
+                    {
+                        if (emitterSelection != null)
+                        {
+                            CursorMoveDrag = true;
+                            return true;
+                        }
+                    }
                 }
                 if (e.button == 0)
                 {
                     if (IsMouseOverProjectileEvent(e, out projectileEventDragSelection))
+                    {
+                        DragLinePreviewStart = e.mousePosition;
+                        ActiveGraph.StartLine(e.mousePosition);
+                    }
+                    if (IsMouseOverEmitter(e, out emitterSelection))
                     {
                         DragLinePreviewStart = e.mousePosition;
                         ActiveGraph.StartLine(e.mousePosition);
@@ -224,6 +237,21 @@ namespace Bremsengine
                         AssetDatabase.SaveAssetIfDirty(this);
                     }
                 }
+                if (emitterSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover2))
+                {
+                    EditorGUI.BeginChangeCheck();
+
+                    Debug.Log("Add emitter: " + emitterSelection.name + " to : " + hover2.name);
+                    emitterSelection.linkedNodes.AddIfDoesntExist(hover2);
+                    EditorUtility.SetDirty(hover2);
+                    EditorUtility.SetDirty(ActiveGraph);
+
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        EditorUtility.SetDirty(this);
+                        AssetDatabase.SaveAssetIfDirty(this);
+                    }
+                }
                 if (ActiveGraph.previewLine && IsMouseOverNode(e, out ProjectileNodeSO lineToNode))
                 {
 
@@ -231,6 +259,7 @@ namespace Bremsengine
                 ActiveGraph.EndPreviewLine();
             }
             projectileEventDragSelection = null;
+            emitterSelection = null;
         }
         #endregion
         #region Mouse Drag
@@ -250,6 +279,10 @@ namespace Bremsengine
                 if (projectileEventDragSelection)
                 {
                     projectileEventDragSelection.DragEvent(e.delta);
+                }
+                if (emitterSelection)
+                {
+                    emitterSelection.Drag(e.delta);
                 }
             }
             DragGrid(e.delta);
@@ -280,49 +313,6 @@ namespace Bremsengine
             }
         }
         #endregion
-        #region Show Context Menu
-        private void ShowContextMenu(Event e)
-        {
-            GenericMenu menu = new GenericMenu();
-            Vector2 position = e.mousePosition;
-            ProjectileNodeSO mouseOverNode = null;
-            ProjectileEventSO mouseOverProjectileEvent = null;
-            if (IsMouseOverNode(e, out mouseOverNode))
-            {
-                if (ActiveGraph.Developing)
-                {
-                    menu.AddItem(new GUIContent("(Developing) Re Initialize Node"), false, mouseOverNode.Reinitalize);
-                }
-            }
-            if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
-            {
-                if (ActiveGraph.Developing)
-                {
-                    menu.AddItem(new GUIContent("(Developing) Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
-                }
-            }
-            if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
-            {
-                menu.AddItem(new GUIContent("Remove Projectile Node"), false, ActiveGraph.DestroyComponent, c);
-            }
-            bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
-            if (mouseOverNode == null)
-            {
-                menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
-                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
-                if (ActiveGraph.CanUndo)
-                {
-                    menu.AddItem(new GUIContent("Undo Delete"), false, ActiveGraph.UndoLastDelete);
-                }
-            }
-            if (mouseOverProjectileEvent == null)
-            {
-                menu.AddItem(new GUIContent("Add Play Sound Event"), false, AddPlaySoundEvent, position);
-                menu.AddItem(new GUIContent("Add Crawler Event"), false, AddCrawlerEvent, position);
-            }
-            menu.ShowAsContext();
-        }
-        #endregion
         #region Mouse Over Projectile Event
         private bool IsMouseOverComponent(Event e, out ProjectileGraphComponent c)
         {
@@ -350,6 +340,19 @@ namespace Bremsengine
             }
             return foundEvent != null;
         }
+        private bool IsMouseOverEmitter(Event e, out ProjectileEmitterSO foundEmitter)
+        {
+            foundEmitter = null;
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
+            {
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileEmitterSO found and not null)
+                {
+                    foundEmitter = found;
+                    break;
+                }
+            }
+            return foundEmitter != null;
+        }
         #endregion
         #region Mouse Over Node
         private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
@@ -368,9 +371,96 @@ namespace Bremsengine
         #endregion
     }
     #endregion
+    #region Context Menu
+    public partial class ProjectileGraphEditor
+    {
+
+        #region Show Context Menu
+        private void ShowContextMenu(Event e)
+        {
+            GenericMenu menu = new GenericMenu();
+            Vector2 position = e.mousePosition;
+            ProjectileNodeSO mouseOverNode = null;
+            ProjectileEventSO mouseOverProjectileEvent = null;
+            ProjectileEmitterSO mouseOverEmitter = null;
+            if (IsMouseOverNode(e, out mouseOverNode))
+            {
+                if (ActiveGraph.Developing)
+                {
+                    menu.AddItem(new GUIContent("(Developing) Re Initialize Node"), false, mouseOverNode.Reinitalize);
+                }
+            }
+            if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
+            {
+                if (ActiveGraph.Developing)
+                {
+                    menu.AddItem(new GUIContent("(Developing) Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
+                }
+            }
+            if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
+            {
+                menu.AddItem(new GUIContent("Remove Graph Component"), false, ActiveGraph.DestroyComponent, c);
+            }
+            bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
+            if (mouseOverNode == null)
+            {
+                menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
+                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
+                if (ActiveGraph.CanUndo)
+                {
+                    menu.AddItem(new GUIContent("Undo Delete"), false, ActiveGraph.UndoLastDelete);
+                }
+            }
+            if (mouseOverProjectileEvent == null)
+            {
+                menu.AddItem(new GUIContent("Add Play Sound Event"), false, AddPlaySoundEvent, position);
+                menu.AddItem(new GUIContent("Add Crawler Event"), false, AddCrawlerEvent, position);
+            }
+            if (mouseOverEmitter == null)
+            {
+                menu.AddItem(new GUIContent("Add Single Emitter"), false, AddSingleEmitter, position);
+                menu.AddItem(new GUIContent("Add Repeat Emitter"), false, AddRepeatEmitter, position);
+            }
+            menu.ShowAsContext();
+        }
+        #endregion
+    }
+    #endregion
     #region Projectile Nodes & Events
     public partial class ProjectileGraphEditor
     {
+        #region Add Single Emitter
+        private void AddSingleEmitter(object mousePositionObject)
+        {
+            LoadCache();
+            ProjectileEmitterSO emitter = null;
+            Vector2 mousePosition = (Vector2)mousePositionObject;
+            emitter = ScriptableObject.CreateInstance<ProjectileEmitterSingle>();
+            if (emitter != null)
+            {
+                emitter.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
+
+                AssetDatabase.AddObjectToAsset(emitter, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
+        #endregion
+        #region Add Repeat Emitter
+        private void AddRepeatEmitter(object mousePositionObject)
+        {
+            LoadCache();
+            ProjectileEmitterSO emitter = null;
+            Vector2 mousePosition = (Vector2)mousePositionObject;
+            emitter = ScriptableObject.CreateInstance<ProjectileEmitterRepeat>();
+            if (emitter != null)
+            {
+                emitter.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
+
+                AssetDatabase.AddObjectToAsset(emitter, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
+        #endregion
         #region Add Single Projectile
         private void AddSingleProjectile(object mousePositionObject)
         {
@@ -440,13 +530,6 @@ namespace Bremsengine
     }
     #endregion
     #region Drag
-    public partial class ProjectileNodeSO
-    {
-        public override void OnDrag(Vector2 delta)
-        {
-            projectileImagePreview.position += delta;
-        }
-    }
     public partial class ProjectileEventSO
     {
         public void DragEvent(Vector2 delta)

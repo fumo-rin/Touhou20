@@ -31,9 +31,9 @@ namespace Bremsengine
 #endif
     public partial class SingleProjectileNodeSO : ProjectileNodeSO
     {
-        public override void Spawn(in List<Projectile> l, Transform owner, Transform target, Vector2 lastTargetPosition, TriggeredEvent triggeredEvent)
+        public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
-            Projectile p = CreateProjectile(ProjectileType.Prefab, owner.position, BuildDirection(owner, target));
+            Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, new(input.Owner, input.Target, input.OverrideTargetPosition));
             l.Add(p);
             SendProjectileEvents(p, triggeredEvent);
         }

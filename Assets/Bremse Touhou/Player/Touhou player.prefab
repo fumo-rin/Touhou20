@@ -113,7 +113,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128671585649479256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -156,8 +156,8 @@ MonoBehaviour:
   rotationAnchor: {fileID: 1204484672073837485}
   weight: 8
   idleMultiplier: 1.35
-  leftAngle: {x: 0.017037997, y: 0.1294094, z: 0.1294098, w: 0.9829629}
-  rightAngle: {x: -0.017037133, y: 0.12940952, z: 0.1294099, w: -0.9829629}
+  leftAngle: {x: 0.007596987, y: 0.086824, z: 0.08682401, w: 0.9924039}
+  rightAngle: {x: 0.007596166, y: -0.08682446, z: -0.08682422, w: 0.9924038}
 --- !u!1 &388915884582359795
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,12 +700,12 @@ SpriteRenderer:
   m_SortingLayerID: 109278603
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 441809762, guid: 9f7b3aef3fe5c8842acfa79846b49dda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28a9466f730a279419b47813fdf26c90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

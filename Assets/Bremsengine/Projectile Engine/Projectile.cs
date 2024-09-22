@@ -222,13 +222,15 @@ namespace Bremsengine
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
         }
-        public static void SpawnProjectileGraph(ProjectileGraphSO graph, Transform owner, Transform target, Vector2 overridePosition, SpawnCallback callback)
+        public static void SpawnProjectileGraph(ProjectileGraphSO graph, ProjectileGraphInput input, SpawnCallback callback)
         {
-            List<Projectile> spawned = graph.SpawnGraph(owner, target, overridePosition);
+            graph.SpawnGraph(input, callback);
+        }
+        public static void RegisterProjectiles(List<Projectile> spawned)
+        {
             foreach (var item in spawned)
             {
                 CountProjectiles++;
-                callback?.Invoke(item, owner, target);
                 AddToFolder(item);
             }
         }
@@ -396,5 +398,6 @@ namespace Bremsengine
                 c.isTrigger = true;
             }
         }
+        public bool Contains(Vector2 position) => mainCollider.bounds.Contains(position);
     }
 }

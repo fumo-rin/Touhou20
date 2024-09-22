@@ -80,5 +80,10 @@ namespace Bremsengine
             acw.Play(position);
             return this;
         }
+        public TriggeredEvent ClearPlayedSounds()
+        {
+            playedSounds.Clear();
+            return this;
+        }
     }
 }

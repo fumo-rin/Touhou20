@@ -1,4 +1,5 @@
 using Bremsengine;
+using Core;
 using Core.Extensions;
 using Core.Input;
 using System.Collections;
@@ -131,6 +132,16 @@ namespace BremseTouhou
         private void LateUpdate()
         {
             AttackUpdate();
+            foreach (var item in Physics2D.BoxCastAll(Center, Vector2.one * 0.02f, 0f, Vector2.zero, 0f, 1<<7))
+            {
+                if (item.transform.GetComponent<Projectile>() is Projectile p and not null)
+                {
+                    if (p.Contains(Center))
+                    {
+                        p.ClearProjectile();
+                    }
+                }
+            }
         }
         private void OnApplicationQuit()
         {

@@ -83,6 +83,11 @@ namespace Bremsengine
             }
             return projectileArray;
         }
+
+        public override void OnDrag(Vector2 delta)
+        {
+            projectileImagePreview.position += delta;
+        }
     }
 #endif
     #endregion
@@ -174,7 +179,7 @@ namespace Bremsengine
         public ProjectileTypeSO ProjectileType;
         public float spawnDelay;
         public List<ProjectileEventSO> linkedProjectileEvents = new();
-        public abstract void Spawn(in List<Projectile> list, Transform owner, Transform target, Vector2 lastTargetPosition, TriggeredEvent triggeredEvent);
+        public abstract void Spawn(in List<Projectile> list, ProjectileGraphInput input, TriggeredEvent triggeredEvent);
         public void SendProjectileEvents(Projectile p, TriggeredEvent triggeredEvent)
         {
             triggeredEvent.Bind(this);
