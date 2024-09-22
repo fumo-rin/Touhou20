@@ -23,7 +23,7 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             base.OnDraw(style);
-            repeatInterval = EditorGUILayout.Slider("Repeat Interval", repeatInterval, 0.04f, 2f);
+            repeatInterval = EditorGUILayout.Slider("Repeat Interval", repeatInterval, 0f, 2f);
             repeatCount = EditorGUILayout.IntSlider("Repeat Count", repeatCount, 1, 100);
             repeatAddedAngle = EditorGUILayout.Slider("Repeat Added Angle", repeatAddedAngle, -180f, 180f);
         }
@@ -45,9 +45,11 @@ namespace Bremsengine
         {
             float delay = addedDelay;
             float addedAngle = 0f;
+            if (Retargetting) input.SetOverrideTarget(Vector2.zero);
             for (int i = 0; i < repeatCount; i++)
             {
-                ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback), input.Owner);
+                input.addedAngle = addedAngle;
+                    ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback), input.Owner);
                 delay += repeatInterval;
                 addedAngle += repeatAddedAngle;
             }

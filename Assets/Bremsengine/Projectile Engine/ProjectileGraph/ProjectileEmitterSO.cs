@@ -25,7 +25,7 @@ namespace Bremsengine
 
         public override void OnGraphDelete()
         {
-
+            graph.emitters.Remove(this);
         }
 
         protected override Rect GetRect(Vector2 mousePosition)
@@ -36,6 +36,7 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
+            Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
         }
 
         protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
@@ -48,6 +49,17 @@ namespace Bremsengine
             }
             this.rect = GetRect(mousePosition);
         }
+        public void BreakLinks()
+        {
+            for (int i = 0; i < linkedNodes.Count; i++)
+            {
+                if (linkedNodes[i] != null)
+                {
+                    linkedNodes.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
     }
 #endif
     #endregion
@@ -55,12 +67,14 @@ namespace Bremsengine
     {
         public List<ProjectileNodeSO> linkedNodes = new List<ProjectileNodeSO>();
         protected float addedDelay = 0f;
+        public bool Retargetting;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
         protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
             yield return new WaitForSeconds(delay);
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
+            if (Retargetting) input.SetOverrideTarget(Vector2.zero);
             foreach (var item in linkedNodes)
             {
                 item.Spawn(in newSpawns, input, triggeredEvent);
@@ -68,7 +82,7 @@ namespace Bremsengine
             foreach (var item in newSpawns)
             {
                 callback?.Invoke(item, input.Owner, input.Target);
-                Projectile.RegisterProjectiles(newSpawns);
+                Projectile.RegisterProjectile(item);
             }
         }
     }

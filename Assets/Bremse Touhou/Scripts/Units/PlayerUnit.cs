@@ -128,20 +128,26 @@ namespace BremseTouhou
             ReadInput(ref input);
             ApplyInput(input);
             focusHeld = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f;
+            ProjectileScanOverlap();
         }
-        private void LateUpdate()
+        private void ProjectileScanOverlap()
         {
-            AttackUpdate();
-            foreach (var item in Physics2D.BoxCastAll(Center, Vector2.one * 0.02f, 0f, Vector2.zero, 0f, 1<<7))
+            foreach (var item in Physics2D.BoxCastAll(Center, Vector2.one * 0.02f, 0f, Vector2.zero, 0f, 1 << 7))
             {
                 if (item.transform.GetComponent<Projectile>() is Projectile p and not null)
                 {
                     if (p.Contains(Center))
                     {
-                        p.ClearProjectile();
+                        Debug.Log("Player Hit");
+                        p.CollideWith(Collider);
+                        //p.ClearProjectile();
                     }
                 }
             }
+        }
+        private void LateUpdate()
+        {
+            AttackUpdate();
         }
         private void OnApplicationQuit()
         {

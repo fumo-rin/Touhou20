@@ -83,6 +83,10 @@ namespace Bremsengine
                 EditorGUILayout.Space();
             }
         }
+        public void Reinitialize()
+        {
+            OnInitialize(new(rect.x, rect.y), graph, null);
+        }
     }
     #endregion
 #endif

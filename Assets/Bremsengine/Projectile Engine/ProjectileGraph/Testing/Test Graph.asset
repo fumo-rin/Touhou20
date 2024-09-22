@@ -21,7 +21,8 @@ MonoBehaviour:
   ID: 0e65853a-b217-4820-8709-fe160e3792ca
   graph: {fileID: 11400000}
   linkedNodes: []
---- !u!114 &-5018889166058127460
+  Retargetting: 0
+--- !u!114 &-7018492738241679537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,20 +31,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
-  m_Name: Projectile Node
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 485
-    y: 603
+    x: 1600
+    y: 79
     width: 350
-    height: 200
-  ID: 9412105c-7e22-473e-a584-3f32a4599feb
+    height: 100
+  ID: b53b82b5-79c5-4406-bb12-ffdb76d5ebed
   graph: {fileID: 11400000}
-  linkedNodes:
-  - {fileID: -2992133543856514914}
---- !u!114 &-2992133543856514914
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+--- !u!114 &-4556517639307246956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,16 +58,341 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 966
-    y: 265
+    x: 1648
+    y: 280
     width: 350
     height: 700
-  ID: e28b0ccf-d51b-43c6-9b10-89f9e5762bf6
+  ID: 181b2565-3333-429c-adea-d1abbf38d421
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 710
-    y: 295
+    x: 1392
+    y: 310
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 8
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -7018492738241679537}
+  projectileCountFloat: 13
+  AngleCoverage: 12
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.31011543
+      outSlope: 0.31011543
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49654946
+      value: 1.1539876
+      inSlope: 0.002125457
+      outSlope: 0.002125457
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.3058645
+      outSlope: -0.3058645
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-4218678872034501637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -99
+    y: 1277
+    width: 350
+    height: 200
+  ID: a4ae7954-2b9a-48f7-b5c4-5ad0e0c2f3cc
+  graph: {fileID: 11400000}
+  linkedNodes:
+  - {fileID: 685339135572628869}
+  Retargetting: 0
+  repeatInterval: 0.35
+  repeatCount: 3
+  repeatAddedAngle: 0.8
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: Test Graph
+  m_EditorClassIdentifier: 
+  headerTexture: {fileID: 2800000, guid: 349cb901f0379fe458415dea963b911e, type: 3}
+  previewLine: 0
+  connectingLineWidth: 3
+  components:
+  - {fileID: 8834853101203975556}
+  - {fileID: 5103467786027340906}
+  - {fileID: -4556517639307246956}
+  - {fileID: 127245951328565019}
+  - {fileID: 3415504147297101901}
+  - {fileID: 7118870716331318187}
+  - {fileID: -7018492738241679537}
+  - {fileID: 8439396693298836473}
+  - {fileID: 1326916949517228955}
+  - {fileID: -4218678872034501637}
+  - {fileID: 685339135572628869}
+  Developing: 0
+  nodes:
+  - {fileID: 5103467786027340906}
+  - {fileID: -4556517639307246956}
+  - {fileID: 8439396693298836473}
+  - {fileID: 685339135572628869}
+  emitters:
+  - {fileID: 8834853101203975556}
+  - {fileID: 127245951328565019}
+  - {fileID: 3415504147297101901}
+  - {fileID: -4218678872034501637}
+--- !u!114 &127245951328565019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 735
+    y: 1286
+    width: 350
+    height: 200
+  ID: 52514920-0795-4e8f-b8f7-38eeb48da6a5
+  graph: {fileID: 11400000}
+  linkedNodes:
+  - {fileID: 8439396693298836473}
+  Retargetting: 0
+  repeatInterval: 0.2
+  repeatCount: 14
+  repeatAddedAngle: 7
+--- !u!114 &685339135572628869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 296
+    y: 942
+    width: 350
+    height: 700
+  ID: 33754076-0618-4a87-af76-6dfd2e5b4230
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 40
+    y: 972
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 2
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  projectileCountFloat: 17
+  AngleCoverage: 195
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.010314941
+      value: 0.5724214
+      inSlope: 0.02495219
+      outSlope: 0.02495219
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.6903595
+    - serializedVersion: 3
+      time: 0.3288356
+      value: 0.8705969
+      inSlope: 0.98690623
+      outSlope: 0.98690623
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.42040613
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.75
+      inSlope: 3.606797
+      outSlope: 3.606797
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1239931
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.65317845
+      value: 0.8739401
+      inSlope: -1.1855139
+      outSlope: -1.1855139
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.34146166
+    - serializedVersion: 3
+      time: 1
+      value: 0.5679048
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1326916949517228955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1159
+    y: 797
+    width: 350
+    height: 100
+  ID: 4421b167-979f-46de-ae20-d38d5d8cf34d
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: 1c0ddc1d8a1bd7243967c93536b376d4, type: 2}
+--- !u!114 &1416162416334827828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 763
+    y: 151
+    width: 350
+    height: 400
+  ID: 5a9bb557-851e-4f99-a350-a7fe8e00dcd3
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 507
+    y: 181
     width: 250
     height: 250
   NodeActive: 1
@@ -76,13 +402,119 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents: []
+--- !u!114 &3415504147297101901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1280
+    y: 559
+    width: 350
+    height: 200
+  ID: 848868b2-c7d3-4a5f-97b6-80a5cd746cd5
+  graph: {fileID: 11400000}
+  linkedNodes:
+  - {fileID: -4556517639307246956}
+  Retargetting: 1
+  repeatInterval: 0.05
+  repeatCount: 7
+  repeatAddedAngle: 0
+--- !u!114 &4109024477987867913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 728
+    y: 205
+    width: 350
+    height: 200
+  ID: ec8d9fff-2ea4-4a36-b045-3dd765adebf6
+  graph: {fileID: 11400000}
+  linkedNodes: []
+  Retargetting: 0
+--- !u!114 &4402028688498106398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1033
+    y: 371
+    width: 350
+    height: 75
+  ID: d8454a31-95ed-4487-a508-36ee78fe97b4
+  graph: {fileID: 11400000}
+  EventDelay: 5.2
+  acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+--- !u!114 &5103467786027340906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 719
+    y: 277
+    width: 350
+    height: 700
+  ID: ae9ac0d6-a50a-43ea-a7f8-05856fe891e2
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 463
+    y: 307
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 5
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
-  - {fileID: 4402028688498106398}
-  projectileCountFloat: 7
-  AngleCoverage: 60
-  startingAngle: 0
+  - {fileID: 7118870716331318187}
+  projectileCountFloat: 15
+  AngleCoverage: 90
+  startingAngle: -60
   RandomAngle: 0
   arcProgressionSpeed:
     serializedVersion: 2
@@ -132,151 +564,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Test Graph
-  m_EditorClassIdentifier: 
-  headerTexture: {fileID: 2800000, guid: 349cb901f0379fe458415dea963b911e, type: 3}
-  previewLine: 0
-  connectingLineWidth: 3
-  components:
-  - {fileID: -5018889166058127460}
-  - {fileID: 8834853101203975556}
-  - {fileID: -2992133543856514914}
-  - {fileID: 3220185423042449176}
-  - {fileID: 7143591681390970702}
-  - {fileID: 4402028688498106398}
-  Developing: 0
-  nodes:
-  - {fileID: -2992133543856514914}
-  - {fileID: 3220185423042449176}
-  emitters:
-  - {fileID: -5018889166058127460}
-  - {fileID: 8834853101203975556}
---- !u!114 &1416162416334827828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 763
-    y: 151
-    width: 350
-    height: 400
-  ID: 5a9bb557-851e-4f99-a350-a7fe8e00dcd3
-  graph: {fileID: 11400000}
-  projectileImagePreview:
-    serializedVersion: 2
-    x: 507
-    y: 181
-    width: 250
-    height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
-  staticDirection: {x: 0, y: 0}
-  directionalOffset: 0
-  spread: 0
-  speed: 10
-  addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
-  spawnDelay: 0
-  linkedProjectileEvents: []
---- !u!114 &3220185423042449176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 482
-    y: -31
-    width: 350
-    height: 400
-  ID: db0794bd-855d-4177-87f3-fdd277144fc4
-  graph: {fileID: 11400000}
-  projectileImagePreview:
-    serializedVersion: 2
-    x: 226
-    y: -1
-    width: 250
-    height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
-  staticDirection: {x: 0, y: 0}
-  directionalOffset: 0
-  spread: 0
-  speed: 10
-  addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
-  spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: 7143591681390970702}
---- !u!114 &4109024477987867913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 728
-    y: 205
-    width: 350
-    height: 200
-  ID: ec8d9fff-2ea4-4a36-b045-3dd765adebf6
-  graph: {fileID: 11400000}
-  linkedNodes: []
---- !u!114 &4402028688498106398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
-  m_Name: (Delay:0)None
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 992
-    y: 117
-    width: 350
-    height: 75
-  ID: d8454a31-95ed-4487-a508-36ee78fe97b4
-  graph: {fileID: 11400000}
-  EventDelay: 0
-  acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
 --- !u!114 &6302776682013068324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +608,28 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 7.8
   acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+--- !u!114 &7118870716331318187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 722
+    y: 91
+    width: 350
+    height: 100
+  ID: 1486e29b-9433-4984-b0f4-c00408d79564
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
 --- !u!114 &7143591681390970702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,14 +644,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 686
-    y: -198
+    x: 330
+    y: 187
     width: 350
     height: 75
   ID: b76cace5-e114-4f48-b8ae-97e3b4156aa6
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: 1608fc28580230b419b6877b4c71d3c3, type: 2}
+--- !u!114 &7429099954351332847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 963
+    y: 384
+    width: 350
+    height: 200
+  ID: 00893b3c-5db7-45bc-9af9-0fe2c1a363c7
+  graph: {fileID: 11400000}
+  linkedNodes: []
+  Retargetting: 0
+  repeatInterval: 0.3
+  repeatCount: 4
+  repeatAddedAngle: 0
+--- !u!114 &7455491696039527185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 728
+    y: 173
+    width: 350
+    height: 200
+  ID: 6541d8fc-036d-4bb7-ab1d-0c2fb9f3224a
+  graph: {fileID: 11400000}
+  linkedNodes:
+  - {fileID: -4556517639307246956}
+  Retargetting: 1
 --- !u!114 &7748776249808463047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +722,95 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
+--- !u!114 &8439396693298836473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1156
+    y: 951
+    width: 350
+    height: 700
+  ID: ab722b6b-f271-4b5c-baaf-76a2ab362d24
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 900
+    y: 981
+    width: 250
+    height: 250
+  NodeActive: 1
+  ProjectileDamage: 10
+  staticDirection: {x: 0, y: 0}
+  directionalOffset: 0
+  spread: 0
+  speed: 3.5
+  addedAngle: 0
+  ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: 1326916949517228955}
+  projectileCountFloat: 36
+  AngleCoverage: 360
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &8834853101203975556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,14 +825,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 54
-    y: 380
+    x: 326
+    y: 593
     width: 350
     height: 200
   ID: 1ec3e1a0-58d0-4a18-a3a2-2c455829b0c8
   graph: {fileID: 11400000}
   linkedNodes:
-  - {fileID: 3220185423042449176}
-  repeatInterval: 0.1
-  repeatCount: 4
-  repeatAddedAngle: 0
+  - {fileID: 5103467786027340906}
+  Retargetting: 0
+  repeatInterval: 0.05
+  repeatCount: 20
+  repeatAddedAngle: 6.75

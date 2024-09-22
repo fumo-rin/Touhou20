@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2be4bf4946b22469600b50aca5bbdd, type: 3}
   m_Name: Player Focus
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 3.5

@@ -49,6 +49,7 @@ namespace Bremsengine
         public bool RandomAngle = false;
         public AnimationCurve arcProgressionSpeed = Helper.InitializedAnimationCurve;
         public AnimationCurve arcProgressionAngleMultiplier = Helper.InitializedAnimationCurve;
+        private float GetRandomAngle => Random.Range(-AngleCoverage.Multiply(0.5f), AngleCoverage.Multiply(0.5f));
         public float CurveValue(AnimationCurve curve, float time)
         {
             if (curve == null || curve.length < 2)
@@ -65,10 +66,11 @@ namespace Bremsengine
             float iterationAngle = (startingAngle + (ProjectileCount > 1 ? -AngleCoverage.Multiply(0.5f) : 0f));
             for (int i = 0; i < ProjectileCount; i++)
             {
-                ProjectileNodeDirection direction = BuildDirection(input.Owner, input.Target);
+                ProjectileNodeDirection direction = BuildDirection(input.Owner, input.Target, input.OverrideTargetPosition);
                 direction.AddSpeedModifier(CurveValue(arcProgressionSpeed, progress));
 
-                direction.AddAngle(RandomAngle ? Random.Range(0f, AngleCoverage) : iterationAngle.Multiply(CurveValue(arcProgressionAngleMultiplier, progress)));
+                direction.AddAngle(input.addedAngle);
+                direction.AddAngle(RandomAngle ? GetRandomAngle : iterationAngle.Multiply(CurveValue(arcProgressionAngleMultiplier, progress)));
 
                 Projectile spawn = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
                 l.Add(spawn);

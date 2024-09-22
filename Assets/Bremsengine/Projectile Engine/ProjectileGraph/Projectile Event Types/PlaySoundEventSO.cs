@@ -23,7 +23,7 @@ namespace Bremsengine
 
         protected override Rect GetRect(Vector2 mousePosition)
         {
-            return new Rect(mousePosition.x, mousePosition.y, 350f, 75f);
+            return new Rect(mousePosition.x, mousePosition.y, 350f, 100f);
         }
 
         protected override void OnDraw(GUIStyle style)
@@ -46,7 +46,7 @@ namespace Bremsengine
         }
         protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
-
+            rect = GetRect(mousePosition);
         }
     }
 #endif

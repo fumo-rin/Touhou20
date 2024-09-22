@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2be4bf4946b22469600b50aca5bbdd, type: 3}
-  m_Name: Player Standard
+  m_Script: {fileID: 11500000, guid: 7a7b91db6c6745847ae5711e24b2f387, type: 3}
+  m_Name: Icicle Projectile
   m_EditorClassIdentifier: 
-  maxSpeed: 7
+  Prefab: {fileID: 6413974022808271313, guid: 1e8c265fcd684d745abb740d18521ba1, type: 3}

@@ -25,10 +25,6 @@ namespace Bremsengine
         {
             return new Rect(new Vector2(x - 256, y), new Vector2(250f, 250f));
         }
-        public void Reinitalize()
-        {
-            OnInitialize(rect.position, graph, ProjectileType);
-        }
         protected override void OnInitialize(Vector2 position, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
             this.graph = graph;
@@ -88,6 +84,13 @@ namespace Bremsengine
         {
             projectileImagePreview.position += delta;
         }
+        public override void OnGraphDelete()
+        {
+            foreach (var item in graph.emitters)
+            {
+                item.linkedNodes.Remove(this);
+            }
+        }
     }
 #endif
     #endregion
@@ -117,11 +120,11 @@ namespace Bremsengine
             };
         }
         public Vector2 DirectionalOffset => Direction.ScaleToMagnitude(directionalOffset);
-        public ProjectileNodeDirection(Transform owner, Transform target, Vector2 overrideDirection)
+        public ProjectileNodeDirection(Transform owner, Transform target, Vector2 overrideTargetPosition)
         {
             this.owner = owner;
             this.target = target;
-            this.direction = target.position - owner.position;
+            this.direction = (overrideTargetPosition == Vector2.zero ? target.position : overrideTargetPosition) - owner.position;
             this.Spread = 0f;
             this.AngleOffset = 0f;
             this.Speed = 0f;
@@ -167,9 +170,10 @@ namespace Bremsengine
         public float spread = 0f;
         public float speed = 10f;
         public float addedAngle = 0f;
-        public ProjectileNodeDirection BuildDirection(Transform owner, Transform target)
+        public ProjectileNodeDirection BuildDirection(Transform owner, Transform target, Vector2 overrideTarget)
         {
-            ProjectileNodeDirection direction = new(owner, target, staticDirection);
+            Vector2 o = staticDirection != Vector2.zero ? staticDirection : overrideTarget != Vector2.zero ? overrideTarget : target.position;
+            ProjectileNodeDirection direction = new(owner, target, o);
             return direction;
         }
     }

@@ -82,9 +82,13 @@ namespace BremseTouhou
             gameObject.SetActive(false);
             if (this is EnemyUnit enemy)
             {
-                if (enemy.isBoss) TouhouManager.PlayBossKillSound();
+                if (enemy.isBoss)
+                {
+                    TouhouManager.PlayBossKillSound();
+                    Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy);
+                }
             }
-            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy);
+            Projectile.ClearProjectileTimelineFor(transform);
         }
     }
     #endregion
@@ -104,6 +108,7 @@ namespace BremseTouhou
     #endregion
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody2D))]
+    [DefaultExecutionOrder(100)]
     public abstract partial class BaseUnit : MonoBehaviour
     {
         public static BaseUnit Player;

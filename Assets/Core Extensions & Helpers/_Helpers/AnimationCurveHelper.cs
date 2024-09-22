@@ -12,7 +12,7 @@ namespace Core.Extensions
             {
                 keys = new Keyframe[2]
                 {
-                    new Keyframe(1f,1f),
+                    new Keyframe(0f,1f),
                     new Keyframe(1f,1f),
                 }
             };

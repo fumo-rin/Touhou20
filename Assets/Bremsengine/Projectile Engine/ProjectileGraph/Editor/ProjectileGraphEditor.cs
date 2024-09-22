@@ -374,8 +374,6 @@ namespace Bremsengine
     #region Context Menu
     public partial class ProjectileGraphEditor
     {
-
-        #region Show Context Menu
         private void ShowContextMenu(Event e)
         {
             GenericMenu menu = new GenericMenu();
@@ -383,18 +381,23 @@ namespace Bremsengine
             ProjectileNodeSO mouseOverNode = null;
             ProjectileEventSO mouseOverProjectileEvent = null;
             ProjectileEmitterSO mouseOverEmitter = null;
+            if (IsMouseOverEmitter(e, out mouseOverEmitter))
+            {
+                menu.AddItem(new GUIContent("Break Emitter Links"), false, mouseOverEmitter.BreakLinks);
+                menu.AddItem(new GUIContent("Re Initialize"), false, mouseOverEmitter.Reinitialize);
+            }
             if (IsMouseOverNode(e, out mouseOverNode))
             {
                 if (ActiveGraph.Developing)
                 {
-                    menu.AddItem(new GUIContent("(Developing) Re Initialize Node"), false, mouseOverNode.Reinitalize);
+                    menu.AddItem(new GUIContent("Re Initialize Node"), false, mouseOverNode.Reinitialize);
                 }
             }
             if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
             {
                 if (ActiveGraph.Developing)
                 {
-                    menu.AddItem(new GUIContent("(Developing) Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
+                    menu.AddItem(new GUIContent("Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
                 }
             }
             if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
@@ -423,7 +426,6 @@ namespace Bremsengine
             }
             menu.ShowAsContext();
         }
-        #endregion
     }
     #endregion
     #region Projectile Nodes & Events

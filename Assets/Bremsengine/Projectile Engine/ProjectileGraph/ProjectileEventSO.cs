@@ -19,10 +19,6 @@ namespace Bremsengine
         {
             return "Headhunter, Leather Belt";
         }
-        public void Reinitialize()
-        {
-            OnInitialize(new(rect.x, rect.y), graph, null);
-        }
         protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
         {
 

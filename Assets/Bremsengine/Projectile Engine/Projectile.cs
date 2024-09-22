@@ -226,13 +226,10 @@ namespace Bremsengine
         {
             graph.SpawnGraph(input, callback);
         }
-        public static void RegisterProjectiles(List<Projectile> spawned)
+        public static void RegisterProjectile(Projectile spawned)
         {
-            foreach (var item in spawned)
-            {
-                CountProjectiles++;
-                AddToFolder(item);
-            }
+            CountProjectiles++;
+            AddToFolder(spawned);
         }
         /*
         public static Projectile SpawnProjectileTowardsUnit(ProjectileSO proj, Vector2 position, ProjectileDirection direction, Rigidbody2D target)
@@ -270,6 +267,7 @@ namespace Bremsengine
             StopAllCoroutines();
             activeProjectiles.Remove(this);
         }
+        public static void ClearProjectileTimelineFor(Transform t) => ProjectileEmitterTimelineHandler.ClearEmitQueue(t);
     }
     #endregion
     #region Projectile Folder
@@ -328,6 +326,10 @@ namespace Bremsengine
         }
         public float Damage => projectileDamage;
         private void OnTriggerEnter2D(Collider2D collision)
+        {
+            CollideWith(collision);
+        }
+        public void CollideWith(Collider2D collision)
         {
             if (collision.transform.GetComponent<Transform>() is Transform t && t != null)
             {

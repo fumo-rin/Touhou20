@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Icicle
+  m_Name: Yellow icicle
   m_Shader: {fileID: -6465566751694194690, guid: 2fed1385f2557d94a845927116592ade, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -61,7 +61,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _Use_Emission_Map: 1
     m_Colors:
-    - _Color: {r: 3.060407, g: 3.3373768, b: 7.129739, a: 1}
+    - _Color: {r: 7.129738, g: 6.3711824, b: 3.0609345, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

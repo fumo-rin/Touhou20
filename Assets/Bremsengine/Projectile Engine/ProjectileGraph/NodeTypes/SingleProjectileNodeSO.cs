@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.IO;
 
 namespace Bremsengine
 {
@@ -33,7 +34,9 @@ namespace Bremsengine
     {
         public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
-            Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, new(input.Owner, input.Target, input.OverrideTargetPosition));
+            ProjectileNodeDirection direction = new(input.Owner, input.Target, input.OverrideTargetPosition);
+            direction.AddAngle(input.addedAngle);
+            Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
             l.Add(p);
             SendProjectileEvents(p, triggeredEvent);
         }
