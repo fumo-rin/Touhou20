@@ -8,7 +8,7 @@ namespace Bremsengine
 {
     #region Editor
 #if UNITY_EDITOR
-    public partial class ProjectileEmitterRepeat
+    public partial class ProjectileEmitterRepeat : ProjectileEmitterSO
     {
         public override string GetGraphComponentName()
         {

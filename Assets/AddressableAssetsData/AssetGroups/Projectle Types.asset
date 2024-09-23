@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Projectiles 2
+  m_Name: Projectle Types
   m_EditorClassIdentifier: 
-  m_GroupName: Projectiles 2
+  m_GroupName: Projectle Types
   m_Data:
     m_SerializedData: []
-  m_GUID: 41203cced0e0ccd4f822fcf5f5de3df1
+  m_GUID: c2ecc1a1307586b449fa9fc49c881f50
   m_SerializeEntries:
   - m_GUID: a5a0f1490e0de2b44b3291b26076ffb6
     m_Address: Assets/Bremse Touhou/Projectiles 2/Projectile Types
@@ -27,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a5958f7d4450adc468096f84921060ec, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: bfdff1a5310253f4fb231f62b5e83a60, type: 2}
-    - {fileID: 11400000, guid: a0948e59080cafc42ae7c9a126e43030, type: 2}
+    - {fileID: 11400000, guid: 264a0aa297ebee4428e4d177d0276bc7, type: 2}
+    - {fileID: 11400000, guid: 4a8781502ca66944c83423023d377da8, type: 2}

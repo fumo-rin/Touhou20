@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc7c75f93ef0144788061ce299370ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 2d52bd3799216a94f842b54776786925, type: 2}
+  graph: {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
   testTarget: {fileID: 0}
   owner: {fileID: 7025743821825117553}
   faction: 2
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 6512128401469988700}
   - component: {fileID: 1427932970115799732}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 1539019409
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -600431289, guid: 7020682cf7e5b1047bed391f042a7376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7459444282127f4ba60eacb5c6ee146, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

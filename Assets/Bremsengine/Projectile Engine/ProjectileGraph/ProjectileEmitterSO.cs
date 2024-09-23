@@ -35,8 +35,14 @@ namespace Bremsengine
 
         protected override void OnDraw(GUIStyle style)
         {
+            EditorGUI.BeginChangeCheck();
             addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
             Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(this);
+                AssetDatabase.SaveAssetIfDirty(this);
+            }
         }
 
         protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
@@ -63,10 +69,10 @@ namespace Bremsengine
     }
 #endif
     #endregion
-    public abstract partial class ProjectileEmitterSO
+    public abstract partial class ProjectileEmitterSO : ProjectileGraphComponent
     {
         public List<ProjectileNodeSO> linkedNodes = new List<ProjectileNodeSO>();
-        protected float addedDelay = 0f;
+        public float addedDelay;
         public bool Retargetting;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
         protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)

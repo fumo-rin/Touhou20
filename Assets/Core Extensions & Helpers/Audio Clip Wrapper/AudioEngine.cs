@@ -1,6 +1,7 @@
 using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -104,7 +105,9 @@ namespace Core.Extensions
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         public static void AfterSceneLoad()
         {
-            foreach (AudioMixerGroup group in AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey))
+            AudioMixerGroup[] dynamics = AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey).ToArray();
+            Debug.Log(dynamics);
+            foreach (AudioMixerGroup group in dynamics)
             {
                 if (group == null)
                     continue;

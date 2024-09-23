@@ -162,6 +162,7 @@ namespace Bremsengine
         /// <returns></returns>
         public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
+            Debug.Log("Shoot Graph : " + this.name);
             TriggeredEvent projectileEvents = new TriggeredEvent();
             /*foreach (ProjectileNodeSO node in nodes)
             {
@@ -170,6 +171,8 @@ namespace Bremsengine
                 //node.Spawn(spawns, input, projectileEvents);
                 //callback?.Invoke(, input.Owner, input.Target);
             }*/
+            Debug.Log(emitters);
+            Debug.Log(emitters.Count);
             foreach (ProjectileEmitterSO emitter in emitters)
             {
                 emitter.Trigger(projectileEvents, input, callback);

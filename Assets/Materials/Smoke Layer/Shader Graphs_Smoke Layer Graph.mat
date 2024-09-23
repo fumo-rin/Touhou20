@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-878647396795719059
+--- !u!114 &-6018427107186604659
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bullet Material
-  m_Shader: {fileID: -6465566751694194690, guid: 2fed1385f2557d94a845927116592ade, type: 3}
+  m_Name: Shader Graphs_Smoke Layer Graph
+  m_Shader: {fileID: -6465566751694194690, guid: dbffd8aa17f804c469ea19447166158a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,23 +36,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _EmissionMap:
+    - _Main_Tex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainText:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_a09ffd9874ca46b1ad03861e6dff3a4a_Texture_1_Texture2D:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture:
+    - _SampleTexture2D_1809677312c74e648f1b60748a07d5e5_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -70,9 +58,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission: 15
-    - _Use_Emission_Map: 0
+    - _Fuzziness: 0.8
+    - _Range: 0
+    - _Scale: 35.4
+    - _Smoke_Lerp: 0.569
+    - _Timescale_Horizontal: 0.5
+    - _Timescale_Vertical: 0.15
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1024, g: 1024, b: 1024, a: 1}
+    - _Vertex_Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
