@@ -77,12 +77,16 @@ namespace BremseTouhou
                 SetTarget(null);
             }
             Vector2 target = aimTarget ? aimTarget.Center : Up;
-            if (Focused)
+            if (Focused && TestFocusAttack != null)
             {
                 TestFocusAttack.AttackTarget(this, Center, target);
             }
             else
             {
+                if (TestAttack == null)
+                {
+                    return;
+                }
                 TestAttack.AttackTarget(this, Center, target);
             }
         }

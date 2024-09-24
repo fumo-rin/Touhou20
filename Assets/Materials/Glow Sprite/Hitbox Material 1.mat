@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -70,9 +70,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission: 1
+    - _Emission: 100
     - _Use_Emission_Map: 0
     m_Colors:
     - _Color: {r: 811.5882, g: 0, b: 324.8726, a: 1}
     - _EmissionColor: {r: 1024, g: 1024, b: 1024, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

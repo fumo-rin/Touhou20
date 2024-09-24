@@ -25,11 +25,11 @@ namespace Bremsengine
                 return;
 
             animator.SetFloat(animatorExpectedSpeedKey, expectedSpeed);
-            animator.SetFloat(animatorVelocityKey, rb.velocity.magnitude);
+            animator.SetFloat(animatorVelocityKey, rb.linearVelocity.magnitude);
 
-            if (!animatorLockFlip && rb.velocity.magnitude > minimumFlipSpeed && Time.time > lastFlipTime + 0.15f)
+            if (!animatorLockFlip && rb.linearVelocity.magnitude > minimumFlipSpeed && Time.time > lastFlipTime + 0.15f)
             {
-                SetLookX(rb.velocity.x);
+                SetLookX(rb.linearVelocity.x);
             }
         }
         private void SetLookX(float x)

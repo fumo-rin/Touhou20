@@ -31,7 +31,7 @@ namespace Bremsengine
             transform.localScale = proj.transform.localScale;
 
             rb.gravityScale = proj.gravityModifier;
-            rb.drag = proj.drag;
+            rb.linearDamping = proj.drag;
             return this;
         }
         public Projectile SetIgnoreCollision(Collider2D c)
@@ -51,12 +51,12 @@ namespace Bremsengine
         }
         public Projectile Post_AddVelocity(float v)
         {
-            rb.velocity += rb.velocity.ScaleToMagnitude(v);
+            rb.linearVelocity += rb.linearVelocity.ScaleToMagnitude(v);
             return this;
         }
         public Projectile Post_AddRotation(float r)
         {
-            rb.velocity = rb.velocity.Rotate2D(r);
+            rb.linearVelocity = rb.linearVelocity.Rotate2D(r);
             rb.rotation += r;
 
             return this;
@@ -143,17 +143,17 @@ namespace Bremsengine
         public Projectile SetDirection(ProjectileDirection direction)
         {
             currentDirection = direction.Clone();
-            rb.velocity = direction.Direction;
+            rb.linearVelocity = direction.Direction;
             transform.position += (Vector3)direction.DirectionalOffset;
-            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
+            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
             return this;
         }
         public Projectile NewSetDirection(ProjectileNodeDirection direction)
         {
             currentNodeDirection = direction.Clone();
-            rb.velocity = direction.Direction;
+            rb.linearVelocity = direction.Direction;
             transform.position += (Vector3)direction.DirectionalOffset;
-            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.velocity);
+            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
             return this;
         }
     }
@@ -377,7 +377,7 @@ namespace Bremsengine
         public ProjectileSO Data => projectile;
         ProjectileSO projectile;
         public Vector2 Position => transform.position;
-        public Vector2 Velocity => rb.velocity;
+        public Vector2 Velocity => rb.linearVelocity;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;

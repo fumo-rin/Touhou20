@@ -7,7 +7,37 @@ using UnityEngine.Events;
 
 namespace BremseTouhou
 {
-    public class EnemyUnit : BaseUnit
+    #region Scan Target
+    public partial class EnemyUnit
+    {
+        [SerializeField] TargetScanner scanner;
+        private void ScanTick()
+        {
+            if (scanner == null)
+                return;
+
+            if (Target == null && scanner.TryScan(out BaseUnit foundUnit))
+            {
+                SetTarget(foundUnit);
+            }
+        }
+    }
+    #endregion
+    #region Projectile Hit
+    public partial class EnemyUnit
+    {
+        protected override bool ProjectileHit(Projectile p)
+        {
+            if (FactionInterface.IsFriendsWith(p.Faction))
+            {
+                return false;
+            }
+            ChangeHealth(-p.Damage);
+            return true;
+        }
+    }
+    #endregion
+    public partial class EnemyUnit : BaseUnit
     {
         [field: SerializeField] public bool isBoss { get; private set; }
         protected override void OnAwake()
@@ -17,14 +47,13 @@ namespace BremseTouhou
                 BossManager.Bind(this);
             }
         }
-        protected override bool ProjectileHit(Projectile p)
+        private void Start()
         {
-            if (FactionInterface.IsFriendsWith(p.Faction))
-            {
-                return false;
-            }
-            ChangeHealth(-p.Damage);
-            return true;
+            TickManager.AIThinkTick += ScanTick;
+        }
+        private void OnDestroy()
+        {
+            TickManager.AIThinkTick -= ScanTick;
         }
         float nextAttackTime;
         [SerializeField] float addedAttackDelay = 0.4f;

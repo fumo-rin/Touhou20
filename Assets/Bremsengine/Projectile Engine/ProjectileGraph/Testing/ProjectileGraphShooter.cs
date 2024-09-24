@@ -32,7 +32,6 @@ namespace Bremsengine
             {
                 Target = Target,
                 Owner = owner,
-                Origin = owner.position,
             };
             input.SetOverrideTarget(Target.position);
             Projectile.SpawnProjectileGraph(graph, input, OnProjectileSpawn);

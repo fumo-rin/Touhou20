@@ -106,7 +106,6 @@ namespace Core.Extensions
         public static void AfterSceneLoad()
         {
             AudioMixerGroup[] dynamics = AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey).ToArray();
-            Debug.Log(dynamics);
             foreach (AudioMixerGroup group in dynamics)
             {
                 if (group == null)
