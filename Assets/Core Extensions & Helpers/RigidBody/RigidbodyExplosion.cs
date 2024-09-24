@@ -36,9 +36,9 @@ namespace Core.Extensions
                             break;
                     }
                     rb.AddTorque(-xTorque * yTorque * torqueMultiplier);
-                    if (rb.velocity.magnitude + direction.magnitude < direction.magnitude * 3)
+                    if (rb.linearVelocity.magnitude + direction.magnitude < direction.magnitude * 3)
                     {
-                        rb.velocity += direction;
+                        rb.linearVelocity += direction;
                     }
                     output.Add(rb);
                 }

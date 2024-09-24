@@ -51,6 +51,24 @@ namespace Bremsengine
             }
         }
     }
+    #region AI Think
+    public partial class TickManager
+    {
+        float lastAITickTime;
+        public static GameTickLightweight AIThinkTick;
+        [SerializeField] FloatSO AITickTime;
+        public static bool WasAIThinkTickThisFrame;
+        public void RunAIThinkTick(float time)
+        {
+            WasAIThinkTickThisFrame = false;
+            if (time > lastAITickTime + (AITickTime == null ? 0.2f : AITickTime))
+            {
+                WasAIThinkTickThisFrame = true;
+                AIThinkTick?.Invoke();
+            }
+        }
+    }
+    #endregion
     #endregion
     public partial class TickManager : MonoBehaviour
     {
@@ -76,6 +94,7 @@ namespace Bremsengine
             }
             RunMainTick(Time.time);
             RunAttackTick(Time.time);
+            RunAIThinkTick(Time.time);
         }
         private void OnValidate()
         {

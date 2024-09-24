@@ -54,6 +54,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -76,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1939373753
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3ae916131d505e747921dc8b6a716bc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,6 +100,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3746944985363813519}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -120,7 +124,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,12 +136,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.44, y: 0.7965797}
   m_EdgeRadius: 0
 --- !u!50 &7473191857712390721
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,8 +151,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -175,10 +179,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
   unitName: Headhunter, Leather Belt
-  Alive: 1
+  targetEditorOverride: {fileID: 0}
+  Active: 0
   unitCenterAnchor: {fileID: 4315408596051843491}
   UnitFaction: 2
-  isBoss: 0
+  unitCollider: {fileID: 0}
+  <isBoss>k__BackingField: 0
+  addedAttackDelay: 0.4
+  testAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!247 &2751984313477412426
 ConstantForce2D:
   m_ObjectHideFlags: 0
@@ -234,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cf69f17c9c97447891d5450e58836e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackedTarget: {fileID: 0}
   timeDelay: 1
   attack: {fileID: 11400000, guid: a8b43e8c47c4e2649b6072842481a436, type: 2}
   owner: {fileID: 659921875114353755}

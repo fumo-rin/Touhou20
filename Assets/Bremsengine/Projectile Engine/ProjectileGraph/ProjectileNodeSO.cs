@@ -41,7 +41,6 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            ProjectileDamage = EditorGUILayout.Slider("Damage", ProjectileDamage, 1f, 100f);
             NodeActive = EditorGUILayout.Toggle("Is Active", NodeActive);
             int selected = ProjectileCache.FindIndex(x => x == ProjectileType);
             int selection = EditorGUILayout.Popup("", selected, GetProjectileTypesToDisplay());
@@ -124,7 +123,11 @@ namespace Bremsengine
         {
             this.owner = owner;
             this.target = target;
-            this.direction = (overrideTargetPosition == Vector2.zero ? target.position : overrideTargetPosition) - owner.position;
+            this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition : (Vector2)owner.position + Vector2.right;
+            if (target != null && overrideTargetPosition != Vector2.zero)
+            {
+                this.direction = target.position - owner.position;
+            }
             this.Spread = 0f;
             this.AngleOffset = 0f;
             this.Speed = 0f;
@@ -164,7 +167,6 @@ namespace Bremsengine
     public partial class ProjectileNodeSO
     {
         public bool NodeActive = true;
-        public float ProjectileDamage = 10f;
         public Vector2 staticDirection = Vector2.zero;
         public float directionalOffset = 0f;
         public float spread = 0f;
@@ -209,7 +211,7 @@ namespace Bremsengine
             direction.AddAngle(addedAngle);
             direction.SetSpread(spread);
             direction.SetDirectionalOffset(directionalOffset);
-            Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(ProjectileDamage);
+            Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(1f);
             return spawnProjectile;
         }
     }

@@ -3,7 +3,6 @@ using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace BremseTouhou
@@ -95,14 +94,37 @@ namespace BremseTouhou
     #region Target
     public partial class BaseUnit
     {
-        [SerializeField] BaseUnit targetEditorOverride;
         BaseUnit target;
-        public BaseUnit Target => targetEditorOverride ?? target;
+        public BaseUnit Target =>  target;
         public Transform TargetTransform => Target == null ? null : Target.transform;
         public bool HasTarget => Target != null;
         public void SetTarget(BaseUnit t)
         {
+            CancelLoseTarget();
             target = t;
+            OnTargetUpdate?.Invoke(t);
+        }
+        public bool IsTarget(BaseUnit t) => target == t;
+        Coroutine loseTargetCoroutine;
+        public void CancelLoseTarget()
+        {
+            if (loseTargetCoroutine == null)
+            {
+                StopCoroutine(loseTargetCoroutine);
+            }
+            loseTargetCoroutine = null;
+        }
+        public void LoseTarget(float delayInSeconds)
+        {
+            loseTargetCoroutine = StartCoroutine(CO_LoseTarget(delayInSeconds));
+        }
+        public delegate void TargetRefresh(BaseUnit newTarget);
+        protected TargetRefresh OnTargetUpdate;
+        private IEnumerator CO_LoseTarget(float delayInSeconds)
+        {
+            yield return new WaitForSeconds(delayInSeconds);
+            loseTargetCoroutine = null;
+            SetTarget(null);
         }
     }
     #endregion

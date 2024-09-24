@@ -12,11 +12,11 @@ namespace BremseTouhou
         {
             if (Time.time < nextMoveTime)
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 return;
             }
             nextMoveTime = Time.time;
-            rb.velocity = input * maxSpeed;
+            rb.linearVelocity = input * maxSpeed;
         }
     }
 }

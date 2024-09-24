@@ -8,27 +8,27 @@ namespace Core.Extensions
     {
         public static Vector3 VelocityTowardsXZ(this Rigidbody rb, Vector3 direction, float delta)
         {
-            return rb.velocity = Vector3.MoveTowards(rb.velocity, new(direction.x, rb.velocity.y, direction.z), delta * Time.deltaTime);
+            return rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, new(direction.x, rb.linearVelocity.y, direction.z), delta * Time.deltaTime);
         }
         public static Vector2 VelocityTowardsX(this Rigidbody2D rb, Vector2 direction, float delta)
         {
-            return rb.velocity = Vector2.MoveTowards(rb.velocity, new(direction.x, rb.velocity.y), delta * Time.deltaTime);
+            return rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, new(direction.x, rb.linearVelocity.y), delta * Time.deltaTime);
         }
         public static Vector2 VelocityTowards(this Rigidbody2D rb, Vector2 direction, float delta)
         {
-            return rb.velocity = Vector2.MoveTowards(rb.velocity, direction, delta * Time.deltaTime);
+            return rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction, delta * Time.deltaTime);
         }
         public static Vector2 VelocityScale(this Rigidbody2D rb, Vector2 direction, float scale)
         {
-            return rb.velocity = direction * scale;
+            return rb.linearVelocity = direction * scale;
         }
         public static Vector2 VelocityTowardsWithoutDelta(this Rigidbody2D rb, Vector2 direction, float delta)
         {
-            return rb.velocity = Vector2.MoveTowards(rb.velocity, direction, delta);
+            return rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction, delta);
         }
         public static Vector2 ScaleVelocityVector(this Rigidbody2D rb, float time, float mix = 1f)
         {
-            return rb.velocity * time * mix;
+            return rb.linearVelocity * time * mix;
         }
         public static Vector2 PredictPosition(this Rigidbody2D rb, float time, float mix = 1f)
         {
