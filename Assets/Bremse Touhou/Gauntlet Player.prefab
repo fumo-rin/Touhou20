@@ -1633,7 +1633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: ebd6399bce3fbe948b3a6d0a95de75eb, type: 2}
   unitName: Headhunter, Leather Belt
-  targetEditorOverride: {fileID: 0}
   Active: 1
   unitCenterAnchor: {fileID: 1571843913613554111}
   UnitFaction: 1
