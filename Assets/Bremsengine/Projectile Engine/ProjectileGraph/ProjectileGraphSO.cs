@@ -2,6 +2,7 @@ using Core.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -162,6 +163,7 @@ namespace Bremsengine
         /// <returns></returns>
         public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
+        Debug.Log(input.OwnerCurrentPosition == (Vector2)input.Owner.transform.position + new Vector2(0f,0.5f));
             TriggeredEvent projectileEvents = new TriggeredEvent();
             /*foreach (ProjectileNodeSO node in nodes)
             {
@@ -170,8 +172,7 @@ namespace Bremsengine
                 //node.Spawn(spawns, input, projectileEvents);
                 //callback?.Invoke(, input.Owner, input.Target);
             }*/
-            Debug.DrawLine(input.OwnerCurrentPosition, input.OverrideTargetPosition, Color.yellow, 1f);
-            foreach (ProjectileEmitterSO emitter in emitters)
+            foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
             {
                 emitter.Trigger(projectileEvents, input, callback);
             }

@@ -41,7 +41,6 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            NodeActive = EditorGUILayout.Toggle("Is Active", NodeActive);
             int selected = ProjectileCache.FindIndex(x => x == ProjectileType);
             int selection = EditorGUILayout.Popup("", selected, GetProjectileTypesToDisplay());
 
@@ -124,7 +123,7 @@ namespace Bremsengine
             this.owner = owner;
             this.target = target;
             this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition : (Vector2)owner.position + Vector2.right;
-            if (target != null && overrideTargetPosition != Vector2.zero)
+            if (target != null && overrideTargetPosition == Vector2.zero)
             {
                 this.direction = target.position - owner.position;
             }
@@ -166,7 +165,6 @@ namespace Bremsengine
     #region Direction
     public partial class ProjectileNodeSO
     {
-        public bool NodeActive = true;
         public Vector2 staticDirection = Vector2.zero;
         public float directionalOffset = 0f;
         public float spread = 0f;

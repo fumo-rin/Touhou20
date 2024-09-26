@@ -45,7 +45,6 @@ namespace Bremsengine
         {
             float delay = addedDelay;
             float addedAngle = 0f;
-            if (Retargetting) input.SetOverrideTarget(Vector2.zero);
             for (int i = 0; i < repeatCount; i++)
             {
                 input.addedAngle = addedAngle;

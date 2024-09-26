@@ -21,5 +21,13 @@ namespace Bremsengine
         public Vector2 AimTarget => targetPositionOverride != Vector2.zero ? targetPositionOverride : (Vector2)Target.position + aimOffset;
         public void SetTargetPositionOverride(Vector2 position) => targetPositionOverride = position;
         public void SetAimOffset(Vector2 offset) => aimOffset = offset;
+
+        public ProjectileGraphInput ToGraphInput()
+        {
+            ProjectileGraphInput input = new ProjectileGraphInput(Owner,Target);
+            input.SetOverrideTarget(AimTarget);
+            input.SetOwnerSpawnOffset(OwnerAttackOffset);
+            return input;
+        }
     }
 }

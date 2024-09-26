@@ -66,12 +66,13 @@ namespace Bremsengine
             float iterationAngle = (startingAngle + (ProjectileCount > 1 ? -AngleCoverage.Multiply(0.5f) : 0f));
             for (int i = 0; i < ProjectileCount; i++)
             {
+                Debug.Log(input.OverrideTargetPosition);
                 ProjectileNodeDirection direction = BuildDirection(input.Owner, input.Target, input.OverrideTargetPosition);
                 direction.AddSpeedModifier(CurveValue(arcProgressionSpeed, progress));
 
                 direction.AddAngle(input.addedAngle);
                 direction.AddAngle(RandomAngle ? GetRandomAngle : iterationAngle.Multiply(CurveValue(arcProgressionAngleMultiplier, progress)));
-
+                Debug.DrawLine(input.OwnerCurrentPosition,direction.Direction,Color.yellow,0.5f);
                 Projectile spawn = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
                 l.Add(spawn);
                 iterationAngle += AngleIncrement;

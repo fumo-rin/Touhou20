@@ -38,6 +38,8 @@ namespace Bremsengine
             EditorGUI.BeginChangeCheck();
             addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
             Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
+
+            Active = EditorGUILayout.Toggle("Is Active",Active);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
@@ -71,6 +73,7 @@ namespace Bremsengine
     #endregion
     public abstract partial class ProjectileEmitterSO : ProjectileGraphComponent
     {
+        public bool Active = true;
         public List<ProjectileNodeSO> linkedNodes = new List<ProjectileNodeSO>();
         public float addedDelay;
         public bool Retargetting;
@@ -80,7 +83,7 @@ namespace Bremsengine
             yield return new WaitForSeconds(delay);
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
-            if (Retargetting) input.SetOverrideTarget(Vector2.zero);
+
             foreach (var item in linkedNodes)
             {
                 item.Spawn(in newSpawns, input, triggeredEvent);

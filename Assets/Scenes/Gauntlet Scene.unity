@@ -202,6 +202,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731013533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2340313232654369840, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+  m_PrefabInstance: {fileID: 895150318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &895150318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,6 +221,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 439252928053834328, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testingTarget
+      value: 
+      objectReference: {fileID: 2051693840}
     - target: {fileID: 1427932970115799732, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -234,6 +249,30 @@ PrefabInstance:
       propertyPath: targetEditorOverride
       value: 
       objectReference: {fileID: 2051693839}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1748529692}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bremsengine.EnemyAttackHandler, Bremsengine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 731013533}
+    - target: {fileID: 5567631869179538530, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: testAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Bremsengine.BaseAttack, Bremsengine
+      objectReference: {fileID: 0}
     - target: {fileID: 6154838771780872351, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: testTarget
       value: 
@@ -587,6 +626,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 928fac19cedde1f4faa49dc7f6add60a, type: 3}
+--- !u!114 &1748529692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 439252928053834328, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+  m_PrefabInstance: {fileID: 895150318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c338e3cde30ee54090ed1483974c2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809455392
 GameObject:
   m_ObjectHideFlags: 0

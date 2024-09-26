@@ -20,6 +20,7 @@ MonoBehaviour:
     height: 200
   ID: 0e65853a-b217-4820-8709-fe160e3792ca
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
@@ -37,8 +38,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1677
-    y: -668
+    x: 1436
+    y: -66
     width: 350
     height: 100
   ID: b53b82b5-79c5-4406-bb12-ffdb76d5ebed
@@ -59,20 +60,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1725
-    y: -467
+    x: 1524
+    y: 151
     width: 350
     height: 700
   ID: 181b2565-3333-429c-adea-d1abbf38d421
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1469
-    y: -437
+    x: 1268
+    y: 181
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
@@ -157,12 +156,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -22
-    y: 530
+    x: -277
+    y: 1137
     width: 350
     height: 200
   ID: a4ae7954-2b9a-48f7-b5c4-5ad0e0c2f3cc
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes:
   - {fileID: 685339135572628869}
   addedDelay: 1
@@ -222,12 +222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 812
-    y: 539
+    x: 571
+    y: 1141
     width: 350
     height: 200
   ID: 52514920-0795-4e8f-b8f7-38eeb48da6a5
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes:
   - {fileID: 8439396693298836473}
   addedDelay: 1
@@ -249,20 +250,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 373
-    y: 195
+    x: 132
+    y: 797
     width: 350
     height: 700
   ID: 33754076-0618-4a87-af76-6dfd2e5b4230
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 117
-    y: 225
+    x: -124
+    y: 827
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
@@ -364,8 +363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1236
-    y: 50
+    x: 918
+    y: 652
     width: 350
     height: 100
   ID: 4421b167-979f-46de-ae20-d38d5d8cf34d
@@ -398,8 +397,6 @@ MonoBehaviour:
     y: 181
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
@@ -422,12 +419,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1357
-    y: -188
+    x: 1116
+    y: 414
     width: 350
     height: 200
   ID: 848868b2-c7d3-4a5f-97b6-80a5cd746cd5
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes:
   - {fileID: -4556517639307246956}
   addedDelay: 1.6
@@ -455,6 +453,7 @@ MonoBehaviour:
     height: 200
   ID: ec8d9fff-2ea4-4a36-b045-3dd765adebf6
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
@@ -494,20 +493,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 801
-    y: -551
+    x: 560
+    y: 51
     width: 350
     height: 700
   ID: ae9ac0d6-a50a-43ea-a7f8-05856fe891e2
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 545
-    y: -521
+    x: 304
+    y: 81
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
@@ -569,6 +566,33 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5325629676223681599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 281
+    y: 218
+    width: 350
+    height: 200
+  ID: ef5659a6-43f6-48ce-b311-521f294948f2
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes: []
+  addedDelay: 0
+  Retargetting: 0
+  repeatInterval: 0.3
+  repeatCount: 4
+  repeatAddedAngle: 0
 --- !u!114 &6302776682013068324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,8 +651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 799
-    y: -656
+    x: 558
+    y: -54
     width: 350
     height: 100
   ID: 1486e29b-9433-4984-b0f4-c00408d79564
@@ -677,6 +701,7 @@ MonoBehaviour:
     height: 200
   ID: 00893b3c-5db7-45bc-9af9-0fe2c1a363c7
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
@@ -703,6 +728,7 @@ MonoBehaviour:
     height: 200
   ID: 6541d8fc-036d-4bb7-ab1d-0c2fb9f3224a
   graph: {fileID: 11400000}
+  Active: 0
   linkedNodes:
   - {fileID: -4556517639307246956}
   addedDelay: 0
@@ -743,20 +769,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1233
-    y: 204
+    x: 992
+    y: 806
     width: 350
     height: 700
   ID: ab722b6b-f271-4b5c-baaf-76a2ab362d24
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 977
-    y: 234
+    x: 736
+    y: 836
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
   staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
@@ -832,12 +856,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 403
-    y: -154
+    x: 130
+    y: 435
     width: 350
     height: 200
   ID: 1ec3e1a0-58d0-4a18-a3a2-2c455829b0c8
   graph: {fileID: 11400000}
+  Active: 1
   linkedNodes:
   - {fileID: 5103467786027340906}
   addedDelay: 0
