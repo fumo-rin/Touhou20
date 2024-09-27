@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
-  unitName: Headhunter, Leather Belt
+  unitName: Ancient Water Spirits
   Active: 1
   unitCenterAnchor: {fileID: 7025743821825117553}
   UnitFaction: 2
@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6114173833079794980
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   attackHandler: {fileID: 439252928053834328}
   attackBaseDamage: 10
   attackDuration: 4
-  projectileAttack: {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
 --- !u!1 &6364486685507649125
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Bremsengine
         public Texture Texture => sprite.sprite.texture;
         public Color32 Color => sprite.color;
         public void SetColor(Color32 c) => sprite.color = c;
+        public bool IsOffScreen => !sprite.IsVisible(Camera.main);
         public void SetSprite(Sprite s, SpriteRenderer other)
         {
             sprite.sprite = s;
@@ -25,7 +27,14 @@ namespace Bremsengine
         {
             if (assignedProjectile.Active)
             {
-                assignedProjectile.ClearProjectile();
+                assignedProjectile.QueueRecalculateOffscreen();
+            }
+        }
+        private void OnBecameVisible()
+        {
+            if (assignedProjectile.Active)
+            {
+                assignedProjectile.SetOffScreen(false);
             }
         }
     }

@@ -14,7 +14,6 @@ namespace BremseTouhou
         [SerializeField] List<ProjectileEvent> projectileEvents = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle)
         {
-            Debug.Log(target);
             PlaySound(owner);
             ProjectileDirection directionIteration;
             float progress;

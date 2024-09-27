@@ -183,6 +183,7 @@ MonoBehaviour:
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 0
+  offScreenClearDelay: 3
 --- !u!70 &9167763196187541489
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

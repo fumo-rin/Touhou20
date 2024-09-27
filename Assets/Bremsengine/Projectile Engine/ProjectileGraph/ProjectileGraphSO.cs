@@ -163,7 +163,6 @@ namespace Bremsengine
         /// <returns></returns>
         public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
-        Debug.Log(input.OwnerCurrentPosition == (Vector2)input.Owner.transform.position + new Vector2(0f,0.5f));
             TriggeredEvent projectileEvents = new TriggeredEvent();
             /*foreach (ProjectileNodeSO node in nodes)
             {
