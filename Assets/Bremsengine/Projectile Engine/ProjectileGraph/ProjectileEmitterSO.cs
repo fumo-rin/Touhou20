@@ -84,6 +84,10 @@ namespace Bremsengine
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
+            if (Retargetting && input.Target)
+            {
+                input.SetOverrideTarget(input.Target.position);
+            }
             foreach (var item in linkedNodes)
             {
                 item.Spawn(in newSpawns, input, triggeredEvent);

@@ -49,7 +49,6 @@ namespace Bremsengine
             {
                 SetPreviewTexture(ProjectileType);
             }
-            staticDirection = EditorGUILayout.Vector2Field("Override Direction", staticDirection);
 
             directionalOffset = EditorGUILayout.Slider("Directional Offset", directionalOffset, 0f, 10f);
             spread = EditorGUILayout.Slider("Spread", spread, 0f, 60f);
@@ -122,7 +121,7 @@ namespace Bremsengine
         {
             this.owner = owner;
             this.target = target;
-            this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition : (Vector2)owner.position + Vector2.right;
+            this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition - (Vector2)owner.position : (Vector2)owner.position + Vector2.right;
             if (target != null && overrideTargetPosition == Vector2.zero)
             {
                 this.direction = target.position - owner.position;
@@ -165,14 +164,13 @@ namespace Bremsengine
     #region Direction
     public partial class ProjectileNodeSO
     {
-        public Vector2 staticDirection = Vector2.zero;
         public float directionalOffset = 0f;
         public float spread = 0f;
         public float speed = 10f;
         public float addedAngle = 0f;
         public ProjectileNodeDirection BuildDirection(Transform owner, Transform target, Vector2 overrideTarget)
         {
-            Vector2 o = staticDirection != Vector2.zero ? staticDirection : overrideTarget != Vector2.zero ? overrideTarget : target.position;
+            Vector2 o = overrideTarget != Vector2.zero ? overrideTarget : target.position;
             ProjectileNodeDirection direction = new(owner, target, o);
             return direction;
         }

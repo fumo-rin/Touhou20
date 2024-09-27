@@ -1770,6 +1770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 8756501816092386084}
   attackBaseDamage: 10
+  attackDuration: 4
   projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
 --- !u!1001 &4919778516789937312
 PrefabInstance:
@@ -1782,18 +1783,6 @@ PrefabInstance:
     - target: {fileID: 2115265243665585155, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
       propertyPath: m_Name
       value: Player Input Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.911041
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3197347
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0642292
       objectReference: {fileID: 0}
     - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
       propertyPath: m_LocalRotation.w

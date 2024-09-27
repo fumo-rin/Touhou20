@@ -57,12 +57,11 @@ namespace BremseTouhou
         public bool TryScan(out BaseUnit found)
         {
             found = null;
-            
             foreach (BaseUnit unit in trackedUnits)
             {
                 foreach (var item in scanners)
                 {
-                    if (RaycastHelper.Cast(item,unit.Center,blockingLayer, out iterationHit, maxScanRange))
+                    if (RaycastHelper.Cast(owner.Center + item,unit.Center,blockingLayer, out iterationHit, maxScanRange))
                     {
                         if (iterationHit.transform.TryGetComponent(out BaseUnit hitUnit))
                         {

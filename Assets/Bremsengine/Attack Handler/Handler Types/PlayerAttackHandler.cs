@@ -42,7 +42,7 @@ namespace Bremsengine
         public override void TriggerAttack(BaseAttack attack)
         {
             AttackDirectionPacket packet = new(owner, null, ownerAttackOffset);
-            packet.SetTargetPositionOverride(GetAttackDirection);
+            packet.SetTargetPositionOverride((Vector2)owner.position +  GetAttackDirection);
             attack.PerformAttack(packet);
         }
     }
