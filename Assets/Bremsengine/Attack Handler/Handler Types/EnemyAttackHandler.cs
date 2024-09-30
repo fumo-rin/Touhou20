@@ -16,7 +16,6 @@ namespace Bremsengine
         {
             nextAttackTime = Time.time + attack.attackDuration;
             AttackDirectionPacket p = new(owner, testingTarget);
-            p.SetTargetPositionOverride(testingTarget.position);
             p.SetAimDirectionOverride(fallbackDirection);
             attack.PerformAttack(p);
         }

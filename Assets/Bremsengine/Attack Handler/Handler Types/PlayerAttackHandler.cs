@@ -47,10 +47,6 @@ namespace Bremsengine
             {
                 packet.SetAimDirectionOverride(overrideDirection);
             }
-            else
-            {
-                packet.SetTargetPositionOverride((Vector2)owner.position + GetAttackDirection);
-            }
             attack.PerformAttack(packet);
         }
     }

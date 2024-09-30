@@ -1625,7 +1625,7 @@ MonoBehaviour:
   attackHandler: {fileID: 8756501816092386084}
   attackBaseDamage: 10
   attackDuration: 4
-  projectileAttack: {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 2d52bd3799216a94f842b54776786925, type: 2}
 --- !u!1001 &4919778516789937312
 PrefabInstance:
   m_ObjectHideFlags: 0
