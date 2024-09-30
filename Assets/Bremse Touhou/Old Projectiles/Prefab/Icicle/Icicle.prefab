@@ -64,6 +64,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,14 +89,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1773792273
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98d4dcc4bf563fa45896912239aa1988, type: 3}
+  m_Sprite: {fileID: 7643970118364603422, guid: 40dec039d3dedc049ba6d38856eb06dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.94, y: 1.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,7 +140,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8866305672862957938
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -148,8 +151,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -176,10 +179,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 4754307041942461484}
   mainCollider: {fileID: 6779075698291417580}
+  target: {fileID: 0}
   rb: {fileID: 8866305672862957938}
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 0
+  offScreenClearDelay: 5
 --- !u!210 &142807703605679598
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -189,7 +194,7 @@ SortingGroup:
   m_GameObject: {fileID: 3417849383627458229}
   m_Enabled: 1
   m_SortingLayerID: -134274437
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: -10
   m_SortAtRoot: 1
 --- !u!70 &6779075698291417580
@@ -200,6 +205,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3417849383627458229}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -223,7 +229,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 0.2}
   m_Direction: 1

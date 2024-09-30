@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: ed534c9d8de8e324b876570abdad264d
   m_currentHash:
     serializedVersion: 2
-    Hash: 9f7f8d18fc3db3d9265c44efd4568010
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 5a6040d8bfa03cb4b8d04ee1806b79e2, type: 2}
+  - {fileID: 11400000, guid: d0fb9e6fd136d074f8a2d7ac11653063, type: 2}
   - {fileID: 11400000, guid: 14bbee4283e6ac94cba2bdaf76bbf7b2, type: 2}
   - {fileID: 11400000, guid: 3820109dfe878d640b37703b84fb39df, type: 2}
   - {fileID: 11400000, guid: 702117f5c15837249b5d1e22709b72f9, type: 2}
@@ -107,6 +108,7 @@ MonoBehaviour:
     - Dynamic Channels
     - Single Channels
     - Projectile Types
+    - Projectile Graph
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3f7df906c1e29f34aa7bdfebec3afd69, type: 2}

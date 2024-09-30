@@ -56,6 +56,18 @@ namespace Bremsengine
             previewLineEnd = position;
             previewLine = true;
         }
+        public string graphID { get; private set; }
+        public bool SetNewGraphID()
+        {
+            if (string.IsNullOrEmpty(graphID))
+            {
+                graphID = System.Guid.NewGuid().ToString();
+                this.Dirty();
+                AssetDatabase.SaveAssetIfDirty(this);
+                return true;
+            }
+            return false;
+        }
     }
     #region Draw
     public partial class ProjectileGraphSO
