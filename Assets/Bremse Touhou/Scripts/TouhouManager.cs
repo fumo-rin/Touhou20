@@ -11,7 +11,10 @@ namespace BremseTouhou
         [SerializeField] AudioClipWrapper bossKillSound;
         public static void PlayBossKillSound()
         {
-            instance.bossKillSound.Play(Vector2.zero);
+            if (instance != null)
+            {
+                instance.bossKillSound.Play(Vector2.zero);
+            }
         }
     }
     #endregion

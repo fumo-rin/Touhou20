@@ -138,11 +138,10 @@ namespace BremseTouhou
         {
             foreach (var item in Physics2D.BoxCastAll(Center, Vector2.one * 0.02f, 0f, Vector2.zero, 0f, 1 << 7))
             {
-                if (item.transform.GetComponent<Projectile>() is Projectile p and not null)
+                if (item.transform.GetComponent<Projectile>() is Projectile p and not null && !FactionInterface.IsFriendsWith(p.Faction))
                 {
                     if (p.Contains(Center))
                     {
-                        Debug.Log("Player Hit");
                         p.CollideWith(Collider);
                         //p.ClearProjectile();
                     }

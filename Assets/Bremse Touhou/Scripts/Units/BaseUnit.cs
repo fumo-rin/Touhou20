@@ -108,7 +108,7 @@ namespace BremseTouhou
         Coroutine loseTargetCoroutine;
         public void CancelLoseTarget()
         {
-            if (loseTargetCoroutine == null)
+            if (loseTargetCoroutine != null)
             {
                 StopCoroutine(loseTargetCoroutine);
             }
@@ -116,7 +116,10 @@ namespace BremseTouhou
         }
         public void LoseTarget(float delayInSeconds)
         {
-            loseTargetCoroutine = StartCoroutine(CO_LoseTarget(delayInSeconds));
+            if (gameObject.activeInHierarchy)
+            {
+                loseTargetCoroutine = StartCoroutine(CO_LoseTarget(delayInSeconds));
+            }
         }
         public delegate void TargetRefresh(BaseUnit newTarget);
         protected TargetRefresh OnTargetUpdate;

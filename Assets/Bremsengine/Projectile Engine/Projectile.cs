@@ -32,6 +32,7 @@ namespace Bremsengine
 
             rb.gravityScale = proj.gravityModifier;
             rb.linearDamping = proj.drag;
+            QueueRecalculateOffscreen();
             return this;
         }
         public Projectile SetIgnoreCollision(Collider2D c)
@@ -253,6 +254,8 @@ namespace Bremsengine
     {
         private bool isActive;
         public bool Active => isActive;
+        bool isOffscreenClearing;
+        bool recalculateOffscreen;
         public void ClearProjectile()
         {
             if (gameObject == null)
@@ -266,6 +269,22 @@ namespace Bremsengine
             ProjectileQueue.Enqueue(this);
             StopAllCoroutines();
             activeProjectiles.Remove(this);
+        }
+        public void QueueRecalculateOffscreen() => recalculateOffscreen = true;
+        public void SetOffScreen(bool state)
+        {
+            recalculateOffscreen = false;
+            if (state)
+            {
+                if (!isOffscreenClearing)
+                {
+                    Invoke(nameof(ClearProjectile), offScreenClearDelay);
+                }
+                isOffscreenClearing = state;
+                return;
+            }
+            isOffscreenClearing = state;
+            CancelInvoke(nameof(ClearProjectile));
         }
         public static void ClearProjectileTimelineFor(Transform t) => ProjectileEmitterTimelineHandler.ClearEmitQueue(t);
     }
@@ -382,7 +401,9 @@ namespace Bremsengine
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
         [SerializeField] float drag = 0f;
+        [SerializeField] float offScreenClearDelay = 5f;
         public Texture Texture => projectileSprite == null ? null : projectileSprite.Texture;
+        public bool IsOffScreen => projectileSprite.IsOffScreen;
         private void Awake()
         {
             if (rb == null)
@@ -398,6 +419,13 @@ namespace Bremsengine
             {
                 mainCollider = c;
                 c.isTrigger = true;
+            }
+        }
+        private void LateUpdate()
+        {
+            if (recalculateOffscreen)
+            {
+                SetOffScreen(IsOffScreen);
             }
         }
         public bool Contains(Vector2 position) => mainCollider.bounds.Contains(position);

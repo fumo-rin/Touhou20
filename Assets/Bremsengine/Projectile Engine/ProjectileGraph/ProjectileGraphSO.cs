@@ -2,6 +2,7 @@ using Core.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -54,6 +55,18 @@ namespace Bremsengine
             previewLinePosition = position;
             previewLineEnd = position;
             previewLine = true;
+        }
+        public string graphID { get; private set; }
+        public bool SetNewGraphID()
+        {
+            if (string.IsNullOrEmpty(graphID))
+            {
+                graphID = System.Guid.NewGuid().ToString();
+                this.Dirty();
+                AssetDatabase.SaveAssetIfDirty(this);
+                return true;
+            }
+            return false;
         }
     }
     #region Draw
@@ -170,8 +183,7 @@ namespace Bremsengine
                 //node.Spawn(spawns, input, projectileEvents);
                 //callback?.Invoke(, input.Owner, input.Target);
             }*/
-            Debug.DrawLine(input.OwnerCurrentPosition, input.OverrideTargetPosition, Color.yellow, 1f);
-            foreach (ProjectileEmitterSO emitter in emitters)
+            foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
             {
                 emitter.Trigger(projectileEvents, input, callback);
             }

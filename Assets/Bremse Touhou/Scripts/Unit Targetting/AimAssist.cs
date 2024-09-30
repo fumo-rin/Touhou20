@@ -25,19 +25,21 @@ namespace BremseTouhou
         protected List<BaseUnit> Collect(BaseUnit owner, LayerMask layer, Comparison<BaseUnit> sort = null)
         {
             #region Check if anything is even nearby
-            if (Physics2D.BoxCast(owner.Center, Box, 0f, Vector2.zero, Size, BaseUnit.EnemyLayer)
+            if (Physics2D.BoxCast(owner.Center, Box, 0f, Vector2.zero, Size, layer)
                 .transform == null)
             {
                 return new List<BaseUnit>();
             }
             #endregion
             hit = new RaycastHit2D[scanCount];
-            if (Physics2D.BoxCastNonAlloc(owner.transform.position, Box, 0f, Vector2.zero, hit, size, layer) > 0)
+            ContactFilter2D f = new ContactFilter2D();
+            f.useTriggers = false;
+            if (Physics2D.BoxCast(owner.transform.position, new(Size,Size), 0f, Vector2.zero, f, hit, Radius) > 0)
             {
                 List<BaseUnit> found = new();
                 foreach (var entry in hit)
                 {
-                    if (entry.transform != null && entry.transform.GetComponent<BaseUnit>() is not null and BaseUnit u)
+                    if (entry.transform != null && entry.transform.GetComponent<BaseUnit>() is not null and BaseUnit u && !u.FactionInterface.IsFriendsWith(owner.FactionInterface.Faction))
                     {
                         found.Add(u);
                     }
@@ -53,7 +55,7 @@ namespace BremseTouhou
         protected BaseUnit CollectTarget(BaseUnit owner, LayerMask layer, Comparison<BaseUnit> sort = null)
         {
             BaseUnit target = null;
-            List<BaseUnit> found = Collect(owner, BaseUnit.EnemyLayer, sort);
+            List<BaseUnit> found = Collect(owner, layer, sort);
             int iteration = 0;
             while (target == null && iteration < found.Count)
             {
@@ -67,7 +69,7 @@ namespace BremseTouhou
     #endregion
     public abstract partial class AimAssist : ScriptableObject
     {
-        [SerializeField] protected LayerMask layer;
+        [SerializeField] protected LayerMask blockingLayer;
         public float Size => size;
         public float Radius => size * 0.5f;
         protected Vector2 Box => new(Size, Size);

@@ -13,7 +13,10 @@ namespace Bremsengine
     #region Double Click & Window
     public partial class ProjectileGraphEditor
     {
+        private static Dictionary<string, ProjectileGraphSO> graphsCache;
         private static ProjectileGraphSO ActiveGraph;
+        const string lastLoadedGraphIDKey = "LAST_LOADED_PROJECTILE_GRAPH_ID";
+        private static string GraphsAddressablesKey = "Projectile Graph";
         [OnOpenAsset(0)]
         public static bool OnDoubleClickAsset(int instanceID, int line)
         {
@@ -21,18 +24,57 @@ namespace Bremsengine
             if (graph != null)
             {
                 OpenWindow();
-
-                ActiveGraph = graph;
-                ActiveGraph.SetActiveGraph();
+                SelectGraphToEdit(graph);
                 return true;
             }
             return false;
+        }
+        public static void SelectGraphToEdit(ProjectileGraphSO g)
+        {
+            ActiveGraph = g;
+            ActiveGraph.SetActiveGraph();
+            ActiveGraph.SetNewGraphID();
+            EditorPrefs.SetString(lastLoadedGraphIDKey, g.graphID);
+            
+        }
+        private static void InitializeGraphsCache()
+        {
+            graphsCache = new();
+            foreach (var item in AddressablesTools.LoadKeys<ProjectileGraphSO>(GraphsAddressablesKey))
+            {
+                if (item == null)
+                    continue;
+                if (graphsCache.ContainsValue(item))
+                {
+                    Debug.LogError("Duplicate Graph IDs for : "+item.name.Color(ColorHelper.Peach));
+                    continue;
+                }
+                item.SetNewGraphID();
+                graphsCache[item.graphID] = item;
+            }
         }
 
         [MenuItem("Projectile Editor", menuItem = "Bremsengine/Projectile Editor")]
         private static void OpenWindow()
         {
             GetWindow<ProjectileGraphEditor>("Projectile Editor");
+            if (ActiveGraph == null)
+            {
+                InitializeGraphsCache();
+                if (EditorPrefs.HasKey(lastLoadedGraphIDKey) && EditorPrefs.GetString(lastLoadedGraphIDKey) is string loadedID && loadedID != null)
+                {
+                    if (string.IsNullOrEmpty(loadedID))
+                    {
+                        return;
+                    }
+                    ProjectileGraphSO load;
+                    if (graphsCache.ContainsKey(loadedID))
+                    {
+                        load = graphsCache[loadedID];
+                        SelectGraphToEdit(load);
+                    }
+                }
+            }
         }
     }
     #endregion

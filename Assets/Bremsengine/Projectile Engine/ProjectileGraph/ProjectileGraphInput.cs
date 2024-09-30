@@ -12,16 +12,17 @@ namespace Bremsengine
             this.Target = target;
             addedAngle = 0f;
             overrideTarget = Vector2.zero;
-            ownerSpawnOffset = Vector2.zero;
+            overrideDirection = Vector2.zero;
         }
-        public Vector2 OverrideTargetPosition => overrideTarget != Vector2.zero ? overrideTarget : Target == null ? (Vector2)Owner.transform.position + Vector2.down : Target.position;
+        public Vector2 NewAimPosition => overrideDirection == Vector2.zero ? (overrideTarget == Vector2.zero ? (Target == null ? (Vector2)Owner.transform.position + Vector2.down * 2f : Target.position) : overrideTarget) : (Vector2)Owner.transform.position + overrideDirection;
+        public Vector2 AimPosition => NewAimPosition;
         public Transform Target;
         public Transform Owner;
         public float addedAngle;
-        private Vector2 overrideTarget;
-        private Vector2 ownerSpawnOffset;
-        public void SetOwnerSpawnOffset(Vector2 offset) => ownerSpawnOffset = offset;
+        public Vector2 overrideTarget { get; private set; }
+        public Vector2 overrideDirection { get; private set; }
         public void SetOverrideTarget(Vector2 position) { overrideTarget = position; }
-        public Vector2 OwnerCurrentPosition => (Vector2)Owner.position + ownerSpawnOffset;
-    }
+        public void SetOverrideDirection(Vector2 direction) { overrideDirection = direction; }
+        public Vector2 OwnerCurrentPosition => (Vector2)Owner.position;
+    } 
 }

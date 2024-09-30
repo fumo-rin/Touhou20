@@ -7,6 +7,11 @@ namespace Core.Extensions
 {
     public static partial class TransformExtensions
     {
+        public static Transform SetParentDecorator(this Transform t, Transform newParent)
+        {
+            t.SetParent(newParent);
+            return t;
+        }
         public static Vector3 GetVectorTowards(this Transform t, Vector3 target)
         {
             return target - t.position;

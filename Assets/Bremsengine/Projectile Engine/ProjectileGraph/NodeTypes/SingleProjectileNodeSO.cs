@@ -34,7 +34,7 @@ namespace Bremsengine
     {
         public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
-            ProjectileNodeDirection direction = new(input.Owner, input.Target, input.OverrideTargetPosition);
+            ProjectileNodeDirection direction = BuildDirectionAlternate(input);
             direction.AddAngle(input.addedAngle);
             Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
             l.Add(p);

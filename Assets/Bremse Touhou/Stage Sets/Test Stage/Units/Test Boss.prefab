@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5567631869179538530}
   - component: {fileID: 990701229308025543}
   - component: {fileID: 1133392463296690714}
+  - component: {fileID: 2819504308328833263}
   m_Layer: 6
   m_Name: Test Boss
   m_TagString: Untagged
@@ -35,6 +36,7 @@ Transform:
   - {fileID: 6512128401469988700}
   - {fileID: 6114173833079794980}
   - {fileID: 1090669734748170926}
+  - {fileID: 4167861839606646070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5567631869179538530
@@ -50,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
-  unitName: Headhunter, Leather Belt
+  unitName: Ancient Water Spirits
   Active: 1
   unitCenterAnchor: {fileID: 7025743821825117553}
   UnitFaction: 2
@@ -61,7 +63,7 @@ MonoBehaviour:
   testAttackEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6154838771780872351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Bremsengine.ProjectileGraphShooter, Bremsengine
         m_MethodName: ShootCurrentGraph
         m_Mode: 1
@@ -146,6 +148,67 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2819504308328833263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810120549550396217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbefb2af5f05da45857d57077bbeccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 100
+--- !u!1 &4498379819222085448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4167861839606646070}
+  - component: {fileID: 439252928053834328}
+  m_Layer: 6
+  m_Name: Test Attack Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4167861839606646070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498379819222085448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7025743821825117553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439252928053834328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498379819222085448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c338e3cde30ee54090ed1483974c2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 7025743821825117553}
+  ownerAttackOffset: {x: 0, y: 0}
+  faction: 2
+  testingTarget: {fileID: 0}
 --- !u!1 &5240180273037575361
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,14 +321,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6114173833079794980}
-  - component: {fileID: 6154838771780872351}
+  - component: {fileID: 2340313232654369840}
   m_Layer: 6
-  m_Name: Test Graph Shooter
+  m_Name: PRojectile Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6114173833079794980
 Transform:
   m_ObjectHideFlags: 0
@@ -281,7 +344,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7025743821825117553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6154838771780872351
+--- !u!114 &2340313232654369840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,14 +353,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6125312795218725489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc7c75f93ef0144788061ce299370ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
-  testTarget: {fileID: 0}
-  owner: {fileID: 7025743821825117553}
-  faction: 2
-  fallbackDirection: {x: 0, y: -1}
+  attackHandler: {fileID: 439252928053834328}
+  attackBaseDamage: 10
+  attackDuration: 4
+  projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
 --- !u!1 &6364486685507649125
 GameObject:
   m_ObjectHideFlags: 0

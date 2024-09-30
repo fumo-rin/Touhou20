@@ -24,6 +24,9 @@ namespace Core.Input
             }
             return direction;
         }
+        public delegate void MousePressAction(Vector2 mousePosition);
+        public static MousePressAction OnMouseClick;
+        public static MousePressAction OnMouseRelease;
         public static Vector2 LastRightStickDirectionInput => ReadStickDirection() == Vector2.zero ? storedRightStickDirectionInput : RightStickDirection;
         private static Vector2 storedRightStickDirectionInput;
         public static GameActions actions { get; private set; }
@@ -33,13 +36,28 @@ namespace Core.Input
         public static ControlSchemeEvent OnControlSchemeChanged;
         private void Awake()
         {
-            playerInput = GetComponent<UnityEngine.InputSystem.PlayerInput>();
             actions ??= new();
             actions?.Enable();
         }
         private void Start()
         {
             SetControlScheme(playerInput);
+        }
+        private void Update()
+        {
+
+            Vector2 MousePosition()
+            {
+                return Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            }
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                OnMouseClick?.Invoke(MousePosition());
+            }
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                OnMouseRelease?.Invoke(MousePosition());
+            }
         }
         public static void SetControlScheme(UnityEngine.InputSystem.PlayerInput input)
         {

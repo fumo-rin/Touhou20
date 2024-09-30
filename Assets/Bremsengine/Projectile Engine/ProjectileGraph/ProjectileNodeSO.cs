@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using Core.Extensions;
 using System.Linq;
+using System.IO;
 
 namespace Bremsengine
 {
@@ -41,7 +42,6 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            NodeActive = EditorGUILayout.Toggle("Is Active", NodeActive);
             int selected = ProjectileCache.FindIndex(x => x == ProjectileType);
             int selection = EditorGUILayout.Popup("", selected, GetProjectileTypesToDisplay());
 
@@ -50,7 +50,6 @@ namespace Bremsengine
             {
                 SetPreviewTexture(ProjectileType);
             }
-            staticDirection = EditorGUILayout.Vector2Field("Override Direction", staticDirection);
 
             directionalOffset = EditorGUILayout.Slider("Directional Offset", directionalOffset, 0f, 10f);
             spread = EditorGUILayout.Slider("Spread", spread, 0f, 60f);
@@ -96,8 +95,8 @@ namespace Bremsengine
     #region Graph Projectile Direction
     public struct ProjectileNodeDirection
     {
-        Transform owner;
-        Transform target;
+        public Transform owner { get; private set; }
+        public Transform target { get; private set; }
         Vector2 direction;
         float AngleOffset;
         float Spread;
@@ -123,8 +122,8 @@ namespace Bremsengine
         {
             this.owner = owner;
             this.target = target;
-            this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition : (Vector2)owner.position + Vector2.right;
-            if (target != null && overrideTargetPosition != Vector2.zero)
+            this.direction = overrideTargetPosition != Vector2.zero ? overrideTargetPosition - (Vector2)owner.position : (Vector2)owner.position + Vector2.right;
+            if (target != null && overrideTargetPosition == Vector2.zero)
             {
                 this.direction = target.position - owner.position;
             }
@@ -166,17 +165,21 @@ namespace Bremsengine
     #region Direction
     public partial class ProjectileNodeSO
     {
-        public bool NodeActive = true;
-        public Vector2 staticDirection = Vector2.zero;
         public float directionalOffset = 0f;
         public float spread = 0f;
         public float speed = 10f;
         public float addedAngle = 0f;
         public ProjectileNodeDirection BuildDirection(Transform owner, Transform target, Vector2 overrideTarget)
         {
-            Vector2 o = staticDirection != Vector2.zero ? staticDirection : overrideTarget != Vector2.zero ? overrideTarget : target.position;
+            Vector2 o = overrideTarget != Vector2.zero ? overrideTarget : target.position;
             ProjectileNodeDirection direction = new(owner, target, o);
             return direction;
+        }
+        public ProjectileNodeDirection BuildDirectionAlternate(ProjectileGraphInput input)
+        {
+            Vector2 o = input.AimPosition;
+            ProjectileNodeDirection d = new(input.Owner, input.Target, o);
+            return d;
         }
     }
     #endregion

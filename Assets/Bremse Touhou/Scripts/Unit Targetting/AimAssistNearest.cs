@@ -25,10 +25,10 @@ namespace BremseTouhou
                 {
                     return -1;
                 }
-                return (b.Center.SquareDistanceTo(owner.Center) - a.Center.SquareDistanceTo(owner.Center)).SignInt();
+                return (a.Center.SquareDistanceTo(owner.Center)-(b.Center.SquareDistanceTo(owner.Center))).SignInt();
             }
             #endregion
-            target = CollectTarget(owner, layer, SortByDistance);
+            target = CollectTarget(owner, blockingLayer, SortByDistance);
             return target != null;
         }
     }

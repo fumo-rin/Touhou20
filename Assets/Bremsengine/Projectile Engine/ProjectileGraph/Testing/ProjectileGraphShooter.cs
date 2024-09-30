@@ -14,6 +14,7 @@ namespace Bremsengine
     /// </summary>
     public class ProjectileGraphShooter : MonoBehaviour
     {
+        /*
         [SerializeField] ProjectileGraphSO graph;
         [SerializeField] Transform testTarget;
         [SerializeField] Transform owner;
@@ -28,17 +29,15 @@ namespace Bremsengine
                 Debug.Log("Missing Projectile attack graph");
                 return;
             }
-            ProjectileGraphInput input = new()
-            {
-                Target = Target,
-                Owner = owner,
-            };
+            ProjectileGraphInput input = new(owner, Target);
+
             input.SetOverrideTarget(Target.position);
+            input.SetOwnerSpawnOffset(new(0f, 0.5f));
             Projectile.SpawnProjectileGraph(graph, input, OnProjectileSpawn);
         }
         private void OnProjectileSpawn(Projectile p, Transform owner, Transform target)
         {
             p.SetFaction(faction);
-        }
+        }*/
     }
 }
