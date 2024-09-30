@@ -21,13 +21,16 @@ namespace Bremsengine
         float lastFlipTime;
         private void LateUpdate()
         {
-            if (rb == null || animator == null)
+            if (rb == null)
                 return;
 
-            animator.SetFloat(animatorExpectedSpeedKey, expectedSpeed);
-            animator.SetFloat(animatorVelocityKey, rb.linearVelocity.magnitude);
+            if (animator != null)
+            {
+                animator.SetFloat(animatorExpectedSpeedKey, expectedSpeed);
+                animator.SetFloat(animatorVelocityKey, rb.linearVelocity.magnitude);
+            }
 
-            if (!animatorLockFlip && rb.linearVelocity.magnitude > minimumFlipSpeed && Time.time > lastFlipTime + 0.15f)
+            if (!animatorLockFlip && rb.linearVelocity.x != 0f && rb.linearVelocity.magnitude > minimumFlipSpeed && Time.time > lastFlipTime + 0.15f)
             {
                 SetLookX(rb.linearVelocity.x);
             }

@@ -66,7 +66,7 @@ namespace Bremsengine
             float iterationAngle = (startingAngle + (ProjectileCount > 1 ? -AngleCoverage.Multiply(0.5f) : 0f));
             for (int i = 0; i < ProjectileCount; i++)
             {
-                ProjectileNodeDirection direction = BuildDirection(input.Owner, input.Target, input.OverrideTargetPosition);
+                ProjectileNodeDirection direction = BuildDirectionAlternate(input);
                 direction.AddSpeedModifier(CurveValue(arcProgressionSpeed, progress));
 
                 direction.AddAngle(input.addedAngle);

@@ -14,6 +14,7 @@ namespace Bremsengine
     /// </summary>
     public class ProjectileGraphShooter : MonoBehaviour
     {
+        /*
         [SerializeField] ProjectileGraphSO graph;
         [SerializeField] Transform testTarget;
         [SerializeField] Transform owner;
@@ -37,6 +38,6 @@ namespace Bremsengine
         private void OnProjectileSpawn(Projectile p, Transform owner, Transform target)
         {
             p.SetFaction(faction);
-        }
+        }*/
     }
 }

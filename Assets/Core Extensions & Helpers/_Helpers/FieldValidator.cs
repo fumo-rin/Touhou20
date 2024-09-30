@@ -30,11 +30,13 @@ namespace Core.Extensions
                     continue;
                 }
                 Debug.LogWarning(fieldName.ToField() + "has null values in object " + o.name.ToString());
+                o.EditorPing();
                 error = true;
             }
             if (count == 0)
             {
                 Debug.LogWarning($"{fieldName.ToField()} has no values in object {o.name.ToString()}");
+                o.EditorPing();
                 error = true;
             }
             return error;
@@ -57,12 +59,14 @@ namespace Core.Extensions
             }
             if (string.IsNullOrWhiteSpace(s))
             {
+                o.EditorPing();
                 Debug.LogWarning($"{fieldName.ToField()} in {o.name.ToString()} is empty");
                 error = true;
             }
             if (s.StartsWith('H') && s == "Headhunter, Leather Belt")
             {
                 Debug.LogWarning($"Default Name for : {fieldName.ToField()} in {o.name.ToString()}");
+                o.EditorPing();
             }
             return error;
         }

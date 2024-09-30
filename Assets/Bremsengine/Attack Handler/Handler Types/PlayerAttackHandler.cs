@@ -10,8 +10,9 @@ namespace Bremsengine
         float nextAttackTime;
         [SerializeField] float TESTINGattackDelay = 0.6f;
         [SerializeField] BaseAttack TESTINGcurrentAttack;
+        [SerializeField] Vector2 overrideDirection;
         Vector2 lastVelocity;
-        Vector2 GetAttackDirection => lastVelocity == Vector2.zero ? Vector2.right : lastVelocity;
+        Vector2 GetAttackDirection => overrideDirection == Vector2.zero ? (lastVelocity == Vector2.zero ? Vector2.right : lastVelocity) : overrideDirection;
         public override bool CanAttack()
         {
             return Time.time >= nextAttackTime;
@@ -41,8 +42,15 @@ namespace Bremsengine
         }
         public override void TriggerAttack(BaseAttack attack)
         {
-            AttackDirectionPacket packet = new(owner, null, ownerAttackOffset);
-            packet.SetTargetPositionOverride((Vector2)owner.position +  GetAttackDirection);
+            AttackDirectionPacket packet = new(owner, null);
+            if (overrideDirection != Vector2.zero)
+            {
+                packet.SetAimDirectionOverride(overrideDirection);
+            }
+            else
+            {
+                packet.SetTargetPositionOverride((Vector2)owner.position + GetAttackDirection);
+            }
             attack.PerformAttack(packet);
         }
     }

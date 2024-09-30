@@ -4,29 +4,28 @@ namespace Bremsengine
 {
     public class AttackDirectionPacket
     {
-        public AttackDirectionPacket(Transform owner, Transform target, Vector2 attackOffset)
+        public AttackDirectionPacket(Transform owner, Transform target)
         {
             Owner = owner;
             Target = target;
-            OwnerAttackOffset = attackOffset;
-            aimOffset = Vector2.zero;
             targetPositionOverride = Vector2.zero;
         }
         public Transform Owner;
         public Transform Target;
-        public Vector2 OwnerAttackOffset;
-        private Vector2 aimOffset;
         private Vector2 targetPositionOverride;
-        private Vector2 OwnerPosition => (Vector2)Owner.transform.position + OwnerAttackOffset;
-        public Vector2 AimTarget => targetPositionOverride != Vector2.zero ? targetPositionOverride : (Vector2)Target.position + aimOffset;
+        public Vector2 aimDirectionOverride { get; private set; }
+        private Vector2 prioritizeAimDirection => aimDirectionOverride == Vector2.zero ? (targetPositionOverride == Vector2.zero ? (Target == null ? Vector2.down : (Vector2)Target.position) : targetPositionOverride) : aimDirectionOverride;
+        public Vector2 AimTarget => prioritizeTarget;
+        private Vector2 prioritizeTarget => Target == null ? (aimDirectionOverride == Vector2.zero ? (Vector2.down) : aimDirectionOverride) : (Vector2)Target.position;
+        public void SetAimDirectionOverride(Vector2 direction)
+        {
+            aimDirectionOverride = direction;
+        }
         public void SetTargetPositionOverride(Vector2 position) => targetPositionOverride = position;
-        public void SetAimOffset(Vector2 offset) => aimOffset = offset;
-
         public ProjectileGraphInput ToGraphInput()
         {
-            ProjectileGraphInput input = new ProjectileGraphInput(Owner,Target);
+            ProjectileGraphInput input = new ProjectileGraphInput(Owner, Target);
             input.SetOverrideTarget(AimTarget);
-            input.SetOwnerSpawnOffset(OwnerAttackOffset);
             return input;
         }
     }

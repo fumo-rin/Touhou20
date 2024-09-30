@@ -6,6 +6,7 @@ namespace Bremsengine
     {
         float nextAttackTime;
         public Transform testingTarget;
+        [SerializeField] Vector2 fallbackDirection = new(0f,-1f);
         public override bool CanAttack()
         {
             return Time.time >= nextAttackTime;
@@ -14,9 +15,9 @@ namespace Bremsengine
         public override void TriggerAttack(BaseAttack attack)
         {
             nextAttackTime = Time.time + attack.attackDuration;
-            AttackDirectionPacket p = new(owner, testingTarget, new(0f, 0.5f));
+            AttackDirectionPacket p = new(owner, testingTarget);
             p.SetTargetPositionOverride(testingTarget.position);
-            p.SetAimOffset(new(0f,0.5f));
+            p.SetAimDirectionOverride(fallbackDirection);
             attack.PerformAttack(p);
         }
     }

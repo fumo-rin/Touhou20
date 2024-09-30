@@ -14,21 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1222
-    y: 83
+    x: 497
+    y: 87
     width: 350
     height: 700
   ID: 99dab2a6-b1fc-477b-9e02-c93ca52c4c8d
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 966
-    y: 113
+    x: 241
+    y: 117
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
-  staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
   speed: 1.5
@@ -102,14 +99,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 778
-    y: 462
+    x: 40
+    y: 518
     width: 350
     height: 200
   ID: c3b20658-23e2-485a-b10f-e82c65b38dc3
   graph: {fileID: 11400000}
+  Active: 1
   linkedNodes:
   - {fileID: 4555431237622639710}
+  addedDelay: 0
   Retargetting: 0
   repeatInterval: 0
   repeatCount: 8
@@ -159,14 +158,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1646
-    y: 318
+    x: 908
+    y: 374
     width: 350
     height: 200
   ID: 6be6380a-4e10-4dad-ac20-1be6cd36f757
   graph: {fileID: 11400000}
+  Active: 1
   linkedNodes:
   - {fileID: -7187345797241837277}
+  addedDelay: 1
   Retargetting: 0
   repeatInterval: 0
   repeatCount: 8
@@ -185,21 +186,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 624
-    y: -396
+    x: -114
+    y: -340
     width: 350
     height: 700
   ID: e0f66286-f414-4aed-a90e-06c61743fe3f
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 368
-    y: -366
+    x: -370
+    y: -310
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
-  staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
   speed: 6
@@ -282,21 +280,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 295
-    y: 236
+    x: -443
+    y: 292
     width: 350
     height: 700
   ID: d8674260-5f92-4ca1-99c2-ada2371debc1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 39
-    y: 266
+    x: -699
+    y: 322
     width: 250
     height: 250
-  NodeActive: 1
-  ProjectileDamage: 10
-  staticDirection: {x: 0, y: 0}
   directionalOffset: 0
   spread: 0
   speed: 1.5
@@ -370,14 +365,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1049
-    y: -181
+    x: 311
+    y: -125
     width: 350
     height: 200
   ID: 408b06de-588e-4c2a-8f6a-b054a3f8d114
   graph: {fileID: 11400000}
+  Active: 1
   linkedNodes:
   - {fileID: 4155842427385162004}
+  addedDelay: 0
   Retargetting: 1
   repeatInterval: 0.14285715
   repeatCount: 7

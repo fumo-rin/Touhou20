@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using Core.Extensions;
 using System.Linq;
+using System.IO;
 
 namespace Bremsengine
 {
@@ -94,8 +95,8 @@ namespace Bremsengine
     #region Graph Projectile Direction
     public struct ProjectileNodeDirection
     {
-        Transform owner;
-        Transform target;
+        public Transform owner { get; private set; }
+        public Transform target { get; private set; }
         Vector2 direction;
         float AngleOffset;
         float Spread;
@@ -173,6 +174,12 @@ namespace Bremsengine
             Vector2 o = overrideTarget != Vector2.zero ? overrideTarget : target.position;
             ProjectileNodeDirection direction = new(owner, target, o);
             return direction;
+        }
+        public ProjectileNodeDirection BuildDirectionAlternate(ProjectileGraphInput input)
+        {
+            Vector2 o = input.AimPosition;
+            ProjectileNodeDirection d = new(input.Owner, input.Target, o);
+            return d;
         }
     }
     #endregion
