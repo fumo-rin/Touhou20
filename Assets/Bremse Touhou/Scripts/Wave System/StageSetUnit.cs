@@ -9,14 +9,16 @@ namespace BremseTouhou
     {
         [SerializeField] BaseUnit unit;
         [SerializeField] StageSpawnPoint overrideSpawnpoint;
-        public BaseUnit SpawnUnit(StageSpawnPoint point)
+        public BaseUnit SpawnUnit(StageSpawnPoint point, Vector2 worldCenter)
         {
             StageSpawnPoint s = point;
             if (overrideSpawnpoint != null)
             {
                 s = overrideSpawnpoint;
             }
-            BaseUnit spawned = Instantiate(unit, s.SpawnPosition, Quaternion.identity);
+            Debug.Log(worldCenter);
+            Debug.Log(s.spawnOffset);
+            BaseUnit spawned = Instantiate(unit, worldCenter + s.spawnOffset, Quaternion.identity);
             if (spawned is EnemyUnit e)
             {
                 e.SetTarget(BaseUnit.Player);

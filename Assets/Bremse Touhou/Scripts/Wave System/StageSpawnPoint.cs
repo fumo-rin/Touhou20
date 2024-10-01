@@ -9,7 +9,7 @@ namespace BremseTouhou
     {
         private static Vector2 worldPosition;
         [SerializeField] Vector2 spawnPointOffset;
-        public Vector2 SpawnPosition => worldPosition + spawnPointOffset;
+        public Vector2 spawnOffset => worldPosition + spawnPointOffset;
         public static void SetStageCenter(StageWorldCenter center)
         {
             worldPosition = center.transform.position;

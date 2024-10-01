@@ -29,7 +29,7 @@ namespace BremseTouhou
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnBeforeSceneLoad()
         {
-            bossList = new();   
+            bossList = new();
         }
         static BossManager instance;
         [SerializeField] BossHealthbar healthbarPrefab;
@@ -51,11 +51,8 @@ namespace BremseTouhou
         }
         private void Awake()
         {
-            if (instance != this)
-            {
-                instance = this;
-                bossList = new();
-            }
+            instance = this;
+            bossList = new();
         }
         private void Start()
         {

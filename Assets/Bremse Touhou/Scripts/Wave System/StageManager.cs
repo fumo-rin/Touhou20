@@ -65,7 +65,7 @@ namespace BremseTouhou
         private IEnumerator CO_LoadUnitEntry(StageSetUnitEntry entry)
         {
             yield return new WaitForSeconds(entry.SpawnDelay);
-            BaseUnit spawnedUnit = entry.unit.SpawnUnit(entry.spawnPoint);
+            BaseUnit spawnedUnit = entry.unit.SpawnUnit(entry.spawnPoint, WorldCenter);
             knownUnits.Add(spawnedUnit);
         }
     }
@@ -76,15 +76,17 @@ namespace BremseTouhou
         static Queue<StageSet> stageSetQueue = new();
         [SerializeField] StageSO editorStage;
         static HashSet<BaseUnit> knownUnits = new();
+        public static Vector2 WorldCenter => instance == null ? Vector2.zero : instance.worldCenterOverride == null ? instance.transform.position : instance.worldCenterOverride.position;
+        [SerializeField] Transform worldCenterOverride;
         private void Awake()
         {
             instance = this;
             if (editorStage != null)
             {
-                LoadStageSet(editorStage);
+                LoadStageSet(editorStage, transform.position);
             }
         }
-        private void LoadStageSet(StageSO stage)
+        private void LoadStageSet(StageSO stage, Vector2 worldCenter)
         {
             stageSetQueue.Clear();
             ClearAllKnownUnits();
