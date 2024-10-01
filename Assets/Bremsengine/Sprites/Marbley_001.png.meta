@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40dec039d3dedc049ba6d38856eb06dd
+guid: c4f5eeea5ef720c46855f5828431ee04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7643970118364603422
-    second: Icicle Projectile ttet_0
+      213: 2669853858102756014
+    second: Marbley_001_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icicle Projectile ttet_0
+      name: Marbley_001_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 75
-        width: 194
-        height: 107
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e14a2dab256d41a60800000000000000
-      internalID: 7643970118364603422
+      spriteID: ea2cb6e30f93d0520800000000000000
+      internalID: 2669853858102756014
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Icicle Projectile ttet_0: 7643970118364603422
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

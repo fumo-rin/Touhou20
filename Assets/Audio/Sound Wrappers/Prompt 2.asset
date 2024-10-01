@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
   m_Name: Prompt 2
   m_EditorClassIdentifier: 
-  SoundName: Headhunter, Leather Belt
+  SoundName: Prompt 2
   soundVolume: 0.7
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 59709a5fb6700024a81a5b2cf39a410d, type: 3}
@@ -20,4 +20,5 @@ MonoBehaviour:
     PitchOrigin: 1
     Volume: 1
     Muted: 0
+  <singleChannel>k__BackingField: 0
   <Is3D>k__BackingField: 0

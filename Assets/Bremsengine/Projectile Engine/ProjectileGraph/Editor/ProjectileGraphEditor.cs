@@ -32,9 +32,15 @@ namespace Bremsengine
         public static void SelectGraphToEdit(ProjectileGraphSO g)
         {
             ActiveGraph = g;
-            ActiveGraph.SetActiveGraph();
-            ActiveGraph.SetNewGraphID();
-            EditorPrefs.SetString(lastLoadedGraphIDKey, g.graphID);
+            if (g != null)
+            {
+                ActiveGraph.SetActiveGraph();
+                ActiveGraph.SetNewGraphID();
+                if (g != null)
+                {
+                    EditorPrefs.SetString(lastLoadedGraphIDKey, g.graphID);
+                }
+            }
             
         }
         private static void InitializeGraphsCache()

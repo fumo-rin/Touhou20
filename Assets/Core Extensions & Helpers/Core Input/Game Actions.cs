@@ -1188,7 +1188,7 @@ namespace Core.Input
                     ""name"": ""SnapTo"",
                     ""type"": ""Button"",
                     ""id"": ""e3468662-5c43-4e22-a9a4-afcd45e27bbd"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1214,6 +1214,231 @@ namespace Core.Input
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SnapTo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Shmup"",
+            ""id"": ""238c2803-fe44-4bfc-885e-1e252bebb077"",
+            ""actions"": [
+                {
+                    ""name"": ""Ability1"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc8953b1-2e3c-493d-a6a2-6417337b4d57"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bomb"",
+                    ""type"": ""Button"",
+                    ""id"": ""d96fe538-4a52-4e7b-8404-056a74b3fd32"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""cbb57480-e8fa-446f-be09-660ad5a69c4b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponPrevious"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfe63b65-bd8f-4107-a33f-67feaee190c8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Focus"",
+                    ""type"": ""Button"",
+                    ""id"": ""13a39d6f-d665-4e91-b38a-ef8bc48d62cc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""8571663d-9962-4ba8-ac05-60995496aefa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Autofire"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3d8fc5b-0c88-43d0-86d6-5b11d9c911a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3abe0989-fcd2-4a20-972f-e4049be15c3b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acf17893-f2b3-4b70-af04-bfd69fe4b275"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2107872-b5b3-47b0-8ac6-462e9d17ded5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89395679-9f08-4df5-be65-22e9e59a73be"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Joystick;Touch;XR"",
+                    ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f103e091-e814-48da-b865-b2e80d152ee1"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;XR;Joystick"",
+                    ""action"": ""WeaponNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3825f65e-912e-4424-a456-fda2756ad923"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""WeaponNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de46c6cb-2af9-4eab-98e3-36481750cb40"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Joystick;Gamepad;Touch;XR"",
+                    ""action"": ""WeaponPrevious"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c4978ae-cfb2-478f-bd1c-3a8768771e7e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""WeaponPrevious"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a77bc61-72aa-4d7b-9ff6-35da3744b6c4"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;XR;Gamepad;Touch;Joystick"",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb8cf412-5e98-4165-a0b5-010aa75dda2a"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25ebc023-3966-43eb-811d-0b022d5532a3"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""924c76bc-fdbc-4c51-b29a-b9db37b2bc5d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92dac808-06ee-4eb9-8ff6-1b5ff420a2cc"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad;Keyboard&Mouse;Touch;Joystick;XR"",
+                    ""action"": ""Autofire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d05fb08-a700-4894-add3-68c861f8dc35"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""action"": ""Autofire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1309,6 +1534,15 @@ namespace Core.Input
             // Testing
             m_Testing = asset.FindActionMap("Testing", throwIfNotFound: true);
             m_Testing_SnapTo = m_Testing.FindAction("SnapTo", throwIfNotFound: true);
+            // Shmup
+            m_Shmup = asset.FindActionMap("Shmup", throwIfNotFound: true);
+            m_Shmup_Ability1 = m_Shmup.FindAction("Ability1", throwIfNotFound: true);
+            m_Shmup_Bomb = m_Shmup.FindAction("Bomb", throwIfNotFound: true);
+            m_Shmup_WeaponNext = m_Shmup.FindAction("WeaponNext", throwIfNotFound: true);
+            m_Shmup_WeaponPrevious = m_Shmup.FindAction("WeaponPrevious", throwIfNotFound: true);
+            m_Shmup_Focus = m_Shmup.FindAction("Focus", throwIfNotFound: true);
+            m_Shmup_Fire = m_Shmup.FindAction("Fire", throwIfNotFound: true);
+            m_Shmup_Autofire = m_Shmup.FindAction("Autofire", throwIfNotFound: true);
         }
 
         ~@GameActions()
@@ -1316,6 +1550,7 @@ namespace Core.Input
             UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, GameActions.Player.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameActions.UI.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Testing.enabled, "This will cause a leak and performance issues, GameActions.Testing.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Shmup.enabled, "This will cause a leak and performance issues, GameActions.Shmup.Disable() has not been called.");
         }
 
         public void Dispose()
@@ -1647,6 +1882,100 @@ namespace Core.Input
             }
         }
         public TestingActions @Testing => new TestingActions(this);
+
+        // Shmup
+        private readonly InputActionMap m_Shmup;
+        private List<IShmupActions> m_ShmupActionsCallbackInterfaces = new List<IShmupActions>();
+        private readonly InputAction m_Shmup_Ability1;
+        private readonly InputAction m_Shmup_Bomb;
+        private readonly InputAction m_Shmup_WeaponNext;
+        private readonly InputAction m_Shmup_WeaponPrevious;
+        private readonly InputAction m_Shmup_Focus;
+        private readonly InputAction m_Shmup_Fire;
+        private readonly InputAction m_Shmup_Autofire;
+        public struct ShmupActions
+        {
+            private @GameActions m_Wrapper;
+            public ShmupActions(@GameActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Ability1 => m_Wrapper.m_Shmup_Ability1;
+            public InputAction @Bomb => m_Wrapper.m_Shmup_Bomb;
+            public InputAction @WeaponNext => m_Wrapper.m_Shmup_WeaponNext;
+            public InputAction @WeaponPrevious => m_Wrapper.m_Shmup_WeaponPrevious;
+            public InputAction @Focus => m_Wrapper.m_Shmup_Focus;
+            public InputAction @Fire => m_Wrapper.m_Shmup_Fire;
+            public InputAction @Autofire => m_Wrapper.m_Shmup_Autofire;
+            public InputActionMap Get() { return m_Wrapper.m_Shmup; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(ShmupActions set) { return set.Get(); }
+            public void AddCallbacks(IShmupActions instance)
+            {
+                if (instance == null || m_Wrapper.m_ShmupActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_ShmupActionsCallbackInterfaces.Add(instance);
+                @Ability1.started += instance.OnAbility1;
+                @Ability1.performed += instance.OnAbility1;
+                @Ability1.canceled += instance.OnAbility1;
+                @Bomb.started += instance.OnBomb;
+                @Bomb.performed += instance.OnBomb;
+                @Bomb.canceled += instance.OnBomb;
+                @WeaponNext.started += instance.OnWeaponNext;
+                @WeaponNext.performed += instance.OnWeaponNext;
+                @WeaponNext.canceled += instance.OnWeaponNext;
+                @WeaponPrevious.started += instance.OnWeaponPrevious;
+                @WeaponPrevious.performed += instance.OnWeaponPrevious;
+                @WeaponPrevious.canceled += instance.OnWeaponPrevious;
+                @Focus.started += instance.OnFocus;
+                @Focus.performed += instance.OnFocus;
+                @Focus.canceled += instance.OnFocus;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
+                @Autofire.started += instance.OnAutofire;
+                @Autofire.performed += instance.OnAutofire;
+                @Autofire.canceled += instance.OnAutofire;
+            }
+
+            private void UnregisterCallbacks(IShmupActions instance)
+            {
+                @Ability1.started -= instance.OnAbility1;
+                @Ability1.performed -= instance.OnAbility1;
+                @Ability1.canceled -= instance.OnAbility1;
+                @Bomb.started -= instance.OnBomb;
+                @Bomb.performed -= instance.OnBomb;
+                @Bomb.canceled -= instance.OnBomb;
+                @WeaponNext.started -= instance.OnWeaponNext;
+                @WeaponNext.performed -= instance.OnWeaponNext;
+                @WeaponNext.canceled -= instance.OnWeaponNext;
+                @WeaponPrevious.started -= instance.OnWeaponPrevious;
+                @WeaponPrevious.performed -= instance.OnWeaponPrevious;
+                @WeaponPrevious.canceled -= instance.OnWeaponPrevious;
+                @Focus.started -= instance.OnFocus;
+                @Focus.performed -= instance.OnFocus;
+                @Focus.canceled -= instance.OnFocus;
+                @Fire.started -= instance.OnFire;
+                @Fire.performed -= instance.OnFire;
+                @Fire.canceled -= instance.OnFire;
+                @Autofire.started -= instance.OnAutofire;
+                @Autofire.performed -= instance.OnAutofire;
+                @Autofire.canceled -= instance.OnAutofire;
+            }
+
+            public void RemoveCallbacks(IShmupActions instance)
+            {
+                if (m_Wrapper.m_ShmupActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IShmupActions instance)
+            {
+                foreach (var item in m_Wrapper.m_ShmupActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_ShmupActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public ShmupActions @Shmup => new ShmupActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         public InputControlScheme KeyboardMouseScheme
         {
@@ -1720,6 +2049,16 @@ namespace Core.Input
         public interface ITestingActions
         {
             void OnSnapTo(InputAction.CallbackContext context);
+        }
+        public interface IShmupActions
+        {
+            void OnAbility1(InputAction.CallbackContext context);
+            void OnBomb(InputAction.CallbackContext context);
+            void OnWeaponNext(InputAction.CallbackContext context);
+            void OnWeaponPrevious(InputAction.CallbackContext context);
+            void OnFocus(InputAction.CallbackContext context);
+            void OnFire(InputAction.CallbackContext context);
+            void OnAutofire(InputAction.CallbackContext context);
         }
     }
 }

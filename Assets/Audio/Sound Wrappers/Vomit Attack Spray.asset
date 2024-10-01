@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
   m_Name: Vomit Attack Spray
   m_EditorClassIdentifier: 
+  SoundName: Vomit Attack Spray
+  soundVolume: 0.566
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 46ec5a91be702f248a1ecb5f224a525c, type: 3}
     PitchVariancePercent: 10
@@ -28,7 +30,5 @@ MonoBehaviour:
     PitchOrigin: 0.66
     Volume: 0.269
     Muted: 0
-  SoundName: Spray
-  soundVolume: 0.566
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1
