@@ -64,7 +64,7 @@ Material:
     m_Floats:
     - _Downscale: 0.102
     - _Float: 0
-    - _Fuzziness: 0.65
+    - _Fuzziness: 1.05
     - _Range: 0.508
     - _Scale: 0.108
     - _Scale_Tweak: 1
@@ -72,6 +72,7 @@ Material:
     - _Timescale_Horizontal: 0.79
     - _Timescale_Vertical: 0.28
     m_Colors:
+    - _Emission_Glow: {r: 512, g: 512, b: 512, a: 1}
     - _Scale: {r: 5, g: 5, b: 0, a: 0}
     - _Vertex_Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

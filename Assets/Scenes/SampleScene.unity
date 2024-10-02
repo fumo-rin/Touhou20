@@ -803,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: -0.000091552734
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1634,51 +1634,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1564209873}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &677629325
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 677629327}
-  - component: {fileID: 677629326}
-  m_Layer: 0
-  m_Name: Touhou Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &677629326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677629325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401c6477ce753d94a8b558b87b17d2fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossKillSound: {fileID: 11400000, guid: 47ff135788c6e4c4faf537f7ffffe723, type: 2}
---- !u!4 &677629327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677629325}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11331913, y: -2.1270063, z: -0.016219087}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689542068
 GameObject:
@@ -5140,6 +5095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorStage: {fileID: 11400000, guid: 264687eefeab83c4e9d16be0cb13e07d, type: 2}
+  worldCenterOverride: {fileID: 0}
 --- !u!114 &2135658741 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9007787895666188552, guid: 367c9e2063643f442918baa2fd1dea8d, type: 3}
@@ -5290,6 +5246,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
+--- !u!1001 &5082495975381289683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11331913
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1270063
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.016219087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127027633523642807, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
+      propertyPath: m_Name
+      value: Touhou Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
 --- !u!1001 &6853536480552938368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5410,5 +5423,5 @@ SceneRoots:
   - {fileID: 1564209873}
   - {fileID: 1386441643}
   - {fileID: 1327195202}
-  - {fileID: 677629327}
+  - {fileID: 5082495975381289683}
   - {fileID: 6853536480552938368}

@@ -179,11 +179,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
   unitName: Headhunter, Leather Belt
-  targetEditorOverride: {fileID: 0}
   Active: 0
   unitCenterAnchor: {fileID: 4315408596051843491}
   UnitFaction: 2
   unitCollider: {fileID: 0}
+  scanner: {fileID: 0}
   <isBoss>k__BackingField: 0
   addedAttackDelay: 0.4
   testAttackEvent:
