@@ -63,7 +63,6 @@ namespace Core.Input
         {
             if (c.phase == InputActionPhase.Canceled)
                 return;
-            Debug.Log(c.action.name);
             OnJustPressed?.Invoke();
         }
     }
