@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8973511446826936648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &654578920764968930
@@ -164,8 +165,98 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e3468662-5c43-4e22-a9a4-afcd45e27bbd
     m_ActionName: 'Testing/SnapTo[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc8953b1-2e3c-493d-a6a2-6417337b4d57
+    m_ActionName: 'Shmup/Ability1[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d96fe538-4a52-4e7b-8404-056a74b3fd32
+    m_ActionName: 'Shmup/Bomb[/Keyboard/leftArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbb57480-e8fa-446f-be09-660ad5a69c4b
+    m_ActionName: 'Shmup/WeaponNext[/Keyboard/upArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cfe63b65-bd8f-4107-a33f-67feaee190c8
+    m_ActionName: 'Shmup/WeaponPrevious[/Keyboard/downArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13a39d6f-d665-4e91-b38a-ef8bc48d62cc
+    m_ActionName: 'Shmup/Focus[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8571663d-9962-4ba8-ac05-60995496aefa
+    m_ActionName: 'Shmup/Fire[/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e3d8fc5b-0c88-43d0-86d6-5b11d9c911a1
+    m_ActionName: 'Shmup/Autofire[/Keyboard/numpad0]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1001 &830246517140096891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5539861149810491463}
+    m_Modifications:
+    - target: {fileID: 3716596169159721507, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_Name
+      value: Shmup Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+--- !u!4 &8973511446826936648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8578778745062649395, guid: 750acfc5013ca78449cbe2df8126f9a3, type: 3}
+  m_PrefabInstance: {fileID: 830246517140096891}
+  m_PrefabAsset: {fileID: 0}

@@ -21,10 +21,10 @@ MonoBehaviour:
       <SpawnDelay>k__BackingField: 0
     - unit: {fileID: 11400000, guid: fde4391f63803eb4e8b13b3774be231f, type: 2}
       spawnPoint: {fileID: 11400000, guid: eccc8746eaed9da4a964513f202d7571, type: 2}
-      <SpawnDelay>k__BackingField: 2
+      <SpawnDelay>k__BackingField: 1
     - unit: {fileID: 11400000, guid: fde4391f63803eb4e8b13b3774be231f, type: 2}
       spawnPoint: {fileID: 11400000, guid: eccc8746eaed9da4a964513f202d7571, type: 2}
-      <SpawnDelay>k__BackingField: 4
+      <SpawnDelay>k__BackingField: 3
   - stageSetName: Test Stage
     StageSetForcedDuration: 8
     entries:

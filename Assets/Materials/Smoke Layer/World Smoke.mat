@@ -64,11 +64,11 @@ Material:
     m_Floats:
     - _Downscale: 0.102
     - _Float: 0
-    - _Fuzziness: 1.05
-    - _Range: 0.508
+    - _Fuzziness: 0.57
+    - _Range: 0.284
     - _Scale: 0.108
-    - _Scale_Tweak: 1
-    - _Smoke_Lerp: 0.376
+    - _Scale_Tweak: 0.557
+    - _Smoke_Lerp: 0.536
     - _Timescale_Horizontal: 0.79
     - _Timescale_Vertical: 0.28
     m_Colors:

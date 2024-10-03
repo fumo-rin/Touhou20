@@ -10,6 +10,7 @@ namespace BremseTouhou
         static Coroutine currentDelayedQueue;
         public static bool LoadNextInQueue()
         {
+            Debug.Log(Time.time);
             if (stageSetQueue == null || stageSetQueue.Count <= 0)
             {
                 return false;
@@ -65,6 +66,7 @@ namespace BremseTouhou
         private IEnumerator CO_LoadUnitEntry(StageSetUnitEntry entry)
         {
             yield return new WaitForSeconds(entry.SpawnDelay);
+            Debug.Log("spawning  Unit at "+Time.time);
             BaseUnit spawnedUnit = entry.unit.SpawnUnit(entry.spawnPoint, WorldCenter);
             knownUnits.Add(spawnedUnit);
         }
@@ -88,6 +90,7 @@ namespace BremseTouhou
         }
         private void LoadStageSet(StageSO stage, Vector2 worldCenter)
         {
+            Debug.Log(Time.time);
             stageSetQueue.Clear();
             ClearAllKnownUnits();
             foreach (var item in stage.sets)

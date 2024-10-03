@@ -16,8 +16,6 @@ namespace BremseTouhou
             {
                 s = overrideSpawnpoint;
             }
-            Debug.Log(worldCenter);
-            Debug.Log(s.spawnOffset);
             BaseUnit spawned = Instantiate(unit, worldCenter + s.spawnOffset, Quaternion.identity);
             if (spawned is EnemyUnit e)
             {

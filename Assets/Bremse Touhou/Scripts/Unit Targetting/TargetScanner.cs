@@ -32,7 +32,7 @@ namespace BremseTouhou
         }
         private void Awake()
         {
-            scannerHitbox= GetComponent<BoxCollider2D>();
+            scannerHitbox = GetComponent<BoxCollider2D>();
             scannerHitbox.isTrigger = true;
         }
         private void OnTriggerEnter2D(Collider2D collision)
@@ -56,17 +56,27 @@ namespace BremseTouhou
         RaycastHit2D iterationHit;
         public bool TryScan(out BaseUnit found)
         {
+            Debug.Log("try scan");
             found = null;
             foreach (BaseUnit unit in trackedUnits)
             {
                 foreach (var item in scanners)
                 {
-                    if (RaycastHelper.Cast(owner.Center + item,unit.Center,blockingLayer, out iterationHit, maxScanRange))
+                    if (RaycastHelper.Cast(owner.Center + item, unit.Center, blockingLayer, out iterationHit, maxScanRange))
                     {
                         if (iterationHit.transform.TryGetComponent(out BaseUnit hitUnit))
                         {
                             found = hitUnit;
                             break;
+                        }
+                        else
+                        {
+                            if (iterationHit.transform == null)
+                            {
+                                Debug.Log("No Transform");
+                                return false;
+                            }
+                            Debug.Log(iterationHit.transform);
                         }
                     }
                 }

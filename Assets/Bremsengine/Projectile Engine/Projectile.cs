@@ -314,6 +314,13 @@ namespace Bremsengine
                 item.ClearProjectile();
             }
         }
+        public static void ClearProjectilesNotOfFaction(BremseFaction f)
+        {
+            foreach (var item in ProjectilesWhere(x => x != null && x.Faction != f))
+            {
+                item.ClearProjectile();
+            }
+        }
         public static void AddToFolder(Projectile proj)
         {
             #region Validate
@@ -385,6 +392,29 @@ namespace Bremsengine
             Faction = f;
             return this;
         }
+    }
+    #endregion
+    #region Player Bomb
+    public partial class Projectile
+    {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] public static void Initialize()
+        {
+            lastBombTime = -1f;
+            playerIframesInSeconds = 2f;
+        }
+        static float lastBombTime = -1f;
+        static float playerIframesInSeconds;
+        public static void PlayerTriggerBomb(float iframesInSeconds = 4f)
+        {
+            playerIframesInSeconds = iframesInSeconds;
+            lastBombTime = Time.time;
+            BombClearProjectiles(BremseFaction.Player);
+        }
+        private static void BombClearProjectiles(BremseFaction ownerFaction)
+        {
+            ClearProjectilesNotOfFaction(ownerFaction);
+        }
+        public static bool PlayerBombedRecently => lastBombTime > 0f && Time.time <= lastBombTime + playerIframesInSeconds;
     }
     #endregion
     [RequireComponent(typeof(Rigidbody2D))]

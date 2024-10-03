@@ -35,7 +35,6 @@ Transform:
   m_Children:
   - {fileID: 6512128401469988700}
   - {fileID: 6114173833079794980}
-  - {fileID: 1090669734748170926}
   - {fileID: 4167861839606646070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,7 +56,7 @@ MonoBehaviour:
   unitCenterAnchor: {fileID: 7025743821825117553}
   UnitFaction: 2
   unitCollider: {fileID: 990701229308025543}
-  scanner: {fileID: 7985104737315735470}
+  targetHandler: {fileID: 439252928053834328}
   <isBoss>k__BackingField: 1
   addedAttackDelay: 4
   testAttackEvent:
@@ -207,111 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 7025743821825117553}
   faction: 2
-  testingTarget: {fileID: 0}
   fallbackDirection: {x: 0, y: -1}
---- !u!1 &5240180273037575361
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1090669734748170926}
-  - component: {fileID: 7985104737315735470}
-  - component: {fileID: 8639324803341352745}
-  m_Layer: 31
-  m_Name: Target Scanner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1090669734748170926
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240180273037575361}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7025743821825117553}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7985104737315735470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240180273037575361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f61ff3eacca8342a4092f2e6b4f2a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scanners:
-  - {x: 0.5, y: 0.5}
-  - {x: 0, y: 0}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: 0.5}
-  blockingLayer:
-    serializedVersion: 2
-    m_Bits: 9
-  maxScanRange: 25
-  owner: {fileID: 5567631869179538530}
-  loseTargetTime: 3
---- !u!61 &8639324803341352745
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240180273037575361}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 50, y: 50}
-  m_EdgeRadius: 0
+  TESTINGAttack: {fileID: 2340313232654369840}
 --- !u!1 &6125312795218725489
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +255,7 @@ MonoBehaviour:
   attackHandler: {fileID: 439252928053834328}
   attackBaseDamage: 10
   attackDuration: 4
-  projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
+  projectileAttack: {fileID: 11400000, guid: dabe711ab4efd6f42a842607b5596575, type: 2}
 --- !u!1 &6364486685507649125
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 399580051
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 383589746, guid: c09c435ea1807ba43a09bddd58b7ad1b, type: 3}
   m_Color: {r: 0.3443396, g: 1, b: 0.50653017, a: 1}
@@ -183,6 +183,7 @@ MonoBehaviour:
   rotationAnchor: {fileID: 5096362763981196352}
   gravityModifier: 0
   drag: 2.5
+  offScreenClearDelay: 5
 --- !u!70 &5740530327902532712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

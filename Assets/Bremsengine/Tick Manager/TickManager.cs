@@ -64,6 +64,7 @@ namespace Bremsengine
             if (time > lastAITickTime + (AITickTime == null ? 0.2f : AITickTime))
             {
                 WasAIThinkTickThisFrame = true;
+                lastAITickTime = time;
                 AIThinkTick?.Invoke();
             }
         }

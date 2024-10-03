@@ -98,11 +98,12 @@ namespace BremseTouhou
         public BaseUnit Target =>  target;
         public Transform TargetTransform => Target == null ? null : Target.transform;
         public bool HasTarget => Target != null;
-        public void SetTarget(BaseUnit t)
+        public BaseUnit SetTarget(BaseUnit t)
         {
             CancelLoseTarget();
             target = t;
             OnTargetUpdate?.Invoke(t);
+            return t;
         }
         public bool IsTarget(BaseUnit t) => target == t;
         Coroutine loseTargetCoroutine;
