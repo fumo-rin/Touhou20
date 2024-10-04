@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marbley_0: -2401292257190925647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

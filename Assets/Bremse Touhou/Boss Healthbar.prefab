@@ -87,10 +87,10 @@ RectTransform:
   - {fileID: 1410994561311061437}
   m_Father: {fileID: 7938890659671782126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 11.8}
-  m_SizeDelta: {x: 555.8333, y: 10}
+  m_SizeDelta: {x: -30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572399604557510578
 MonoBehaviour:
@@ -250,10 +250,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7938890659671782126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -175.79999, y: -10.103531}
-  m_SizeDelta: {x: -380.3924, y: -23.756}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7.5, y: -10.103531}
+  m_SizeDelta: {x: -15, y: 26.244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3929452685339295102
 CanvasRenderer:
@@ -386,10 +386,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7938890659671782126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145.4, y: -11.1}
-  m_SizeDelta: {x: 250, y: 24.251}
+  m_AnchorMin: {x: 0.66, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -7.5000257, y: -11.1}
+  m_SizeDelta: {x: -15.0000515, y: 24.251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2190370020387927843
 CanvasRenderer:
@@ -525,7 +525,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.0771, y: -5.4738}
+  m_SizeDelta: {x: -4.000003, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6462193773800082936
 CanvasRenderer:
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0.30588236}
+  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0.4627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,0 +1,852 @@
+fileFormatVersion: 2
+guid: c8c4d3a9b4a92714ea9dd37dd56d440b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9035549088672778177
+    second: Cast5_0
+  - first:
+      213: 2024785879398703723
+    second: Cast5_1
+  - first:
+      213: 3302986271707224648
+    second: Cast5_2
+  - first:
+      213: -3681055130790715574
+    second: Cast5_3
+  - first:
+      213: 1863445599618528869
+    second: Cast5_4
+  - first:
+      213: 5212780973625095510
+    second: Cast5_5
+  - first:
+      213: -4835404962983244650
+    second: Cast5_6
+  - first:
+      213: 6423232206023105498
+    second: Cast5_7
+  - first:
+      213: -1554096550532976187
+    second: Cast5_8
+  - first:
+      213: -7579538689143125012
+    second: Cast5_9
+  - first:
+      213: -1998649628123638058
+    second: Cast5_10
+  - first:
+      213: -5564606996846492479
+    second: Cast5_11
+  - first:
+      213: -4689510503610981036
+    second: Cast5_12
+  - first:
+      213: -7838831468920483520
+    second: Cast5_13
+  - first:
+      213: 122769742104981548
+    second: Cast5_14
+  - first:
+      213: 540630692635227436
+    second: Cast5_15
+  - first:
+      213: 5952628493311142335
+    second: Cast5_16
+  - first:
+      213: -7171623571660216375
+    second: Cast5_17
+  - first:
+      213: -7699881625339105398
+    second: Cast5_18
+  - first:
+      213: -167563831402983022
+    second: Cast5_19
+  - first:
+      213: 6099030800693491066
+    second: Cast5_20
+  - first:
+      213: 5833761931665993744
+    second: Cast5_21
+  - first:
+      213: 1055642423808573989
+    second: Cast5_22
+  - first:
+      213: -6010624473370604457
+    second: Cast5_23
+  - first:
+      213: -1758704835494112522
+    second: Cast5_24
+  - first:
+      213: 2423230220690237727
+    second: Cast5_25
+  - first:
+      213: -9051151197353606499
+    second: Cast5_26
+  - first:
+      213: 4736615489365377094
+    second: Cast5_27
+  - first:
+      213: -4290929659765522603
+    second: Cast5_28
+  - first:
+      213: 1005676861383896048
+    second: Cast5_29
+  - first:
+      213: 5122475483251567883
+    second: Cast5_30
+  - first:
+      213: 2507462512214558002
+    second: Cast5_31
+  - first:
+      213: 2696637771743901560
+    second: Cast5_32
+  - first:
+      213: 2630038779351997398
+    second: Cast5_33
+  - first:
+      213: -924462054964030459
+    second: Cast5_34
+  - first:
+      213: 537796101326445646
+    second: Cast5_35
+  - first:
+      213: -1383672280101279588
+    second: Cast5_36
+  - first:
+      213: 6665088594570671222
+    second: Cast5_37
+  - first:
+      213: -7670998352680588667
+    second: Cast5_38
+  - first:
+      213: 350277754808499363
+    second: Cast5_39
+  - first:
+      213: -2571200307692561888
+    second: Cast5_40
+  - first:
+      213: -5871667020878579392
+    second: Cast5_41
+  - first:
+      213: -5423287232195124830
+    second: Cast5_42
+  - first:
+      213: 5123637567552166771
+    second: Cast5_43
+  - first:
+      213: -2153847084775583157
+    second: Cast5_44
+  - first:
+      213: 8612927787643937454
+    second: Cast5_45
+  - first:
+      213: 3984131492255775724
+    second: Cast5_46
+  - first:
+      213: 4667678607664651903
+    second: Cast5_47
+  - first:
+      213: -5091666198555928389
+    second: Cast5_48
+  - first:
+      213: 3392409648438530039
+    second: Cast5_49
+  - first:
+      213: -2568604597270951767
+    second: Cast5_50
+  - first:
+      213: -305384770896630643
+    second: Cast5_51
+  - first:
+      213: 3208518575226293625
+    second: Cast5_52
+  - first:
+      213: 8374152639272364244
+    second: Cast5_53
+  - first:
+      213: -1372575688327282425
+    second: Cast5_54
+  - first:
+      213: 5812968725358443006
+    second: Cast5_55
+  - first:
+      213: -4617114721351771310
+    second: Cast5_56
+  - first:
+      213: -2302848359881101329
+    second: Cast5_57
+  - first:
+      213: -4288864794836101
+    second: Cast5_58
+  - first:
+      213: -4844298162202712856
+    second: Cast5_59
+  - first:
+      213: -5225071239294902644
+    second: Cast5_60
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 240
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cast5_0
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2448
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a177ff0ad20be4282bb1dac51be8d4
+      internalID: 1100683939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_1
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2448
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91047d635ba07c149987a41999cead22
+      internalID: 942813196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_2
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 2448
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02eb976647b9a7a4badc6e928ff2818f
+      internalID: 72101595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_3
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2448
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e9425108bc92941ad8526fcaee649a
+      internalID: 48818276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1968
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b48d21abbeee61429e44bbb65b5c977
+      internalID: -1066063738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1968
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c98e60d589472646ac8205822daf80b
+      internalID: 476138167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_6
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1968
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cc83f9e73ed3f4ebb5052d8d18f11e
+      internalID: 90393919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_7
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1968
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dfef74518c69644826503003ceb914
+      internalID: -1109516060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1968
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beedf372783e4924fa378b27b312cbfc
+      internalID: 1337985920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1488
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c0254d6df396c42a958fd1221aaba5
+      internalID: -1070434743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_10
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1488
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f4b620b0d474d4e81ad25ccf7f3d61
+      internalID: -857751538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_11
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1488
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362d267d8a775454ca0e055e5b16142d
+      internalID: 111245110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_12
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1488
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f80db865e826704dad1575c8d2d1509
+      internalID: 564973332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_13
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1488
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea086723406dc549b328c06ea3521fd
+      internalID: -502570236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1008
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86714d7b9191a9438b4a3867e21e732
+      internalID: 125947922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_15
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1008
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9c0f116427de843bd7ae80a530cce6
+      internalID: 476386352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_16
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1008
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb7e5b4825141b4a8c6e234e7249a50
+      internalID: -1197985668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_17
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1008
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74736198181ecc34bba4f72e8aef5893
+      internalID: -584179587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_18
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1008
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4af07afe9ee3b45bcd08dec9e6f73b
+      internalID: -927057194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 528
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a148c20b71034f74c8bcfa5e21055d58
+      internalID: 919193275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_20
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 528
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ebb8d468e26d934aa08a24859b839f6
+      internalID: -1246793594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_21
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 528
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d566847b28b7ab84fb93c1c173007b9f
+      internalID: -1059208585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_22
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 528
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911ff0785dbb0f14caa3475561b27d49
+      internalID: 1504397658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast5_23
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 528
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900d882fbbf116e4da747687899ed2ae
+      internalID: -154683513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 043665aaeb6d02a41ae160b18d4104c3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cast5_0: 1100683939
+      Cast5_1: 942813196
+      Cast5_10: -857751538
+      Cast5_11: 111245110
+      Cast5_12: 564973332
+      Cast5_13: -502570236
+      Cast5_14: 125947922
+      Cast5_15: 476386352
+      Cast5_16: -1197985668
+      Cast5_17: -584179587
+      Cast5_18: -927057194
+      Cast5_19: 919193275
+      Cast5_2: 72101595
+      Cast5_20: -1246793594
+      Cast5_21: -1059208585
+      Cast5_22: 1504397658
+      Cast5_23: -154683513
+      Cast5_3: 48818276
+      Cast5_4: -1066063738
+      Cast5_5: 476138167
+      Cast5_6: 90393919
+      Cast5_7: -1109516060
+      Cast5_8: 1337985920
+      Cast5_9: -1070434743
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
