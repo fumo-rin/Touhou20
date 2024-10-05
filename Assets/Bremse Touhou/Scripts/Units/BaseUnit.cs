@@ -36,6 +36,31 @@ namespace BremseTouhou
         {
             currentPath = path.ToList();
         }
+        public void StopMovement()
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        public void Friction(float friction)
+        {
+            rb.VelocityTowards(Vector2.zero, friction);
+        }
+    }
+    #endregion
+    #region Unit Path
+    public partial class BaseUnit
+    {
+        Coroutine currentUnitPath;
+        public void StartUnitPathCoroutine(Coroutine c)
+        {
+            EndUnitPathCoroutine();
+            currentUnitPath = c;
+        }
+        private void EndUnitPathCoroutine()
+        {
+            if (currentUnitPath == null)
+                return;
+            StopCoroutine(currentUnitPath);
+        }
     }
     #endregion
     #region Projectile Hit
@@ -150,6 +175,7 @@ namespace BremseTouhou
         public HealthEvent OnHealthChange;
         [SerializeField] Collider2D unitCollider;
         public Collider2D Collider => unitCollider;
+        public Vector2 CurrentVelocity => rb.linearVelocity;
         public static LayerMask EnemyLayer { get; } = 1 << 6;
         private void Awake()
         {

@@ -128,9 +128,17 @@ namespace Core.Extensions
         {
             return Random.Range(v.x, v.y);
         }
+        public static Vector2 RandomFromZero(this Vector2 v)
+        {
+            return new(Random.Range(0f, v.x), Random.Range(0f, v.y));
+        }
         public static Vector2Int GetRandom(this Vector2Int v, Vector3Int min, Vector3Int max)
         {
             return GetRandom(v, (Vector2Int)min, (Vector2Int)max);
+        }
+        public static Vector2 RandomSign(this Vector2 v)
+        {
+            return new(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1);
         }
         public static BoundsInt ToInt(this Bounds b)
         {
@@ -209,6 +217,13 @@ namespace Core.Extensions
         {
             Vector2 direction = v.normalized * magnitude;
             return direction;
+        }
+        public static Vector2 RandomWithin(this Bounds b, Vector2 center)
+        {
+            Vector2 v = center;
+            Vector2 extends = ((Vector2)b.extents);
+            v += extends.RandomFromZero() * extends.RandomSign();
+            return v;
         }
     }
 }

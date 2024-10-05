@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbef5cdef748d24484c6c27d62d3817, type: 3}
+  m_Name: Path 1 Walk Motor
+  m_EditorClassIdentifier: 
+  maxSpeed: 4
+  friction: 6
+  acceleration: 6
+  minimumSpeed: 0.4

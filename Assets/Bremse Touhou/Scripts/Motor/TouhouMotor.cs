@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace BremseTouhou
 {
-    [CreateAssetMenu(fileName = "Touhou Motor", menuName = "Bremse Touhou/Touhou Motor")]
+    [CreateAssetMenu(fileName = "Touhou Motor", menuName = "Bremse Touhou/Motor/Touhou Player")]
     public class TouhouMotor : UnitMotor
     {
         public override void Move(Rigidbody2D rb, Vector2 input, ref float nextMoveTime)
