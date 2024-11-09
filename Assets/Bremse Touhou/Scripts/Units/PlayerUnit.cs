@@ -93,14 +93,22 @@ namespace BremseTouhou
     }
     #endregion
     #region Movement
-    public partial class PlayerUnit
+    public partial class PlayerUnit : BaseUnit
     {
         bool focusHeld;
         public bool Focused => focusHeld;
         [SerializeField] UnitMotor sneakMotor;
         public override UnitMotor ActiveMotor => Focused ? sneakMotor : standardMotor;
-        private static void ReadInput(ref Vector2 input)
+        private void ReadInput(ref Vector2 input)
         {
+            Vector2 positionDelta = RenderTextureCursorHandler.CursorPosition - Center;
+            if (positionDelta.magnitude < 0.02f || !RenderTextureCursorHandler.IsHovering)
+            {
+                input = Vector2.zero;
+                return;
+            }
+            input = positionDelta.normalized;
+            return;
             input = PlayerInputController.actions == null ? Vector2.zero : PlayerInputController.actions.Player.Move.ReadValue<Vector2>();
         }
         private void ApplyInput(Vector2 input)

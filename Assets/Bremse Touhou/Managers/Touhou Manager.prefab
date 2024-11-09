@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4837859286974725894}
   - component: {fileID: 1258191251273386422}
+  - component: {fileID: 5262696143615992830}
   m_Layer: 0
   m_Name: Touhou Manager
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossKillSound: {fileID: 11400000, guid: 47ff135788c6e4c4faf537f7ffffe723, type: 2}
+--- !u!114 &5262696143615992830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127027633523642807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3907687d1d9b6644a8164bb69d510bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorStage: {fileID: 11400000, guid: 264687eefeab83c4e9d16be0cb13e07d, type: 2}
+  worldCenterOverride: {fileID: 4837859286974725894}
