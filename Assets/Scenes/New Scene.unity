@@ -7032,6 +7032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2810120549550396217, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7025743821825117553, guid: 7cb22e7f1e9db434fa4c11517a7304eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.99
@@ -7401,6 +7405,8 @@ GameObject:
   - component: {fileID: 1115316353}
   - component: {fileID: 1115316352}
   - component: {fileID: 1115316351}
+  - component: {fileID: 1115316355}
+  - component: {fileID: 1115316354}
   m_Layer: 0
   m_Name: Bird Sprite
   m_TagString: Untagged
@@ -7500,6 +7506,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115316354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115316350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackHandler: {fileID: 1115316355}
+  attackBaseDamage: 10
+  attackDuration: 2
+  projectileAttack: {fileID: 11400000, guid: 3832d01545a6b304ebd806c82a020705, type: 2}
+--- !u!114 &1115316355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115316350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c338e3cde30ee54090ed1483974c2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedTarget: {fileID: 0}
+  owner: {fileID: 1115316353}
+  faction: 2
+  fallbackDirection: {x: 0, y: 0}
+  TESTINGAttack: {fileID: 1115316354}
 --- !u!1 &1144920601
 GameObject:
   m_ObjectHideFlags: 0
@@ -9154,6 +9193,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 1543429934852899615, guid: c03e5cd7bdfe03048ac7ec4a2dd84108, type: 2}
     value: {fileID: 1115316351}
+  - key: {fileID: 2315936656578552972, guid: c03e5cd7bdfe03048ac7ec4a2dd84108, type: 2}
+    value: {fileID: 1115316350}
+  - key: {fileID: 7444033514267898045, guid: c03e5cd7bdfe03048ac7ec4a2dd84108, type: 2}
+    value: {fileID: 1115316355}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1906433808

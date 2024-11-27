@@ -34,6 +34,10 @@ namespace Bremsengine
             {
                 return;
             }
+            ForceAttack(attack);
+        }
+        public override void ForceAttack(BaseAttack attack)
+        {
             SetNextAttackDelay(attack.attackDuration);
             AttackDirectionPacket packet = new(owner, null);
             if (overrideDirection != Vector2.zero)

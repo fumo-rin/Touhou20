@@ -84,6 +84,10 @@ namespace Bremsengine
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
+            if (input.Target)
+            {
+                input.SetOverrideTarget(input.Target.position);
+            }
             if (Retargetting && input.Target)
             {
                 input.SetOverrideTarget(input.Target.position);

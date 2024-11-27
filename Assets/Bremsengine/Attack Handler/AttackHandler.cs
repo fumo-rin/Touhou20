@@ -4,7 +4,7 @@ namespace Bremsengine
 {
     public abstract class AttackHandler : MonoBehaviour
     {
-        protected Transform assignedTarget;
+        [SerializeField] protected Transform assignedTarget;
         protected float nextAttackTime;
         public BaseAttack ContainedAttack => CollapseBaseAttack();
         protected abstract BaseAttack CollapseBaseAttack();
@@ -19,5 +19,6 @@ namespace Bremsengine
         {
             assignedTarget = t;
         }
+        public abstract void ForceAttack(BaseAttack attack);
     }
 }

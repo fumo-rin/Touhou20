@@ -27,7 +27,7 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "aed2174b-f0a9-43fa-a208-bc6cf7fca259",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold(duration=1.401298E-45,pressPoint=1.401298E-45)",
                     "initialStateCheck": true

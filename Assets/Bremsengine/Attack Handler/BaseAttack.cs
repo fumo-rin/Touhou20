@@ -17,7 +17,6 @@ namespace Bremsengine
             }
             else
             {
-                Debug.LogWarning("Failed to find Damage Scaler for : " + transform.name);
                 p.SetDamage(attackBaseDamage);
             }
         }

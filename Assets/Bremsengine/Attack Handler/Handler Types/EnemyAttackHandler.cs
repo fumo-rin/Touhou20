@@ -24,11 +24,14 @@ namespace Bremsengine
             {
                 return;
             }
+            ForceAttack(attack);
+        }
+        public override void ForceAttack(BaseAttack attack)
+        {
             SetNextAttackDelay(attack.attackDuration);
             AttackDirectionPacket p = new(owner, assignedTarget);
             p.SetAimDirectionOverride(fallbackDirection);
             attack.PerformAttack(p);
         }
-
     }
 }

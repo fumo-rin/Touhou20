@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3907687d1d9b6644a8164bb69d510bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorStage: {fileID: 11400000, guid: 264687eefeab83c4e9d16be0cb13e07d, type: 2}
+  editorStage: {fileID: 0}
   worldCenterOverride: {fileID: 4837859286974725894}
