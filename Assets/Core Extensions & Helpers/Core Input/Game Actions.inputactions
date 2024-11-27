@@ -36,7 +36,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "0642fac5-0a3d-4c2b-a533-98b324cd7ae4",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1222,6 +1222,17 @@
             "bindings": [
                 {
                     "name": "",
+                    "id": "acf17893-f2b3-4b70-af04-bfd69fe4b275",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3abe0989-fcd2-4a20-972f-e4049be15c3b",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -1233,19 +1244,8 @@
                 },
                 {
                     "name": "",
-                    "id": "acf17893-f2b3-4b70-af04-bfd69fe4b275",
-                    "path": "<XInputController>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Ability1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a2107872-b5b3-47b0-8ac6-462e9d17ded5",
-                    "path": "<XInputController>/buttonSouth",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -1266,6 +1266,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3825f65e-912e-4424-a456-fda2756ad923",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "action": "WeaponNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f103e091-e814-48da-b865-b2e80d152ee1",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -1277,12 +1288,12 @@
                 },
                 {
                     "name": "",
-                    "id": "3825f65e-912e-4424-a456-fda2756ad923",
-                    "path": "<XInputController>/buttonWest",
+                    "id": "8c4978ae-cfb2-478f-bd1c-3a8768771e7e",
+                    "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "WeaponNext",
+                    "action": "WeaponPrevious",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1299,12 +1310,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8c4978ae-cfb2-478f-bd1c-3a8768771e7e",
-                    "path": "<XInputController>/buttonNorth",
+                    "id": "bb8cf412-5e98-4165-a0b5-010aa75dda2a",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "WeaponPrevious",
+                    "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1321,12 +1332,12 @@
                 },
                 {
                     "name": "",
-                    "id": "bb8cf412-5e98-4165-a0b5-010aa75dda2a",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "924c76bc-fdbc-4c51-b29a-b9db37b2bc5d",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "Focus",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1343,12 +1354,12 @@
                 },
                 {
                     "name": "",
-                    "id": "924c76bc-fdbc-4c51-b29a-b9db37b2bc5d",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "0d05fb08-a700-4894-add3-68c861f8dc35",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "Fire",
+                    "action": "Autofire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1359,17 +1370,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Keyboard&Mouse;Touch;Joystick;XR",
-                    "action": "Autofire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0d05fb08-a700-4894-add3-68c861f8dc35",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
                     "action": "Autofire",
                     "isComposite": false,
                     "isPartOfComposite": false

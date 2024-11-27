@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 58d88f01b558bde429a1e2498eb15e02
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8676910166181039473
+    second: steal 1_0
+  - first:
+      213: 3821264035745608643
+    second: steal 1_1
+  - first:
+      213: -8503166347598230389
+    second: steal 1_2
+  - first:
+      213: -3090833439363188477
+    second: steal 1_3
+  - first:
+      213: 6612142545319369279
+    second: steal 1_4
+  - first:
+      213: 7557489362454612699
+    second: steal 1_5
+  - first:
+      213: -779001511059597437
+    second: steal 1_6
+  - first:
+      213: -1953784804858261245
+    second: steal 1_7
+  - first:
+      213: -2108903739412409002
+    second: steal 1_8
+  - first:
+      213: 294150513729879982
+    second: steal 1_9
+  - first:
+      213: 1694325203730058132
+    second: steal 1_10
+  - first:
+      213: -5792905862083855340
+    second: steal 1_11
+  - first:
+      213: -3021752699740223921
+    second: steal 1_12
+  - first:
+      213: -6525169280487428883
+    second: steal 1_13
+  - first:
+      213: 3365759651038228017
+    second: steal 1_14
+  - first:
+      213: 2734298415942706429
+    second: steal 1_15
+  - first:
+      213: 3925682335432263332
+    second: steal 1_16
+  - first:
+      213: -1057251695226669929
+    second: steal 1_17
+  - first:
+      213: -6848303470085124531
+    second: steal 1_18
+  - first:
+      213: -4426087955752492405
+    second: steal 1_19
+  - first:
+      213: 2498109384883425552
+    second: steal 1_20
+  - first:
+      213: 360497471923467001
+    second: steal 1_21
+  - first:
+      213: -4987873144106328219
+    second: steal 1_22
+  - first:
+      213: -3606055177828000331
+    second: steal 1_23
+  - first:
+      213: 4890489559344556655
+    second: steal 1_24
+  - first:
+      213: 7546674837650474573
+    second: steal 1_25
+  - first:
+      213: 7240763661179317274
+    second: steal 1_26
+  - first:
+      213: -8468408457657865799
+    second: steal 1_27
+  - first:
+      213: 601742706181904675
+    second: steal 1_28
+  - first:
+      213: 7429529625812333426
+    second: steal 1_29
+  - first:
+      213: -3484805854675765633
+    second: steal 1_30
+  - first:
+      213: 8469125292778886414
+    second: steal 1_31
+  - first:
+      213: -2294133287541562705
+    second: steal 1_32
+  - first:
+      213: 201178629722777506
+    second: steal 1_33
+  - first:
+      213: 1524647705424699891
+    second: steal 1_34
+  - first:
+      213: -2699949813483769315
+    second: steal 1_35
+  - first:
+      213: -7625814405127643629
+    second: steal 1_36
+  - first:
+      213: 1395623442706758384
+    second: steal 1_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: steal 1_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 879
+        width: 257
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d423be2d39a6870800000000000000
+      internalID: 8676910166181039473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1158
+        width: 67
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3b793056bd70530800000000000000
+      internalID: 3821264035745608643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_2
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1152
+        width: 68
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c0a51324faef980800000000000000
+      internalID: -8503166347598230389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_3
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1158
+        width: 66
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309bbd2ec572b15d0800000000000000
+      internalID: -3090833439363188477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_4
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1158
+        width: 60
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a1202cc9c03cb50800000000000000
+      internalID: 6612142545319369279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_5
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 1022
+        width: 62
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda86eaa88891e860800000000000000
+      internalID: 7557489362454612699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1024
+        width: 63
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387dcc5c04e6035f0800000000000000
+      internalID: -779001511059597437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 1028
+        width: 62
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3011ed25213c2e4e0800000000000000
+      internalID: -1953784804858261245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 1029
+        width: 63
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65594d2f83babb2e0800000000000000
+      internalID: -2108903739412409002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_9
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1028
+        width: 63
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf3e517558051400800000000000000
+      internalID: 294150513729879982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_10
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 1029
+        width: 63
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b425ebbc3738710800000000000000
+      internalID: 1694325203730058132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_11
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 1028
+        width: 63
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41cb6318fc67b9fa0800000000000000
+      internalID: -5792905862083855340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_12
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1030
+        width: 61
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4608e4fde39016d0800000000000000
+      internalID: -3021752699740223921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 742
+        width: 58
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec61497c11f175a0800000000000000
+      internalID: -6525169280487428883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_14
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 744
+        width: 57
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ee97fe19495be20800000000000000
+      internalID: 3365759651038228017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_15
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 742
+        width: 57
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4ad202ced22f520800000000000000
+      internalID: 2734298415942706429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_16
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 747
+        width: 59
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a64770f843da7630800000000000000
+      internalID: 3925682335432263332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_17
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 581
+        width: 260
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794b5db4f23e351f0800000000000000
+      internalID: -1057251695226669929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_18
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 608
+        width: 60
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e408f1740f5f0a0800000000000000
+      internalID: -6848303470085124531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_19
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 608
+        width: 60
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82ecb464706392c0800000000000000
+      internalID: -4426087955752492405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_20
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 606
+        width: 65
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011db0000411ba220800000000000000
+      internalID: 2498109384883425552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_21
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 607
+        width: 67
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2bc6c6a8eb00500800000000000000
+      internalID: 360497471923467001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_22
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 600
+        width: 66
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56fd4d46dc387cab0800000000000000
+      internalID: -4987873144106328219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_23
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 594
+        width: 71
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd9a15ebe7b4fdc0800000000000000
+      internalID: -3606055177828000331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_24
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 597
+        width: 62
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a2d72e7528ed340800000000000000
+      internalID: 4890489559344556655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_25
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 118
+        width: 282
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d460985e7cc2bb860800000000000000
+      internalID: 7546674837650474573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_26
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 466
+        width: 56
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c6627cf2c5c7460800000000000000
+      internalID: 7240763661179317274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_27
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 307
+        width: 78
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9a364106b2a7a80800000000000000
+      internalID: -8468408457657865799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_28
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 301
+        width: 82
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32997289dc1d95800800000000000000
+      internalID: 601742706181904675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_29
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 306
+        width: 77
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273f8c2d4ddfa1760800000000000000
+      internalID: 7429529625812333426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_30
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 304
+        width: 82
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7679d8d98b73afc0800000000000000
+      internalID: -3484805854675765633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_31
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 183
+        width: 73
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e059c5a1590688570800000000000000
+      internalID: 8469125292778886414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_32
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 183
+        width: 78
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2afa80ee99920e0800000000000000
+      internalID: -2294133287541562705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_33
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 183
+        width: 87
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7a609d5eabac200800000000000000
+      internalID: 201178629722777506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_34
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 183
+        width: 83
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f124799203a82510800000000000000
+      internalID: 1524647705424699891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_35
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 183
+        width: 88
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12fae713f9d78ad0800000000000000
+      internalID: -2699949813483769315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_36
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 183
+        width: 91
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e5f4ba33aab2690800000000000000
+      internalID: -7625814405127643629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steal 1_37
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 183
+        width: 88
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa7eb670204e5310800000000000000
+      internalID: 1395623442706758384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      steal 1_0: 8676910166181039473
+      steal 1_1: 3821264035745608643
+      steal 1_10: 1694325203730058132
+      steal 1_11: -5792905862083855340
+      steal 1_12: -3021752699740223921
+      steal 1_13: -6525169280487428883
+      steal 1_14: 3365759651038228017
+      steal 1_15: 2734298415942706429
+      steal 1_16: 3925682335432263332
+      steal 1_17: -1057251695226669929
+      steal 1_18: -6848303470085124531
+      steal 1_19: -4426087955752492405
+      steal 1_2: -8503166347598230389
+      steal 1_20: 2498109384883425552
+      steal 1_21: 360497471923467001
+      steal 1_22: -4987873144106328219
+      steal 1_23: -3606055177828000331
+      steal 1_24: 4890489559344556655
+      steal 1_25: 7546674837650474573
+      steal 1_26: 7240763661179317274
+      steal 1_27: -8468408457657865799
+      steal 1_28: 601742706181904675
+      steal 1_29: 7429529625812333426
+      steal 1_3: -3090833439363188477
+      steal 1_30: -3484805854675765633
+      steal 1_31: 8469125292778886414
+      steal 1_32: -2294133287541562705
+      steal 1_33: 201178629722777506
+      steal 1_34: 1524647705424699891
+      steal 1_35: -2699949813483769315
+      steal 1_36: -7625814405127643629
+      steal 1_37: 1395623442706758384
+      steal 1_4: 6612142545319369279
+      steal 1_5: 7557489362454612699
+      steal 1_6: -779001511059597437
+      steal 1_7: -1953784804858261245
+      steal 1_8: -2108903739412409002
+      steal 1_9: 294150513729879982
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

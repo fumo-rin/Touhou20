@@ -101,7 +101,7 @@ namespace BremseTouhou
         public override UnitMotor ActiveMotor => Focused ? sneakMotor : standardMotor;
         private void ReadInput(ref Vector2 input)
         {
-            Vector2 positionDelta = RenderTextureCursorHandler.CursorPosition - Center;
+            /*Vector2 positionDelta = RenderTextureCursorHandler.CursorPosition - Center;
             if (positionDelta.magnitude < 0.02f || !RenderTextureCursorHandler.IsHovering)
             {
                 input = Vector2.zero;
@@ -109,6 +109,7 @@ namespace BremseTouhou
             }
             input = positionDelta.normalized;
             return;
+            */
             input = PlayerInputController.actions == null ? Vector2.zero : PlayerInputController.actions.Player.Move.ReadValue<Vector2>();
         }
         private void ApplyInput(Vector2 input)
@@ -139,7 +140,7 @@ namespace BremseTouhou
         {
             ReadInput(ref input);
             ApplyInput(input);
-            focusHeld = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f;
+            focusHeld = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f || PlayerInputController.actions.Shmup.Focus.ReadValue<float>() > 0.5f;
             ProjectileScanOverlap();
         }
         private void ProjectileScanOverlap()
