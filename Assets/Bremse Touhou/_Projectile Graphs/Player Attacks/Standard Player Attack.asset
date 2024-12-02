@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1090
-    y: 414
+    x: 624
+    y: 317
     width: 350
     height: 100
   ID: c8812ad8-11a5-4430-b445-23cc074a9d67
@@ -46,6 +46,7 @@ MonoBehaviour:
   - {fileID: 5010464049080702738}
   emitters:
   - {fileID: 3802485916838778856}
+  GraphGlobalProjectileSpeed: 1
 --- !u!114 &3802485916838778856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 213
-    y: 444
+    x: -253
+    y: 347
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -88,28 +89,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 665
-    y: 112
+    x: 223
+    y: 1
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 409
-    y: 142
+    x: -33
+    y: 31
     width: 250
     height: 250
   directionalOffset: 0.35
   spread: 0
   speed: 20
   addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -595416381803295515}
-  projectileCountFloat: 3
-  AngleCoverage: 8
+  projectileCountFloat: 5
+  AngleCoverage: 6
   startingAngle: 0
   RandomAngle: 0
   arcProgressionSpeed:
@@ -124,6 +125,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.50416666
+      value: 1.0181603
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1

@@ -166,6 +166,11 @@ namespace Bremsengine
         public bool Developing;
         public List<ProjectileNodeSO> nodes = new();
         public List<ProjectileEmitterSO> emitters = new();
+        [Range(0.1f,5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
+        public float GetGlobalSpeed()
+        {
+            return GraphGlobalProjectileSpeed;
+        }
         /// <summary>
         /// Should be Called as Projectile.SpawnProjectileGraph
         /// </summary>

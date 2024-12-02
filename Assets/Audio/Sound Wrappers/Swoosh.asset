@@ -18,12 +18,12 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: b51539351a926754899c22cb267cf4cb, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 3
-    Volume: 0.208
+    Volume: 0.325
     Muted: 0
   - clip: {fileID: 8300000, guid: a1986f3b8e092da4b88263c7f32046be, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 3
-    Volume: 0.7
+    Volume: 0.463
     Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

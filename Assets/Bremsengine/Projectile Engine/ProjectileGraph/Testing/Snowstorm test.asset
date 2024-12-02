@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: -3352418654285692591}
   - {fileID: 309674574517770479}
   - {fileID: 6787348000229589979}
+  GraphGlobalProjectileSpeed: 1
 --- !u!114 &309674574517770479
 MonoBehaviour:
   m_ObjectHideFlags: 0

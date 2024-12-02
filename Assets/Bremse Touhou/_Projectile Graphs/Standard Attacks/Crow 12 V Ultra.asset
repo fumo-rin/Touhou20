@@ -117,16 +117,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1139
-    y: 159
+    x: 807
+    y: 711
     width: 350
     height: 700
   ID: 9bf5fc7f-e1ac-44e4-b430-714535504daa
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 883
-    y: 189
+    x: 551
+    y: 741
     width: 250
     height: 250
   directionalOffset: 1.25
@@ -219,6 +219,7 @@ MonoBehaviour:
   - {fileID: 3253905724778704477}
   - {fileID: 3859951219471399115}
   - {fileID: 5949843507958207200}
+  GraphGlobalProjectileSpeed: 1
 --- !u!114 &760562272710110012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,16 +234,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 143
-    y: 177
+    x: -189
+    y: 729
     width: 350
     height: 700
   ID: 99be8c71-2684-46b6-956e-ad3c924bdbfd
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -113
-    y: 207
+    x: -445
+    y: 759
     width: 250
     height: 250
   directionalOffset: 0.2
@@ -345,8 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 679
-    y: 465
+    x: 347
+    y: 1017
     width: 350
     height: 200
   ID: 24344aba-96aa-4f3a-9360-12bf03f55f97
@@ -373,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 519
-    y: 147
+    x: 187
+    y: 699
     width: 350
     height: 200
   ID: 30a96f28-7245-4469-932d-3d41478c6987
@@ -401,8 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 520
-    y: -185
+    x: 188
+    y: 367
     width: 350
     height: 200
   ID: 75c1b1bf-d14a-455c-9129-6bff5e30eec6
@@ -462,16 +463,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1020
-    y: -625
+    x: 688
+    y: -73
     width: 350
     height: 700
   ID: 682cb148-acf6-4bff-84e2-4b80bf29330a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 764
-    y: -595
+    x: 432
+    y: -43
     width: 250
     height: 250
   directionalOffset: 0
@@ -481,7 +482,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileCountFloat: 30
+  projectileCountFloat: 31
   AngleCoverage: 40
   startingAngle: 0
   RandomAngle: 0

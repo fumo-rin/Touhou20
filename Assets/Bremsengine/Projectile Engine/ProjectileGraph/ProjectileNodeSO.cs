@@ -210,7 +210,7 @@ namespace Bremsengine
         }
         protected Projectile CreateProjectile(Projectile p, Vector2 position, ProjectileNodeDirection direction)
         {
-            direction.SetSpeed(speed);
+            direction.SetSpeed(speed * graph.GetGlobalSpeed());
             direction.AddAngle(addedAngle);
             direction.SetSpread(spread);
             direction.SetDirectionalOffset(directionalOffset);

@@ -7521,7 +7521,7 @@ MonoBehaviour:
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
   attackDuration: 2
-  projectileAttack: {fileID: 11400000, guid: 3832d01545a6b304ebd806c82a020705, type: 2}
+  projectileAttack: {fileID: 11400000, guid: b0a3a05fcea20d1409df747e72b7e073, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9185,9 +9185,9 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c03e5cd7bdfe03048ac7ec4a2dd84108, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
-  m_InitialTime: 0
+  m_InitialTime: 2
   m_SceneBindings:
   - key: {fileID: 0}
     value: {fileID: 0}

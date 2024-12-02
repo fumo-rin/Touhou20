@@ -22,6 +22,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: 1608fc28580230b419b6877b4c71d3c3, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &-3197853797526707153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
   - {fileID: 8343510073007248478}
   emitters:
   - {fileID: -3197853797526707153}
+  GraphGlobalProjectileSpeed: 1
 --- !u!114 &8343510073007248478
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -18
-    y: 492
+    x: 69
+    y: 58
     width: 350
     height: 700
   ID: 34045dc9-c5bd-46ab-9426-3818e52b8527
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -274
-    y: 522
+    x: -187
+    y: 88
     width: 250
     height: 250
   directionalOffset: 0.15
   spread: 0
-  speed: 2.5
+  speed: 3.5
   addedAngle: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 6646040821736083817}
-  projectileCountFloat: 11
+  projectileCountFloat: 19
   AngleCoverage: 15
   startingAngle: 0
   RandomAngle: 0
@@ -118,23 +118,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 916
-    y: 343
+    x: 1003
+    y: -91
     width: 350
     height: 700
   ID: 9bf5fc7f-e1ac-44e4-b430-714535504daa
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 660
-    y: 373
+    x: 747
+    y: -61
     width: 250
     height: 250
   directionalOffset: 1.25
   spread: 1
   speed: 2.5
   addedAngle: -60
-  ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -84151796329410461}
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 768
-    y: 137
+    x: 855
+    y: -297
     width: 350
     height: 100
   ID: 406a1267-a72e-4b26-bdef-13cef671dd43
@@ -241,6 +241,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 1116211709931126382}
   - {fileID: 3253905724778704477}
+  GraphGlobalProjectileSpeed: 0.6
 --- !u!114 &1116211709931126382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,8 +256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 482
-    y: 931
+    x: 569
+    y: 497
     width: 350
     height: 200
   ID: 8d13c44f-dc76-40d1-a434-8e3f78f629af
@@ -283,8 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 436
-    y: 662
+    x: 523
+    y: 228
     width: 350
     height: 200
   ID: 24344aba-96aa-4f3a-9360-12bf03f55f97
@@ -344,8 +345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 289
-    y: 207
+    x: 376
+    y: -227
     width: 350
     height: 100
   ID: d55b0e48-b815-4407-9cc9-da1099de78da

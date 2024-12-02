@@ -224,6 +224,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 0}
+  repeatCooldown: 0.03
 --- !u!114 &-619319278685235889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0.93
   acw: {fileID: 0}
+  repeatCooldown: 0.03
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +280,7 @@ MonoBehaviour:
   - {fileID: -5296717821074108817}
   emitters:
   - {fileID: -2045312514197406688}
+  GraphGlobalProjectileSpeed: 1
 --- !u!114 &1416162416334827828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +422,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: 9f2f240fbda12084081085da9d0face4, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &6740270758053666978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +445,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 2
   acw: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &7618653798946834259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +502,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &8207838405733373707
 MonoBehaviour:
   m_ObjectHideFlags: 0

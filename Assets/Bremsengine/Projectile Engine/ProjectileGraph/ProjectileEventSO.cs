@@ -49,6 +49,7 @@ namespace Bremsengine
     [System.Serializable]
     public class TriggeredEvent
     {
+        public Dictionary<string, float> keyfloats = new Dictionary<string, float>();
         public ProjectileNodeSO Caller;
         HashSet<ProjectileEventSO> LinkedEvents;
         HashSet<AudioClipWrapper> playedSounds = new();
