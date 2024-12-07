@@ -20,7 +20,7 @@ namespace Bremsengine
 
         public override void OnDrag(Vector2 delta)
         {
-            
+
         }
 
         public override void OnGraphDelete()
@@ -39,7 +39,7 @@ namespace Bremsengine
             addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
             Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
 
-            Active = EditorGUILayout.Toggle("Is Active",Active);
+            Active = EditorGUILayout.Toggle("Is Active", Active);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
@@ -84,11 +84,11 @@ namespace Bremsengine
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
-            if (input.Target)
+            if (!Retargetting && input.Target && input.TargetStartPosition != null)
             {
-                input.SetOverrideTarget(input.Target.position);
+                input.SetOverrideTarget((Vector2)input.TargetStartPosition);
             }
-            if (Retargetting && input.Target)
+            else if (input.Target)
             {
                 input.SetOverrideTarget(input.Target.position);
             }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Bremsengine
@@ -38,7 +39,7 @@ namespace Bremsengine
     {
         protected override void TriggerEvent(Projectile p, TriggeredEvent e)
         {
-            Debug.Log("Trigger Crawler Event");
+
         }
     }
 }
