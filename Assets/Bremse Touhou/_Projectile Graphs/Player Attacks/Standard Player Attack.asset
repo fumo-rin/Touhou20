@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6102004304508611640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 64
+    y: 119
+    width: 250
+    height: 200
+  ID: b47987b8-0334-4a0f-bf74-22d4f8b14ada
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: -1}
+--- !u!114 &-1614631124295729775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 50
+    y: 147
+    width: 250
+    height: 200
+  ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: 1}
 --- !u!114 &-595416381803295515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,14 +56,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 624
-    y: 317
+    x: 1078
+    y: 421
     width: 350
     height: 100
   ID: c8812ad8-11a5-4430-b445-23cc074a9d67
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,12 +84,34 @@ MonoBehaviour:
   - {fileID: 5010464049080702738}
   - {fileID: 3802485916838778856}
   - {fileID: -595416381803295515}
+  - {fileID: -1614631124295729775}
   Developing: 0
   nodes:
   - {fileID: 5010464049080702738}
   emitters:
   - {fileID: 3802485916838778856}
   GraphGlobalProjectileSpeed: 1
+--- !u!114 &3514923049788479832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 36
+    y: 90
+    width: 250
+    height: 200
+  ID: 5fc5d687-b43c-47ed-bfb4-2744ebb40a4b
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: -1}
 --- !u!114 &3802485916838778856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -253
-    y: 347
+    x: 196
+    y: 425
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -72,6 +137,7 @@ MonoBehaviour:
   - {fileID: 5010464049080702738}
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: -1614631124295729775}
   repeatInterval: 0.09
   repeatCount: 3
   repeatAddedAngle: 0
@@ -89,16 +155,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 223
-    y: 1
+    x: 664
+    y: 56
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -33
-    y: 31
+    x: 408
+    y: 86
     width: 250
     height: 250
   directionalOffset: 0.35

@@ -7521,7 +7521,7 @@ MonoBehaviour:
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
   attackDuration: 2
-  projectileAttack: {fileID: 11400000, guid: b0a3a05fcea20d1409df747e72b7e073, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0

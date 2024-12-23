@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 775
-    y: 114
+    x: 728
+    y: 77
     width: 350
     height: 100
   ID: cd6cd17a-882c-4f8c-a1ec-fa033a92fddc
@@ -37,8 +37,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 740
-    y: 457
+    x: 693
+    y: 420
     width: 350
     height: 200
   ID: 3cfab9cc-65e5-4a3f-adeb-5c92debad5b7
@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 8343510073007248478}
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,28 +88,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 271
-    y: 170
+    x: 224
+    y: 133
     width: 350
     height: 700
   ID: 26d22918-ddcc-4ea3-8c24-ad0ea7989042
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 15
-    y: 200
+    x: -32
+    y: 163
     width: 250
     height: 250
   directionalOffset: 0
   spread: 0
   speed: 6
   addedAngle: 0
-  ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -8218692379457971269}
-  projectileCountFloat: 5
-  AngleCoverage: 5
+  projectileCountFloat: 1
+  AngleCoverage: 0
   startingAngle: 0
   RandomAngle: 0
   arcProgressionSpeed:

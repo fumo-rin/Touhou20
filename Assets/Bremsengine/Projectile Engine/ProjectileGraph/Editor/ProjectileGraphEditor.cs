@@ -191,6 +191,7 @@ namespace Bremsengine
     {
         ProjectileEventSO projectileEventDragSelection;
         ProjectileEmitterSO emitterSelection;
+        ProjectileGraphDirectionNode directionSelection;
         static bool CursorMoveDrag;
         static Vector2 DragLinePreviewStart;
         #region Mouse Down
@@ -206,6 +207,14 @@ namespace Bremsengine
                         if (drag != null)
                         {
                             dragNode = drag;
+                            CursorMoveDrag = true;
+                            return true;
+                        }
+                    }
+                    if (IsMouseOverDirection(e, out directionSelection))
+                    {
+                        if (directionSelection != null)
+                        {
                             CursorMoveDrag = true;
                             return true;
                         }
@@ -235,6 +244,11 @@ namespace Bremsengine
                         ActiveGraph.StartLine(e.mousePosition);
                     }
                     if (IsMouseOverEmitter(e, out emitterSelection))
+                    {
+                        DragLinePreviewStart = e.mousePosition;
+                        ActiveGraph.StartLine(e.mousePosition);
+                    }
+                    if (IsMouseOverDirection(e, out directionSelection))
                     {
                         DragLinePreviewStart = e.mousePosition;
                         ActiveGraph.StartLine(e.mousePosition);
@@ -270,6 +284,20 @@ namespace Bremsengine
             }
             if (e.button == 0)
             {
+                if (directionSelection != null && IsMouseOverEmitter(e, out ProjectileEmitterSO hoverE))
+                {
+                    EditorGUI.BeginChangeCheck();
+
+                    hoverE.linkedOverrideDirection = directionSelection;
+                    EditorUtility.SetDirty(hoverE);
+                    EditorUtility.SetDirty(ActiveGraph);
+
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        EditorUtility.SetDirty(this);
+                        AssetDatabase.SaveAssetIfDirty(this);
+                    }
+                }
                 if (projectileEventDragSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover))
                 {
                     EditorGUI.BeginChangeCheck();
@@ -332,6 +360,10 @@ namespace Bremsengine
                 {
                     emitterSelection.Drag(e.delta);
                 }
+                if (directionSelection)
+                {
+                    directionSelection.Drag(e.delta);
+                }
             }
             DragGrid(e.delta);
         }
@@ -362,6 +394,19 @@ namespace Bremsengine
         }
         #endregion
         #region Mouse Over Projectile Event
+        private bool IsMouseOverDirection(Event e, out ProjectileGraphDirectionNode d)
+        {
+            d = null;
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
+            {
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileGraphDirectionNode found and not null)
+                {
+                    d = found;
+                    break;
+                }
+            }
+            return d != null;
+        }
         private bool IsMouseOverComponent(Event e, out ProjectileGraphComponent c)
         {
             c = null;
@@ -429,6 +474,7 @@ namespace Bremsengine
             ProjectileNodeSO mouseOverNode = null;
             ProjectileEventSO mouseOverProjectileEvent = null;
             ProjectileEmitterSO mouseOverEmitter = null;
+            ProjectileGraphDirectionNode mouseOverDirection = null;
             if (IsMouseOverEmitter(e, out mouseOverEmitter))
             {
                 menu.AddItem(new GUIContent("Break Emitter Links"), false, mouseOverEmitter.BreakLinks);
@@ -448,6 +494,10 @@ namespace Bremsengine
                     menu.AddItem(new GUIContent("Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
                 }
             }
+            if (IsMouseOverDirection(e, out mouseOverDirection))
+            {
+                menu.AddItem(new GUIContent("Remove Direction Component"), false, ActiveGraph.DestroyComponent, mouseOverDirection);
+            }
             if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
             {
                 menu.AddItem(new GUIContent("Remove Graph Component"), false, ActiveGraph.DestroyComponent, c);
@@ -461,6 +511,10 @@ namespace Bremsengine
                 {
                     menu.AddItem(new GUIContent("Undo Delete"), false, ActiveGraph.UndoLastDelete);
                 }
+            }
+            if (mouseOverDirection == null)
+            {
+                menu.AddItem(new GUIContent("Add Direction Node"), false, AddDirectionNode, position);
             }
             if (mouseOverProjectileEvent == null)
             {
@@ -479,6 +533,23 @@ namespace Bremsengine
     #region Projectile Nodes & Events
     public partial class ProjectileGraphEditor
     {
+        #region Add Direction  Node
+        private void AddDirectionNode(object mousePositionObject)
+        {
+            LoadCache();
+            ProjectileGraphDirectionNode direction = null;
+            Vector2 mousePosition = (Vector2)mousePositionObject;
+            direction = ScriptableObject.CreateInstance<ProjectileGraphDirectionNode>();
+            if (direction != null)
+            {
+                direction.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
+
+                AssetDatabase.AddObjectToAsset(direction, ActiveGraph);
+                AssetDatabase.SaveAssets();
+
+            }
+        }
+        #endregion
         #region Add Single Emitter
         private void AddSingleEmitter(object mousePositionObject)
         {

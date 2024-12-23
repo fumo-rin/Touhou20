@@ -77,7 +77,6 @@ namespace Bremsengine
             }
             return projectileArray;
         }
-
         public override void OnDrag(Vector2 delta)
         {
             projectileImagePreview.position += delta;

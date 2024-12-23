@@ -92,6 +92,7 @@ namespace Bremsengine
                 {
                     DrawLink(emitter, link);
                 }
+                DrawLink(emitter, emitter.linkedOverrideDirection);
             }
             foreach (ProjectileGraphComponent c in components)
             {

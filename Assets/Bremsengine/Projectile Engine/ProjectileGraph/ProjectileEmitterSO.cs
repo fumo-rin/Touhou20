@@ -67,6 +67,7 @@ namespace Bremsengine
                     i--;
                 }
             }
+            LinkDirection(null);
         }
     }
 #endif
@@ -77,14 +78,28 @@ namespace Bremsengine
         public List<ProjectileNodeSO> linkedNodes = new List<ProjectileNodeSO>();
         public float addedDelay;
         public bool Retargetting;
+        public ProjectileGraphDirectionNode linkedOverrideDirection;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
+        public void LinkDirection(ProjectileGraphDirectionNode direction)
+        {
+            if (direction == null)
+            {
+                linkedOverrideDirection = null;
+                return;
+            }
+            linkedOverrideDirection = direction;
+        }
         protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)
         {
             yield return new WaitForSeconds(delay);
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
-            if (!Retargetting && input.Target && input.TargetStartPosition != null)
+            if (linkedOverrideDirection != null)
+            {
+                input.SetOverrideDirection(linkedOverrideDirection.overrideDirection);
+            }
+            else if (!Retargetting && input.Target && input.TargetStartPosition != null)
             {
                 input.SetOverrideTarget((Vector2)input.TargetStartPosition);
             }

@@ -196,12 +196,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8469125292778886414, guid: 58d88f01b558bde429a1e2498eb15e02, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 6966a26a125205f41b43c1ddb5df0946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.60833335, y: 1.025}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -892,10 +892,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06be47a0e0dbd004292843654863112d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assignedTarget: {fileID: 0}
   owner: {fileID: 4857404270182001220}
   faction: 1
   TESTINGcurrentAttack: {fileID: 6134377792351427018}
-  overrideDirection: {x: 0, y: 1}
+  overrideDirection: {x: 0, y: -1}
 --- !u!1 &4245914011593199028
 GameObject:
   m_ObjectHideFlags: 0
