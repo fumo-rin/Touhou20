@@ -176,7 +176,7 @@ namespace Bremsengine
         }
         public ProjectileNodeDirection BuildDirectionAlternate(ProjectileGraphInput input)
         {
-            Vector2 o = input.AimPosition;
+            Vector2 o = input.AimTargetPosition;
             ProjectileNodeDirection d = new(input.Owner, input.Target, o);
             return d;
         }

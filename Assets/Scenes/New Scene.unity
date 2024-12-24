@@ -7413,7 +7413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1115316351
 Animator:
   serializedVersion: 7
@@ -7521,7 +7521,7 @@ MonoBehaviour:
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
   attackDuration: 2
-  projectileAttack: {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 3832d01545a6b304ebd806c82a020705, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7534,7 +7534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c338e3cde30ee54090ed1483974c2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedTarget: {fileID: 0}
+  assignedTarget: {fileID: 1564590455}
   owner: {fileID: 1115316353}
   faction: 2
   fallbackDirection: {x: 0, y: 0}

@@ -7,7 +7,6 @@ namespace Bremsengine
     public class PlayerAttackHandler : AttackHandler
     {
         [SerializeField] BaseAttack TESTINGcurrentAttack;
-        [SerializeField] Vector2 overrideDirection;
         bool attackHeld;
         protected override BaseAttack CollapseBaseAttack()
         {
@@ -40,10 +39,6 @@ namespace Bremsengine
         {
             SetNextAttackDelay(attack.attackDuration);
             AttackDirectionPacket packet = new(owner, null);
-            if (overrideDirection != Vector2.zero)
-            {
-                packet.SetAimDirectionOverride(overrideDirection);
-            }
             attack.PerformAttack(packet);
         }
     }

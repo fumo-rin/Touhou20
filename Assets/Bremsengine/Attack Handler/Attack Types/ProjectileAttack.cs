@@ -8,7 +8,7 @@ namespace Bremsengine
         public override void PerformAttack(AttackDirectionPacket packet)
         {
             ProjectileGraphInput graphDirection = new(attackHandler.OwnerTransform, packet.Target);
-            if (!packet.TrackTarget && packet.Target != null) graphDirection.SetTargetStartPosition(packet.Target.position);
+            if (packet.Target != null) graphDirection.SetTargetStartPosition(packet.Target.position);
             graphDirection.SetOverrideDirection(packet.aimDirectionOverride);
             projectileAttack.SpawnGraph(graphDirection, OnProjectileSpawn);
         }

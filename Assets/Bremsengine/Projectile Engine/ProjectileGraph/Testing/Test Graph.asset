@@ -24,6 +24,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
 --- !u!114 &-7018492738241679537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
   - {fileID: 685339135572628869}
   addedDelay: 1
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.35
   repeatCount: 3
   repeatAddedAngle: 0.8
@@ -234,6 +236,7 @@ MonoBehaviour:
   - {fileID: 8439396693298836473}
   addedDelay: 1
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.2
   repeatCount: 14
   repeatAddedAngle: 7
@@ -430,6 +433,7 @@ MonoBehaviour:
   - {fileID: -4556517639307246956}
   addedDelay: 1.6
   Retargetting: 1
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.05
   repeatCount: 7
   repeatAddedAngle: 0
@@ -457,6 +461,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
 --- !u!114 &4402028688498106398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +595,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.3
   repeatCount: 4
   repeatAddedAngle: 0
@@ -709,6 +715,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.3
   repeatCount: 4
   repeatAddedAngle: 0
@@ -737,6 +744,7 @@ MonoBehaviour:
   - {fileID: -4556517639307246956}
   addedDelay: 0
   Retargetting: 1
+  linkedOverrideDirection: {fileID: 0}
 --- !u!114 &7748776249808463047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +879,7 @@ MonoBehaviour:
   - {fileID: 5103467786027340906}
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.07
   repeatCount: 20
   repeatAddedAngle: 6.75

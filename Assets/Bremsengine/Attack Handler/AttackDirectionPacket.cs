@@ -11,7 +11,6 @@ namespace Bremsengine
         }
         public Transform Owner;
         public Transform Target;
-        public bool TrackTarget;
         public Vector2 aimDirectionOverride { get; private set; }
         public void SetAimDirectionOverride(Vector2 direction)
         {

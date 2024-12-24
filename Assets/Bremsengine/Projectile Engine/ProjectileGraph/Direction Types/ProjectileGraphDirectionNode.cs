@@ -7,6 +7,16 @@ namespace Bremsengine
 #if UNITY_EDITOR
     public partial class ProjectileGraphDirectionNode
     {
+        public void BreakDirectionLinks()
+        {
+            foreach (var item in graph.components)
+            {
+                if (item is ProjectileEmitterSO e && e.linkedOverrideDirection == this)
+                {
+                    e.LinkDirection(null);
+                }
+            }
+        }
         public override string GetGraphComponentName()
         {
             return "Direction Override : " + overrideDirection.ToString("F1");

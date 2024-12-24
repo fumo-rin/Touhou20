@@ -95,17 +95,21 @@ namespace Bremsengine
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
+            Vector2 aimDirection = Vector2.zero;
             if (linkedOverrideDirection != null)
             {
-                input.SetOverrideDirection(linkedOverrideDirection.overrideDirection);
+                aimDirection = linkedOverrideDirection.GetDirection();
+                input.SetOverrideDirection(aimDirection);
             }
             else if (!Retargetting && input.Target && input.TargetStartPosition != null)
             {
-                input.SetOverrideTarget((Vector2)input.TargetStartPosition);
+                aimDirection = (Vector2)input.TargetStartPosition - input.Position;
+                input.SetOverrideDirection(aimDirection);
             }
             else if (input.Target)
             {
-                input.SetOverrideTarget(input.Target.position);
+                aimDirection = (Vector2)input.Target.position - input.Position;
+                input.SetOverrideDirection(aimDirection);
             }
             foreach (var item in linkedNodes)
             {

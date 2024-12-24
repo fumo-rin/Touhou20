@@ -496,6 +496,7 @@ namespace Bremsengine
             }
             if (IsMouseOverDirection(e, out mouseOverDirection))
             {
+                menu.AddItem(new GUIContent("Break Direction Links"), false, mouseOverDirection.BreakDirectionLinks);
                 menu.AddItem(new GUIContent("Remove Direction Component"), false, ActiveGraph.DestroyComponent, mouseOverDirection);
             }
             if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
