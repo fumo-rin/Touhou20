@@ -14,22 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -61
-    y: 442
+    x: 307
+    y: 432
     width: 350
     height: 700
   ID: 34045dc9-c5bd-46ab-9426-3818e52b8527
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -317
-    y: 472
+    x: 51
+    y: 462
     width: 250
     height: 250
   directionalOffset: 0.15
   spread: 0
   speed: 3.5
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -118,8 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 246
-    y: 640
+    x: 690
+    y: 629
     width: 250
     height: 200
   ID: 8d63570f-79da-4a0d-9cdc-3b8c4e485b39
@@ -139,27 +140,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 873
-    y: 293
+    x: 1317
+    y: 282
     width: 350
     height: 700
   ID: 9bf5fc7f-e1ac-44e4-b430-714535504daa
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 617
-    y: 323
+    x: 1061
+    y: 312
     width: 250
     height: 250
   directionalOffset: 1.25
   spread: 1
   speed: 2.5
   addedAngle: -60
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -84151796329410461}
-  projectileCountFloat: 18
+  projectileCountFloat: 9
   AngleCoverage: 180
   startingAngle: 0
   RandomAngle: 0
@@ -225,15 +227,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 598
-    y: 121
+    x: 1042
+    y: 110
     width: 350
     height: 100
   ID: 406a1267-a72e-4b26-bdef-13cef671dd43
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
-  repeatCooldown: 0.03
+  repeatCooldown: 0.06
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,11 +246,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Crow 12 V
+  m_Name: Final - Crow 12 V
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 0}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: -7790233653627496763}
   - {fileID: 1116211709931126382}
@@ -265,6 +264,10 @@ MonoBehaviour:
   - {fileID: 1116211709931126382}
   - {fileID: 3253905724778704477}
   GraphGlobalProjectileSpeed: 0.6
+  addedCooldown: 1
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &1116211709931126382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,8 +282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 439
-    y: 881
+    x: 883
+    y: 870
     width: 350
     height: 200
   ID: 8d13c44f-dc76-40d1-a434-8e3f78f629af
@@ -308,8 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 520
-    y: 627
+    x: 964
+    y: 616
     width: 350
     height: 200
   ID: 24344aba-96aa-4f3a-9360-12bf03f55f97
@@ -353,6 +356,7 @@ MonoBehaviour:
   spread: 0
   speed: 4
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -370,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 143
-    y: 269
+    x: 587
+    y: 258
     width: 350
     height: 100
   ID: d55b0e48-b815-4407-9cc9-da1099de78da

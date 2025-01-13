@@ -37,7 +37,7 @@ namespace Bremsengine
         }
         public override void ForceAttack(BaseAttack attack)
         {
-            SetNextAttackDelay(attack.attackDuration);
+            SetNextAttackDelay(attack.GetAttackCooldown());
             AttackDirectionPacket packet = new(owner, null);
             attack.PerformAttack(packet);
         }

@@ -68,6 +68,17 @@ namespace Bremsengine
     #region Queue
     public partial class Projectile
     {
+        public static int GetBulletID => GetBulletIDAndIncrementCount();
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ResetBulletID()
+        {
+            BulletIDCounter = 0;
+        }
+        private static int BulletIDCounter;
+        private static int GetBulletIDAndIncrementCount()
+        {
+            return BulletIDCounter++;
+        }
         public static Queue<Projectile> ProjectileQueue = new Queue<Projectile>();
         const int MaxQueueClearAttempts = 2500;
         public static Projectile OldCreateFromQueue(Projectile proj, Vector2 position, ProjectileDirection direction)
@@ -97,6 +108,7 @@ namespace Bremsengine
             }
             projectile.SetPosition(position).SetDirection(direction);
             projectile.SetProjectile(proj);
+            projectile.projectileID = GetBulletID;
             return projectile;
         }
         public static Projectile NewCreateFromQueue(Projectile proj, Vector2 position, ProjectileNodeDirection direction)
@@ -126,6 +138,7 @@ namespace Bremsengine
             projectile.SetPosition(position);
             projectile.SetProjectile(proj);
             projectile.NewSetDirection(direction);
+            projectile.projectileID = GetBulletID;
 
             return projectile;
         }
@@ -152,9 +165,14 @@ namespace Bremsengine
         public Projectile NewSetDirection(ProjectileNodeDirection direction)
         {
             currentNodeDirection = direction.Clone();
-            rb.linearVelocity = direction.Direction;
+            rb.linearVelocity = direction.VelocityDirection;
             transform.position += (Vector3)direction.DirectionalOffset;
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
+            return this;
+        }
+        public Projectile Flip()
+        {
+            NewSetDirection(currentNodeDirection.AddAngle(180f));
             return this;
         }
     }
@@ -420,6 +438,7 @@ namespace Bremsengine
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class Projectile : MonoBehaviour
     {
+        public int projectileID;
         [SerializeField] ProjectileSprite projectileSprite;
         [SerializeField] CapsuleCollider2D mainCollider;
         [SerializeField] Transform target;

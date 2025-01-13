@@ -53,5 +53,10 @@ namespace Bremsengine
                 addedAngle += repeatAddedAngle;
             }
         }
+
+        protected override float GetCooldownDelay()
+        {
+            return addedDelay + (repeatCount * repeatInterval);
+        }
     }
 }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3417849383627458229, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Name
-      value: Standard Projectile Variant
+      value: Large Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 5096362763981196352, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,13 +52,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2610102929176809483, guid: 7150dbfc98583f6439a8967cf7d92b18, type: 3}
+    - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9167763196187541489, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Size.x
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9167763196187541489, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Size.y
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

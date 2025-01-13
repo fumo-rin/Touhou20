@@ -77,9 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
   m_Name: Standard Player Attack
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: 5010464049080702738}
   - {fileID: 3802485916838778856}
@@ -91,6 +88,10 @@ MonoBehaviour:
   emitters:
   - {fileID: 3802485916838778856}
   GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &3514923049788479832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +172,7 @@ MonoBehaviour:
   spread: 0
   speed: 20
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:

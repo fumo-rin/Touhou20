@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using System;
-using System.ComponentModel;
 using Core.Extensions;
 
 namespace Bremsengine
@@ -78,6 +76,8 @@ namespace Bremsengine
         public List<ProjectileNodeSO> linkedNodes = new List<ProjectileNodeSO>();
         public float addedDelay;
         public bool Retargetting;
+        public float CooldownDuration => GetCooldownDelay();
+        protected abstract float GetCooldownDelay(); 
         public ProjectileGraphDirectionNode linkedOverrideDirection;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
         public void LinkDirection(ProjectileGraphDirectionNode direction)
@@ -103,12 +103,12 @@ namespace Bremsengine
             }
             else if (!Retargetting && input.Target && input.TargetStartPosition != null)
             {
-                aimDirection = (Vector2)input.TargetStartPosition - input.Position;
+                aimDirection = ((Vector2)input.TargetStartPosition - input.Position);
                 input.SetOverrideDirection(aimDirection);
             }
             else if (input.Target)
             {
-                aimDirection = (Vector2)input.Target.position - input.Position;
+                aimDirection = ((Vector2)input.Target.position - input.Position);
                 input.SetOverrideDirection(aimDirection);
             }
             foreach (var item in linkedNodes)

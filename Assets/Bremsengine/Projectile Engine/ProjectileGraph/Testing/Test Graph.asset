@@ -78,6 +78,7 @@ MonoBehaviour:
   spread: 0
   speed: 8
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -184,9 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
   m_Name: Test Graph
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 2800000, guid: 349cb901f0379fe458415dea963b911e, type: 3}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: 8834853101203975556}
   - {fileID: 5103467786027340906}
@@ -211,6 +209,10 @@ MonoBehaviour:
   - {fileID: 3415504147297101901}
   - {fileID: -4218678872034501637}
   GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 2800000, guid: 349cb901f0379fe458415dea963b911e, type: 3}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &127245951328565019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +272,7 @@ MonoBehaviour:
   spread: 0
   speed: 2
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -405,6 +408,7 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -515,6 +519,7 @@ MonoBehaviour:
   spread: 0
   speed: 5
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -798,6 +803,7 @@ MonoBehaviour:
   spread: 0
   speed: 3.5
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:

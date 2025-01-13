@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Projectle Types
   m_EditorClassIdentifier: 
   m_GroupName: Projectle Types
-  m_Data:
-    m_SerializedData: []
   m_GUID: c2ecc1a1307586b449fa9fc49c881f50
   m_SerializeEntries:
   - m_GUID: a5a0f1490e0de2b44b3291b26076ffb6

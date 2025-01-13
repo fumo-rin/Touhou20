@@ -22,6 +22,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   EventDelay: 1.8
   acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,9 +35,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
   m_Name: Line Attack
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 0}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: 3498969347279867446}
   - {fileID: -5003205887613729579}
@@ -47,6 +45,10 @@ MonoBehaviour:
   emitters:
   - {fileID: 6086193807053045391}
   GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &3498969347279867446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
   spread: 0
   speed: 6
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -158,3 +161,4 @@ MonoBehaviour:
   - {fileID: 3498969347279867446}
   addedDelay: 0
   Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}

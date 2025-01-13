@@ -67,6 +67,7 @@ namespace Bremsengine
             for (int i = 0; i < ProjectileCount; i++)
             {
                 ProjectileNodeDirection direction = BuildDirectionAlternate(input);
+                direction.ReverseSpeed = ReverseDirection;
                 direction.AddSpeedModifier(CurveValue(arcProgressionSpeed, progress));
 
                 direction.AddAngle(input.addedAngle);

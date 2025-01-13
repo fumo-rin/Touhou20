@@ -6,6 +6,7 @@ using UnityEditor;
 using Core.Extensions;
 using System.Linq;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Bremsengine
 {
@@ -51,10 +52,11 @@ namespace Bremsengine
                 SetPreviewTexture(ProjectileType);
             }
 
-            directionalOffset = EditorGUILayout.Slider("Directional Offset", directionalOffset, 0f, 10f);
+            directionalOffset = EditorGUILayout.Slider("Directional Offset", directionalOffset, 0f, 25f);
             spread = EditorGUILayout.Slider("Spread", spread, 0f, 60f);
             speed = EditorGUILayout.Slider("Speed", speed, 0f, 35f);
             addedAngle = EditorGUILayout.Slider("Added Angle", addedAngle, -180f, 180f);
+            ReverseDirection =  EditorGUILayout.Toggle("Reverse Speed", ReverseDirection);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
@@ -102,6 +104,7 @@ namespace Bremsengine
         float Speed;
         float directionalOffset;
         float speedMod;
+        public bool ReverseSpeed;
         public ProjectileNodeDirection Clone()
         {
             return new ProjectileNodeDirection()
@@ -113,7 +116,8 @@ namespace Bremsengine
                 Spread = this.Spread,
                 Speed = this.Speed,
                 speedMod = this.speedMod,
-                directionalOffset = this.directionalOffset
+                directionalOffset = this.directionalOffset,
+                ReverseSpeed = this.ReverseSpeed
             };
         }
         public Vector2 DirectionalOffset => Direction.ScaleToMagnitude(directionalOffset);
@@ -131,6 +135,7 @@ namespace Bremsengine
             this.Speed = 0f;
             this.directionalOffset = 0.25f;
             this.speedMod = 1f;
+            this.ReverseSpeed = false;
         }
         public ProjectileNodeDirection SetSpeed(float speed)
         {
@@ -159,6 +164,7 @@ namespace Bremsengine
         }
         private Vector2 RotatedDirection => direction.Rotate2D(AngleOffset).Rotate2D(Spread.RandomPositiveNegativeRange());
         public Vector2 Direction => RotatedDirection.ScaleToMagnitude(Speed);
+        public Vector2 VelocityDirection => Direction.ScaleToMagnitude(Speed) * (ReverseSpeed ? -1f : 1f);
     }
     #endregion
     #region Direction
@@ -168,6 +174,8 @@ namespace Bremsengine
         public float spread = 0f;
         public float speed = 10f;
         public float addedAngle = 0f;
+        public bool ReverseDirection = false;
+        public float ReverseDirectionModifier => ReverseDirection ? -1f : 1f;
         public ProjectileNodeDirection BuildDirection(Transform owner, Transform target, Vector2 overrideTarget)
         {
             Vector2 o = overrideTarget != Vector2.zero ? overrideTarget : target.position;

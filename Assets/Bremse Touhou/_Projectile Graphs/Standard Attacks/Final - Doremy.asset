@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7790233653627496763
+--- !u!114 &-7447414119244032284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,28 +14,114 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 375
-    y: 95
+    x: 1263
+    y: 382
     width: 350
     height: 700
-  ID: 34045dc9-c5bd-46ab-9426-3818e52b8527
+  ID: 3565fba5-e78a-48b9-b531-a0a992bbd9ca
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 119
-    y: 125
+    x: 1007
+    y: 412
     width: 250
     height: 250
-  directionalOffset: 0.15
-  spread: 0
-  speed: 2.5
+  directionalOffset: 0
+  spread: 3
+  speed: 9
   addedAngle: 0
+  ReverseDirection: 0
+  ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  projectileCountFloat: 12
+  AngleCoverage: 0
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0.9
+      outSlope: 0.9
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.9
+      outSlope: 0.9
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-3592217342061539018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 509
+    y: 792
+    width: 350
+    height: 700
+  ID: 8899c3ca-7d8e-447f-99e6-d808d65becc2
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 253
+    y: 822
+    width: 250
+    height: 250
+  directionalOffset: 0
+  spread: 0
+  speed: 7
+  addedAngle: -90
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileCountFloat: 15
-  AngleCoverage: 20
+  projectileCountFloat: 4
+  AngleCoverage: 12
   startingAngle: 0
   RandomAngle: 0
   arcProgressionSpeed:
@@ -45,28 +131,19 @@ MonoBehaviour:
       time: 0
       value: 1
       inSlope: 0
-      outSlope: 1.4905396
-      tangentMode: 69
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 1.7452698
-      inSlope: 1.4905396
-      outSlope: -1.4905396
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.29999995
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -1.4905396
+      inSlope: 0
       outSlope: 0
-      tangentMode: 69
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.06666672
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -84,27 +161,18 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.49583334
+      time: 1
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.995636
-      value: 1.050003
-      inSlope: 0.22783813
-      outSlope: 0.22783813
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.09838626
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-2198882849896894318
+--- !u!114 &-1662754599990417016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,83 +181,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
   m_Name: Projectile Node
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 807
-    y: 711
+    x: 1050
+    y: 33
     width: 350
-    height: 700
-  ID: 9bf5fc7f-e1ac-44e4-b430-714535504daa
+    height: 200
+  ID: 0d5340c4-2234-4b1d-b159-45da111d3296
   graph: {fileID: 11400000}
-  projectileImagePreview:
-    serializedVersion: 2
-    x: 551
-    y: 741
-    width: 250
-    height: 250
-  directionalOffset: 1.25
-  spread: 1
-  speed: 2
-  addedAngle: -60
-  ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
-  spawnDelay: 0
-  linkedProjectileEvents: []
-  projectileCountFloat: 27
-  AngleCoverage: 180
-  startingAngle: 0
-  RandomAngle: 0
-  arcProgressionSpeed:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.3
-      inSlope: 1.7
-      outSlope: 1.7
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 2
-      inSlope: 1.7
-      outSlope: 1.7
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  arcProgressionAngleMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  Active: 1
+  linkedNodes:
+  - {fileID: -7447414119244032284}
+  addedDelay: 0
+  Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,30 +208,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Crow 12 V Ultra
+  m_Name: Final - Doremy
   m_EditorClassIdentifier: 
   components:
-  - {fileID: -2198882849896894318}
-  - {fileID: 3253905724778704477}
-  - {fileID: 760562272710110012}
-  - {fileID: 3859951219471399115}
-  - {fileID: 7219439464931794584}
-  - {fileID: 5949843507958207200}
-  Developing: 0
+  - {fileID: 8600480995370447372}
+  - {fileID: 8887796168001447415}
+  - {fileID: 685549167269662678}
+  - {fileID: -3592217342061539018}
+  - {fileID: -7447414119244032284}
+  - {fileID: -1662754599990417016}
+  - {fileID: 5512771592832184948}
+  - {fileID: 2226072745228884785}
+  - {fileID: 395836439205374637}
+  Developing: 1
   nodes:
-  - {fileID: -2198882849896894318}
-  - {fileID: 760562272710110012}
-  - {fileID: 7219439464931794584}
+  - {fileID: 8600480995370447372}
+  - {fileID: -3592217342061539018}
+  - {fileID: -7447414119244032284}
   emitters:
-  - {fileID: 3253905724778704477}
-  - {fileID: 3859951219471399115}
-  - {fileID: 5949843507958207200}
+  - {fileID: 8887796168001447415}
+  - {fileID: -1662754599990417016}
+  - {fileID: 2226072745228884785}
   GraphGlobalProjectileSpeed: 1
-  addedCooldown: 1
+  addedCooldown: 1.5
   headerTexture: {fileID: 0}
   previewLine: 0
   connectingLineWidth: 3
---- !u!114 &760562272710110012
+--- !u!114 &395836439205374637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,112 +243,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
-  m_Name: Projectile Node
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -189
-    y: 729
-    width: 350
-    height: 700
-  ID: 99be8c71-2684-46b6-956e-ad3c924bdbfd
-  graph: {fileID: 11400000}
-  projectileImagePreview:
-    serializedVersion: 2
-    x: -445
-    y: 759
+    x: 937
+    y: 779
     width: 250
-    height: 250
-  directionalOffset: 0.2
-  spread: 0
-  speed: 12
-  addedAngle: -50
-  ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
-  spawnDelay: 0
-  linkedProjectileEvents: []
-  projectileCountFloat: 13
-  AngleCoverage: 0
-  startingAngle: 0
-  RandomAngle: 0
-  arcProgressionSpeed:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.15
-      inSlope: 0.85
-      outSlope: 0.85
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.85
-      outSlope: 0.85
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  arcProgressionAngleMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1116211709931126382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 790
-    y: 523
-    width: 350
     height: 200
-  ID: 8d13c44f-dc76-40d1-a434-8e3f78f629af
+  ID: 8d9bbe5c-a5e8-4066-acf7-0415b3fe8267
   graph: {fileID: 11400000}
-  Active: 1
-  linkedNodes: []
-  addedDelay: 0
-  Retargetting: 0
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0
-  repeatCount: 12
-  repeatAddedAngle: 30
---- !u!114 &3253905724778704477
+  overrideDirection: {x: 0, y: -1}
+--- !u!114 &685549167269662678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 67
+    y: 45
+    width: 350
+    height: 100
+  ID: 599d323c-5ab9-4515-b1d0-c67ed1cfb990
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: f7c3c46b49b7d4d4aa0e900ae94c6e80, type: 2}
+  repeatCooldown: 0.05
+--- !u!114 &1898039626503817370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,22 +292,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 347
-    y: 1017
+    x: 902
+    y: 749
     width: 350
     height: 200
-  ID: 24344aba-96aa-4f3a-9360-12bf03f55f97
+  ID: 8da58670-34be-4576-8386-de681b7f0220
   graph: {fileID: 11400000}
   Active: 1
   linkedNodes:
-  - {fileID: -2198882849896894318}
-  addedDelay: 0.5
+  - {fileID: -3592217342061539018}
+  addedDelay: 0
   Retargetting: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.07
-  repeatCount: 22
-  repeatAddedAngle: 3.3
---- !u!114 &3859951219471399115
+  repeatInterval: 0.03
+  repeatCount: 80
+  repeatAddedAngle: 38
+--- !u!114 &2226072745228884785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -380,51 +321,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 187
-    y: 699
+    x: 645
+    y: 474
     width: 350
     height: 200
-  ID: 30a96f28-7245-4469-932d-3d41478c6987
+  ID: 1273fce7-927b-4ecf-a136-c29f76fc7a90
   graph: {fileID: 11400000}
   Active: 1
   linkedNodes:
-  - {fileID: 760562272710110012}
+  - {fileID: -3592217342061539018}
   addedDelay: 0
   Retargetting: 0
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.3
-  repeatCount: 4
-  repeatAddedAngle: 6
---- !u!114 &5949843507958207200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 188
-    y: 367
-    width: 350
-    height: 200
-  ID: 75c1b1bf-d14a-455c-9129-6bff5e30eec6
-  graph: {fileID: 11400000}
-  Active: 1
-  linkedNodes:
-  - {fileID: 7219439464931794584}
-  addedDelay: 0
-  Retargetting: 0
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0
-  repeatCount: 6
-  repeatAddedAngle: 60
---- !u!114 &6235675524770074912
+  linkedOverrideDirection: {fileID: 395836439205374637}
+  repeatInterval: 0.1
+  repeatCount: 20
+  repeatAddedAngle: 18
+--- !u!114 &3635868881986287009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,27 +350,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 248
-    y: 494
+    x: 1709
+    y: 575
     width: 350
     height: 400
-  ID: c2c34942-3802-45e4-a5f3-95c48a9aa6d8
+  ID: d1de23dc-5fdf-4808-b25b-e5f939732c5f
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -8
-    y: 524
+    x: 1453
+    y: 605
     width: 250
     height: 250
   directionalOffset: 0
   spread: 0
-  speed: 4
+  speed: 10
   addedAngle: 0
   ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  ProjectileType: {fileID: 0}
   spawnDelay: 0
   linkedProjectileEvents: []
---- !u!114 &7219439464931794584
+--- !u!114 &5512771592832184948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 524
+    y: -126
+    width: 250
+    height: 200
+  ID: 29c5ffe6-adc5-4f77-a146-c2d99fc4cd84
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: -1}
+--- !u!114 &8600480995370447372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,27 +405,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 688
-    y: -73
+    x: 231
+    y: 298
     width: 350
     height: 700
-  ID: 682cb148-acf6-4bff-84e2-4b80bf29330a
+  ID: 16780156-9e05-40e4-a15f-ce2dea94aa36
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 432
-    y: -43
+    x: -25
+    y: 328
     width: 250
     height: 250
-  directionalOffset: 0
+  directionalOffset: 2
   spread: 0
-  speed: 4
-  addedAngle: 0
+  speed: 2.8
+  addedAngle: -30
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents: []
-  projectileCountFloat: 31
+  linkedProjectileEvents:
+  - {fileID: 685549167269662678}
+  projectileCountFloat: 9
   AngleCoverage: 40
   startingAngle: 0
   RandomAngle: 0
@@ -503,26 +437,26 @@ MonoBehaviour:
       time: 0
       value: 1
       inSlope: 0
-      outSlope: 2.0168066
-      tangentMode: 69
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.49583334
-      value: 2
-      inSlope: 2.0168066
-      outSlope: -1.983471
-      tangentMode: 69
+      time: 0.47083336
+      value: 1.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -1.983471
+      inSlope: 0
       outSlope: 0
-      tangentMode: 69
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -553,7 +487,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7812548015420075720
+--- !u!114 &8887796168001447415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,17 +501,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -44
-    y: 504
+    x: 621
+    y: 211
     width: 350
     height: 200
-  ID: 4b77bea1-3e47-4ae8-9144-f880326d6a03
+  ID: 7766b710-74e1-4e03-97ec-75bb8e982052
   graph: {fileID: 11400000}
   Active: 1
-  linkedNodes: []
-  addedDelay: 1
-  Retargetting: 1
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0
-  repeatCount: 12
-  repeatAddedAngle: 30
+  linkedNodes:
+  - {fileID: 8600480995370447372}
+  addedDelay: 0
+  Retargetting: 0
+  linkedOverrideDirection: {fileID: 5512771592832184948}
+  repeatInterval: 0.05
+  repeatCount: 40
+  repeatAddedAngle: 38

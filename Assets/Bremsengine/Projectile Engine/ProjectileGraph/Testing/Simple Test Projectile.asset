@@ -61,9 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
   m_Name: Simple Test Projectile
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 0}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: 8343510073007248478}
   - {fileID: -3197853797526707153}
@@ -74,6 +71,10 @@ MonoBehaviour:
   emitters:
   - {fileID: -3197853797526707153}
   GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &8343510073007248478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   spread: 0
   speed: 6
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:

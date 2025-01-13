@@ -8,6 +8,60 @@ using UnityEngine;
 
 namespace Bremsengine
 {
+    #region Graph Components
+    public partial class ProjectileGraphSO
+    {
+        public List<ProjectileGraphComponent> components = new();
+    }
+    #endregion
+    [CreateAssetMenu(menuName = "Bremsengine/Projectile2/Graph")]
+    public partial class ProjectileGraphSO : ScriptableObject
+    {
+        public bool Developing;
+        public List<ProjectileNodeSO> nodes = new();
+        public List<ProjectileEmitterSO> emitters = new();
+        [Range(0.1f,5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
+        [Range(-10f, 10f)]
+        [SerializeField] float addedCooldown = 1f;
+        public float CalculateCooldown(float externalCooldownInSeconds)
+        {
+            float highestCooldown = 0f;
+            foreach (var item in emitters)
+            {
+                if (item.CooldownDuration > highestCooldown)
+                {
+                    highestCooldown = item.CooldownDuration;
+                }
+            }
+            return addedCooldown + externalCooldownInSeconds + highestCooldown;
+        }
+        public float GetGlobalSpeed()
+        {
+            return GraphGlobalProjectileSpeed;
+        }
+        /// <summary>
+        /// Should be Called as Projectile.SpawnProjectileGraph
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <param name="target"></param>
+        /// <param name="fallbackPosition"></param>
+        /// <returns></returns>
+        public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
+        {
+            TriggeredEvent projectileEvents = new TriggeredEvent();
+            /*foreach (ProjectileNodeSO node in nodes)
+            {
+                if (!node.NodeActive)
+                    continue;
+                //node.Spawn(spawns, input, projectileEvents);
+                //callback?.Invoke(, input.Owner, input.Target);
+            }*/
+            foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
+            {
+                emitter.Trigger(projectileEvents, input, callback);
+            }
+        }
+    }
 #if UNITY_EDITOR
     public partial class ProjectileGraphSO
     {
@@ -86,7 +140,7 @@ namespace Bremsengine
 
                 }
             }
-            foreach(ProjectileEmitterSO emitter in emitters)
+            foreach (ProjectileEmitterSO emitter in emitters)
             {
                 foreach (var link in emitter.linkedNodes)
                 {
@@ -155,44 +209,4 @@ namespace Bremsengine
     }
     #endregion
 #endif
-    #region Graph Components
-    public partial class ProjectileGraphSO
-    {
-        public List<ProjectileGraphComponent> components = new();
-    }
-    #endregion
-    [CreateAssetMenu(menuName = "Bremsengine/Projectile2/Graph")]
-    public partial class ProjectileGraphSO : ScriptableObject
-    {
-        public bool Developing;
-        public List<ProjectileNodeSO> nodes = new();
-        public List<ProjectileEmitterSO> emitters = new();
-        [Range(0.1f,5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
-        public float GetGlobalSpeed()
-        {
-            return GraphGlobalProjectileSpeed;
-        }
-        /// <summary>
-        /// Should be Called as Projectile.SpawnProjectileGraph
-        /// </summary>
-        /// <param name="owner"></param>
-        /// <param name="target"></param>
-        /// <param name="fallbackPosition"></param>
-        /// <returns></returns>
-        public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
-        {
-            TriggeredEvent projectileEvents = new TriggeredEvent();
-            /*foreach (ProjectileNodeSO node in nodes)
-            {
-                if (!node.NodeActive)
-                    continue;
-                //node.Spawn(spawns, input, projectileEvents);
-                //callback?.Invoke(, input.Owner, input.Target);
-            }*/
-            foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
-            {
-                emitter.Trigger(projectileEvents, input, callback);
-            }
-        }
-    }
 }

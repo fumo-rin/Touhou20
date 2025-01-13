@@ -896,7 +896,6 @@ MonoBehaviour:
   owner: {fileID: 4857404270182001220}
   faction: 1
   TESTINGcurrentAttack: {fileID: 6134377792351427018}
-  overrideDirection: {x: 0, y: -1}
 --- !u!1 &4245914011593199028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1324,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5729494209949339779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4890844999899172852}
+  - component: {fileID: 5738942513487817726}
+  m_Layer: 3
+  m_Name: Graze Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4890844999899172852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729494209949339779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4857404270182001220}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5738942513487817726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729494209949339779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5a81897410066429a788939608fffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 181786792830691265}
+  radius: 0.6
+  grazeLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &6308983554708124227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1803,7 @@ Transform:
   - {fileID: 6467051173526739232}
   - {fileID: 1153406195069742262}
   - {fileID: 4836089808597070171}
+  - {fileID: 4890844999899172852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &45842187511030464
@@ -1946,7 +1995,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 8756501816092386084}
   attackBaseDamage: 10
-  attackDuration: 0.25
   projectileAttack: {fileID: 11400000, guid: dabe711ab4efd6f42a842607b5596575, type: 2}
 --- !u!1001 &4919778516789937312
 PrefabInstance:

@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
-  m_Name: Test Music 1
+  m_Script: {fileID: 11500000, guid: 7a7b91db6c6745847ae5711e24b2f387, type: 3}
+  m_Name: Large Projectile
   m_EditorClassIdentifier: 
-  TrackName: Test Music
-  musicClip: {fileID: 8300000, guid: d70d8bd88f887c94485256c0a5a62ba1, type: 3}
-  musicVolume: 1
+  Prefab: {fileID: 6413974022808271313, guid: 954583daa278f3346a743267e8b11106, type: 3}

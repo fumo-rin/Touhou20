@@ -35,6 +35,7 @@ namespace Bremsengine
         public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
             ProjectileNodeDirection direction = BuildDirectionAlternate(input);
+            direction.ReverseSpeed = ReverseDirection;
             direction.AddAngle(input.addedAngle);
             Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
             l.Add(p);

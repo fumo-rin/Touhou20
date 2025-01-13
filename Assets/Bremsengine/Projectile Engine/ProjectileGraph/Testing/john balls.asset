@@ -30,6 +30,7 @@ MonoBehaviour:
   spread: 0
   speed: 3
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -115,6 +116,7 @@ MonoBehaviour:
   spread: 0
   speed: 0.6
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -261,9 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
   m_Name: john balls
   m_EditorClassIdentifier: 
-  headerTexture: {fileID: 0}
-  previewLine: 0
-  connectingLineWidth: 3
   components:
   - {fileID: 2771225441127456719}
   - {fileID: -7654721633666349812}
@@ -282,6 +281,10 @@ MonoBehaviour:
   emitters:
   - {fileID: -2045312514197406688}
   GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
 --- !u!114 &1416162416334827828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +315,7 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -345,6 +349,7 @@ MonoBehaviour:
   spread: 0
   speed: 1.9
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -477,6 +482,7 @@ MonoBehaviour:
   spread: 0
   speed: 10
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
@@ -534,6 +540,7 @@ MonoBehaviour:
   spread: 2
   speed: 3.5
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
@@ -619,6 +626,7 @@ MonoBehaviour:
   spread: 0
   speed: 12
   addedAngle: 0
+  ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []

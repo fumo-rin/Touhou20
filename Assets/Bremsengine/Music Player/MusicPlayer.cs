@@ -69,7 +69,7 @@ namespace Bremsengine
                 Debug.Log("Music Wrapper is null");
                 return;
             }
-            instance.PlayCrossfade(mw, instance.crossFadeLength);
+            instance.PlayCrossfade(mw, !IsPlaying ? 0f : instance.crossFadeLength);
         }
         private void PlayCrossfade(MusicWrapper clip, float crossfade = 0.5f)
         {
@@ -77,7 +77,7 @@ namespace Bremsengine
         }
         private IEnumerator FadeTrack(MusicWrapper clip, float crossfade)
         {
-            crossfade = crossfade.Max(0.25f);
+            crossfade = crossfade.Max(0.00f);
             float timeElapsed = 0f;
             if (clip.musicClip == null)
             {

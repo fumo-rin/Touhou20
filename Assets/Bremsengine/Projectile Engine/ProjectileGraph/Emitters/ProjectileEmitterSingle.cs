@@ -32,5 +32,10 @@ namespace Bremsengine
         {
             ProjectileEmitterTimelineHandler.Queue(Co_Emit(addedDelay, triggeredEvent, input, callback), input.Owner);
         }
+
+        protected override float GetCooldownDelay()
+        {
+            return addedDelay;
+        }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9065216498550915143
+--- !u!114 &-4645281529380067432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,49 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
-  m_Name: (Delay:0)None
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 652
-    y: 164
-    width: 350
-    height: 100
-  ID: 7a8a1fe7-3657-4e9a-bd4e-53b731d793fa
-  graph: {fileID: 11400000}
-  EventDelay: 0
-  acw: {fileID: 11400000, guid: baa251dda6ef05d4bb979f7d35ea0ae0, type: 2}
-  repeatCooldown: 0.043
---- !u!114 &-3101838409682404898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
-  m_Name: Projectile Node
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 272
-    y: -16
-    width: 350
+    x: 1227
+    y: 700
+    width: 250
     height: 200
-  ID: 06eeb9ad-e537-4e3a-a860-70f80e79935e
+  ID: da476e26-4a40-4a14-b843-0f14e55002e8
   graph: {fileID: 11400000}
-  Active: 1
-  linkedNodes:
-  - {fileID: 4772368223977889901}
-  addedDelay: 0
-  Retargetting: 0
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.24
-  repeatCount: 30
-  repeatAddedAngle: 24
+  overrideDirection: {x: 0, y: -1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,25 +31,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Crow alternate
+  m_Name: Ultra Subterranean Sun
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 4772368223977889901}
-  - {fileID: 8326566649930283280}
-  - {fileID: -9065216498550915143}
-  - {fileID: -3101838409682404898}
+  - {fileID: 4702568455512365157}
+  - {fileID: 7744886453231968892}
+  - {fileID: -4645281529380067432}
   Developing: 0
   nodes:
-  - {fileID: 4772368223977889901}
+  - {fileID: 4702568455512365157}
   emitters:
-  - {fileID: 8326566649930283280}
-  - {fileID: -3101838409682404898}
-  GraphGlobalProjectileSpeed: 0.4
-  addedCooldown: 1
+  - {fileID: 7744886453231968892}
+  GraphGlobalProjectileSpeed: 1.5
+  addedCooldown: 0
   headerTexture: {fileID: 0}
   previewLine: 0
   connectingLineWidth: 3
---- !u!114 &4772368223977889901
+--- !u!114 &4702568455512365157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,28 +61,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 244
-    y: 255
+    x: 586
+    y: 412
     width: 350
     height: 700
-  ID: 29416df1-eddf-4e19-acd1-126d17af5fe2
+  ID: 37555460-309c-4eb8-9206-078ce0f8990a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -12
-    y: 285
+    x: 330
+    y: 442
     width: 250
     height: 250
-  directionalOffset: 0.25
+  directionalOffset: 13
   spread: 0
-  speed: 5
-  addedAngle: 180
-  ReverseDirection: 0
+  speed: 4
+  addedAngle: 0
+  ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: -9065216498550915143}
-  projectileCountFloat: 12
+  linkedProjectileEvents: []
+  projectileCountFloat: 30
   AngleCoverage: 360
   startingAngle: 0
   RandomAngle: 0
@@ -127,16 +93,16 @@ MonoBehaviour:
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 1.5
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -151,7 +117,7 @@ MonoBehaviour:
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -160,14 +126,14 @@ MonoBehaviour:
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8326566649930283280
+--- !u!114 &7744886453231968892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,18 +147,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 699
-    y: 323
+    x: 1068
+    y: 286
     width: 350
     height: 200
-  ID: f221288b-5bac-4eca-8c24-188d1a2da494
+  ID: 26546f80-f139-449b-8944-fd84b3a786e1
   graph: {fileID: 11400000}
   Active: 1
   linkedNodes:
-  - {fileID: 4772368223977889901}
+  - {fileID: 4702568455512365157}
   addedDelay: 0
   Retargetting: 0
-  linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.24
-  repeatCount: 30
-  repeatAddedAngle: 36
+  linkedOverrideDirection: {fileID: -4645281529380067432}
+  repeatInterval: 0.33333334
+  repeatCount: 6
+  repeatAddedAngle: 4
