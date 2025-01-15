@@ -120,6 +120,11 @@ namespace Bremsengine
                 ReverseSpeed = this.ReverseSpeed
             };
         }
+        public ProjectileNodeDirection SetManualDirection(Vector2 direction)
+        {
+            this.direction = direction;
+            return this;
+        }
         public Vector2 DirectionalOffset => Direction.ScaleToMagnitude(directionalOffset);
         public ProjectileNodeDirection(Transform owner, Transform target, Vector2 overrideTargetPosition)
         {

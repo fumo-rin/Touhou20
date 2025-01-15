@@ -362,7 +362,7 @@ namespace Bremsengine
     #region Hit Event
     public partial class Projectile
     {
-        float projectileDamage = 10f;
+        [SerializeField] float projectileDamage = 10f;
         public Projectile SetDamage(float newDamage)
         {
             projectileDamage = newDamage;
@@ -442,6 +442,7 @@ namespace Bremsengine
         [SerializeField] ProjectileSprite projectileSprite;
         [SerializeField] CapsuleCollider2D mainCollider;
         [SerializeField] Transform target;
+        public Transform Target => target;
         public ProjectileSO Data => projectile;
         ProjectileSO projectile;
         public Vector2 Position => transform.position;

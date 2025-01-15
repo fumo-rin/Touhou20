@@ -95,5 +95,14 @@ namespace Bremsengine
     {
         public string ID;
         [HideInInspector] public ProjectileGraphSO graph;
+        protected Projectile CreateProjectile(Projectile p, Vector2 position, ProjectileNodeDirection direction, float directionalOffset, float spread, float addedAngle, float speed)
+        {
+            direction.SetSpeed(speed * graph.GetGlobalSpeed());
+            direction.AddAngle(addedAngle);
+            direction.SetSpread(spread);
+            direction.SetDirectionalOffset(directionalOffset);
+            Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(1f);
+            return spawnProjectile;
+        }
     }
 }

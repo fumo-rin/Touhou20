@@ -32,7 +32,7 @@ namespace Bremsengine
             AddSpace(4);
             base.OnDraw(style);
             AudioClipWrapper old = acw;
-            acw = (AudioClipWrapper)EditorGUI.ObjectField(new(25f, 25f, 150f, 20f), acw, typeof(AudioClipWrapper), false);
+            acw = (AudioClipWrapper)EditorGUILayout.ObjectField("Sound Effect", acw, typeof(AudioClipWrapper), false);
 
             repeatCooldown = EditorGUILayout.Slider(repeatCooldown, 0f, 1f);
 

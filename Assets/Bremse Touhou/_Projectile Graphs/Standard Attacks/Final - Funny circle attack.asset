@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 810
-    y: 833
+    x: 985
+    y: 823
     width: 350
     height: 200
   ID: f840a92d-a46c-439c-b4dc-33d32309ba70
@@ -40,8 +40,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 783
-    y: 594
+    x: 958
+    y: 584
     width: 350
     height: 100
   ID: 358709e7-9bc6-45ba-ba18-22d7375dbf88
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 439
-    y: 402
+    x: 609
+    y: 387
     width: 350
     height: 200
   ID: 15583519-b34a-4b6f-99af-7fefad29133a
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 446
-    y: 199
+    x: 639
+    y: 157
     width: 350
     height: 100
   ID: ebaea985-6dde-44bd-b403-94c503dfda40
@@ -147,16 +147,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 362
-    y: 760
+    x: 470
+    y: 704
     width: 350
     height: 700
   ID: 662384c5-dc96-4b59-839e-94c2a210c919
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 106
-    y: 790
+    x: 214
+    y: 734
     width: 250
     height: 250
   directionalOffset: 0
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 105
-    y: 521
+    x: 151
+    y: 325
     width: 250
     height: 200
   ID: b463fcce-666f-4574-8191-f35401f86b97
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1202
+    x: 1375
     y: 115
     width: 350
     height: 700
@@ -272,7 +272,7 @@ MonoBehaviour:
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 946
+    x: 1119
     y: 145
     width: 250
     height: 250
