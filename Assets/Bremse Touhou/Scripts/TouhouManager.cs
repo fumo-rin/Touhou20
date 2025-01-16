@@ -36,7 +36,6 @@ namespace BremseTouhou
             instance = this;
             transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
-            Application.targetFrameRate = 60;
         }
         public static void CloseGame()
         {

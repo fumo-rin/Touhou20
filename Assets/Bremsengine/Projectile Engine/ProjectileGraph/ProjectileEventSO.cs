@@ -53,15 +53,15 @@ namespace Bremsengine
         public ProjectileNodeSO Caller;
         HashSet<ProjectileEventSO> LinkedEvents = new();
         HashSet<AudioClipWrapper> playedSounds = new();
-        Dictionary<Projectile, HashSet<ProjectileEventSO>> PlayedEvents = new();
+        Dictionary<int, HashSet<ProjectileEventSO>> PlayedEvents = new();
         public bool HasPlayedEvent(Projectile p, ProjectileEventSO e)
         {
             // requires manually adding the event with RegisterEvent
-            if (!PlayedEvents.ContainsKey(p))
+            if (!PlayedEvents.ContainsKey(p.projectileID))
             {
                 return false;
             }
-            if (PlayedEvents[p].Contains(e))
+            if (PlayedEvents[p.projectileID].Contains(e))
                 return true;
             return false;
         }
@@ -78,11 +78,11 @@ namespace Bremsengine
         }
         public void RegisterEvent(Projectile p, ProjectileEventSO e)
         {
-            if (!PlayedEvents.ContainsKey(p))
+            if (!PlayedEvents.ContainsKey(p.projectileID))
             { 
-                PlayedEvents[p] = new();
+                PlayedEvents[p.projectileID] = new();
             }
-            PlayedEvents[p].Add(e);
+            PlayedEvents[p.projectileID].Add(e);
         }
         public TriggeredEvent PlayRepeatSound(Vector2 position, AudioClipWrapper acw)
         {
