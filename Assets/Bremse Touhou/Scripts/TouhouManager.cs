@@ -38,5 +38,9 @@ namespace BremseTouhou
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
         }
+        public static void CloseGame()
+        {
+            Application.Quit();
+        }
     }
 }

@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 8326566649930283280}
   - {fileID: -9065216498550915143}
   - {fileID: -3101838409682404898}
+  projectileGraphName: Crow Alternate 1
   Developing: 0
   nodes:
   - {fileID: 4772368223977889901}

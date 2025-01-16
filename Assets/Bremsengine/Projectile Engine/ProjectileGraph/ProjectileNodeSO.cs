@@ -206,6 +206,8 @@ namespace Bremsengine
             triggeredEvent.Bind(this);
             foreach (var linkedEvent in linkedProjectileEvents)
             {
+                if (triggeredEvent.HasPlayedEvent(p, linkedEvent))
+                    continue;
                 SendProjectileEvents(p, linkedEvent, triggeredEvent);
             }
         }

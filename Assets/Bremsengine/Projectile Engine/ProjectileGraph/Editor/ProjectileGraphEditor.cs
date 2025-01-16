@@ -303,7 +303,7 @@ namespace Bremsengine
                     EditorGUI.BeginChangeCheck();
 
                     Debug.Log("Add event: " + projectileEventDragSelection.name + " to :" + hover.name);
-                    hover.linkedProjectileEvents.AddIfDoesntExist(projectileEventDragSelection);
+                    hover.linkedProjectileEvents.Add(projectileEventDragSelection);
                     EditorUtility.SetDirty(hover);
                     EditorUtility.SetDirty(ActiveGraph);
 

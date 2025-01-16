@@ -1,4 +1,5 @@
 using Bremsengine;
+using Core.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace BremseTouhou
         Collider2D[] grazeIteration;
         static HashSet<int> grazedBulletIDs = new HashSet<int>();
         public static int GrazeCount;
+        [SerializeField] AudioClipWrapper grazeAudio;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void ResetGrazeCount()
         {
@@ -40,6 +42,7 @@ namespace BremseTouhou
                     grazedBulletIDs.Add(p.projectileID);
                     GrazeCount++;
                     OnGraze?.Invoke(GrazeCount);
+                    grazeAudio.Play(p.Position);
                 }
             }
         }

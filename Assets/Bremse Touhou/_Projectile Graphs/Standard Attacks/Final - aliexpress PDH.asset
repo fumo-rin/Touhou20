@@ -31,6 +31,37 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   Faction: 0
+--- !u!114 &-5372908114899752924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 875
+    y: 576
+    width: 400
+    height: 300
+  ID: 18a6e39f-d4d0-4561-982f-fde48ab56aa0
+  graph: {fileID: 11400000}
+  EventDelay: 0.35
+  isActive: 1
+  projectilePrefab: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
+  fanAngle: 60
+  projectileCopies: 2
+  destroyOriginal: 0
+  directionalOffset: 0.5
+  speed: 5
+  addedAngle: 0
+  spread: 5
+  Faction: 2
 --- !u!114 &-4673846698117420520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,14 +76,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1018
-    y: 661
+    x: 771
+    y: 800
     width: 400
     height: 300
   ID: 3c99e3e9-358f-419c-a03f-79bff9b24c29
   graph: {fileID: 11400000}
   EventDelay: 0.75
-  isActive: 1
+  isActive: 0
   projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   fanAngle: 360
   projectileCopies: 7
@@ -83,6 +114,37 @@ MonoBehaviour:
   ID: da476e26-4a40-4a14-b843-0f14e55002e8
   graph: {fileID: 11400000}
   overrideDirection: {x: 0, y: -1}
+--- !u!114 &-4345314284584146708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 882
+    y: 935
+    width: 400
+    height: 300
+  ID: 3cfab4f6-f0cf-47ff-bbd3-c0920ee0c3f9
+  graph: {fileID: 11400000}
+  EventDelay: 0.75
+  isActive: 1
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 360
+  projectileCopies: 7
+  destroyOriginal: 0
+  directionalOffset: 0.5
+  speed: 1
+  addedAngle: 0
+  spread: 15
+  Faction: 2
 --- !u!114 &-4191760690823002199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,16 +159,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 483
-    y: 453
+    x: 336
+    y: 425
     width: 350
     height: 700
   ID: f40ef764-7b6c-4b66-9d79-cc574b6a049e
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 227
-    y: 483
+    x: 80
+    y: 455
     width: 250
     height: 250
   directionalOffset: 0.25
@@ -117,8 +179,9 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
-  - {fileID: -2109712739337020061}
-  - {fileID: -4673846698117420520}
+  - {fileID: 8668174804917119523}
+  - {fileID: -4345314284584146708}
+  - {fileID: -5372908114899752924}
   projectileCountFloat: 4
   AngleCoverage: 110
   startingAngle: 0
@@ -194,17 +257,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1052
-    y: 261
+    x: 768
+    y: 76
     width: 400
     height: 300
   ID: cc3a03d2-3890-4821-92fb-5c788038e5bd
   graph: {fileID: 11400000}
-  EventDelay: 1
-  isActive: 1
+  EventDelay: 2.25
+  isActive: 0
   projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
-  fanAngle: 180
-  projectileCopies: 2
+  fanAngle: 120
+  projectileCopies: 5
   destroyOriginal: 1
   directionalOffset: 0.25
   speed: 3
@@ -242,6 +305,37 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   Faction: 0
+--- !u!114 &-126381390994912820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 770
+    y: 424
+    width: 400
+    height: 300
+  ID: 7ef02828-5c72-40a0-9e89-0e1b2b3e1a40
+  graph: {fileID: 11400000}
+  EventDelay: 1.65
+  isActive: 1
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 20
+  projectileCopies: 2
+  destroyOriginal: 0
+  directionalOffset: 0.25
+  speed: 4
+  addedAngle: 0
+  spread: 0
+  Faction: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,16 +346,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Test attack
+  m_Name: Final - aliexpress PDH
   m_EditorClassIdentifier: 
   components:
-  - {fileID: -2109712739337020061}
   - {fileID: 4109503866884801225}
-  - {fileID: 3166748490507515622}
-  projectileGraphName: Test Attack
+  - {fileID: -4191760690823002199}
+  - {fileID: 8668174804917119523}
+  - {fileID: -4345314284584146708}
+  - {fileID: -5372908114899752924}
+  projectileGraphName: Aliexpress PDH
   Developing: 0
   nodes:
-  - {fileID: 3166748490507515622}
+  - {fileID: -4191760690823002199}
   emitters:
   - {fileID: 4109503866884801225}
   GraphGlobalProjectileSpeed: 1
@@ -269,7 +365,7 @@ MonoBehaviour:
   headerTexture: {fileID: 0}
   previewLine: 0
   connectingLineWidth: 3
---- !u!114 &3166748490507515622
+--- !u!114 &3316357793938542912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,32 +374,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a717faf25409c04a8541da3d3b92720, type: 3}
-  m_Name: Projectile Node
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 544
-    y: 538
-    width: 350
-    height: 400
-  ID: d81ba1bf-dacd-4a69-b04b-cce2c859643e
+    x: 1327
+    y: 271
+    width: 400
+    height: 300
+  ID: 40c9d207-b988-4594-be8b-2c62f85af1c4
   graph: {fileID: 11400000}
-  projectileImagePreview:
-    serializedVersion: 2
-    x: 288
-    y: 568
-    width: 250
-    height: 250
-  directionalOffset: 0.5
-  spread: 0
-  speed: 9
+  EventDelay: 0
+  isActive: 0
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 20
+  projectileCopies: 3
+  destroyOriginal: 0
+  directionalOffset: 0.25
+  speed: 4
   addedAngle: 0
-  ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
-  spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: -2109712739337020061}
+  spread: 0
+  Faction: 0
 --- !u!114 &4109503866884801225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,15 +410,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 457
-    y: 150
+    x: 329
+    y: 90
     width: 350
     height: 200
   ID: d1409f0e-1e6b-46c7-ab0d-e6901bedc983
   graph: {fileID: 11400000}
   Active: 1
   linkedNodes:
-  - {fileID: 3166748490507515622}
+  - {fileID: -4191760690823002199}
   addedDelay: 0
   Retargetting: 1
   linkedOverrideDirection: {fileID: 0}
@@ -419,6 +511,37 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5967858425350792982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1386
+    y: 739
+    width: 400
+    height: 300
+  ID: 9e21f068-27ad-4892-8c4a-4ee8dd9525bf
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  isActive: 0
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 20
+  projectileCopies: 3
+  destroyOriginal: 0
+  directionalOffset: 0.25
+  speed: 4
+  addedAngle: 0
+  spread: 0
+  Faction: 0
 --- !u!114 &7146652978902811276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +577,37 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -2109712739337020061}
+--- !u!114 &7712379449139107685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 785
+    y: 450
+    width: 400
+    height: 300
+  ID: 1e615a91-98fd-4e8d-85db-7183a4e30b2d
+  graph: {fileID: 11400000}
+  EventDelay: 1.65
+  isActive: 1
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 90
+  projectileCopies: 2
+  destroyOriginal: 0
+  directionalOffset: 0.25
+  speed: 4
+  addedAngle: -180
+  spread: 5
+  Faction: 2
 --- !u!114 &7744886453231968892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,3 +662,34 @@ MonoBehaviour:
   addedDelay: 0
   Retargetting: 0
   linkedOverrideDirection: {fileID: 0}
+--- !u!114 &8668174804917119523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
+  m_Name: Projectile Crawler Event
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 895
+    y: 236
+    width: 400
+    height: 300
+  ID: cde8151e-230e-4c0a-8df5-90f4cf27919a
+  graph: {fileID: 11400000}
+  EventDelay: 2.25
+  isActive: 1
+  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  fanAngle: 120
+  projectileCopies: 5
+  destroyOriginal: 1
+  directionalOffset: 0.25
+  speed: 3
+  addedAngle: -180
+  spread: 5
+  Faction: 2

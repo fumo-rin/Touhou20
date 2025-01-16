@@ -5,7 +5,7 @@ namespace Bremsengine
     public class ProjectileAttack : BaseAttack
     {
         [SerializeField] ProjectileGraphSO projectileAttack;
-
+        public void SetAttackGraph(ProjectileGraphSO newGraph) => projectileAttack = newGraph;
         public override float GetAttackCooldown()
         {
             return projectileAttack.CalculateCooldown(0f);

@@ -39,6 +39,7 @@ MonoBehaviour:
   - {fileID: 3498969347279867446}
   - {fileID: -5003205887613729579}
   - {fileID: 6086193807053045391}
+  projectileGraphName: Line Attack
   Developing: 0
   nodes:
   - {fileID: 3498969347279867446}

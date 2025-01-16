@@ -81,8 +81,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: -7018492738241679537}
+  linkedProjectileEvents: []
   projectileCountFloat: 13
   AngleCoverage: 12
   startingAngle: 0
@@ -522,8 +521,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: 7118870716331318187}
+  linkedProjectileEvents: []
   projectileCountFloat: 15
   AngleCoverage: 90
   startingAngle: -30
@@ -806,8 +804,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents:
-  - {fileID: 1326916949517228955}
+  linkedProjectileEvents: []
   projectileCountFloat: 36
   AngleCoverage: 360
   startingAngle: 0

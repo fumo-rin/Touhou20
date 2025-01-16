@@ -51,8 +51,20 @@ namespace Bremsengine
     {
         public Dictionary<string, float> keyfloats = new Dictionary<string, float>();
         public ProjectileNodeSO Caller;
-        HashSet<ProjectileEventSO> LinkedEvents;
+        HashSet<ProjectileEventSO> LinkedEvents = new();
         HashSet<AudioClipWrapper> playedSounds = new();
+        Dictionary<Projectile, HashSet<ProjectileEventSO>> PlayedEvents = new();
+        public bool HasPlayedEvent(Projectile p, ProjectileEventSO e)
+        {
+            // requires manually adding the event with RegisterEvent
+            if (!PlayedEvents.ContainsKey(p))
+            {
+                return false;
+            }
+            if (PlayedEvents[p].Contains(e))
+                return true;
+            return false;
+        }
         public bool HasPlayed(AudioClipWrapper acw) => playedSounds.Contains(acw);
         public TriggeredEvent Bind(ProjectileNodeSO node)
         {
@@ -63,6 +75,14 @@ namespace Bremsengine
                 LinkedEvents.Add(item);
             }
             return this;
+        }
+        public void RegisterEvent(Projectile p, ProjectileEventSO e)
+        {
+            if (!PlayedEvents.ContainsKey(p))
+            { 
+                PlayedEvents[p] = new();
+            }
+            PlayedEvents[p].Add(e);
         }
         public TriggeredEvent PlayRepeatSound(Vector2 position, AudioClipWrapper acw)
         {

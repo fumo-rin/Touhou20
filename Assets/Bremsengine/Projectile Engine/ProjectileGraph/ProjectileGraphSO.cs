@@ -17,6 +17,7 @@ namespace Bremsengine
     [CreateAssetMenu(menuName = "Bremsengine/Projectile2/Graph")]
     public partial class ProjectileGraphSO : ScriptableObject
     {
+        public string projectileGraphName;
         public bool Developing;
         public List<ProjectileNodeSO> nodes = new();
         public List<ProjectileEmitterSO> emitters = new();

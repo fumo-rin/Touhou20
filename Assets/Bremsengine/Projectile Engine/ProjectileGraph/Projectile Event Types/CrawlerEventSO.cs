@@ -28,8 +28,9 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            AddSpace(4);
+            AddSpace(1);
             base.OnDraw(style);
+            isActive = EditorGUILayout.Toggle("Event Enabled", isActive);
             projectilePrefab = (ProjectileTypeSO)EditorGUILayout.ObjectField("Projectile Prefab", projectilePrefab, typeof(ProjectileTypeSO), false);
             fanAngle = EditorGUILayout.Slider("Projectile Fan Angle", fanAngle, 0f, 360f);
             projectileCopies = EditorGUILayout.IntSlider("Projectile Copies", projectileCopies, 1, 30);
@@ -55,6 +56,7 @@ namespace Bremsengine
     #endregion
     public partial class CrawlerEventSO : ProjectileEventSO
     {
+        public bool isActive = true;
         public ProjectileTypeSO projectilePrefab;
         public float fanAngle = 20f;
         public int projectileCopies = 3;
@@ -67,20 +69,25 @@ namespace Bremsengine
 
         protected override void TriggerEvent(Projectile p, TriggeredEvent e)
         {
+            if (!isActive)
+                return;
+
+            if (e.HasPlayedEvent(p, this))
+                return;
+            e.RegisterEvent(p, this);
+
             p.StartCoroutine(CO_Split(EventDelay, p, e));
         }
         private IEnumerator CO_Split(float delay, Projectile p, TriggeredEvent e)
         {
+            Vector2 ownerVelocity = p.Velocity;
             yield return new WaitForSeconds(delay);
             if (p != null && p.transform != null)
             {
-                Vector2 ownerVelocity = p.Velocity;
-                Vector2 velocityIteration = ownerVelocity;
-
                 for (int i = 0; i < projectileCopies; i++)
                 {
-                    float iterationAddedAngle = i * fanAngle / projectileCopies;
-                    ProjectileNodeDirection direction = new ProjectileNodeDirection(p.transform, p.Target, p.Position + p.Velocity.ScaleToMagnitude(1f).Rotate2D(addedAngle));
+                    float iterationAddedAngle = i * fanAngle / (projectileCopies -1).Max(1);
+                    ProjectileNodeDirection direction = new ProjectileNodeDirection(p.transform, p.Target, p.Position + p.Velocity.ScaleToMagnitude(1f).Rotate2D(addedAngle).Rotate2D(-fanAngle*0.5f));
 
                     Projectile spawn = CreateProjectile(projectilePrefab.Prefab, p.Position, direction, directionalOffset, spread, iterationAddedAngle, speed);
                     Projectile.RegisterProjectile(spawn);

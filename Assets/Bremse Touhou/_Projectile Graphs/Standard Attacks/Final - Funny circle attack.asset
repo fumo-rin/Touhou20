@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 3444556801216981294}
   - {fileID: -6415526602216712017}
   - {fileID: -9166106412277064777}
+  projectileGraphName: Funny Circle Attack
   Developing: 0
   nodes:
   - {fileID: 4753194322231034687}

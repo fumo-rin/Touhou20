@@ -6,8 +6,11 @@ using UnityEngine;
 namespace BremseTouhou
 {
     [CreateAssetMenu(menuName = "Bremse Touhou/Attack/Projectile")]
-    public class ProjectileAttack : UnitAttack
+    public class OldProjectileAttack : UnitAttack
     {
+        /// <summary>
+        /// THIS SCRIPT IS OLD SEE BREMSENGINE/ProjectileAttack.cs for the Graph Version
+        /// </summary>
         [SerializeField] ProjectileSO projectile;
         [SerializeField] List<ProjectileEvent> projectileEvents = new();
         public override void AttackTarget(BaseUnit owner, Vector2 origin, Vector2 target, float addedAngle = 0f)
