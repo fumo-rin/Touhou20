@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f9053e7492514b96e578010e50081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visibleScoreDivisor: 0.01
+  visibleScoreMultiplier: 100
 --- !u!4 &23218068
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,6 +1503,7 @@ GameObject:
   - component: {fileID: 367139406}
   - component: {fileID: 367139405}
   - component: {fileID: 367139404}
+  - component: {fileID: 367139408}
   m_Layer: 5
   m_Name: Game UI
   m_TagString: Untagged
@@ -1595,6 +1598,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &367139408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367139403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502e1570b208cda4e8293dd1f075abbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighscoreText: {fileID: 1461272969}
+  ActiveScoreText: {fileID: 1906433810}
 --- !u!1 &372860518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,7 +2252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y

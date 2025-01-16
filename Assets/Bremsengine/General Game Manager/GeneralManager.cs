@@ -44,6 +44,65 @@ namespace Bremsengine
         }
     }
     #endregion
+    #region Score
+    public partial class GeneralManager
+    {
+        public static float actualScore;
+        public static float HighestScore { get ; private set; }
+        public static float VisibleScore;
+        [SerializeField] float visibleScoreDivisor = 0.01f;
+        [SerializeField] float visibleScoreMultiplier = 100f;
+        static string HighScoreStringKey = "HiScore_Save";
+        static bool IsHighscorePotentiallyOutOfSync = true;
+        public delegate void ScoreAction(float score, float hiscore);
+        public static ScoreAction OnScoreUpdate;
+        public static float LoadHighScore()
+        {
+            ResyncHighscore();
+            return HighestScore;
+        }
+        private static void SendUpdateScoreEvent(float scoreValue, float highScoreValue)
+        {
+            OnScoreUpdate?.Invoke(scoreValue, highScoreValue);
+        }
+        public static void AddScore(float value)
+        {
+            SetScoreValue(actualScore + value);
+        }
+        public static void ApplyHighscoreToSave(float value)
+        {
+            PlayerPrefs.SetFloat(HighScoreStringKey, value);
+        }
+        static void ResyncHighscore()
+        {
+            if (!IsHighscorePotentiallyOutOfSync)
+                return;
+
+            IsHighscorePotentiallyOutOfSync = false;
+            float loadedScore = PlayerPrefs.GetFloat(HighScoreStringKey);
+
+            if (HighestScore < loadedScore) HighestScore = loadedScore;
+        }
+        private static void SetScoreValue(float value)
+        {
+            ResyncHighscore();
+            actualScore = value;
+            VisibleScore = (value.Multiply(Instance.visibleScoreDivisor)).Floor().Multiply(Instance.visibleScoreMultiplier);
+            Debug.Log(VisibleScore);
+            Debug.Log((value.Multiply(Instance.visibleScoreDivisor)).Floor());
+
+            if (actualScore > HighestScore)
+            {
+                HighestScore = VisibleScore;
+            }
+            SendUpdateScoreEvent(VisibleScore, HighestScore);
+        }
+        private void OnApplicationQuit()
+        {
+            ApplyHighscoreToSave(LoadHighScore());
+        }
+    }
+    #endregion
     public partial class GeneralManager : MonoBehaviour
     {
         public static GeneralManager Instance { get; private set; }
@@ -61,6 +120,8 @@ namespace Bremsengine
         {
             QCHelper.BindOpenAction(PauseGame);
             QCHelper.BindCloseAction(UnPauseGame);
+            IsHighscorePotentiallyOutOfSync = true;
+            SetScoreValue(0f);
         }
         private void StartInstance()
         {
