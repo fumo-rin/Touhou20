@@ -1,5 +1,7 @@
 using Core.Extensions;
 using Core.Input;
+using Mono.CSharp;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bremsengine
@@ -47,8 +49,19 @@ namespace Bremsengine
     #region Score
     public partial class GeneralManager
     {
+        public static bool ShouldAddScoreKey => ScoreBreakdownAnalysis != null;
+        public static void AddScoreAnalysisKey(string scoreKey, float score)
+        {
+            if (!ShouldAddScoreKey)
+                return;
+            if (!ScoreBreakdownAnalysis.ContainsKey(scoreKey))
+                ScoreBreakdownAnalysis[scoreKey] = 0;
+            ScoreBreakdownAnalysis[scoreKey] += score;
+        }
+        private static Dictionary<string, float> ScoreBreakdownAnalysis;
+        [SerializeField] bool breakDownScore = false;
         public static float actualScore;
-        public static float HighestScore { get ; private set; }
+        public static float HighestScore { get; private set; }
         public static float VisibleScore;
         [SerializeField] float visibleScoreDivisor = 0.01f;
         [SerializeField] float visibleScoreMultiplier = 100f;
@@ -65,9 +78,10 @@ namespace Bremsengine
         {
             OnScoreUpdate?.Invoke(scoreValue, highScoreValue);
         }
-        public static void AddScore(float value)
+        public static float AddScore(float value)
         {
             SetScoreValue(actualScore + value);
+            return value;
         }
         public static void ApplyHighscoreToSave(float value)
         {
@@ -88,8 +102,6 @@ namespace Bremsengine
             ResyncHighscore();
             actualScore = value;
             VisibleScore = (value.Multiply(Instance.visibleScoreDivisor)).Floor().Multiply(Instance.visibleScoreMultiplier);
-            Debug.Log(VisibleScore);
-            Debug.Log((value.Multiply(Instance.visibleScoreDivisor)).Floor());
 
             if (actualScore > HighestScore)
             {
@@ -100,6 +112,15 @@ namespace Bremsengine
         private void OnApplicationQuit()
         {
             ApplyHighscoreToSave(LoadHighScore());
+            if (ScoreBreakdownAnalysis != null)
+            {
+                foreach (var item in ScoreBreakdownAnalysis)
+                {
+                    string scoreMessage = "Score Breakdown##".ReplaceLineBreaks("##");
+                    scoreMessage += $"Score Partition({item.Key}) : {item.Value.ToString("F0")}##".ReplaceLineBreaks("##");
+                    Debug.Log(scoreMessage);
+                }
+            }
         }
     }
     #endregion
@@ -132,6 +153,10 @@ namespace Bremsengine
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (breakDownScore)
+            {
+                ScoreBreakdownAnalysis = new();
+            }
         }
         private void CloseInstance()
         {
@@ -143,6 +168,7 @@ namespace Bremsengine
         private static void ReInitialize()
         {
             Instance = null;
+            ScoreBreakdownAnalysis = null;
         }
     }
 }

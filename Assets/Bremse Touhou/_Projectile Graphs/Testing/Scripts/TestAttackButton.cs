@@ -13,7 +13,12 @@ namespace BremseTouhou
         {
             this.boundUI = boundUI;
             attack = (ProjectileGraphSO)graph;
-            buttonText.text = attack.projectileGraphName;
+            string builtText = attack.projectileGraphName;
+            if (string.IsNullOrEmpty(builtText))
+            {
+                builtText = graph.name;
+            }
+            buttonText.text = builtText;
         }
         public void Apply()
         {

@@ -19,7 +19,7 @@ namespace BremseTouhou
             ProjectileDirection d = new(projectile, target - origin);
             d.AddAngle(addedAngle);
             Projectile p = Projectile.SpawnProjectile(projectile, owner.transform, origin, d, OnProjectileSpawn, owner.TargetTransform);
-            p.SetFaction(owner == null ? BremseFaction.None : owner.FactionInterface.Faction);
+            p.SetFaction(owner == null ? BremseFaction.Enemy : owner.FactionInterface.Faction);
 
             foreach (ProjectileEvent e in projectileEvents)
             {

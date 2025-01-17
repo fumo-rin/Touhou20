@@ -389,8 +389,8 @@ namespace Bremsengine
                     if (listener.OnProjectileHit(this))
                     {
                         ClearProjectile();
-                        return;
                     }
+                    return;
                 }
             }
             if (!collision.isTrigger)

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1173
-    y: 1499
+    x: 1224
+    y: 1375
     width: 400
     height: 300
   ID: 31fdd948-dbde-43da-bff5-6f1961a237dd
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 732
-    y: 1408
+    x: 783
+    y: 1284
     width: 400
     height: 300
   ID: ecfe8415-b05a-484e-b26b-e08d85406b50
@@ -76,16 +76,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 295
-    y: 222
+    x: 346
+    y: 98
     width: 350
     height: 700
   ID: 63b364f0-b5fd-4489-a95f-eb6b286c08ed
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 39
-    y: 252
+    x: 90
+    y: 128
     width: 250
     height: 250
   directionalOffset: 6
@@ -258,8 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 749
-    y: 316
+    x: 800
+    y: 314
     width: 350
     height: 200
   ID: 3f184fa9-ee81-4b85-ba52-fbe40e45bd4a
@@ -318,8 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 833
-    y: 836
+    x: 884
+    y: 712
     width: 250
     height: 200
   ID: 5918244e-deaf-4c0b-bd04-878be07a6e2b
@@ -339,16 +339,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1348
-    y: 727
+    x: 1399
+    y: 603
     width: 350
     height: 700
   ID: cd771acd-3bd6-4055-a10b-06a3353fbb93
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1092
-    y: 757
+    x: 1143
+    y: 633
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -433,7 +433,7 @@ MonoBehaviour:
   - {fileID: -271336731110605954}
   - {fileID: -6726217897975526738}
   - {fileID: -4137284215418995408}
-  projectileGraphName: 
+  projectileGraphName: Icicle Fall
   Developing: 0
   nodes:
   - {fileID: 4143502975751865241}
@@ -461,16 +461,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 344
-    y: 1083
+    x: 395
+    y: 959
     width: 350
     height: 700
   ID: 135f0cf1-0200-4dfe-94d5-b300daaa8488
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 88
-    y: 1113
+    x: 139
+    y: 989
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -548,8 +548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 778
-    y: 1175
+    x: 829
+    y: 1051
     width: 350
     height: 200
   ID: 24a5dcfc-3ac0-4d50-9271-8b34068c8d9d

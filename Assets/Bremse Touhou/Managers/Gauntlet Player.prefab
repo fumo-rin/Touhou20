@@ -6632,7 +6632,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0156f00827041a14b9acfd2db914888c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreItemPrefab: {fileID: 6076243941187219546, guid: b5424c17e50c70a4aa295b64818b7d6e, type: 3}
+  scorePullForce: 2
+  pickupDistance: 4
+  verticalSpawnForce: 7
+  pickupsLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  pickupSound: {fileID: 11400000, guid: da8714e888179bf45962de8c1e20e1c2, type: 2}
   baseScorePerGraze: 1000
+  baseScorePerPickup: 50000
 --- !u!1 &8026481391743696223
 GameObject:
   m_ObjectHideFlags: 0
