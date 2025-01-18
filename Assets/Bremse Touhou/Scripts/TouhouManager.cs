@@ -21,6 +21,41 @@ namespace BremseTouhou
     #region Difficulty
     public partial class TouhouManager
     {
+        public static string GetDifficultyName(Difficulty d)
+        {
+            string difficultyName = "";
+            switch (d)
+            {
+                case Difficulty.Easy: difficultyName += "Easy"; break;
+                case Difficulty.Normal: difficultyName += "Normal"; break;
+                case Difficulty.Hard: difficultyName += "Hard"; break;
+                case Difficulty.Lunatic: difficultyName += "Lunatic"; break;
+                case Difficulty.Ultra: difficultyName += "Ultra"; break;
+                case Difficulty.Extra: difficultyName += "Extra"; break;
+                default: difficultyName = "Normal"; SetDifficulty(Difficulty.Normal); break;
+            }
+            return difficultyName;
+        }
+        public static Color32 GetDifficultyColor(Difficulty d)
+        {
+            switch (d)
+            {
+                case TouhouManager.Difficulty.Easy:
+                    return Color.green;
+                case TouhouManager.Difficulty.Normal:
+                    return Color.blue;
+                case TouhouManager.Difficulty.Hard:
+                    return Color.yellow;
+                case TouhouManager.Difficulty.Lunatic:
+                    return Color.magenta;
+                case TouhouManager.Difficulty.Ultra:
+                    return Color.red;
+                case TouhouManager.Difficulty.Extra:
+                    return Color.white;
+                default:
+                    return Color.blue;
+            }
+        }
         public enum Difficulty
         {
             Easy = 1,
@@ -43,18 +78,7 @@ namespace BremseTouhou
         }
         private static void SendDifficultyUpdateEvent(Difficulty d)
         {
-            string difficultyName = "";
-            switch (d)
-            {
-                case Difficulty.Easy: difficultyName += "Easy"; break;
-                case Difficulty.Normal: difficultyName += "Normal"; break;
-                case Difficulty.Hard: difficultyName += "Hard"; break;
-                case Difficulty.Lunatic: difficultyName += "Lunatic"; break;
-                case Difficulty.Ultra: difficultyName += "Ultra"; break;
-                case Difficulty.Extra: difficultyName += "Extra"; break;
-                default: difficultyName = "Normal"; SetDifficulty(Difficulty.Normal); break;
-            }
-            OnDifficultyChange?.Invoke(d, difficultyName);
+            OnDifficultyChange?.Invoke(d, GetDifficultyName(d));
         }
         public static void RequestDifficultyUpdateEvent()
         {

@@ -4581,7 +4581,7 @@ Transform:
   m_GameObject: {fileID: 1115316350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -20.41, z: 0}
+  m_LocalPosition: {x: 3.26, y: -21.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4602,7 +4602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: ed2967475b97a2a4aaa674c73de6d635, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
