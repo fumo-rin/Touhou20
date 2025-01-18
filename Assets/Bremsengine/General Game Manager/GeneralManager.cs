@@ -44,6 +44,12 @@ namespace Bremsengine
         {
             SetPause(!IsPaused);
         }
+        [QFSW.QC.Command("-timescale")]
+        public static void Command_SetTimescale(float timescale)
+        {
+            StoredPausedTimescale = timescale;
+            UnPauseGame();
+        }
     }
     #endregion
     #region Score
