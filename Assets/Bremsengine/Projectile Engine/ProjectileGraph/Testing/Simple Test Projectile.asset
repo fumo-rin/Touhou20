@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 8343510073007248478}
   emitters:
   - {fileID: -3197853797526707153}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 0}
@@ -110,7 +111,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 1
   AngleCoverage: 0
   startingAngle: 0

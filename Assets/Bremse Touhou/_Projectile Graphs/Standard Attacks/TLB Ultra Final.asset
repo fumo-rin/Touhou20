@@ -149,6 +149,32 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6694411582570276518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1094
+    y: 98
+    width: 350
+    height: 150
+  ID: 6b704c73-411c-40be-bdb3-960b6a3b6596
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: 5392162213147717844}
+  - {fileID: -1326274650436752017}
+  - {fileID: 397819829399316698}
+  containedMod: {fileID: 11400000, guid: 01f996c1b99b81345a5a1a37917423e3, type: 2}
+  isEnabled: 1
 --- !u!114 &-6283407336158365638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,8 +405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 975
-    y: 400
+    x: 900
+    y: 771
     width: 350
     height: 200
   ID: bf9353a6-7bc2-47d3-9f0f-bfc6a382efec
@@ -432,16 +458,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1411
-    y: 80
+    x: 1336
+    y: 451
     width: 350
     height: 700
   ID: a251eda1-8808-431c-8471-06b27e39eb97
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1155
-    y: 110
+    x: 1080
+    y: 481
     width: 250
     height: 250
   directionalOffset: 0
@@ -614,6 +640,7 @@ MonoBehaviour:
   - {fileID: 6330244574827116146}
   - {fileID: 397819829399316698}
   - {fileID: 4181541657871532430}
+  - {fileID: -6694411582570276518}
   projectileGraphName: Fast Ultra Attack
   Developing: 0
   nodes:
@@ -627,6 +654,7 @@ MonoBehaviour:
   - {fileID: 6330244574827116146}
   modNodes:
   - {fileID: 4181541657871532430}
+  - {fileID: -6694411582570276518}
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -646,16 +674,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 2064
-    y: 163
+    x: 1989
+    y: 534
     width: 350
     height: 700
   ID: a5265f8d-4b48-4219-8b4c-7c8a971502dc
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1808
-    y: 193
+    x: 1733
+    y: 564
     width: 250
     height: 250
   directionalOffset: 2.5
@@ -742,8 +770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1078
-    y: 655
+    x: 1003
+    y: 1026
     width: 250
     height: 200
   ID: c49d81cc-c1de-4b29-a33e-1092b771e97f
@@ -763,8 +791,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 981
-    y: 947
+    x: 906
+    y: 1318
     width: 350
     height: 200
   ID: 55f269c9-7a46-4d55-a2fa-006f8f3cb89b
@@ -932,8 +960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 543
-    y: 214
+    x: 166
+    y: 560
     width: 350
     height: 150
   ID: 1219f355-6424-4f23-ab56-40af56019ebb
@@ -956,16 +984,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 533
-    y: 475
+    x: 458
+    y: 846
     width: 350
     height: 700
   ID: 82709b79-d923-4698-88f9-604072b2e7ce
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 277
-    y: 505
+    x: 202
+    y: 876
     width: 250
     height: 250
   directionalOffset: 0
@@ -1121,8 +1149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1819
-    y: 884
+    x: 1744
+    y: 1255
     width: 350
     height: 200
   ID: 9a5f9d57-c3c1-45e0-a0bf-2ac2e618fc55
@@ -1176,8 +1204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1415
-    y: 990
+    x: 1340
+    y: 1361
     width: 350
     height: 200
   ID: 4ce05634-38ae-434c-8296-d17c3770429d

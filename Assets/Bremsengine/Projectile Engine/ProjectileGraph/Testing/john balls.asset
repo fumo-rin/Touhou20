@@ -34,7 +34,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 100
   startingAngle: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 5
   AngleCoverage: 10
   startingAngle: 0
@@ -283,6 +283,7 @@ MonoBehaviour:
   - {fileID: -5296717821074108817}
   emitters:
   - {fileID: -2045312514197406688}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 0}
@@ -322,7 +323,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
 --- !u!114 &2771225441127456719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 25
   AngleCoverage: 180
   startingAngle: 0
@@ -490,7 +491,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
 --- !u!114 &7748776249808463047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +549,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 2
   AngleCoverage: 10
   startingAngle: 0
@@ -635,7 +636,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  projectileModList: {fileID: 0}
+  attachedProjectileMods: []
   projectileCountFloat: 60
   AngleCoverage: 270
   startingAngle: 180
