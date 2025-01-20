@@ -164,7 +164,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1094
-    y: 98
+    y: 88
     width: 350
     height: 150
   ID: 6b704c73-411c-40be-bdb3-960b6a3b6596
@@ -405,8 +405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 900
-    y: 771
+    x: 769
+    y: 419
     width: 350
     height: 200
   ID: bf9353a6-7bc2-47d3-9f0f-bfc6a382efec
@@ -458,16 +458,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1336
-    y: 451
+    x: 1205
+    y: 99
     width: 350
     height: 700
   ID: a251eda1-8808-431c-8471-06b27e39eb97
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1080
-    y: 481
+    x: 949
+    y: 129
     width: 250
     height: 250
   directionalOffset: 0
@@ -640,7 +640,6 @@ MonoBehaviour:
   - {fileID: 6330244574827116146}
   - {fileID: 397819829399316698}
   - {fileID: 4181541657871532430}
-  - {fileID: -6694411582570276518}
   projectileGraphName: Fast Ultra Attack
   Developing: 0
   nodes:
@@ -654,7 +653,6 @@ MonoBehaviour:
   - {fileID: 6330244574827116146}
   modNodes:
   - {fileID: 4181541657871532430}
-  - {fileID: -6694411582570276518}
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -674,16 +672,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1989
-    y: 534
+    x: 1858
+    y: 182
     width: 350
     height: 700
   ID: a5265f8d-4b48-4219-8b4c-7c8a971502dc
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1733
-    y: 564
+    x: 1602
+    y: 212
     width: 250
     height: 250
   directionalOffset: 2.5
@@ -770,8 +768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1003
-    y: 1026
+    x: 872
+    y: 674
     width: 250
     height: 200
   ID: c49d81cc-c1de-4b29-a33e-1092b771e97f
@@ -791,8 +789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 906
-    y: 1318
+    x: 775
+    y: 966
     width: 350
     height: 200
   ID: 55f269c9-7a46-4d55-a2fa-006f8f3cb89b
@@ -960,8 +958,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 166
-    y: 560
+    x: 35
+    y: 208
     width: 350
     height: 150
   ID: 1219f355-6424-4f23-ab56-40af56019ebb
@@ -984,16 +982,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 458
-    y: 846
+    x: 327
+    y: 494
     width: 350
     height: 700
   ID: 82709b79-d923-4698-88f9-604072b2e7ce
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 202
-    y: 876
+    x: 71
+    y: 524
     width: 250
     height: 250
   directionalOffset: 0
@@ -1149,8 +1147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1744
-    y: 1255
+    x: 1613
+    y: 903
     width: 350
     height: 200
   ID: 9a5f9d57-c3c1-45e0-a0bf-2ac2e618fc55
@@ -1204,8 +1202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1340
-    y: 1361
+    x: 1209
+    y: 1009
     width: 350
     height: 200
   ID: 4ce05634-38ae-434c-8296-d17c3770429d

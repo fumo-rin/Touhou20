@@ -4602,7 +4602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
+  projectileAttack: {fileID: 11400000, guid: b977f6530f15c814786c64fa807a3bcc, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4658,7 +4658,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5053031, y: 0.86061025}
-    oldSize: {x: 1.7, y: 1.95}
+    oldSize: {x: 3.5416667, y: 4.0625}
     newSize: {x: 1.7, y: 1.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
