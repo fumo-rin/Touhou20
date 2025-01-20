@@ -26,6 +26,15 @@ namespace Bremsengine
             GUI.changed = true;
             this.Dirty();
         }
+        public void RecalculateRect()
+        {
+            if (rect == null)
+            {
+                Debug.LogError("Bad");
+                return;
+            }
+            rect = GetRect(rect.position);
+        }
         public void Initialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type = null)
         {
             rect = GetRect(mousePosition);

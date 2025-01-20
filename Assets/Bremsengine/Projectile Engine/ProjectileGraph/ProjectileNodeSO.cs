@@ -89,6 +89,13 @@ namespace Bremsengine
             {
                 item.linkedNodes.Remove(this);
             }
+            foreach (var item in graph.components)
+            {
+                if (item is ProjectileModNodeSO mod)
+                {
+                    mod.attachedNodes.Remove(this);
+                }
+            }
         }
     }
 #endif
@@ -200,6 +207,7 @@ namespace Bremsengine
         public ProjectileTypeSO ProjectileType;
         public float spawnDelay;
         public List<ProjectileEventSO> linkedProjectileEvents = new();
+        public List<ProjectileMod> attachedProjectileMods = new();
         public abstract void Spawn(in List<Projectile> list, ProjectileGraphInput input, TriggeredEvent triggeredEvent);
         public void SendProjectileEvents(Projectile p, TriggeredEvent triggeredEvent)
         {
@@ -220,6 +228,16 @@ namespace Bremsengine
             foreach (ProjectileEventSO e in linkedProjectileEvents)
             {
                 e.QueueEvents(p, this, triggeredEvent);
+            }
+        }
+        protected void RunModsForProjectile(Projectile p)
+        {
+            foreach (var item in graph.modNodes)
+            {
+                if (!item.isEnabled || !item.attachedNodes.Contains(this))
+                    continue;
+                WaitForSeconds delay = item.containedMod.Delay;
+                item.containedMod.QueueMod(p, delay);
             }
         }
         protected Projectile CreateProjectile(Projectile p, Vector2 position, ProjectileNodeDirection direction)

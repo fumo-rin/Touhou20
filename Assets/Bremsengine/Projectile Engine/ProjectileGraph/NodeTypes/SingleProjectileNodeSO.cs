@@ -40,6 +40,7 @@ namespace Bremsengine
             Projectile p = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
             l.Add(p);
             SendProjectileEvents(p, triggeredEvent);
+            RunModsForProjectile(p);
         }
     }
 }

@@ -178,6 +178,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -595416381803295515}
+  projectileModList: {fileID: 0}
   projectileCountFloat: 5
   AngleCoverage: 6
   startingAngle: 0

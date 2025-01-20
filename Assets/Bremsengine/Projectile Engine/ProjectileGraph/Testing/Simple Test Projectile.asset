@@ -110,6 +110,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 1
   AngleCoverage: 0
   startingAngle: 0

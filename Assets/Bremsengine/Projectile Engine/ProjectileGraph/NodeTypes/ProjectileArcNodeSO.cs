@@ -79,6 +79,7 @@ namespace Bremsengine
                 iteration++;
                 progress = iteration == 0 ? 0f : ((float)iteration / ((float)ProjectileCount - 1)).Clamp(0f, 1f);
                 SendProjectileEvents(spawn, triggeredEvent);
+                RunModsForProjectile(spawn);
             }
         }
     }

@@ -12,6 +12,16 @@ namespace Bremsengine
     public partial class ProjectileGraphSO
     {
         public List<ProjectileGraphComponent> components = new();
+#if UNITY_EDITOR
+        [ContextMenu("Recalculate All Rects")]
+        public void RecalculateAllRect()
+        {
+            foreach (var item in components)
+            {
+                item.RecalculateRect();
+            }
+        }
+#endif
     }
     #endregion
     [CreateAssetMenu(menuName = "Bremsengine/Projectile2/Graph")]
@@ -21,7 +31,8 @@ namespace Bremsengine
         public bool Developing;
         public List<ProjectileNodeSO> nodes = new();
         public List<ProjectileEmitterSO> emitters = new();
-        [Range(0.1f,5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
+        public List<ProjectileModNodeSO> modNodes = new();
+        [Range(0.1f, 5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
         [Range(-10f, 10f)]
         [SerializeField] float addedCooldown = 1f;
         public float CalculateCooldown(float externalCooldownInSeconds)
@@ -149,10 +160,17 @@ namespace Bremsengine
                 }
                 DrawLink(emitter, emitter.linkedOverrideDirection);
             }
+            foreach (ProjectileModNodeSO mod in modNodes)
+            {
+                foreach (var item in mod.attachedNodes)
+                {
+                    DrawLink(item, mod);
+                }
+            }
             foreach (ProjectileGraphComponent c in components)
             {
-                c.Draw(style);
                 ProjectileGraphEditor.DrawHeader(c.rect, c.GetGraphComponentName());
+                c.Draw(style);
             }
         }
     }

@@ -34,6 +34,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 20
   AngleCoverage: 25
   startingAngle: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 3
   AngleCoverage: 5
   startingAngle: 0
@@ -307,6 +309,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 20
   AngleCoverage: 25
   startingAngle: 0

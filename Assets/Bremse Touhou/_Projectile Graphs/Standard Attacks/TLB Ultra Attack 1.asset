@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1319
-    y: 1019
+    x: 1336
+    y: 1013
     width: 250
     height: 200
   ID: 90920368-3e06-4c6a-a359-0812676f9ef3
@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1355
-    y: 242
+    x: 1372
+    y: 236
     width: 400
     height: 300
   ID: 955a8a46-4f99-4fbe-8c35-4a5a4659188d
@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 5426533017149902188}
   emitters:
   - {fileID: 6340167406891563902}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -96,8 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 351
-    y: 188
+    x: 368
+    y: 182
     width: 400
     height: 300
   ID: ce49a8e4-a950-46d1-bd0d-b01e7c678cc9
@@ -127,16 +128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 915
-    y: 567
+    x: 932
+    y: 561
     width: 350
     height: 400
   ID: 7ad675f5-1e1d-40e1-9354-35fe7eafd67f
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 659
-    y: 597
+    x: 676
+    y: 591
     width: 250
     height: 250
   directionalOffset: 4
@@ -150,6 +151,7 @@ MonoBehaviour:
   - {fileID: -1616859799094974653}
   - {fileID: 7301467033870820045}
   - {fileID: 4983428606110109219}
+  attachedProjectileMods: []
 --- !u!114 &5939000742975729440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1410
-    y: 719
+    x: 1427
+    y: 713
     width: 350
     height: 200
   ID: ff9aeb11-2446-4b4e-a2d9-75ef3308da95
@@ -218,8 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 868
-    y: 109
+    x: 885
+    y: 103
     width: 400
     height: 300
   ID: 01ed7bc2-ac80-4786-8848-df29de04798c

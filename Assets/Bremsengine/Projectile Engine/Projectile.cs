@@ -50,9 +50,20 @@ namespace Bremsengine
             ignoredCollision = c;
             return this;
         }
+        public Projectile Post_SetNewVelocity(Vector2 velocity)
+        {
+            rb.linearVelocity = velocity;
+            return this;
+        }
         public Projectile Post_AddVelocity(float v)
         {
             rb.linearVelocity += rb.linearVelocity.ScaleToMagnitude(v);
+            return this;
+        }
+        public Projectile ApplyCurrentVelocity()
+        {
+            rb.linearVelocity = Velocity;
+            LookAtVelocity();
             return this;
         }
         public Projectile Post_AddRotation(float r)
@@ -167,6 +178,11 @@ namespace Bremsengine
             currentNodeDirection = direction.Clone();
             rb.linearVelocity = direction.VelocityDirection;
             transform.position += (Vector3)direction.DirectionalOffset;
+            rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
+            return this;
+        }
+        public Projectile LookAtVelocity()
+        {
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
             return this;
         }

@@ -82,6 +82,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 13
   AngleCoverage: 12
   startingAngle: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 17
   AngleCoverage: 195
   startingAngle: 0
@@ -412,6 +414,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
 --- !u!114 &3415504147297101901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +526,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 15
   AngleCoverage: 90
   startingAngle: -30
@@ -806,6 +810,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  projectileModList: {fileID: 0}
   projectileCountFloat: 36
   AngleCoverage: 360
   startingAngle: 0

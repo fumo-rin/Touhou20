@@ -6,6 +6,7 @@ using Core;
 using System.Linq;
 using System;
 using Core.Extensions;
+
 #if UNITY_EDITOR
 using UnityEditor.Callbacks;
 namespace Bremsengine
@@ -192,6 +193,7 @@ namespace Bremsengine
         ProjectileEventSO projectileEventDragSelection;
         ProjectileEmitterSO emitterSelection;
         ProjectileGraphDirectionNode directionSelection;
+        ProjectileModNodeSO modSelection;
         static bool CursorMoveDrag;
         static Vector2 DragLinePreviewStart;
         #region Mouse Down
@@ -235,6 +237,14 @@ namespace Bremsengine
                             return true;
                         }
                     }
+                    if (IsMouseOverModNode(e, out modSelection))
+                    {
+                        if (modSelection != null)
+                        {
+                            CursorMoveDrag = true;
+                            return true;
+                        }
+                    }
                 }
                 if (e.button == 0)
                 {
@@ -249,6 +259,11 @@ namespace Bremsengine
                         ActiveGraph.StartLine(e.mousePosition);
                     }
                     if (IsMouseOverDirection(e, out directionSelection))
+                    {
+                        DragLinePreviewStart = e.mousePosition;
+                        ActiveGraph.StartLine(e.mousePosition);
+                    }
+                    if (IsMouseOverModNode(e, out modSelection))
                     {
                         DragLinePreviewStart = e.mousePosition;
                         ActiveGraph.StartLine(e.mousePosition);
@@ -328,6 +343,24 @@ namespace Bremsengine
                         AssetDatabase.SaveAssetIfDirty(this);
                     }
                 }
+                if (modSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover3))
+                {
+                    EditorGUI.BeginChangeCheck();
+
+                    Debug.Log(modSelection);
+                    Debug.Log("Hover : " + hover3);
+
+                    Debug.Log("Add Mod: " + modSelection.name + " to : " + hover3.name);
+                    modSelection.attachedNodes.AddIfDoesntExist(hover3);
+                    EditorUtility.SetDirty(hover3);
+                    EditorUtility.SetDirty(ActiveGraph);
+
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        EditorUtility.SetDirty(this);
+                        AssetDatabase.SaveAssetIfDirty(this);
+                    }
+                }
                 if (ActiveGraph.previewLine && IsMouseOverNode(e, out ProjectileNodeSO lineToNode))
                 {
 
@@ -336,6 +369,8 @@ namespace Bremsengine
             }
             projectileEventDragSelection = null;
             emitterSelection = null;
+            directionSelection = null;
+            modSelection = null;
         }
         #endregion
         #region Mouse Drag
@@ -363,6 +398,10 @@ namespace Bremsengine
                 if (directionSelection)
                 {
                     directionSelection.Drag(e.delta);
+                }
+                if (modSelection)
+                {
+                    modSelection.Drag(e.delta);
                 }
             }
             DragGrid(e.delta);
@@ -462,6 +501,21 @@ namespace Bremsengine
             return node != null;
         }
         #endregion
+        #region Mouse Over Mod Node
+        private bool IsMouseOverModNode(Event e, out ProjectileModNodeSO foundMod)
+        {
+            foundMod = null;
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
+            {
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileModNodeSO found and not null)
+                {
+                    foundMod = found;
+                    break;
+                }
+            }
+            return foundMod != null;
+        }
+        #endregion
     }
     #endregion
     #region Context Menu
@@ -475,6 +529,7 @@ namespace Bremsengine
             ProjectileEventSO mouseOverProjectileEvent = null;
             ProjectileEmitterSO mouseOverEmitter = null;
             ProjectileGraphDirectionNode mouseOverDirection = null;
+            ProjectileModNodeSO mouseoverModNode = null;
             if (IsMouseOverEmitter(e, out mouseOverEmitter))
             {
                 menu.AddItem(new GUIContent("Break Emitter Links"), false, mouseOverEmitter.BreakLinks);
@@ -503,6 +558,10 @@ namespace Bremsengine
             {
                 menu.AddItem(new GUIContent("Remove Graph Component"), false, ActiveGraph.DestroyComponent, c);
             }
+            if (IsMouseOverModNode(e, out ProjectileModNodeSO mod))
+            {
+                menu.AddItem(new GUIContent("Break Mod Links"), false, mod.BreakLinks);
+            }
             bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
             if (mouseOverNode == null)
             {
@@ -526,6 +585,10 @@ namespace Bremsengine
             {
                 menu.AddItem(new GUIContent("Add Single Emitter"), false, AddSingleEmitter, position);
                 menu.AddItem(new GUIContent("Add Repeat Emitter"), false, AddRepeatEmitter, position);
+            }
+            if (mouseoverModNode == null)
+            {
+                menu.AddItem(new GUIContent("Add Projectile Mod"), false, AddProjectileMod, position);
             }
             menu.ShowAsContext();
         }
@@ -598,6 +661,21 @@ namespace Bremsengine
                 newNode.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
 
                 AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
+        }
+        #endregion
+        #region Add Projectile Mod
+        private void AddProjectileMod(object mousePositionObject)
+        {
+            ProjectileModNodeSO selectedMod = null;
+            selectedMod = ScriptableObject.CreateInstance<ProjectileModNodeSO>();
+
+            if (selectedMod != null)
+            {
+                selectedMod.Initialize((Vector2)mousePositionObject, ActiveGraph);
+
+                AssetDatabase.AddObjectToAsset(selectedMod, ActiveGraph);
                 AssetDatabase.SaveAssets();
             }
         }
