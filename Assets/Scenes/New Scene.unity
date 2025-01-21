@@ -4601,7 +4601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: 466839e8e1cc84c46aaf15e8f1070328, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 063683dee354d9c4e9cd2dddeda92eb5, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7919,6 +7919,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed2967475b97a2a4aaa674c73de6d635, type: 2}
   - {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
   - {fileID: 11400000, guid: 8947ed24f3ee3744580ec83ea69333cd, type: 2}
+  - {fileID: 11400000, guid: 063683dee354d9c4e9cd2dddeda92eb5, type: 2}
   buttonsAnchor: {fileID: 617572669}
   toggleBox: {fileID: 335782639}
 --- !u!1 &2052237293
