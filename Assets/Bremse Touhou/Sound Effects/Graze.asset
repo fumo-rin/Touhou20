@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
   m_Name: Graze
   m_EditorClassIdentifier: 
-  SoundName: Headhunter, Leather Belt
+  SoundName: Graze
   soundVolume: 0.7
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 217ef0129294c164cbb61d3f6d1f7f90, type: 3}

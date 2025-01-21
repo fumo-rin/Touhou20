@@ -24,7 +24,6 @@ namespace Bremsengine
         {
             FactionInterface.SetFaction(Faction);
         }
-
         bool IProjectileHitListener.OnProjectileHit(Projectile p)
         {
             if (!FactionInterface.IsFriendsWith(p.Faction))

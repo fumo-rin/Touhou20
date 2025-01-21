@@ -14,6 +14,8 @@ namespace Bremsengine
         }
         public override bool CanAttack()
         {
+            if (!UnitAlive)
+                return false;
             return Time.time >= nextAttackTime;
         }
         private void Update()

@@ -1,5 +1,6 @@
 using Bremsengine;
 using Core.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,18 +79,57 @@ namespace BremseTouhou
     #region Health & Activity
     public partial class BaseUnit
     {
+        HashSet<AttackHandler> unitAttackHandlers = new();
+        bool knownAliveState = true;
+        private void ReFindAttackHandlers()
+        {
+            unitAttackHandlers.Clear();
+            foreach (AttackHandler handler in transform.root.GetComponentsInChildren<AttackHandler>())
+            {
+                if (handler == null)
+                    continue;
+                unitAttackHandlers.Add(handler);
+            }
+            foreach (AttackHandler handler in transform.root.GetComponents<AttackHandler>())
+            {
+                if (handler == null) continue;
+                unitAttackHandlers.Add(handler);
+            }
+            RecalculateAttackHandlerState();
+        }
+        private void RecalculateAttackHandlerState()
+        {
+            if (unitHealth <= 0f)
+            {
+                knownAliveState = false;
+            }
+            else
+            {
+                knownAliveState = true;
+            }
+            foreach (AttackHandler handler in unitAttackHandlers)
+            {
+                handler.SetAlive(knownAliveState);
+            }
+        }
         public string UnitName => unitName;
         public string unitName = "Headhunter, Leather Belt";
         public string HealthText => $"{CurrentHealth.Ceil().Max(0f)}/{MaxHealth.Ceil()}";
         public float MaxHealth => 1000f;
         public float CurrentHealth => unitHealth;
         private float unitHealth;
+        public void Hurt(float damage, Vector2 damagePosition)
+        {
+            ChangeHealth(-(damage.Absolute()));
+        }
         public void ChangeHealth(float delta)
         {
             if (unitHealth <= 0f)
                 return;
 
-            unitHealth = (unitHealth + delta).Max(0f);
+            float value = (unitHealth + delta).Max(0f);
+            unitHealth = value;
+            RecalculateAttackHandlerState();
             if (unitHealth <= 0f)
             {
                 Kill();
@@ -120,7 +160,7 @@ namespace BremseTouhou
     public partial class BaseUnit
     {
         BaseUnit target;
-        public BaseUnit Target =>  target;
+        public BaseUnit Target => target;
         public Transform TargetTransform => Target == null ? null : Target.transform;
         public bool HasTarget => Target != null;
         public BaseUnit SetTarget(BaseUnit t)
@@ -157,6 +197,30 @@ namespace BremseTouhou
         }
     }
     #endregion
+    #region Triggerboxes
+    public abstract partial class BaseUnit
+    {
+        [SerializeField] List<TargetBox> targetBoxes = new();
+        private void BindTargetBoxes()
+        {
+            foreach (var item in targetBoxes)
+            {
+                if (item == null)
+                    continue;
+                item.OnTakeDamage += Hurt;
+            }
+        }
+        private void ReleaseTargetBoxes()
+        {
+            foreach (var item in targetBoxes)
+            {
+                if (item == null)
+                    continue;
+                item.OnTakeDamage -= Hurt;
+            }
+        }
+    }
+    #endregion
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody2D))]
     [DefaultExecutionOrder(100)]
@@ -185,8 +249,21 @@ namespace BremseTouhou
             }
             FactionInterface.SetFaction(UnitFaction);
             unitHealth = MaxHealth;
-            OnAwake();
+            ReFindAttackHandlers();
+            WhenAwake();
         }
-        protected abstract void OnAwake();
+        private void Start()
+        {
+            BindTargetBoxes();
+            WhenStart();
+        }
+        private void OnDestroy()
+        {
+            ReleaseTargetBoxes();
+            WhenDestroy();
+        }
+        protected abstract void WhenDestroy();
+        protected abstract void WhenStart();
+        protected abstract void WhenAwake();
     }
 }

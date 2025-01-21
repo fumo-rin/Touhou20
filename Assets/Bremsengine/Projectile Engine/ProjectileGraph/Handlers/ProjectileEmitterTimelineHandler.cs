@@ -43,7 +43,10 @@ namespace Bremsengine
             {
                 activeRoutines[owner] = new();
             }
-            activeRoutines[owner].Add(co);
+            if (activeRoutines.ContainsKey(owner) && activeRoutines[owner] != null)
+            {
+                activeRoutines[owner].Add(co);
+            }
         }
     }
 }

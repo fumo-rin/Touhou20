@@ -41,17 +41,17 @@ namespace BremseTouhou
             switch (d)
             {
                 case TouhouManager.Difficulty.Easy:
-                    return Color.green;
+                    return ColorHelper.PastelGreen;
                 case TouhouManager.Difficulty.Normal:
-                    return Color.blue;
+                    return ColorHelper.PastelBlue;
                 case TouhouManager.Difficulty.Hard:
-                    return Color.yellow;
+                    return ColorHelper.PastelYellow;
                 case TouhouManager.Difficulty.Lunatic:
-                    return Color.magenta;
+                    return ColorHelper.PastelPurple;
                 case TouhouManager.Difficulty.Ultra:
-                    return Color.red;
+                    return ColorHelper.PastelOrange;
                 case TouhouManager.Difficulty.Extra:
-                    return Color.white;
+                    return ColorHelper.PastelRed;
                 default:
                     return Color.blue;
             }
@@ -117,7 +117,6 @@ namespace BremseTouhou
             DontDestroyOnLoad(gameObject);
             Time.maximumDeltaTime = 1f / 60f;
             Time.maximumParticleDeltaTime = 1f / 60f;
-            Debug.Log(Time.maximumDeltaTime.ToString("F3"));
         }
         public static void CloseGame()
         {

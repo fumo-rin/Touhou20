@@ -7,6 +7,13 @@ namespace Core.Extensions
     public struct ColorHelper
     {
         public static Color32 Peach => new Color32(235, 160, 90, 255);
+        public static Color32 PastelBlue => new Color32(140, 158, 255, 255);
+        public static Color32 PastelGreen => new Color32(147, 255, 140, 255);
+        public static Color32 PastelRed => new Color32(255, 140, 140, 255);
+        public static Color32 PastelYellow => new Color32(250, 255, 140, 255);
+        public static Color32 PastelPurple => new Color32(252, 140, 255, 255);
+        public static Color32 PastelCyan => new Color32(140, 240, 255, 255);
+        public static Color32 PastelOrange => new Color32(255, 216, 140, 255);
     }
     public static class ColorExtensions
     {

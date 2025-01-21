@@ -197,6 +197,10 @@ namespace Core.Extensions
             vector.y = v.y.Clamp(bounds.min.y, bounds.max.y);
             return vector;
         }
+        public static Vector2 ClampInside2D(this Vector3 v, Bounds bounds)
+        {
+            return ((Vector2)v).ClampInside(bounds);
+        }
 
         public static Vector2 Bounce(this Vector2 v, Vector2 normal, float bounce)
         {
@@ -224,6 +228,13 @@ namespace Core.Extensions
             Vector2 extends = ((Vector2)b.extents);
             v += extends.RandomFromZero() * extends.RandomSign();
             return v;
+        }
+        public static string BoundsToString(this Bounds b)
+        {
+            string text = "";
+            text += $"x: {b.min.x.ToString()} : {b.max.x.ToString()}##".Color(Color.red).ReplaceLineBreaks("##");
+            text += $"y: {b.min.y.ToString()} : {b.max.y.ToString()}".Color(Color.green);
+            return text;
         }
     }
 }

@@ -10,6 +10,11 @@ namespace Bremsengine
         protected abstract BaseAttack CollapseBaseAttack();
         [SerializeField] protected Transform owner;
         [SerializeField] BremseFaction faction;
+        public bool UnitAlive { get; protected set; }
+        public void SetAlive(bool state)
+        {
+            UnitAlive = state;
+        }
         public Transform OwnerTransform => owner;
         public BremseFaction Faction => faction;
         public abstract bool CanAttack();

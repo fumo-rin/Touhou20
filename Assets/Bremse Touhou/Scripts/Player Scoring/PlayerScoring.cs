@@ -14,7 +14,7 @@ namespace BremseTouhou
         [SerializeField] float scorePullForce = 1.5f;
         [SerializeField] float pickupDistance = 4f;
         [SerializeField] float verticalSpawnForce = 4f;
-        [Range(0f,50f)]
+        [Range(0f, 50f)]
         [SerializeField] float forceSpreadPercent = 20f;
         [SerializeField] LayerMask pickupsLayer;
         [SerializeField] AudioClipWrapper pickupSound;
@@ -61,7 +61,7 @@ namespace BremseTouhou
                 rb.gravityScale = 0f;
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
-            while(pullTime < 1f)
+            while (pullTime < 1f)
             {
                 if (pickup == null)
                     yield break;
@@ -111,6 +111,12 @@ namespace BremseTouhou
             lootedPickups.Clear();
             spawnedPickups.Clear();
             instance = this;
+        }
+        private void BulletClearSpawnPickup(Vector2 position)
+        {
+            if (Helper.SeededRandomInt256 < 150)
+                return;
+            SpawnPickup(position);
         }
         private void Start()
         {

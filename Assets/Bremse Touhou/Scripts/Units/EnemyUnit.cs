@@ -25,7 +25,7 @@ namespace BremseTouhou
     {
         [SerializeField] EnemyAttackHandler targetHandler;
         [field: SerializeField] public bool isBoss { get; private set; }
-        protected override void OnAwake()
+        protected override void WhenAwake()
         {
             if (isBoss)
             {
@@ -38,6 +38,14 @@ namespace BremseTouhou
                     targetHandler.AssignTarget(u.transform);
                 }
             }
+        }
+        protected override void WhenStart()
+        {
+
+        }
+        protected override void WhenDestroy()
+        {
+
         }
         float nextAttackTime;
         [SerializeField] float addedAttackDelay = 0.4f;

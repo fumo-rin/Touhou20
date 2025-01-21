@@ -127,7 +127,7 @@ namespace BremseTouhou
         {
             ClearInput();
         }
-        protected override void OnAwake()
+        protected override void WhenAwake()
         {
             if (rb == null)
             {
@@ -135,6 +135,14 @@ namespace BremseTouhou
             }
             BindInput();
             Player = this;
+        }
+        protected override void WhenStart()
+        {
+            DirectionSolver.SetKnownTarget(transform);
+        }
+        protected override void WhenDestroy()
+        {
+
         }
         private void Update()
         {

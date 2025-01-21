@@ -16,6 +16,8 @@ namespace Bremsengine
             {
                 return false;
             }
+            if (!UnitAlive)
+                return false;
             return Time.time >= nextAttackTime;
         }
         public override void TriggerAttack(BaseAttack attack)

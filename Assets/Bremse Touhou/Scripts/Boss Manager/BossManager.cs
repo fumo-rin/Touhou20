@@ -33,6 +33,7 @@ namespace BremseTouhou
         }
         static BossManager instance;
         [SerializeField] BossHealthbar healthbarPrefab;
+        [SerializeField] BossPositionBar positionBarPrefab;
         [SerializeField] Transform healthbarSocket;
         static List<BossEntry> bossList;
         private void ProcessBossList(int tickIndex, float deltaTime)
@@ -82,6 +83,8 @@ namespace BremseTouhou
             BossEntry entry = new BossEntry();
             entry.unit = boss;
             entry.healthBar = Instantiate(instance.healthbarPrefab, instance.healthbarSocket);
+            BossPositionBar positionBar = Instantiate(instance.positionBarPrefab, BossPositionBarSocket.Socket);
+            positionBar.SetTrackedBoss(boss);
             entry.SetBossHealthUI();
 
             bossList.Add(entry);

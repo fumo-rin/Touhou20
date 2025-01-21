@@ -50,6 +50,10 @@ namespace Core.Extensions
         {
             return Mathf.Abs(f);
         }
+        public static float AbsoluteNegative(this float f)
+        {
+            return 0f - f.Absolute();
+        }
         public static float AbsoluteBetween(this float f, float target)
         {
             return Mathf.Abs(f - target);

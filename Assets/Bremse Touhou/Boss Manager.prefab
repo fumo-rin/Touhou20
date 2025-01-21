@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbarPrefab: {fileID: 5461744112402623267, guid: e1033e4ccce75e84c8a70f38545cd0c2, type: 3}
+  positionBarPrefab: {fileID: 5837049441156066755, guid: a5a8797ad83da654da0adc1de737cf33, type: 3}
   healthbarSocket: {fileID: 1258779434393404727}
+  positionBarSocket: {fileID: 0}
 --- !u!114 &2312385827066689568
 MonoBehaviour:
   m_ObjectHideFlags: 0
