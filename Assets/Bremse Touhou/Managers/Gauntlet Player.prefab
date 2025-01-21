@@ -6370,7 +6370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 181786792830691265}
-  radius: 1
+  radius: 0.75
   grazeLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -6636,6 +6636,7 @@ MonoBehaviour:
   scorePullForce: 2
   pickupDistance: 4
   verticalSpawnForce: 7
+  forceSpreadPercent: 20
   pickupsLayer:
     serializedVersion: 2
     m_Bits: 512

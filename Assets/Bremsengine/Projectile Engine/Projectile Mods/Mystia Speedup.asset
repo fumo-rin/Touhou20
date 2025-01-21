@@ -15,4 +15,4 @@ MonoBehaviour:
   delayInSeconds: 0.5
   duration: 1.5
   maxSpeed: 17
-  acceleration: 6
+  acceleration: 4

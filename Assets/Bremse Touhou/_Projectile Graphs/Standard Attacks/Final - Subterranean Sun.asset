@@ -14,13 +14,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1227
-    y: 700
+    x: 1214
+    y: 932
     width: 250
     height: 200
   ID: da476e26-4a40-4a14-b843-0f14e55002e8
   graph: {fileID: 11400000}
   overrideDirection: {x: 0, y: -1}
+--- !u!114 &-3564517691135613658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 420
+    y: 330
+    width: 350
+    height: 150
+  ID: 960b720d-4231-42dc-beb6-0c44345e33c7
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: 4702568455512365157}
+  containedMod: {fileID: 11400000, guid: 0e28488705b440e4fbb9fccaf577d6a8, type: 2}
+  isEnabled: 1
+--- !u!114 &-670887974488986542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 781
+    y: 373
+    width: 350
+    height: 150
+  ID: 871bc186-9535-47b7-88ff-bd8ec46a271e
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: 4702568455512365157}
+  containedMod: {fileID: 11400000, guid: 4786e14f8985f9e4389a30e7ee10b77f, type: 2}
+  isEnabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,13 +84,19 @@ MonoBehaviour:
   components:
   - {fileID: 4702568455512365157}
   - {fileID: 7744886453231968892}
-  - {fileID: -4645281529380067432}
+  - {fileID: -3564517691135613658}
+  - {fileID: 9038424163522143496}
+  - {fileID: -670887974488986542}
   projectileGraphName: Aliexpress Subterranean Sun
   Developing: 0
   nodes:
   - {fileID: 4702568455512365157}
   emitters:
   - {fileID: 7744886453231968892}
+  modNodes:
+  - {fileID: -3564517691135613658}
+  - {fileID: 9038424163522143496}
+  - {fileID: -670887974488986542}
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 0}
@@ -62,16 +116,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 586
-    y: 412
+    x: 573
+    y: 644
     width: 350
     height: 700
   ID: 37555460-309c-4eb8-9206-078ce0f8990a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 330
-    y: 442
+    x: 317
+    y: 674
     width: 250
     height: 250
   directionalOffset: 13
@@ -82,6 +136,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
   projectileCountFloat: 20
   AngleCoverage: 360
   startingAngle: 0
@@ -148,8 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1068
-    y: 286
+    x: 1071
+    y: 600
     width: 350
     height: 200
   ID: 26546f80-f139-449b-8944-fd84b3a786e1
@@ -158,8 +213,32 @@ MonoBehaviour:
   linkedNodes:
   - {fileID: 4702568455512365157}
   addedDelay: 0
-  Retargetting: 0
-  linkedOverrideDirection: {fileID: -4645281529380067432}
-  repeatInterval: 0.33333334
-  repeatCount: 6
+  Retargetting: 1
+  linkedOverrideDirection: {fileID: 0}
+  repeatInterval: 0.25
+  repeatCount: 40
   repeatAddedAngle: 6
+--- !u!114 &9038424163522143496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 600
+    y: 133
+    width: 350
+    height: 150
+  ID: cd908823-6ef1-4a88-997d-8a0aa2dfb7bc
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: 4702568455512365157}
+  containedMod: {fileID: 11400000, guid: 4efa28a166572574a834e61bb8f10293, type: 2}
+  isEnabled: 1

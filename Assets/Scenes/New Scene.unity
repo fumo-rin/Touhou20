@@ -1061,7 +1061,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0033750003, y: -315.2055}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200.142, y: 38.028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172017355
 MonoBehaviour:
@@ -1646,11 +1646,11 @@ RectTransform:
   m_Children:
   - {fileID: 172017354}
   - {fileID: 281731959}
-  m_Father: {fileID: 367139407}
+  m_Father: {fileID: 2044652687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 430.81, y: 83}
+  m_AnchoredPosition: {x: -0.8066406, y: 314}
   m_SizeDelta: {x: 445.175, y: 584.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335782640
@@ -1806,7 +1806,6 @@ RectTransform:
   - {fileID: 1170068202}
   - {fileID: 1565805167}
   - {fileID: 293870191}
-  - {fileID: 335782639}
   - {fileID: 1097664074}
   - {fileID: 227912729}
   m_Father: {fileID: 0}
@@ -3182,7 +3181,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 440295602}
   m_HandleRect: {fileID: 440295601}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3662,7 +3661,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000643729}
   m_HandleRect: {fileID: 2000643728}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4602,7 +4601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: b977f6530f15c814786c64fa807a3bcc, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 466839e8e1cc84c46aaf15e8f1070328, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7779,6 +7778,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 578096327}
+  - {fileID: 335782639}
   m_Father: {fileID: 1565805167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7904,14 +7904,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c70f3b31554333144a0e4566b5e503c4, type: 2}
   - {fileID: 11400000, guid: 466839e8e1cc84c46aaf15e8f1070328, type: 2}
   - {fileID: 11400000, guid: e57b1486626a656408ca54c80de5ebaa, type: 2}
+  - {fileID: 11400000, guid: 2139fc549b626a04ca6e4e3d56184f09, type: 2}
   - {fileID: 11400000, guid: fa45c3d645e2fc244b4942e0ceb8fd3f, type: 2}
   - {fileID: 11400000, guid: 2d52bd3799216a94f842b54776786925, type: 2}
   - {fileID: 11400000, guid: de26d4516baa1484bb902cc59ad7db16, type: 2}
+  - {fileID: 11400000, guid: 10b4db829d3b9ec49881ffc8f8c8abfb, type: 2}
+  - {fileID: 11400000, guid: b977f6530f15c814786c64fa807a3bcc, type: 2}
+  - {fileID: 11400000, guid: 2e486dc6bf2b9e545a6ab035a42da5bf, type: 2}
   - {fileID: 11400000, guid: 791740c69de48d44a9273274c4f71eb7, type: 2}
   - {fileID: 11400000, guid: d650f07e5c0b1624d8366d5626352748, type: 2}
   - {fileID: 11400000, guid: dabe711ab4efd6f42a842607b5596575, type: 2}
   - {fileID: 11400000, guid: 595cf2e006779fd458292f8e6a999713, type: 2}
   - {fileID: 11400000, guid: 82265d9edf6804a46bcd924caf770357, type: 2}
+  - {fileID: 11400000, guid: ed2967475b97a2a4aaa674c73de6d635, type: 2}
+  - {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
   - {fileID: 11400000, guid: 8947ed24f3ee3744580ec83ea69333cd, type: 2}
   buttonsAnchor: {fileID: 617572669}
   toggleBox: {fileID: 335782639}

@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5003205887613729579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 726
+    y: 201
+    width: 350
+    height: 100
+  ID: d1370530-16ef-4c75-866f-84f008bda327
+  graph: {fileID: 11400000}
+  EventDelay: 1.8
+  acw: {fileID: 11400000, guid: d73a4d34a65a72444b1ad56533ed1409, type: 2}
+  repeatCooldown: 0.03
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: Line Attack 1
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 3498969347279867446}
+  - {fileID: -5003205887613729579}
+  - {fileID: 6086193807053045391}
+  projectileGraphName: Line Attack
+  Developing: 0
+  nodes:
+  - {fileID: 3498969347279867446}
+  emitters:
+  - {fileID: 6086193807053045391}
+  GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
+--- !u!114 &3498969347279867446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 171
+    y: 171
+    width: 350
+    height: 700
+  ID: 940a4538-ba6f-4b3b-a929-da8329062ced
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -85
+    y: 201
+    width: 250
+    height: 250
+  directionalOffset: 0
+  spread: 0
+  speed: 6
+  addedAngle: 0
+  ReverseDirection: 0
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents:
+  - {fileID: -5003205887613729579}
+  projectileCountFloat: 11
+  AngleCoverage: 0
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2.5
+      inSlope: 1.5
+      outSlope: 1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 4
+      inSlope: 1.5
+      outSlope: 1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6086193807053045391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 498
+    y: -61
+    width: 350
+    height: 200
+  ID: 676768dd-45b4-4a45-a10c-c4a99bf8e927
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: 3498969347279867446}
+  addedDelay: 0
+  Retargetting: 0
+  linkedOverrideDirection: {fileID: 0}

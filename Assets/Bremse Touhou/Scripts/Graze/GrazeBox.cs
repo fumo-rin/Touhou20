@@ -15,6 +15,11 @@ namespace BremseTouhou
         static HashSet<int> grazedBulletIDs = new HashSet<int>();
         public static int GrazeCount;
         [SerializeField] AudioClipWrapper grazeAudio;
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green.Opacity(80);
+            Gizmos.DrawSphere(transform.position, radius);
+        }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void ResetGrazeCount()
         {

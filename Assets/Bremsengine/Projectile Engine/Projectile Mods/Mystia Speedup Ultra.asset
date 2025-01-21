@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f8deac1c03be8448ab54a5a0f7733b6, type: 3}
-  m_Name: Mystia Slowdown
+  m_Name: Mystia Speedup Ultra
   m_EditorClassIdentifier: 
-  delayInSeconds: 0.2
-  duration: 0.5
-  maxSpeed: 0.1
-  acceleration: 5
+  delayInSeconds: 0.5
+  duration: 3
+  maxSpeed: 6
+  acceleration: 0.75
