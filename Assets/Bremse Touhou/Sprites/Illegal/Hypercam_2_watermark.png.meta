@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hypercam_2_watermark_0: 2876723674370648734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
