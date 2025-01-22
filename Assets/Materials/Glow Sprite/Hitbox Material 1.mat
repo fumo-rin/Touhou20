@@ -70,7 +70,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission: 100
+    - _Emission: 41.1
     - _Use_Emission_Map: 0
     m_Colors:
     - _Color: {r: 811.5882, g: 0, b: 324.8726, a: 1}

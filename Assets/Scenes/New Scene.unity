@@ -2622,7 +2622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4828,7 +4828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 1115316355}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: 063683dee354d9c4e9cd2dddeda92eb5, type: 2}
+  projectileAttack: {fileID: 11400000, guid: 1acfc8487f64daa45bad6ce0986792cf, type: 2}
 --- !u!114 &1115316355
 MonoBehaviour:
   m_ObjectHideFlags: 0

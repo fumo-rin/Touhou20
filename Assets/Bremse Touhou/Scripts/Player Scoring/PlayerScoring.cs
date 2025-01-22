@@ -188,7 +188,7 @@ namespace BremseTouhou
         {
             GrazeBox.OnGraze += GrazeAction;
             InvokeRepeating(nameof(PickupLoop), 0.1f, 0.1f);
-            StartCoroutine(CO_RunPickupQueue(150));
+            StartCoroutine(CO_RunPickupQueue(35));
             SceneManager.activeSceneChanged += OnSceneChange;
         }
         private void OnDestroy()

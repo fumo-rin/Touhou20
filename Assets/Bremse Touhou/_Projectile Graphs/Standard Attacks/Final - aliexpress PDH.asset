@@ -30,6 +30,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 0
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &-5372908114899752924
 MonoBehaviour:
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 875
-    y: 576
+    x: 852
+    y: 432
     width: 400
     height: 300
   ID: 18a6e39f-d4d0-4561-982f-fde48ab56aa0
@@ -61,6 +62,7 @@ MonoBehaviour:
   speed: 5
   addedAngle: 0
   spread: 5
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-4673846698117420520
 MonoBehaviour:
@@ -92,6 +94,7 @@ MonoBehaviour:
   speed: 1
   addedAngle: 0
   spread: 15
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-4645281529380067432
 MonoBehaviour:
@@ -128,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 882
-    y: 935
+    x: 859
+    y: 791
     width: 400
     height: 300
   ID: 3cfab4f6-f0cf-47ff-bbd3-c0920ee0c3f9
@@ -144,6 +147,7 @@ MonoBehaviour:
   speed: 1
   addedAngle: 0
   spread: 15
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-4191760690823002199
 MonoBehaviour:
@@ -159,16 +163,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 336
-    y: 425
+    x: 313
+    y: 281
     width: 350
     height: 700
   ID: f40ef764-7b6c-4b66-9d79-cc574b6a049e
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 80
-    y: 455
+    x: 57
+    y: 311
     width: 250
     height: 250
   directionalOffset: 0.25
@@ -182,6 +186,7 @@ MonoBehaviour:
   - {fileID: 8668174804917119523}
   - {fileID: -4345314284584146708}
   - {fileID: -5372908114899752924}
+  attachedProjectileMods: []
   projectileCountFloat: 4
   AngleCoverage: 110
   startingAngle: 0
@@ -273,6 +278,7 @@ MonoBehaviour:
   speed: 3
   addedAngle: -180
   spread: 5
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-975918989488927012
 MonoBehaviour:
@@ -304,6 +310,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 0
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &-126381390994912820
 MonoBehaviour:
@@ -335,6 +342,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 0
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -360,6 +368,7 @@ MonoBehaviour:
   - {fileID: -4191760690823002199}
   emitters:
   - {fileID: 4109503866884801225}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 1
   headerTexture: {fileID: 0}
@@ -395,6 +404,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 0
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &4109503866884801225
 MonoBehaviour:
@@ -410,8 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 329
-    y: 90
+    x: 306
+    y: -54
     width: 350
     height: 200
   ID: d1409f0e-1e6b-46c7-ab0d-e6901bedc983
@@ -421,6 +431,7 @@ MonoBehaviour:
   - {fileID: -4191760690823002199}
   addedDelay: 0
   Retargetting: 1
+  OffScreenClearEdgePadding: 8
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.3
   repeatCount: 2
@@ -459,6 +470,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
   projectileCountFloat: 20
   AngleCoverage: 360
   startingAngle: 0
@@ -541,6 +553,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 0
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &7146652978902811276
 MonoBehaviour:
@@ -577,6 +590,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -2109712739337020061}
+  attachedProjectileMods: []
 --- !u!114 &7712379449139107685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +621,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: -180
   spread: 5
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &7744886453231968892
 MonoBehaviour:
@@ -632,6 +647,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.33333334
   repeatCount: 82
@@ -661,6 +677,7 @@ MonoBehaviour:
   - {fileID: 7146652978902811276}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
 --- !u!114 &8668174804917119523
 MonoBehaviour:
@@ -676,8 +693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 895
-    y: 236
+    x: 872
+    y: 92
     width: 400
     height: 300
   ID: cde8151e-230e-4c0a-8df5-90f4cf27919a
@@ -692,4 +709,5 @@ MonoBehaviour:
   speed: 3
   addedAngle: -180
   spread: 5
+  OffScreenClearEdgePadding: 8
   Faction: 2
