@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1011
-    y: 758
+    x: 439
+    y: 937
     width: 350
     height: 200
   ID: f840a92d-a46c-439c-b4dc-33d32309ba70
@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 4753194322231034687}
   addedDelay: 0.75
   Retargetting: 1
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
 --- !u!114 &-6415526602216712017
 MonoBehaviour:
@@ -40,8 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 984
-    y: 519
+    x: 412
+    y: 698
     width: 350
     height: 100
   ID: 358709e7-9bc6-45ba-ba18-22d7375dbf88
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 635
-    y: 322
+    x: 63
+    y: 501
     width: 350
     height: 200
   ID: 15583519-b34a-4b6f-99af-7fefad29133a
@@ -108,6 +109,7 @@ MonoBehaviour:
   - {fileID: 8626943202641724969}
   addedDelay: 0
   Retargetting: 1
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 6862157943856889482}
   repeatInterval: 0.33333334
   repeatCount: 6
@@ -126,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 665
-    y: 92
+    x: 93
+    y: 271
     width: 350
     height: 100
   ID: ebaea985-6dde-44bd-b403-94c503dfda40
@@ -149,16 +151,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 496
-    y: 639
+    x: -76
+    y: 818
     width: 350
     height: 700
   ID: 662384c5-dc96-4b59-839e-94c2a210c919
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 240
-    y: 669
+    x: -332
+    y: 848
     width: 250
     height: 250
   directionalOffset: 0.25
@@ -246,8 +248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 177
-    y: 260
+    x: -395
+    y: 439
     width: 250
     height: 200
   ID: b463fcce-666f-4574-8191-f35401f86b97
@@ -267,16 +269,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1401
-    y: 50
+    x: 829
+    y: 229
     width: 350
     height: 700
   ID: f2abdd8a-771e-4776-8f25-b83671b8e22f
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1145
-    y: 80
+    x: 573
+    y: 259
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -365,6 +367,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 1
   Retargetting: 1
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.1
   repeatCount: 10

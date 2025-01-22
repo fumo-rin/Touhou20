@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1224
-    y: 1375
+    x: 1350
+    y: 1358
     width: 400
     height: 300
   ID: 31fdd948-dbde-43da-bff5-6f1961a237dd
@@ -30,6 +30,7 @@ MonoBehaviour:
   speed: 10
   addedAngle: -105
   spread: 2
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-8063571252079463087
 MonoBehaviour:
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 783
-    y: 1284
+    x: 909
+    y: 1267
     width: 400
     height: 300
   ID: ecfe8415-b05a-484e-b26b-e08d85406b50
@@ -61,6 +62,7 @@ MonoBehaviour:
   speed: 10
   addedAngle: 105
   spread: 2
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-6726217897975526738
 MonoBehaviour:
@@ -76,16 +78,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 346
-    y: 98
+    x: 472
+    y: 81
     width: 350
     height: 700
   ID: 63b364f0-b5fd-4489-a95f-eb6b286c08ed
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 90
-    y: 128
+    x: 216
+    y: 111
     width: 250
     height: 250
   directionalOffset: 6
@@ -96,6 +98,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
   projectileCountFloat: 9
   AngleCoverage: 150
   startingAngle: 180
@@ -192,6 +195,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
+  attachedProjectileMods: []
   projectileCountFloat: 7
   AngleCoverage: 90
   startingAngle: 0
@@ -258,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 800
-    y: 314
+    x: 926
+    y: 297
     width: 350
     height: 200
   ID: 3f184fa9-ee81-4b85-ba52-fbe40e45bd4a
@@ -269,6 +273,7 @@ MonoBehaviour:
   - {fileID: -6726217897975526738}
   addedDelay: 0.5
   Retargetting: 1
+  OffScreenClearEdgePadding: 7
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.15
   repeatCount: 28
@@ -303,6 +308,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 90
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &-3307353721253079092
 MonoBehaviour:
@@ -318,8 +324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 884
-    y: 712
+    x: 1010
+    y: 695
     width: 250
     height: 200
   ID: 5918244e-deaf-4c0b-bd04-878be07a6e2b
@@ -339,16 +345,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1399
-    y: 603
+    x: 1525
+    y: 586
     width: 350
     height: 700
   ID: cd771acd-3bd6-4055-a10b-06a3353fbb93
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1143
-    y: 633
+    x: 1269
+    y: 616
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -360,6 +366,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -442,6 +449,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 6325060685933908652}
   - {fileID: -4137284215418995408}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -461,16 +469,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 395
-    y: 959
+    x: 521
+    y: 942
     width: 350
     height: 700
   ID: 135f0cf1-0200-4dfe-94d5-b300daaa8488
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 139
-    y: 989
+    x: 265
+    y: 972
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -482,6 +490,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -8063571252079463087}
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -548,8 +557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 829
-    y: 1051
+    x: 955
+    y: 1034
     width: 350
     height: 200
   ID: 24a5dcfc-3ac0-4d50-9271-8b34068c8d9d
@@ -560,6 +569,7 @@ MonoBehaviour:
   - {fileID: -271336731110605954}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: -3307353721253079092}
   repeatInterval: 0.2
   repeatCount: 25
