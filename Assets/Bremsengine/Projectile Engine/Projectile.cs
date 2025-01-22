@@ -1,11 +1,9 @@
 using Core.Extensions;
-using Mono.CSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Bremsengine
 {
@@ -34,6 +32,7 @@ namespace Bremsengine
 
             rb.gravityScale = proj.gravityModifier;
             rb.linearDamping = proj.drag;
+            ClearMods();
             return this;
         }
         public Projectile SetIgnoreCollision(Collider2D c)
@@ -482,6 +481,45 @@ namespace Bremsengine
         public static bool PlayerBombedRecently => lastBombTime > 0f && Time.time <= lastBombTime + playerIframesInSeconds;
     }
     #endregion
+    #region Projectile Mods
+    public partial class Projectile
+    {
+        Dictionary<ProjectileMod, float> modsDurations;
+        HashSet<ProjectileMod> mods = new HashSet<ProjectileMod>();
+        public void AddMod(ProjectileMod mod)
+        {
+            mods.Add(mod);
+            modsDurations[mod] = mod.duration;
+        }
+        public void RemoveMod(ProjectileMod mod)
+        {
+            mods.Remove(mod);
+            modsDurations.Remove(mod);
+        }
+        public void ClearMods()
+        {
+            modsDurations = new();
+            mods.Clear();
+        }
+        public void RunMods()
+        {
+            foreach (var item in mods)
+            {
+                if (!modsDurations.ContainsKey(item))
+                {
+                    Debug.Log("Bad");
+                    continue;
+                }
+                if (modsDurations[item] <= 0f)
+                {
+                    continue;
+                }
+                item.RunMod(this, modsDurations[item], out float newDuration);
+                modsDurations[item] = newDuration;
+            }
+        }
+    }
+    #endregion
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class Projectile : MonoBehaviour
     {
@@ -516,6 +554,10 @@ namespace Bremsengine
                 mainCollider = c;
                 c.isTrigger = true;
             }
+        }
+        private void Update()
+        {
+            RunMods();
         }
         public bool Contains(Vector2 position) => mainCollider.bounds.Contains(position);
     }

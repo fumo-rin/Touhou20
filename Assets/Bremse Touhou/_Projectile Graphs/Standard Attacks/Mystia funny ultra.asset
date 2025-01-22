@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 161
-    y: 402
+    x: -1550
+    y: -217
     width: 350
     height: 200
   ID: 0cc3a3d7-0783-497f-8082-5d0272982e06
@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 7677855679908914555}
   addedDelay: 1.2
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.15
   repeatCount: 14
@@ -43,8 +44,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1112
-    y: 443
+    x: -599
+    y: -176
     width: 350
     height: 150
   ID: 716e775a-c7aa-4174-b2f8-c7e55740ffde
@@ -70,8 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1173
-    y: 1206
+    x: -538
+    y: 587
     width: 350
     height: 200
   ID: 1139b5dc-d150-4f88-9ffd-a77a2119fc07
@@ -81,6 +82,7 @@ MonoBehaviour:
   - {fileID: -6013896878417400853}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.05
   repeatCount: 11
@@ -99,16 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 662
-    y: 977
+    x: -1049
+    y: 358
     width: 350
     height: 700
   ID: 5df7705d-5e2a-4e30-8b16-ca3eef567243
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 406
-    y: 1007
+    x: -1305
+    y: 388
     width: 250
     height: 250
   directionalOffset: 0.45
@@ -187,8 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1217
-    y: 969
+    x: -494
+    y: 350
     width: 350
     height: 200
   ID: 49c013ab-81cf-4abb-9397-97be916d86f4
@@ -198,6 +200,7 @@ MonoBehaviour:
   - {fileID: 4330141135589927404}
   addedDelay: 0.6
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.05
   repeatCount: 11
@@ -216,16 +219,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1650
-    y: 14
+    x: -61
+    y: -605
     width: 350
     height: 700
   ID: 56d37a0a-f9c1-4a56-a79f-19ee414c01cc
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1394
-    y: 44
+    x: -317
+    y: -575
     width: 250
     height: 250
   directionalOffset: 0.45
@@ -348,8 +351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1097
-    y: 667
+    x: -614
+    y: 48
     width: 350
     height: 150
   ID: db10dfc8-7e3e-4992-9fe8-18ff20d9c6e3
@@ -375,8 +378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 2099
-    y: 137
+    x: 388
+    y: -482
     width: 350
     height: 200
   ID: d273dbee-c535-4c28-8d1a-f6791b0e4ef1
@@ -386,6 +389,7 @@ MonoBehaviour:
   - {fileID: -1368627582006452420}
   addedDelay: 1.275
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.15
   repeatCount: 13
@@ -414,6 +418,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.3
   repeatCount: 42
@@ -432,16 +437,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1920
-    y: 799
+    x: 209
+    y: 180
     width: 350
     height: 700
   ID: ed143334-fcc3-4d16-b6b5-4edc80b54b5d
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1664
-    y: 829
+    x: -47
+    y: 210
     width: 250
     height: 250
   directionalOffset: 0.45
@@ -530,6 +535,7 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.3
   repeatCount: 4
@@ -548,8 +554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 990
-    y: 99
+    x: -721
+    y: -520
     width: 350
     height: 100
   ID: 08d6cc89-86d3-4315-bb57-cd558ba66690
@@ -571,16 +577,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 597
-    y: 59
+    x: -1114
+    y: -560
     width: 350
     height: 700
   ID: 7f64d990-7d56-4cd5-9ae8-f697b375f427
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 341
-    y: 89
+    x: -1370
+    y: -530
     width: 250
     height: 250
   directionalOffset: 0.45

@@ -7,6 +7,7 @@ namespace Bremsengine
     {
         [SerializeField] private float delayInSeconds = 0.5f;
         [SerializeField] protected float tickRate = 15f;
+        [SerializeField] public float duration = 0.5f;
         private WaitForSeconds tickRatedDelay = null;
         protected WaitForSeconds GetTickratedDelay()
         {
@@ -16,6 +17,8 @@ namespace Bremsengine
             }
             return tickRatedDelay;
         }
+        protected abstract void AddModTo(Projectile p); // used inside the payload to bind to projectiles
+        public abstract void RunMod(Projectile p, float remainingDuration ,out float newDuration);
         protected abstract IEnumerator CO_ModifierPayload(Projectile p, WaitForSeconds delay);
         public WaitForSeconds Delay => new WaitForSeconds(delayInSeconds);
         public void QueueMod(Projectile p, WaitForSeconds delay)
