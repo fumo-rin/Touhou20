@@ -1,4 +1,6 @@
 using Core.Extensions;
+using Mono.CSharp;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,6 @@ namespace Bremsengine
 
             rb.gravityScale = proj.gravityModifier;
             rb.linearDamping = proj.drag;
-            QueueRecalculateOffscreen();
             return this;
         }
         public Projectile SetIgnoreCollision(Collider2D c)
@@ -284,41 +285,70 @@ namespace Bremsengine
     }
     #endregion
     #region Projectile Clearing
+    [System.Serializable]
+    public class ClearProjectile
+    {
+        Bounds bounds;
+        private Bounds RecalculateBounds(float edgePaddingOutwards)
+        {
+            return DirectionSolver.GetPaddedBounds(-edgePaddingOutwards.Max(5f));
+        }
+        public ClearProjectile(float edgePaddingOutwards)
+        {
+            this.bounds = RecalculateBounds(edgePaddingOutwards);
+        }
+        public bool KeepProjectile(Vector2 position)
+        {
+            return bounds.Contains(position);
+        }
+    }
     public partial class Projectile
     {
+        ClearProjectile offscreenClear;
+        Coroutine offScreenCoroutine;
+        WaitForSeconds offScreenLoopStall = new(0.5f);
+        public Projectile SetOffScreenClear(float edgePaddingOutwards)
+        {
+            offscreenClear = new(edgePaddingOutwards.Multiply(2f));
+            if (offScreenCoroutine != null)
+            {
+                StopCoroutine(offScreenCoroutine);
+            }
+            offScreenCoroutine = StartCoroutine(CO_OffscreenLoop());
+            return this;
+        }
+        IEnumerator CO_OffscreenLoop()
+        {
+            if (!Active)
+            {
+                offScreenCoroutine = null;
+                yield break;
+            }
+            while (offscreenClear.KeepProjectile(this.Position))
+            {
+                yield return offScreenLoopStall;
+                continue;
+            }
+            ClearProjectile();
+        }
         private bool isActive;
         public bool Active => isActive;
-        bool isOffscreenClearing;
-        bool recalculateOffscreen;
-        public void ClearProjectile()
+        public delegate void ClearAction(Vector2 position);
+        public ClearAction OnClear;
+        public void ClearProjectile(ClearAction c = null)
         {
             if (gameObject == null)
             {
                 activeProjectiles.Remove(this);
                 return;
             }
+            c?.Invoke(Position);
             CountProjectiles--;
             isActive = false;
             gameObject.SetActive(false);
             ProjectileQueue.Enqueue(this);
             StopAllCoroutines();
             activeProjectiles.Remove(this);
-        }
-        public void QueueRecalculateOffscreen() => recalculateOffscreen = true;
-        public void SetOffScreen(bool state)
-        {
-            recalculateOffscreen = false;
-            if (state)
-            {
-                if (!isOffscreenClearing)
-                {
-                    Invoke(nameof(ClearProjectile), offScreenClearDelay);
-                }
-                isOffscreenClearing = state;
-                return;
-            }
-            isOffscreenClearing = state;
-            CancelInvoke(nameof(ClearProjectile));
         }
         public static void ClearProjectileTimelineFor(Transform t) => ProjectileEmitterTimelineHandler.ClearEmitQueue(t);
     }
@@ -341,14 +371,14 @@ namespace Bremsengine
             activeProjectiles.Clear();
         }
         public static Projectile[] ProjectilesWhere(System.Func<Projectile, bool> predicate) => activeProjectiles.Where(predicate).ToArray();
-        public static void ClearProjectilesOfFaction(BremseFaction f)
+        public static void ClearProjectilesOfFaction(BremseFaction f, ClearAction onClear = null)
         {
             foreach (var item in ProjectilesWhere(x => x != null && x.Faction == f))
             {
-                item.ClearProjectile();
+                item.ClearProjectile(onClear);
             }
         }
-        public static void ClearProjectilesNotOfFaction(BremseFaction f)
+        public static void ClearProjectilesNotOfFaction(BremseFaction f, ClearAction onClear = null)
         {
             foreach (var item in ProjectilesWhere(x => x != null && x.Faction != f))
             {
@@ -431,7 +461,8 @@ namespace Bremsengine
     #region Player Bomb
     public partial class Projectile
     {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] public static void Initialize()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void Initialize()
         {
             lastBombTime = -1f;
             playerIframesInSeconds = 2f;
@@ -467,7 +498,6 @@ namespace Bremsengine
         [SerializeField] Transform rotationAnchor;
         [SerializeField] float gravityModifier = 0f;
         [SerializeField] float drag = 0f;
-        [SerializeField] float offScreenClearDelay = 5f;
         public Texture Texture => projectileSprite == null ? null : projectileSprite.Texture;
         public bool IsOffScreen => projectileSprite.IsOffScreen;
         private void Awake()
@@ -485,13 +515,6 @@ namespace Bremsengine
             {
                 mainCollider = c;
                 c.isTrigger = true;
-            }
-        }
-        private void LateUpdate()
-        {
-            if (recalculateOffscreen)
-            {
-                SetOffScreen(IsOffScreen);
             }
         }
         public bool Contains(Vector2 position) => mainCollider.bounds.Contains(position);

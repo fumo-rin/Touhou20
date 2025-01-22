@@ -23,19 +23,5 @@ namespace Bremsengine
             sprite.sharedMaterial = other.sharedMaterial;
             sprite.sortingLayerID = other.sortingLayerID;
         }
-        private void OnBecameInvisible()
-        {
-            if (assignedProjectile.Active)
-            {
-                assignedProjectile.QueueRecalculateOffscreen();
-            }
-        }
-        private void OnBecameVisible()
-        {
-            if (assignedProjectile.Active)
-            {
-                assignedProjectile.SetOffScreen(false);
-            }
-        }
     }
 }

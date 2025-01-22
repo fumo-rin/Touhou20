@@ -35,6 +35,7 @@ namespace Bremsengine
         {
             EditorGUI.BeginChangeCheck();
             addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
+            OffScreenClearEdgePadding = (float)EditorGUILayout.IntField("Offscreen Edge Padding Outwards", (int)OffScreenClearEdgePadding);
             Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
 
             Active = EditorGUILayout.Toggle("Is Active", Active);
@@ -77,6 +78,7 @@ namespace Bremsengine
         public float addedDelay;
         public bool Retargetting;
         public float CooldownDuration => GetCooldownDelay();
+        public float OffScreenClearEdgePadding;
         protected abstract float GetCooldownDelay(); 
         public ProjectileGraphDirectionNode linkedOverrideDirection;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
@@ -118,6 +120,7 @@ namespace Bremsengine
             foreach (var item in newSpawns)
             {
                 callback?.Invoke(item, input.Owner, input.Target);
+                item.SetOffScreenClear(OffScreenClearEdgePadding);
                 Projectile.RegisterProjectile(item);
             }
         }

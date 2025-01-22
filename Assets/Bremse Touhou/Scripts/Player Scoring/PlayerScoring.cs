@@ -3,6 +3,7 @@ using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BremseTouhou
 {
@@ -21,35 +22,100 @@ namespace BremseTouhou
         Collider2D[] pickupsIteration;
         HashSet<Transform> lootedPickups = new HashSet<Transform>();
         static HashSet<Transform> spawnedPickups = new();
+        static Queue<Vector2> pickupQueue = new();
+        static Bounds? nullableWorldBounds;
+        static float minimumYPositionForAutoLoot;
+        static bool autoLoot => PlayerUnit.Player.Center.y >= minimumYPositionForAutoLoot;
+        private static void OnSceneChange(Scene oldScene, Scene newScene)
+        {
+            nullableWorldBounds = null;
+            minimumYPositionForAutoLoot = 1000f;
+        }
         public static void SpawnPickup(Vector2 position)
         {
-            if (instance == null)
+            if (nullableWorldBounds == null)
             {
-                Debug.LogWarning("Missing Player Scoring Instance");
+                Bounds b = DirectionSolver.GetPaddedBounds(0f);
+                Bounds autoLoot = DirectionSolver.TopOfScreenBounds(5f, 0f);
+                nullableWorldBounds = b;
+                minimumYPositionForAutoLoot = autoLoot.min.y;
             }
-            Transform pickup = Instantiate(instance.ScoreItemPrefab, position + Random.insideUnitCircle, Quaternion.identity);
-            if (pickup.GetComponent<Rigidbody2D>() is not null and Rigidbody2D rb)
+            if (nullableWorldBounds != null && ((Bounds)nullableWorldBounds).Contains(position))
             {
-                rb.linearVelocity = new Vector2(0f, instance.verticalSpawnForce).Rotate2D(-5f).Rotate2D(5f.Spread(100f));
+                pickupQueue.Enqueue(position);
             }
-            spawnedPickups.Add(pickup);
+        }
+        public static IEnumerator CO_RunPickupQueue(int amountPerIteration)
+        {
+            int i;
+            Vector2 position;
+            while (true)
+            {
+                if (instance == null)
+                {
+                    Debug.LogWarning("Missing Player Scoring Instance");
+                    continue;
+                }
+                for (i = 0; i < amountPerIteration; i++)
+                {
+                    if (pickupQueue.Count <= 0)
+                        continue;
+
+                    position = pickupQueue.Dequeue();
+                    Transform pickup = Instantiate(instance.ScoreItemPrefab, position + Random.insideUnitCircle, Quaternion.identity);
+                    Destroy(pickup.gameObject, 10f);
+                    if (pickup.GetComponent<Rigidbody2D>() is not null and Rigidbody2D rb)
+                    {
+                        rb.linearVelocity = new Vector2(0f, instance.verticalSpawnForce).Rotate2D(-5f).Rotate2D(5f.Spread(100f));
+                    }
+                    spawnedPickups.Add(pickup);
+                    if (autoLoot)
+                    {
+                        instance.PickupTransform(pickup);
+                    }
+                }
+                yield return null;
+            }
         }
         private void PickupLoop()
         {
+            if (autoLoot)
+            {
+                foreach (var pickup in spawnedPickups)
+                {
+                    PickupTransform(pickup);
+                }
+                return;
+            }
+
             pickupsIteration = Physics2D.OverlapCircleAll(transform.position, pickupDistance, pickupsLayer);
             if (pickupsIteration == null || pickupsIteration.Length <= 0)
                 return;
 
             foreach (Collider2D col in pickupsIteration)
             {
-                if (col.transform == null)
-                    return;
-                if (lootedPickups.Contains(col.transform))
-                    return;
-                col.enabled = false;
-                lootedPickups.Add(col.transform);
-                StartCoroutine(CO_Pickup(col.transform.root));
+                Pickup(col);
             }
+        }
+        private void Pickup(Collider2D col)
+        {
+            if (col.transform == null)
+            {
+                return;
+            }
+            col.enabled = false;
+            PickupTransform(col.transform);
+        }
+        private void PickupTransform(Transform t)
+        {
+            if (t == null)
+            {
+                return;
+            }
+            if (lootedPickups.Contains(t))
+                return;
+            lootedPickups.Add(t);
+            StartCoroutine(CO_Pickup(t.root));
         }
         private IEnumerator CO_Pickup(Transform pickup)
         {
@@ -122,10 +188,13 @@ namespace BremseTouhou
         {
             GrazeBox.OnGraze += GrazeAction;
             InvokeRepeating(nameof(PickupLoop), 0.1f, 0.1f);
+            StartCoroutine(CO_RunPickupQueue(150));
+            SceneManager.activeSceneChanged += OnSceneChange;
         }
         private void OnDestroy()
         {
             GrazeBox.OnGraze -= GrazeAction;
+            SceneManager.activeSceneChanged -= OnSceneChange;
         }
         private void GrazeAction(int grazeCount)
         {

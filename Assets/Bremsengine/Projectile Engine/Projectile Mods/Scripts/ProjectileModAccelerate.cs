@@ -14,12 +14,16 @@ namespace Bremsengine
         {
             yield return delay;
             float iterationTime = duration;
+            float lastTime = Time.time;
+            float deltaTime;
             while (iterationTime > 0)
             {
-                p.Post_SetNewVelocity(p.Velocity.LerpTowards(p.Velocity.ScaleToMagnitude(maxSpeed), acceleration));
+                deltaTime = Time.time - lastTime;
+                iterationTime += deltaTime;
+                p.Post_SetNewVelocity(p.Velocity.LerpTowardsWithDeltaTime(p.Velocity.ScaleToMagnitude(maxSpeed), acceleration, deltaTime));
                 p.ApplyCurrentVelocity();
-                iterationTime -= Time.deltaTime;
-                yield return null;
+                iterationTime -= deltaTime;
+                yield return GetTickratedDelay();
             }
         }
     }

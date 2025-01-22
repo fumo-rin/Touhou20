@@ -30,6 +30,7 @@ namespace Bremsengine
             EditorGUI.BeginChangeCheck();
             AddSpace(1);
             base.OnDraw(style);
+            OffScreenClearEdgePadding = (float)EditorGUILayout.IntField("Offscreen Edge Padding Outwards", (int)OffScreenClearEdgePadding);
             isActive = EditorGUILayout.Toggle("Event Enabled", isActive);
             projectilePrefab = (ProjectileTypeSO)EditorGUILayout.ObjectField("Projectile Prefab", projectilePrefab, typeof(ProjectileTypeSO), false);
             fanAngle = EditorGUILayout.Slider("Projectile Fan Angle", fanAngle, 0f, 360f);
@@ -65,6 +66,7 @@ namespace Bremsengine
         public float speed = 4f;
         public float addedAngle = 0f;
         public float spread = 0f;
+        public float OffScreenClearEdgePadding;
         public BremseFaction Faction;
 
         protected override void TriggerEvent(Projectile p, TriggeredEvent e)
@@ -91,6 +93,7 @@ namespace Bremsengine
 
                     Projectile spawn = CreateProjectile(projectilePrefab.Prefab, p.Position, direction, directionalOffset, spread, iterationAddedAngle, speed);
                     Projectile.RegisterProjectile(spawn);
+                    spawn.SetOffScreenClear(OffScreenClearEdgePadding);
                     spawn.SetDamage(p.Damage);
                     spawn.SetFaction(p.Faction);
                 }

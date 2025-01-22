@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: 4555431237622639710}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0
   repeatCount: 8
@@ -176,6 +177,7 @@ MonoBehaviour:
   - {fileID: -7187345797241837277}
   addedDelay: 1
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0
   repeatCount: 8
@@ -388,6 +390,7 @@ MonoBehaviour:
   - {fileID: 4155842427385162004}
   addedDelay: 0
   Retargetting: 1
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.14285715
   repeatCount: 7

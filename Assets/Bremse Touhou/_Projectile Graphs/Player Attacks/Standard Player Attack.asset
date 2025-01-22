@@ -140,6 +140,7 @@ MonoBehaviour:
   - {fileID: 5010464049080702738}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: -1614631124295729775}
   repeatInterval: 0.09
   repeatCount: 3

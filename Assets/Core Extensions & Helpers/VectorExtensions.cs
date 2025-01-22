@@ -94,6 +94,10 @@ namespace Core.Extensions
         {
             return Vector2.MoveTowards(v, target, speed * Time.deltaTime);
         }
+        public static Vector2 LerpTowardsWithDeltaTime(this Vector2 v, Vector2 target, float speed, float deltaTime)
+        {
+            return Vector2.Lerp(v, target, speed * deltaTime);
+        }
         public static Vector2 LerpTowards(this Vector2 v, Vector2 target, float speed)
         {
             return Vector2.Lerp(v, target, speed * Time.deltaTime);

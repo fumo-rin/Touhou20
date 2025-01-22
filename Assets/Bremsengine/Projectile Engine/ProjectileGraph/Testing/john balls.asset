@@ -203,6 +203,7 @@ MonoBehaviour:
   - {fileID: -5296717821074108817}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.15
   repeatCount: 7

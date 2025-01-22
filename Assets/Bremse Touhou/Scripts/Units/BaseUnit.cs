@@ -149,7 +149,7 @@ namespace BremseTouhou
                 if (enemy.isBoss)
                 {
                     TouhouManager.PlayBossKillSound();
-                    Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy);
+                    Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, PlayerScoring.SpawnPickup);
                 }
             }
             Projectile.ClearProjectileTimelineFor(transform);

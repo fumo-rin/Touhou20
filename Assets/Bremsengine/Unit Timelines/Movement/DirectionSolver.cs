@@ -76,7 +76,7 @@ namespace Bremsengine
             Vector2 processedVector = new(centerVector.x, centerVector.y);
             processedVector.x = processedVector.x.Sign();
             processedVector.y = Random.Range(-verticality,verticality);
-            if (!IsWithinBounds(t, edgePadding, maxVerticalDistanceToTop))
+            if (!IsWithinBounds(t.position, edgePadding, maxVerticalDistanceToTop))
             {
                 return processedVector.ScaleToMagnitude(forceRange.RandomBetweenXY());
             }
@@ -96,10 +96,10 @@ namespace Bremsengine
             }
             return processedVector.ScaleToMagnitude(forceRange.RandomBetweenXY());
         }
-        public static bool IsWithinBounds(Transform t, float edgePadding, float maxDistanceToTop)
+        public static bool IsWithinBounds(Vector2 v, float edgePadding, float maxDistanceToTop = -1000f)
         {
-            Bounds iteration = TopOfScreenBounds(maxDistanceToTop, edgePadding);
-            return iteration.Contains(t.position);
+            Bounds iteration = TopOfScreenBounds(maxDistanceToTop == -1000f ? worldBounds.size.y : maxDistanceToTop, edgePadding);
+            return iteration.Contains(v);
         }
     }
 }
