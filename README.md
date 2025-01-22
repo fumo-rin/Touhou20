@@ -1,2 +1,2 @@
-# Shooty-RPG
+# Touhou 20
 secret gaming project
