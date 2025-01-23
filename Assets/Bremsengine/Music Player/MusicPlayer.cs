@@ -7,6 +7,7 @@ namespace Bremsengine
 {
     public class MusicPlayer : MonoBehaviour
     {
+        public static float GlobalVolume { get; private set; }
         [SerializeField] MusicWrapper testStartingMusic;
         Queue<MusicWrapper> Playlist = new();
         [SerializeField] List<MusicWrapper> testPlaylist = new();
@@ -14,7 +15,7 @@ namespace Bremsengine
         {
             if (testStartingMusic != null)
             {
-                testStartingMusic.Play();
+                PlayMusicWrapper(testStartingMusic);
             }
             foreach (var item in testPlaylist)
             {
@@ -44,6 +45,7 @@ namespace Bremsengine
                 Destroy(gameObject);
                 return;
             }
+            GlobalVolume = 0.75f;
             if (track1 == null) track1 = new GameObject("Music Track 1").transform.SetParentDecorator(transform).gameObject.AddComponent<AudioSource>();
             if (track2 == null) track2 = new GameObject("Music Track 2").transform.SetParentDecorator(transform).gameObject.AddComponent<AudioSource>();
             transform.SetParent(null);
@@ -91,12 +93,20 @@ namespace Bremsengine
                 track2.Play();
                 song2 = clip;
                 selectedTrack = 2;
-                while (timeElapsed < crossfade)
+                if (crossfade == 0)
                 {
-                    track2.volume = Mathf.Lerp(0f, song2, timeElapsed / crossfade) * clip.musicVolume;
-                    track1.volume = Mathf.Lerp(song1, 0f, timeElapsed / crossfade);
-                    timeElapsed += Time.deltaTime;
-                    yield return null;
+                    track2.volume = clip.musicVolume * GlobalVolume;
+                    track1.volume = 0f;
+                }
+                else
+                {
+                    while (timeElapsed < crossfade)
+                    {
+                        track2.volume = Mathf.Lerp(0f, song2, timeElapsed / crossfade) * (clip.musicVolume * GlobalVolume);
+                        track1.volume = Mathf.Lerp(song1, 0f, timeElapsed / crossfade);
+                        timeElapsed += Time.deltaTime;
+                        yield return null;
+                    }
                 }
                 track1.Stop();
             }
@@ -106,12 +116,20 @@ namespace Bremsengine
                 track1.Play();
                 song1 = clip;
                 selectedTrack = 1;
-                while (timeElapsed < crossfade)
+                if (crossfade == 0)
                 {
-                    track1.volume = Mathf.Lerp(0f, song1, timeElapsed / crossfade);
-                    track2.volume = Mathf.Lerp(song2, 0f, timeElapsed / crossfade);
-                    timeElapsed += Time.deltaTime;
-                    yield return null;
+                    track1.volume = clip.musicVolume * GlobalVolume;
+                    track2.volume = 0f;
+                }
+                else
+                {
+                    while (timeElapsed <= crossfade)
+                    {
+                        track1.volume = Mathf.Lerp(0f, song1, timeElapsed / crossfade) * (clip.musicVolume * GlobalVolume);
+                        track2.volume = Mathf.Lerp(song2, 0f, timeElapsed / crossfade);
+                        timeElapsed += Time.deltaTime;
+                        yield return null;
+                    }
                 }
                 track2.Stop();
             }

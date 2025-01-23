@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Boss Death Sound
   m_EditorClassIdentifier: 
   SoundName: Boss Kill Sound
-  soundVolume: 0.589
+  soundVolume: 1
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 5d4ecfe355d940642a050b5e000ce00a, type: 3}
     PitchVariancePercent: 0
     PitchOrigin: 1
-    Volume: 1
+    Volume: 0.577
     Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1
