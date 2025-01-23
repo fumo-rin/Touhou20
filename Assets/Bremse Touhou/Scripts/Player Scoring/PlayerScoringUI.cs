@@ -9,6 +9,7 @@ namespace BremseTouhou
     {
         [SerializeField] TMP_Text HighscoreText;
         [SerializeField] TMP_Text ActiveScoreText;
+        [SerializeField] TMP_Text ScoreItemText;
 
         public void Start()
         {
@@ -24,6 +25,7 @@ namespace BremseTouhou
             HighscoreText.text = hiScore.Floor().ToString("F0");
             HighscoreText.text = HighscoreText.text.Color(Color.red);
             ActiveScoreText.text = score.Floor().ToString("F0");
+            ScoreItemText.text = PlayerScoring.ScoreItemText();
         }
         private void FetchScore()
         {

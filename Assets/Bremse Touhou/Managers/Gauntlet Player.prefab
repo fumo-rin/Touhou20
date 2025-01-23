@@ -564,7 +564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -581, y: -334}
+  m_AnchoredPosition: {x: 572, y: -323}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1895006714426770387
@@ -6633,8 +6633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreItemPrefab: {fileID: 6076243941187219546, guid: b5424c17e50c70a4aa295b64818b7d6e, type: 3}
-  scorePullForce: 2
-  pickupDistance: 2
+  scorePullForce: 1.65
+  pickupDistance: 1.5
   verticalSpawnForce: 7
   forceSpreadPercent: 20
   pickupsLayer:
@@ -6642,7 +6642,7 @@ MonoBehaviour:
     m_Bits: 512
   pickupSound: {fileID: 11400000, guid: da8714e888179bf45962de8c1e20e1c2, type: 2}
   baseScorePerGraze: 1000
-  baseScorePerPickup: 50000
+  baseScorePerPickup: 5000
 --- !u!1 &8026481391743696223
 GameObject:
   m_ObjectHideFlags: 0

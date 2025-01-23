@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pickups Glow
+  m_Name: Pickups Glow UI
   m_Shader: {fileID: -6465566751694194690, guid: 2fed1385f2557d94a845927116592ade, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission: 7
+    - _Emission: 1.5
     - _Use_Emission_Map: 0
     m_Colors: []
   m_BuildTextureStacks: []

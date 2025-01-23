@@ -32,10 +32,12 @@ namespace Bremsengine
                 PlayerInputController.actions.Player.Enable();
             }
         }
+        [QFSW.QC.Command("-Pause")]
         public static void PauseGame()
         {
             SetPause(true);
         }
+        [QFSW.QC.Command("-Unpause")]
         public static void UnPauseGame()
         {
             SetPause(false);
@@ -139,16 +141,22 @@ namespace Bremsengine
         }
         private void OnDestroy()
         {
-            QCHelper.ReleaseCloseAction(UnPauseGame);
-            QCHelper.ReleaseOpenAction(PauseGame);
-            CloseInstance();
+            if (Instance == this)
+            {
+                QCHelper.ReleaseCloseAction(UnPauseGame);
+                QCHelper.ReleaseOpenAction(PauseGame);
+                CloseInstance();
+            }
         }
         private void Start()
         {
-            QCHelper.BindOpenAction(PauseGame);
-            QCHelper.BindCloseAction(UnPauseGame);
-            IsHighscorePotentiallyOutOfSync = true;
-            SetScoreValue(0f);
+            if (Instance == this)
+            {
+                QCHelper.BindOpenAction(PauseGame);
+                QCHelper.BindCloseAction(UnPauseGame);
+                IsHighscorePotentiallyOutOfSync = true;
+                SetScoreValue(0f);
+            }
         }
         private void StartInstance()
         {

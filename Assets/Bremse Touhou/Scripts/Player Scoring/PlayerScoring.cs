@@ -138,6 +138,7 @@ namespace BremseTouhou
             Destroy(pickup.gameObject);
             lootedPickups.Remove(pickup);
             pickupSound.Play(transform.position);
+            scoreItemAddedValue++;
             float score = AddScore(baseScorePerPickup);
             if (GeneralManager.ShouldAddScoreKey)
             {
@@ -152,17 +153,34 @@ namespace BremseTouhou
         private static PlayerScoring instance;
         float scoreMultiplier = 1f;
         const float grazeModifier = 0.0001f;
-        int grazeCount = 0;
+        static int grazeCount = 0;
+        static int scoreItemAddedValue = 0;
         [SerializeField] float baseScorePerGraze = 1000f;
-        [SerializeField] float baseScorePerPickup = 50000f;
+        [SerializeField] float baseScorePerPickup = 5000f;
+        public static string ScoreItemText()
+        {
+            string s = $"{scoreItemAddedValue + instance.baseScorePerPickup} x {GrazeMultiplier.ToString("F3")}";
+            return s;
+        }
+        public static float GrazeMultiplier => (1f + (grazeCount * grazeModifier));
         private float MultiplyScore(float score)
         {
-            scoreMultiplier = (1f + (grazeCount * grazeModifier));
+            scoreMultiplier = GrazeMultiplier;
             return scoreMultiplier * score;
         }
         private float AddScore(float addedScore)
         {
             return GeneralManager.AddScore(MultiplyScore(addedScore));
+        }
+        public static void PlayerDeathRecalculateScoreValue(float multiplier)
+        {
+            scoreItemAddedValue = (int)(((float)scoreItemAddedValue) * multiplier.Clamp(0f, 1f));
+        }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void Reinitialize()
+        {
+            scoreItemAddedValue = 0;
+            grazeCount = 0;
         }
         private void FixedUpdate()
         {
@@ -196,9 +214,9 @@ namespace BremseTouhou
             GrazeBox.OnGraze -= GrazeAction;
             SceneManager.activeSceneChanged -= OnSceneChange;
         }
-        private void GrazeAction(int grazeCount)
+        private void GrazeAction(int graze)
         {
-            this.grazeCount = grazeCount;
+            grazeCount = graze;
             float score = AddScore(baseScorePerGraze);
             if (GeneralManager.ShouldAddScoreKey)
             {

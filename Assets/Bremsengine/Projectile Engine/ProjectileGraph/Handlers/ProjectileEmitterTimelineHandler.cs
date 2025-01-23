@@ -18,6 +18,7 @@ namespace Bremsengine
             activeRoutines = new Dictionary<Transform, List<Coroutine>>();
             GameObject o = new GameObject("Projectile Emitter Timeline Handler");
             instance = o.AddComponent<ProjectileEmitterTimelineHandler>();
+            DontDestroyOnLoad(o);
         }
         public static void ClearEmitQueue(Transform owner)
         {

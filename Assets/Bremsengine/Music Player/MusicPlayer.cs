@@ -42,12 +42,13 @@ namespace Bremsengine
             if (instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
             if (track1 == null) track1 = new GameObject("Music Track 1").transform.SetParentDecorator(transform).gameObject.AddComponent<AudioSource>();
             if (track2 == null) track2 = new GameObject("Music Track 2").transform.SetParentDecorator(transform).gameObject.AddComponent<AudioSource>();
             transform.SetParent(null);
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(transform.gameObject);
         }
         static MusicPlayer instance;
         [SerializeField] AudioSource track1;
