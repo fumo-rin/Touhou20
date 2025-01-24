@@ -286,20 +286,34 @@ namespace Bremsengine
     #endregion
     #region Projectile Clearing
     [System.Serializable]
-    public class ClearProjectile
+    public struct ClearProjectile
     {
-        Bounds bounds;
-        private Bounds RecalculateBounds(float edgePaddingOutwards)
+        public float edgePaddingOutwards { get; private set; }
+        public static void ForceClearCache()
         {
-            return DirectionSolver.GetPaddedBounds(-edgePaddingOutwards.Max(5f));
+            if (BoundsCache == null)
+                BoundsCache = new();
+            BoundsCache.Clear();
+        }
+        static Dictionary<float, Bounds> BoundsCache;
+        private void RecalculateBounds()
+        {
+            if (BoundsCache == null)
+                BoundsCache = new Dictionary<float, Bounds>();
+
+            if (!BoundsCache.ContainsKey(edgePaddingOutwards))
+            {
+                BoundsCache[edgePaddingOutwards] = DirectionSolver.GetPaddedBounds(-edgePaddingOutwards.Max(5f));
+            }
         }
         public ClearProjectile(float edgePaddingOutwards)
         {
-            this.bounds = RecalculateBounds(edgePaddingOutwards);
+            this.edgePaddingOutwards = edgePaddingOutwards;
+            RecalculateBounds();
         }
         public bool KeepProjectile(Vector2 position)
         {
-            return bounds.Contains(position);
+            return BoundsCache[edgePaddingOutwards].Contains(position);
         }
     }
     public partial class Projectile
