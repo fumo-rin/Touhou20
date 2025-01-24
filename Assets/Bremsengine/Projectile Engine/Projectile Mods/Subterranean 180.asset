@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d42bbb3dd542845a7be8dee6d10774, type: 3}
   m_Name: Subterranean 180
   m_EditorClassIdentifier: 
-  delayInSeconds: 3
+  delayInSeconds: 3.5
+  tickRate: 15
+  duration: 0.5
   addedRotation:
     serializedVersion: 2
     m_Curve:

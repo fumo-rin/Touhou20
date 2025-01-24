@@ -211,7 +211,7 @@ MonoBehaviour:
   containedDash:
     weights:
       towardsTarget: 50
-      awayFromTarget: 10
+      awayFromTarget: 1
     forceRange: {x: 6, y: 8}
     maxVerticalDistanceToTop: 4
     edgePadding: 1
@@ -326,7 +326,7 @@ MonoBehaviour:
   containedDash:
     weights:
       towardsTarget: 50
-      awayFromTarget: 10
+      awayFromTarget: 1
     forceRange: {x: 6, y: 8}
     maxVerticalDistanceToTop: 4
     edgePadding: 1

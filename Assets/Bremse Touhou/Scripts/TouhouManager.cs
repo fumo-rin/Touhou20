@@ -1,3 +1,4 @@
+using Bremsengine;
 using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,12 +10,13 @@ namespace BremseTouhou
     public partial class TouhouManager
     {
         [SerializeField] AudioClipWrapper bossKillSound;
-        public static void PlayBossKillSound()
+        public static void PlayBossKillSound(Vector2 position)
         {
             if (instance != null)
             {
-                instance.bossKillSound.Play(Vector2.zero);
+                instance.bossKillSound.Play(position);
             }
+            GeneralManager.FunnyExplosion(position);
         }
     }
     #endregion
@@ -86,7 +88,7 @@ namespace BremseTouhou
         }
         public static void LoadDifficultyFromLastSelected()
         {
-            if (PlayerPrefs.HasKey(LastDifficultyStringKey) && PlayerPrefs.GetInt(LastDifficultyStringKey) is int difficulty and <= 0)
+            if (PlayerPrefs.HasKey(LastDifficultyStringKey) && PlayerPrefs.GetInt(LastDifficultyStringKey) is int difficulty and >= 0)
             {
                 SetDifficulty((Difficulty)difficulty);
             }
@@ -117,6 +119,7 @@ namespace BremseTouhou
             DontDestroyOnLoad(gameObject);
             Time.maximumDeltaTime = 1f / 60f;
             Time.maximumParticleDeltaTime = 1f / 60f;
+            LoadDifficultyFromLastSelected();
         }
         public static void CloseGame()
         {

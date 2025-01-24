@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
   m_Name: Da Funky
   m_EditorClassIdentifier: 
-  TrackName: Test Music
+  TrackName: Da Funky
   musicClip: {fileID: 8300000, guid: 0b8c9a90e7f465240ba99f44bcd8634a, type: 3}
   musicVolume: 0.7

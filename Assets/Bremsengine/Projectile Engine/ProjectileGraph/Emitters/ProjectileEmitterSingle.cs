@@ -28,9 +28,9 @@ namespace Bremsengine
     #endregion
     public partial class ProjectileEmitterSingle : ProjectileEmitterSO
     {
-        public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)
+        public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
-            ProjectileEmitterTimelineHandler.Queue(Co_Emit(addedDelay, triggeredEvent, input, callback), input.Owner);
+            ProjectileEmitterTimelineHandler.Queue(Co_Emit(addedDelay, triggeredEvent, input, callback, forcedLayer), input.Owner);
         }
 
         protected override float GetCooldownDelay()

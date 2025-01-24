@@ -19,9 +19,12 @@ namespace Bremsengine
         public void SetSprite(Sprite s, SpriteRenderer other)
         {
             sprite.sprite = s;
-            sprite.sortingOrder = other.sortingOrder;
             sprite.sharedMaterial = other.sharedMaterial;
             sprite.sortingLayerID = other.sortingLayerID;
+        }
+        public void SetSpriteSortingIndex(int index)
+        {
+            sprite.sortingOrder = index;
         }
     }
 }

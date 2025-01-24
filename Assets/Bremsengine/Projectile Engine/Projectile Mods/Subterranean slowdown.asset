@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8deac1c03be8448ab54a5a0f7733b6, type: 3}
   m_Name: Subterranean slowdown
   m_EditorClassIdentifier: 
-  delayInSeconds: 2.9
+  delayInSeconds: 4
+  tickRate: 15
   duration: 0.5
-  maxSpeed: 1
+  maxSpeed: 1.35
   acceleration: 6

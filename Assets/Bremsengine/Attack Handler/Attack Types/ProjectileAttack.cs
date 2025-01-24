@@ -5,6 +5,7 @@ namespace Bremsengine
     public class ProjectileAttack : BaseAttack
     {
         [SerializeField] ProjectileGraphSO projectileAttack;
+        [SerializeField] int projectileSortingIndex;
         public void SetAttackGraph(ProjectileGraphSO newGraph) => projectileAttack = newGraph;
         public override float GetAttackCooldown()
         {
@@ -16,7 +17,7 @@ namespace Bremsengine
             ProjectileGraphInput graphDirection = new(attackHandler.OwnerTransform, packet.Target);
             if (packet.Target != null) graphDirection.SetTargetStartPosition(packet.Target.position);
             graphDirection.SetOverrideDirection(packet.aimDirectionOverride);
-            projectileAttack.SpawnGraph(graphDirection, OnProjectileSpawn);
+            projectileAttack.SpawnGraph(graphDirection, OnProjectileSpawn, projectileSortingIndex);
         }
     }
 }

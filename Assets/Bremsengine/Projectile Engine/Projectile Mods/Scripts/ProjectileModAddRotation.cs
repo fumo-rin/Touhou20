@@ -17,8 +17,7 @@ namespace Bremsengine
                 return;
             }
             float lastEvaluation = addedRotation.Evaluate(remainingDuration);
-            addedRotation.Evaluate(duration - remainingDuration);
-            p.Post_AddRotation(lastEvaluation - lastEvaluation);
+            p.Post_AddRotation(addedRotation.Evaluate(duration - remainingDuration) * Time.deltaTime);
         }
 
         protected override void AddModTo(Projectile p)

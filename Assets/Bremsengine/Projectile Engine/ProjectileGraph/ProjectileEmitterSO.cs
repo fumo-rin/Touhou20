@@ -81,7 +81,7 @@ namespace Bremsengine
         public float OffScreenClearEdgePadding;
         protected abstract float GetCooldownDelay(); 
         public ProjectileGraphDirectionNode linkedOverrideDirection;
-        public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback);
+        public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer);
         public void LinkDirection(ProjectileGraphDirectionNode direction)
         {
             if (direction == null)
@@ -91,9 +91,13 @@ namespace Bremsengine
             }
             linkedOverrideDirection = direction;
         }
-        protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)
+        protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
             yield return new WaitForSeconds(delay);
+            if (input.Owner == null || !input.Owner.gameObject.activeInHierarchy)
+            {
+                yield break;
+            }
             triggeredEvent.ClearPlayedSounds();
             List<Projectile> newSpawns = new();
 
@@ -122,6 +126,7 @@ namespace Bremsengine
                 callback?.Invoke(item, input.Owner, input.Target);
                 item.SetOffScreenClear(OffScreenClearEdgePadding);
                 Projectile.RegisterProjectile(item);
+                item.SetSpriteIndex(forcedLayer);
             }
         }
     }

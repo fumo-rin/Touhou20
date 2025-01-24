@@ -15,7 +15,7 @@ namespace BremseTouhou
         public BossHealthbar healthBar;
         public void SetBossHealthUI()
         {
-            if (unit == null && healthBar.gameObject != null)
+            if (unit == null && healthBar != null && healthBar.gameObject != null)
             {
                 GameObject.Destroy(healthBar.gameObject);
             }

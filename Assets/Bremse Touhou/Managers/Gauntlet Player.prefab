@@ -6632,11 +6632,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0156f00827041a14b9acfd2db914888c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grazedRecentlyToAutoloot: 30
+  grazeDecayRate: 9
+  grazeDecayMaxFreezeTime: 1.666667
   ScoreItemPrefab: {fileID: 6076243941187219546, guid: b5424c17e50c70a4aa295b64818b7d6e, type: 3}
-  scorePullForce: 1.65
+  scorePullForce: 1.4
   pickupDistance: 1.5
   verticalSpawnForce: 7
-  forceSpreadPercent: 20
+  forceSpreadPercent: 15
   pickupsLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -6931,7 +6934,7 @@ MonoBehaviour:
   hitCounterText: {fileID: 2883629679738320383}
   testAimProfile: {fileID: 11400000, guid: 815d48c08bbd1024ea288a8f7d25c70b, type: 2}
   TestAttack: {fileID: 0}
-  TestFocusAttack: {fileID: 0}
+  TestFocusAttack: {fileID: 11400000, guid: 55a19f7535e7e3f489608dcc5bfb6110, type: 2}
   fireRate: 12
   sneakMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
 --- !u!50 &7879819984942896527
@@ -7072,8 +7075,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 8756501816092386084}
-  attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: dabe711ab4efd6f42a842607b5596575, type: 2}
+  attackBaseDamage: 1
+  projectileAttack: {fileID: 11400000, guid: af9b80ad38eb53d4d89b320a4cca2cd7, type: 2}
+  projectileSortingIndex: -100
 --- !u!1001 &4919778516789937312
 PrefabInstance:
   m_ObjectHideFlags: 0

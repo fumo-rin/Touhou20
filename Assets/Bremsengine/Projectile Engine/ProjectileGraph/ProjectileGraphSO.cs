@@ -58,7 +58,7 @@ namespace Bremsengine
         /// <param name="target"></param>
         /// <param name="fallbackPosition"></param>
         /// <returns></returns>
-        public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback)
+        public void SpawnGraph(ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
             TriggeredEvent projectileEvents = new TriggeredEvent();
             /*foreach (ProjectileNodeSO node in nodes)
@@ -70,7 +70,7 @@ namespace Bremsengine
             }*/
             foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
             {
-                emitter.Trigger(projectileEvents, input, callback);
+                emitter.Trigger(projectileEvents, input, callback, forcedLayer);
             }
         }
     }

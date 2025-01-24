@@ -41,14 +41,14 @@ namespace Bremsengine
         public float repeatInterval = 0.3f;
         public int repeatCount = 4;
         public float repeatAddedAngle = 0f;
-        public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback)
+        public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
             float delay = addedDelay;
             float addedAngle = 0f;
             for (int i = 0; i < repeatCount; i++)
             {
                 input.addedAngle = addedAngle;
-                    ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback), input.Owner);
+                    ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback, forcedLayer), input.Owner);
                 delay += repeatInterval;
                 addedAngle += repeatAddedAngle;
             }

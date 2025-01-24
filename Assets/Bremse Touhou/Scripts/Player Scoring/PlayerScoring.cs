@@ -7,6 +7,41 @@ using UnityEngine.SceneManagement;
 
 namespace BremseTouhou
 {
+    #region Graze Auto Loot
+    public partial class PlayerScoring
+    {
+        static bool grazeAutoLoot => grazedRecently >= instance.grazedRecentlyToAutoloot;
+        static float grazedRecently = 0;
+        static float grazeDecayFreezeEndTime;
+        [SerializeField] float grazedRecentlyToAutoloot = 40f;
+        [SerializeField] float grazeDecayRate = 5f;
+        [SerializeField] float grazeDecayMaxFreezeTime = 1.66f;
+        public delegate void GrazeBarDataEvent(float value, float min, float max);
+        public static GrazeBarDataEvent OnGrazeRefresh;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ResetGrazeAutoLoot()
+        {
+            grazedRecently = 0;
+            grazeDecayFreezeEndTime = 0f;
+        }
+        private static void RunGrazeAutoLootLoop()
+        {
+            if (Time.time > grazeDecayFreezeEndTime && grazedRecently > 0)
+            {
+                grazedRecently -= Time.deltaTime * instance.grazeDecayRate;
+            }
+            OnGrazeRefresh?.Invoke(grazedRecently, 0f, instance.grazedRecentlyToAutoloot);
+        }
+        private static void AddGrazeAndRefreshAutoLoot()
+        {
+            grazedRecently = (grazedRecently + 1f).Min(instance.grazedRecentlyToAutoloot);
+            if (grazeAutoLoot)
+            {
+                grazeDecayFreezeEndTime = ((grazeDecayFreezeEndTime + 0.5f).Max(Time.time + 0.5f)).Min(Time.time + instance.grazeDecayMaxFreezeTime);
+            }
+        }
+    }
+    #endregion
     #region Pickups
     public partial class PlayerScoring
     {
@@ -25,7 +60,8 @@ namespace BremseTouhou
         static Queue<Vector2> pickupQueue = new();
         static Bounds? nullableWorldBounds;
         static float minimumYPositionForAutoLoot;
-        static bool autoLoot => PlayerUnit.Player.Center.y >= minimumYPositionForAutoLoot;
+        static float bottomOfScreen;
+        static bool autoLoot => grazeAutoLoot || PlayerUnit.Player.Center.y >= minimumYPositionForAutoLoot;
         private static void OnSceneChange(Scene oldScene, Scene newScene)
         {
             nullableWorldBounds = null;
@@ -36,6 +72,7 @@ namespace BremseTouhou
             if (nullableWorldBounds == null)
             {
                 Bounds b = DirectionSolver.GetPaddedBounds(0f);
+                bottomOfScreen = b.min.y - 2f;
                 Bounds autoLoot = DirectionSolver.TopOfScreenBounds(5f, 0f);
                 nullableWorldBounds = b;
                 minimumYPositionForAutoLoot = autoLoot.min.y;
@@ -115,12 +152,18 @@ namespace BremseTouhou
             if (lootedPickups.Contains(t))
                 return;
             lootedPickups.Add(t);
+            if (t.position.y < bottomOfScreen)
+            {
+                return;
+            }
             StartCoroutine(CO_Pickup(t.root));
         }
         private IEnumerator CO_Pickup(Transform pickup)
         {
             float pullTime = 0f;
             Vector2 startPosition = pickup.position;
+            Vector2 startScale = pickup.localScale;
+            Vector2 targetScale = startScale * 0.2f;
             float force = scorePullForce.Spread(forceSpreadPercent);
             if (pickup.GetComponent<Rigidbody2D>() is not null and Rigidbody2D rb)
             {
@@ -133,6 +176,7 @@ namespace BremseTouhou
                     yield break;
                 pullTime += Time.deltaTime * force.Squared().Max(0.3f);
                 pickup.position = Vector2.Lerp(startPosition, transform.position, pullTime);
+                pickup.localScale = Vector2.Lerp(startScale, targetScale, ((pullTime - 0.4f) * 2f).Clamp(0f, 1f));
                 yield return null;
             }
             Destroy(pickup.gameObject);
@@ -188,7 +232,7 @@ namespace BremseTouhou
         }
         private void Update()
         {
-
+            RunGrazeAutoLootLoop();
         }
         private void Awake()
         {
@@ -222,6 +266,7 @@ namespace BremseTouhou
             {
                 GeneralManager.AddScoreAnalysisKey("Grazing", score);
             }
+            AddGrazeAndRefreshAutoLoot();
         }
     }
 }

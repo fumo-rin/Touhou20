@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d42bbb3dd542845a7be8dee6d10774, type: 3}
   m_Name: Subterranean spin
   m_EditorClassIdentifier: 
-  delayInSeconds: 3.75
+  delayInSeconds: 4
+  tickRate: 15
+  duration: 6
   addedRotation:
     serializedVersion: 2
     m_Curve:
@@ -20,15 +22,15 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 0
-      outSlope: -45
+      outSlope: -34.898933
       tangentMode: 65
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 3
-      value: -135
-      inSlope: -45
+      time: 6.0089235
+      value: -209.70503
+      inSlope: -34.898933
       outSlope: 2
       tangentMode: 5
       weightedMode: 0

@@ -23,7 +23,6 @@ namespace BremseTouhou
         public void SetScoreUI(float score, float hiScore)
         {
             HighscoreText.text = hiScore.Floor().ToString("F0");
-            HighscoreText.text = HighscoreText.text.Color(Color.red);
             ActiveScoreText.text = score.Floor().ToString("F0");
             ScoreItemText.text = PlayerScoring.ScoreItemText();
         }

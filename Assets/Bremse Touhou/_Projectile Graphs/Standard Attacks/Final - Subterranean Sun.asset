@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6310014175431969740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 855
+    y: 334
+    width: 350
+    height: 150
+  ID: 6911ca14-936e-4496-b2d1-0310adeb23e6
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: 4702568455512365157}
+  containedMod: {fileID: 11400000, guid: b9ddd1b83679ee74c8eef1ae1be2023e, type: 2}
+  isEnabled: 1
 --- !u!114 &-4645281529380067432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,8 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 551
-    y: 327
+    x: 465
+    y: 341
     width: 350
     height: 150
   ID: 960b720d-4231-42dc-beb6-0c44345e33c7
@@ -59,8 +83,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 981
-    y: 366
+    x: 1211
+    y: 329
     width: 350
     height: 150
   ID: 871bc186-9535-47b7-88ff-bd8ec46a271e
@@ -87,6 +111,7 @@ MonoBehaviour:
   - {fileID: -3564517691135613658}
   - {fileID: 9038424163522143496}
   - {fileID: -670887974488986542}
+  - {fileID: -6310014175431969740}
   projectileGraphName: Aliexpress Subterranean Sun
   Developing: 0
   nodes:
@@ -97,6 +122,7 @@ MonoBehaviour:
   - {fileID: -3564517691135613658}
   - {fileID: 9038424163522143496}
   - {fileID: -670887974488986542}
+  - {fileID: -6310014175431969740}
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 0}
@@ -116,28 +142,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 773
-    y: 637
+    x: 703
+    y: 603
     width: 350
     height: 700
   ID: 37555460-309c-4eb8-9206-078ce0f8990a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 517
-    y: 667
+    x: 447
+    y: 633
     width: 250
     height: 250
   directionalOffset: 13
   spread: 0
-  speed: 4
+  speed: 3
   addedAngle: 0
   ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
   attachedProjectileMods: []
-  projectileCountFloat: 20
+  projectileCountFloat: 24
   AngleCoverage: 360
   startingAngle: 0
   RandomAngle: 0
@@ -203,8 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1271
-    y: 593
+    x: 1201
+    y: 559
     width: 350
     height: 200
   ID: 26546f80-f139-449b-8944-fd84b3a786e1
@@ -218,7 +244,7 @@ MonoBehaviour:
   linkedOverrideDirection: {fileID: 0}
   repeatInterval: 0.25
   repeatCount: 40
-  repeatAddedAngle: 6
+  repeatAddedAngle: 5
 --- !u!114 &9038424163522143496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,8 +259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 800
-    y: 126
+    x: 730
+    y: 92
     width: 350
     height: 150
   ID: cd908823-6ef1-4a88-997d-8a0aa2dfb7bc

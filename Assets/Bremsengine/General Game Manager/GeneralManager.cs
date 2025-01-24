@@ -7,6 +7,18 @@ using UnityEngine;
 namespace Bremsengine
 {
     #region Pause
+    #region Funny Explosion
+    public partial class GeneralManager
+    {
+        [SerializeField] GameObject funnyExplosion;
+        [SerializeField] AudioClipWrapper funnyExplosionSound;
+        public static void FunnyExplosion(Vector2 position)
+        {
+            Destroy(Instantiate(Instance.funnyExplosion, position, Quaternion.identity),1.02f);
+            Instance.funnyExplosionSound.Play(position);
+        }
+    }
+    #endregion
     public partial class GeneralManager
     {
         public static bool IsPaused { get; private set; }
@@ -22,6 +34,7 @@ namespace Bremsengine
                 IsPaused = true;
                 Debug.Log("Paused Game");
                 PlayerInputController.actions.Player.Disable();
+                PlayerInputController.actions.Shmup.Disable();
             }
             else
             {
@@ -30,6 +43,7 @@ namespace Bremsengine
                 IsPaused = false;
                 Debug.Log("Un-paused Game");
                 PlayerInputController.actions.Player.Enable();
+                PlayerInputController.actions.Shmup.Enable();
             }
         }
         [QFSW.QC.Command("-Pause")]

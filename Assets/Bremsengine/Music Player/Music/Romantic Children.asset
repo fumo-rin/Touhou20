@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
   m_Name: Romantic Children
   m_EditorClassIdentifier: 
-  TrackName: Test Music
-  musicClip: {fileID: 8300000, guid: d70d8bd88f887c94485256c0a5a62ba1, type: 3}
-  musicVolume: 0.7
+  TrackName: Romantic Children
+  musicClip: {fileID: 8300000, guid: ad1b52309587aac42848f22b2ffd1d6c, type: 3}
+  musicVolume: 0.8

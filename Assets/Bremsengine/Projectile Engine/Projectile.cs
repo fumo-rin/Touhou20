@@ -21,7 +21,7 @@ namespace Bremsengine
 
             mainCollider.size = proj.mainCollider.size;
 
-            transform.name = proj.transform.name;
+            //transform.name = proj.transform.name;
 
             projectileSprite.SetSprite(proj.projectileSprite, proj.projectileSprite);
             projectileSprite.SetColor(proj.projectileSprite.Color);
@@ -33,6 +33,11 @@ namespace Bremsengine
             rb.gravityScale = proj.gravityModifier;
             rb.linearDamping = proj.drag;
             ClearMods();
+            return this;
+        }
+        public Projectile SetSpriteIndex(int index)
+        {
+            projectileSprite.SetSpriteSortingIndex(index);
             return this;
         }
         public Projectile SetIgnoreCollision(Collider2D c)
@@ -257,10 +262,6 @@ namespace Bremsengine
 
             //return CreateProjectile(proj.projectilePrefab, position, direction.AddAngle(proj.Spread));
         }
-        public static void SpawnProjectileGraph(ProjectileGraphSO graph, ProjectileGraphInput input, SpawnCallback callback)
-        {
-            graph.SpawnGraph(input, callback);
-        }
         public static void RegisterProjectile(Projectile spawned)
         {
             CountProjectiles++;
@@ -305,7 +306,8 @@ namespace Bremsengine
     {
         ClearProjectile offscreenClear;
         Coroutine offScreenCoroutine;
-        WaitForSeconds offScreenLoopStall = new(0.5f);
+        static WaitForSeconds cachedStall;
+        WaitForSeconds offScreenLoopStall => cachedStall ?? new(0.5f);
         public Projectile SetOffScreenClear(float edgePaddingOutwards)
         {
             offscreenClear = new(edgePaddingOutwards.Multiply(2f));
@@ -325,6 +327,9 @@ namespace Bremsengine
             }
             while (offscreenClear.KeepProjectile(this.Position))
             {
+                if (cachedStall == null)
+                    cachedStall = new(0.5f);
+
                 yield return offScreenLoopStall;
                 continue;
             }
@@ -498,8 +503,18 @@ namespace Bremsengine
         }
         public void ClearMods()
         {
-            modsDurations = new();
-            mods.Clear();
+            if (mods != null && mods.Count > 0)
+            {
+                mods.Clear();
+            }
+            if (modsDurations == null)
+            {
+                modsDurations = new Dictionary<ProjectileMod, float>();
+            }
+            else
+            {
+                modsDurations.Clear();
+            }
         }
         public void RunMods()
         {
