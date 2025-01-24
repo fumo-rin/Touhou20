@@ -48,7 +48,7 @@ namespace Bremsengine
             for (int i = 0; i < repeatCount; i++)
             {
                 input.addedAngle = addedAngle;
-                    ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback, forcedLayer), input.Owner);
+                ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback, forcedLayer), input.Owner);
                 delay += repeatInterval;
                 addedAngle += repeatAddedAngle;
             }
