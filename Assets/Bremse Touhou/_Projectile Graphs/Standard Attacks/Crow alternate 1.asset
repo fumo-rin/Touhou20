@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 623
-    y: 182
+    x: 796
+    y: 324
     width: 350
     height: 100
   ID: 7a8a1fe7-3657-4e9a-bd4e-53b731d793fa
@@ -37,8 +37,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 243
-    y: 2
+    x: 416
+    y: 144
     width: 350
     height: 200
   ID: 06eeb9ad-e537-4e3a-a860-70f80e79935e
@@ -48,8 +48,9 @@ MonoBehaviour:
   - {fileID: 4772368223977889901}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.07
+  timeBetweenRepeats: 0.3
   repeatCount: 30
   repeatAddedAngle: 24
 --- !u!114 &11400000
@@ -76,6 +77,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 8326566649930283280}
   - {fileID: -3101838409682404898}
+  modNodes: []
   GraphGlobalProjectileSpeed: 2
   addedCooldown: 1
   headerTexture: {fileID: 0}
@@ -95,16 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 215
-    y: 273
+    x: 388
+    y: 415
     width: 350
     height: 700
   ID: 29416df1-eddf-4e19-acd1-126d17af5fe2
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -41
-    y: 303
+    x: 132
+    y: 445
     width: 250
     height: 250
   directionalOffset: 0.6
@@ -116,6 +118,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9065216498550915143}
+  attachedProjectileMods: []
   projectileCountFloat: 1
   AngleCoverage: 360
   startingAngle: 0
@@ -182,8 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 670
-    y: 341
+    x: 843
+    y: 483
     width: 350
     height: 200
   ID: f221288b-5bac-4eca-8c24-188d1a2da494
@@ -193,7 +196,8 @@ MonoBehaviour:
   - {fileID: 4772368223977889901}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.07
+  timeBetweenRepeats: 0.3
   repeatCount: 30
   repeatAddedAngle: 36

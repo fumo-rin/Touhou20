@@ -79,7 +79,7 @@ namespace Bremsengine
         public bool Retargetting;
         public float CooldownDuration => GetCooldownDelay();
         public float OffScreenClearEdgePadding;
-        protected abstract float GetCooldownDelay(); 
+        protected abstract float GetCooldownDelay();
         public ProjectileGraphDirectionNode linkedOverrideDirection;
         public abstract void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer);
         public void LinkDirection(ProjectileGraphDirectionNode direction)
@@ -91,43 +91,82 @@ namespace Bremsengine
             }
             linkedOverrideDirection = direction;
         }
-        protected IEnumerator Co_Emit(float delay, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
+        protected IEnumerator Co_Emit(EmitterSettings settings, TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
-            yield return new WaitForSeconds(delay);
-            if (input.Owner == null || !input.Owner.gameObject.activeInHierarchy)
+            yield return settings.WaitForEntryDelay;
+            for (int i = 0; i < settings.RepeatCounts.Max(1); i++)
             {
-                yield break;
-            }
-            triggeredEvent.ClearPlayedSounds();
-            List<Projectile> newSpawns = new();
+                input.addedAngle = settings.ComputeAngle(i-1);
+                if (input.Owner == null || !input.Owner.gameObject.activeInHierarchy)
+                {
+                    yield break;
+                }
+                triggeredEvent.ClearPlayedSounds();
+                List<Projectile> newSpawns = new();
 
-            Vector2 aimDirection = Vector2.zero;
-            if (linkedOverrideDirection != null)
-            {
-                aimDirection = linkedOverrideDirection.GetDirection();
-                input.SetOverrideDirection(aimDirection);
+                Vector2 aimDirection = Vector2.zero;
+                if (linkedOverrideDirection != null)
+                {
+                    aimDirection = linkedOverrideDirection.GetDirection();
+                    input.SetOverrideDirection(aimDirection);
+                }
+                else if (!Retargetting && input.Target && input.TargetStartPosition != null)
+                {
+                    aimDirection = ((Vector2)input.TargetStartPosition - input.Position);
+                    input.SetOverrideDirection(aimDirection);
+                }
+                else if (input.Target)
+                {
+                    aimDirection = ((Vector2)input.Target.position - input.Position);
+                    input.SetOverrideDirection(aimDirection);
+                }
+                foreach (var item in linkedNodes)
+                {
+                    item.Spawn(in newSpawns, input, triggeredEvent);
+                }
+                foreach (var item in newSpawns)
+                {
+                    callback?.Invoke(item, input.Owner, input.Target);
+                    item.SetOffScreenClear(OffScreenClearEdgePadding);
+                    Projectile.RegisterProjectile(item);
+                    item.SetSpriteIndex(forcedLayer);
+                }
+                if (settings.TimeBetweenRepeats == 0f && settings.RepeatCounts <= i)
+                {
+                    yield break;
+                }
+                yield return settings.WaitForRepeatDelay;
             }
-            else if (!Retargetting && input.Target && input.TargetStartPosition != null)
+        }
+        [System.Serializable]
+        public struct EmitterSettings
+        {
+            public int RepeatCounts;
+            public float EntryDelay;
+            public float AddedAngleEmitter;
+            public float AddedAnglePerIteration;
+            public float TimeBetweenRepeats;
+            public static Dictionary<float, WaitForSeconds> RepeatSettingsStallLookup;
+            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+            private static void ResetLookup()
             {
-                aimDirection = ((Vector2)input.TargetStartPosition - input.Position);
-                input.SetOverrideDirection(aimDirection);
+                RepeatSettingsStallLookup = new();
             }
-            else if (input.Target)
+            public float ComputeAngle(int iterations)
             {
-                aimDirection = ((Vector2)input.Target.position - input.Position);
-                input.SetOverrideDirection(aimDirection);
+                return AddedAngleEmitter + AddedAnglePerIteration.Multiply(iterations);
             }
-            foreach (var item in linkedNodes)
+            private static WaitForSeconds GetCachedDelay(float delay)
             {
-                item.Spawn(in newSpawns, input, triggeredEvent);
+                if (RepeatSettingsStallLookup.ContainsKey(delay) && RepeatSettingsStallLookup[delay] != null)
+                {
+                    return RepeatSettingsStallLookup[delay];
+                }
+                RepeatSettingsStallLookup[delay] = new WaitForSeconds(delay);
+                return RepeatSettingsStallLookup[delay];
             }
-            foreach (var item in newSpawns)
-            {
-                callback?.Invoke(item, input.Owner, input.Target);
-                item.SetOffScreenClear(OffScreenClearEdgePadding);
-                Projectile.RegisterProjectile(item);
-                item.SetSpriteIndex(forcedLayer);
-            }
+            public WaitForSeconds WaitForEntryDelay => GetCachedDelay(EntryDelay) ?? new WaitForSeconds(EntryDelay);
+            public WaitForSeconds WaitForRepeatDelay => GetCachedDelay(TimeBetweenRepeats) ?? new WaitForSeconds(TimeBetweenRepeats);
         }
     }
 }

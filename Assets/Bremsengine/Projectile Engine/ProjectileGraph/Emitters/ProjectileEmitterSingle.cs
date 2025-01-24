@@ -30,7 +30,12 @@ namespace Bremsengine
     {
         public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
-            ProjectileEmitterTimelineHandler.Queue(Co_Emit(addedDelay, triggeredEvent, input, callback, forcedLayer), input.Owner);
+            EmitterSettings settings = new();
+            settings.EntryDelay = addedDelay;
+            settings.AddedAnglePerIteration = 0f;
+            settings.RepeatCounts = 1;
+            settings.TimeBetweenRepeats = 0f;
+            ProjectileEmitterTimelineHandler.Queue(Co_Emit(settings, triggeredEvent, input, callback, forcedLayer), input.Owner);
         }
 
         protected override float GetCooldownDelay()

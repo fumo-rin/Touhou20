@@ -205,7 +205,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.3
   repeatCount: 7
   repeatAddedAngle: 30
 --- !u!114 &-2037170189828797116

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 852
-    y: 432
+    x: 992
+    y: 601
     width: 400
     height: 300
   ID: 18a6e39f-d4d0-4561-982f-fde48ab56aa0
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 859
-    y: 791
+    x: 999
+    y: 960
     width: 400
     height: 300
   ID: 3cfab4f6-f0cf-47ff-bbd3-c0920ee0c3f9
@@ -163,16 +163,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 313
-    y: 281
+    x: 453
+    y: 450
     width: 350
     height: 700
   ID: f40ef764-7b6c-4b66-9d79-cc574b6a049e
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 57
-    y: 311
+    x: 197
+    y: 480
     width: 250
     height: 250
   directionalOffset: 0.25
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 306
-    y: -54
+    x: 446
+    y: 115
     width: 350
     height: 200
   ID: d1409f0e-1e6b-46c7-ab0d-e6901bedc983
@@ -433,7 +433,7 @@ MonoBehaviour:
   Retargetting: 1
   OffScreenClearEdgePadding: 8
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.3
+  timeBetweenRepeats: 0.3
   repeatCount: 2
   repeatAddedAngle: 0
 --- !u!114 &4702568455512365157
@@ -649,7 +649,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.33333334
+  timeBetweenRepeats: 0.3
   repeatCount: 82
   repeatAddedAngle: 6
 --- !u!114 &8356021628667667561
@@ -693,8 +693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 872
-    y: 92
+    x: 1012
+    y: 261
     width: 400
     height: 300
   ID: cde8151e-230e-4c0a-8df5-90f4cf27919a

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.Extensions;
 using UnityEditor;
+using UnityEngine.Serialization;
 
 namespace Bremsengine
 {
@@ -23,7 +24,7 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             base.OnDraw(style);
-            repeatInterval = EditorGUILayout.Slider("Repeat Interval", repeatInterval, 0f, 2f);
+            timeBetweenRepeats = EditorGUILayout.Slider("Time Between Repeats", timeBetweenRepeats, 0f, 2f);
             repeatCount = EditorGUILayout.IntSlider("Repeat Count", repeatCount, 1, 100);
             repeatAddedAngle = EditorGUILayout.Slider("Repeat Added Angle", repeatAddedAngle, -180f, 180f);
         }
@@ -38,25 +39,30 @@ namespace Bremsengine
     #endregion
     public partial class ProjectileEmitterRepeat : ProjectileEmitterSO
     {
-        public float repeatInterval = 0.3f;
+        [FormerlySerializedAs("repeatInterval")]
+        public float timeBetweenRepeats = 0.3f;
         public int repeatCount = 4;
         public float repeatAddedAngle = 0f;
         public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
-            float delay = addedDelay;
-            float addedAngle = 0f;
-            for (int i = 0; i < repeatCount; i++)
+            EmitterSettings settings = new();
+            settings.EntryDelay = addedDelay;
+            settings.AddedAnglePerIteration = repeatAddedAngle;
+            settings.RepeatCounts = repeatCount;
+            settings.TimeBetweenRepeats = timeBetweenRepeats;
+            ProjectileEmitterTimelineHandler.Queue(Co_Emit(settings, triggeredEvent, input, callback, forcedLayer), input.Owner);
+            /*for (int i = 0; i < repeatCount; i++)
             {
-                input.addedAngle = addedAngle;
-                ProjectileEmitterTimelineHandler.Queue(Co_Emit(delay, triggeredEvent, input, callback, forcedLayer), input.Owner);
-                delay += repeatInterval;
-                addedAngle += repeatAddedAngle;
-            }
+                //input.addedAngle = addedAngle;
+                ProjectileEmitterTimelineHandler.Queue(Co_Emit(settings, triggeredEvent, input, callback, forcedLayer), input.Owner);
+                //delay += repeatInterval;
+                //addedAngle += repeatAddedAngle;
+            }*/
         }
 
         protected override float GetCooldownDelay()
         {
-            return addedDelay + (repeatCount * repeatInterval);
+            return addedDelay + (repeatCount * timeBetweenRepeats);
         }
     }
 }

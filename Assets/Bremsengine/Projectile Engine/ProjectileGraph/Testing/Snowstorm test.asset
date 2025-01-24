@@ -114,7 +114,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0
+  timeBetweenRepeats: 0.3
   repeatCount: 8
   repeatAddedAngle: 45
 --- !u!114 &11400000
@@ -179,7 +179,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0
+  timeBetweenRepeats: 0.3
   repeatCount: 8
   repeatAddedAngle: 45
 --- !u!114 &4155842427385162004
@@ -392,6 +392,6 @@ MonoBehaviour:
   Retargetting: 1
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.14285715
+  timeBetweenRepeats: 0.3
   repeatCount: 7
   repeatAddedAngle: 0
