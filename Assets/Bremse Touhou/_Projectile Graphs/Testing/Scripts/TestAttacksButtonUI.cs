@@ -96,6 +96,11 @@ namespace BremseTouhou
         {
             BuildButtons();
             SpawnSkeletron();
+            DialogueEventBus.BindEvent(EventKeys.Skeletron, SpawnSkeletron);
+        }
+        private void OnDestroy()
+        {
+            DialogueEventBus.ReleaseEvent(EventKeys.Skeletron, SpawnSkeletron);
         }
         public void SetAttack(ProjectileGraphSO graph)
         {
