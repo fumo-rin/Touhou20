@@ -30,6 +30,7 @@ MonoBehaviour:
   speed: 10
   addedAngle: -105
   spread: 2
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-8063571252079463087
 MonoBehaviour:
@@ -61,6 +62,7 @@ MonoBehaviour:
   speed: 10
   addedAngle: 105
   spread: 2
+  OffScreenClearEdgePadding: 0
   Faction: 2
 --- !u!114 &-6726217897975526738
 MonoBehaviour:
@@ -96,6 +98,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
   projectileCountFloat: 40
   AngleCoverage: 360
   startingAngle: 180
@@ -183,6 +186,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
+  attachedProjectileMods: []
   projectileCountFloat: 7
   AngleCoverage: 90
   startingAngle: 0
@@ -260,8 +264,9 @@ MonoBehaviour:
   - {fileID: -6726217897975526738}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.15
   repeatCount: 11
   repeatAddedAngle: 2.2
 --- !u!114 &-3957244216771015848
@@ -294,6 +299,7 @@ MonoBehaviour:
   speed: 4
   addedAngle: 90
   spread: 0
+  OffScreenClearEdgePadding: 0
   Faction: 0
 --- !u!114 &-3307353721253079092
 MonoBehaviour:
@@ -350,6 +356,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -428,6 +435,7 @@ MonoBehaviour:
   - {fileID: -4137284215418995408}
   - {fileID: 3854469793670337871}
   - {fileID: 5509838464825611284}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1.4
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -458,8 +466,9 @@ MonoBehaviour:
   - {fileID: -6726217897975526738}
   addedDelay: 1.65
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.15
   repeatCount: 9
   repeatAddedAngle: -3
 --- !u!114 &4143502975751865241
@@ -497,6 +506,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -8063571252079463087}
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -574,8 +584,9 @@ MonoBehaviour:
   - {fileID: -6726217897975526738}
   addedDelay: 3
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.15
   repeatCount: 20
   repeatAddedAngle: 3
 --- !u!114 &5882544058816174340
@@ -623,7 +634,8 @@ MonoBehaviour:
   linkedNodes: []
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.2
+  timeBetweenRepeats: 0.2
   repeatCount: 25
   repeatAddedAngle: 0

@@ -6,6 +6,7 @@ namespace Bremsengine
     {
         [SerializeField] Vector2 fallbackDirection = new(0f,-1f);
         [SerializeField] BaseAttack TESTINGAttack;
+        private Bounds worldBounds;
         protected override BaseAttack CollapseBaseAttack()
         {
             return TESTINGAttack;
@@ -16,9 +17,18 @@ namespace Bremsengine
             {
                 return false;
             }
+            if (!worldBounds.Contains(owner.transform.position))
+            {
+                return false;
+            }
             if (!UnitAlive)
                 return false;
             return Time.time >= nextAttackTime;
+        }
+
+        protected override void WhenStart()
+        {
+            worldBounds = DirectionSolver.GetPaddedBounds(0);
         }
         public override void TriggerAttack(BaseAttack attack)
         {

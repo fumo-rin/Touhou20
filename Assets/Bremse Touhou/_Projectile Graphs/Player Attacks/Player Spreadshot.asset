@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 349
-    y: 375
+    x: 682
+    y: 393
     width: 250
     height: 200
   ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
@@ -56,8 +56,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1399
-    y: 623
+    x: 1732
+    y: 641
     width: 350
     height: 100
   ID: c8812ad8-11a5-4430-b445-23cc074a9d67
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 486
-    y: 671
+    x: 819
+    y: 689
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -142,7 +142,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: -1614631124295729775}
-  repeatInterval: 0.06
+  timeBetweenRepeats: 0.06
   repeatCount: 3
   repeatAddedAngle: 0
 --- !u!114 &5010464049080702738
@@ -159,16 +159,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 963
-    y: 284
+    x: 1296
+    y: 302
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 707
-    y: 314
+    x: 1040
+    y: 332
     width: 250
     height: 250
   directionalOffset: 0.6
@@ -176,7 +176,7 @@ MonoBehaviour:
   speed: 25
   addedAngle: 0
   ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: 7a6f5a997fa5a8f4281c12055fd9f2d3, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 30e63894b53d342459d3750cfe179168, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -595416381803295515}

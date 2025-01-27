@@ -240,8 +240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
-  m_sharedMaterial: {fileID: -7719817620043868596, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
+  m_sharedMaterial: {fileID: 3424915526771390505, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -4.41
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 2714391242941313546}
   - component: {fileID: 3582528035652542653}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,8 +376,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Very Cool Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
-  m_sharedMaterial: {fileID: -7719817620043868596, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
+  m_sharedMaterial: {fileID: 3424915526771390505, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -401,17 +401,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 32
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontSizeMax: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -4.41
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -512,8 +512,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
-  m_sharedMaterial: {fileID: -7719817620043868596, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
+  m_sharedMaterial: {fileID: 3424915526771390505, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -4.41
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 993839795120394813}
   - component: {fileID: 696128170833886633}
   m_Layer: 5
-  m_Name: Test Box
+  m_Name: Dialogue Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,16 +1010,16 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 671057902610737741}
   - {fileID: 4818267929307504544}
   - {fileID: 7199442900313903762}
   - {fileID: 8027369595080293018}
-  - {fileID: 671057902610737741}
   m_Father: {fileID: 1428643550976035116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -252.773, y: -274}
-  m_SizeDelta: {x: 726.455, y: 263.668}
+  m_SizeDelta: {x: 796.144, y: 291.121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &993839795120394813
 CanvasRenderer:
@@ -1126,8 +1126,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
-  m_sharedMaterial: {fileID: -7719817620043868596, guid: f2076e2c7ee86de4b822074594ff4136, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
+  m_sharedMaterial: {fileID: 3424915526771390505, guid: e8b08d98d08702143b4f01b93acaca0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -4.41
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

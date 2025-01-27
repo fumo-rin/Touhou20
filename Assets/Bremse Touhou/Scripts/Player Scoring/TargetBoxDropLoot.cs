@@ -3,7 +3,7 @@ using Bremsengine;
 
 namespace BremseTouhou
 {
-    public class TargetBoxScoringTest : MonoBehaviour
+    public class TargetBoxDropLoot : MonoBehaviour
     {
         [SerializeField] TargetBox box;
         private void SpawnScore(float damage, Vector2 position)

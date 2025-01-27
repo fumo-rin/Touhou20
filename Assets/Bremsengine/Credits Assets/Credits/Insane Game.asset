@@ -32,6 +32,22 @@ MonoBehaviour:
   Title: Arco
   Credit: Rafael Olivo
   Website: https://www.dafont.com/rafael-olivo.d7756?l[]=10&l[]=1
+--- !u!114 &-1437099455925838304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080e8c93a1f7824b82466ae5395310e, type: 3}
+  m_Name: 'CI GameDev Font : Chequered Ink'
+  m_EditorClassIdentifier: 
+  Priority: -112
+  Title: CI GameDev Font
+  Credit: Chequered Ink
+  Website: https://www.dafont.com/ci-gamedev.font?l[]=10&l[]=1
 --- !u!114 &-978606191320386190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +89,8 @@ MonoBehaviour:
   - {fileID: 2148076854873086542}
   - {fileID: 5789429261779479007}
   - {fileID: 1916002666600475221}
+  - {fileID: -1437099455925838304}
+  - {fileID: 7940902906424499459}
 --- !u!114 &462068575496133893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +203,22 @@ MonoBehaviour:
   Title: Fumorin
   Credit: Fumorin
   Website: Fumorin
+--- !u!114 &7940902906424499459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080e8c93a1f7824b82466ae5395310e, type: 3}
+  m_Name: 'VHS Gothic Font : Spottie Leonard'
+  m_EditorClassIdentifier: 
+  Priority: -113
+  Title: VHS Gothic Font
+  Credit: Spottie Leonard
+  Website: https://www.dafont.com/vhs-gothic.font?l[]=10&l[]=1
 --- !u!114 &7976282753810417361
 MonoBehaviour:
   m_ObjectHideFlags: 0

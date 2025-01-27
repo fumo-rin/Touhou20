@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace Bremsengine
 {
     #region Dialogue Event Busses
-    public partial class DialogueCollection
+    public partial class Dialogue
     {
         public void TriggerEvent(string key)
         {
@@ -49,7 +49,7 @@ namespace Bremsengine
     }
     #endregion
     #region Dialogue Buttons
-    public abstract partial class DialogueCollection
+    public abstract partial class Dialogue
     {
         #region Dialogue Button Entries Class
         [System.Serializable]
@@ -92,7 +92,7 @@ namespace Bremsengine
                 OnPressedAction?.Invoke();
                 if (ContinueDialogueWhenPressed)
                 {
-                    DialogueCollection.TriggerContinue?.Invoke(DialogueCollection.activeDialogueCollection);
+                    Dialogue.TriggerContinue?.Invoke(Dialogue.activeDialogueCollection);
                     IsWaiting = false;
                 }
                 return this;
@@ -211,7 +211,7 @@ namespace Bremsengine
             ReDrawText();
         }
     }
-    public abstract partial class DialogueCollection
+    public abstract partial class Dialogue
     {
         protected static DialogueText activeText;
         public static void BindDialogueText(DialogueText d)
@@ -226,21 +226,22 @@ namespace Bremsengine
         }
     }
     #endregion
-    public abstract partial class DialogueCollection : MonoBehaviour
+    public abstract partial class Dialogue : MonoBehaviour
     {
         public WaitUntil Wait => new WaitUntil(() => !IsWaiting);
-        public static DialogueCollection activeDialogueCollection { get; protected set; }
+        public static Dialogue activeDialogueCollection { get; protected set; }
         protected static DialogueRunner runnerInstance;
         protected abstract IEnumerator DialogueContents();
-        public delegate void DialogueEvent(DialogueCollection dialogue);
+        public delegate void DialogueEvent(Dialogue dialogue);
         public static DialogueEvent TriggerContinue;
         static Coroutine activeDialogue;
         protected static bool IsWaiting;
         private void Start()
         {
-            WhenStart();
+
         }
-        protected abstract void WhenStart();
+        protected abstract void WhenStartDialogue();
+        protected abstract void WhenEndDialogue();
         public static void SetWaiting(bool state)
         {
             IsWaiting = state;
@@ -261,6 +262,7 @@ namespace Bremsengine
             }
             IsWaiting = false;
             activeDialogue = runnerInstance.StartCoroutine(DialogueContents());
+            WhenStartDialogue();
         }
         public void ForceEndDialogue()
         {
@@ -270,6 +272,7 @@ namespace Bremsengine
                 runnerInstance.StopCoroutine(activeDialogue);
                 activeDialogue = null;
             }
+            WhenEndDialogue();
             IsWaiting = false;
         }
     }

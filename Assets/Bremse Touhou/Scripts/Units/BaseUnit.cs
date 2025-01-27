@@ -64,7 +64,7 @@ namespace BremseTouhou
         }
     }
     #endregion
-    #region Projectile Hit
+    #region Projectile Hit & Faction
     public partial class BaseUnit : IProjectileHitListener
     {
         public IFaction FactionInterface => ((IFaction)this);
@@ -142,7 +142,6 @@ namespace BremseTouhou
         }
         private void Kill()
         {
-            Debug.Log("Death");
             gameObject.SetActive(false);
             if (this is EnemyUnit enemy)
             {

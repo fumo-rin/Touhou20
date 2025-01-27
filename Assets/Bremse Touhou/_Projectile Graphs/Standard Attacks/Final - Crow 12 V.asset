@@ -35,6 +35,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 6646040821736083817}
+  attachedProjectileMods: []
   projectileCountFloat: 19
   AngleCoverage: 15
   startingAngle: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -84151796329410461}
+  attachedProjectileMods: []
   projectileCountFloat: 9
   AngleCoverage: 180
   startingAngle: 0
@@ -264,6 +266,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 1116211709931126382}
   - {fileID: 3253905724778704477}
+  modNodes: []
   GraphGlobalProjectileSpeed: 0.6
   addedCooldown: 1
   headerTexture: {fileID: 0}
@@ -294,8 +297,9 @@ MonoBehaviour:
   - {fileID: -7790233653627496763}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: -6855218346677297718}
-  repeatInterval: 0
+  timeBetweenRepeats: 0
   repeatCount: 12
   repeatAddedAngle: 30
 --- !u!114 &3253905724778704477
@@ -323,8 +327,9 @@ MonoBehaviour:
   - {fileID: -2198882849896894318}
   addedDelay: 0.5
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.05
+  timeBetweenRepeats: 0.05
   repeatCount: 18
   repeatAddedAngle: 3.3
 --- !u!114 &6235675524770074912
@@ -361,6 +366,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
+  attachedProjectileMods: []
 --- !u!114 &6646040821736083817
 MonoBehaviour:
   m_ObjectHideFlags: 0

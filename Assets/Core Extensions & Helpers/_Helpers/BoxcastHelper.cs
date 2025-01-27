@@ -6,6 +6,7 @@ namespace Core.Extensions
 {
     public static partial class Helper
     {
+        /*
         static public int DirectionalCollectBox(RaycastHit2D[] result, Vector2 origin, Vector2 target, float linearOffset, float reach, float width, float addedAngle, int mask = -1, bool drawDebug = false)
         {
             return DirectionalBoxcastNonAlloc(origin, target, linearOffset, reach, width, mask, result, addedAngle, drawDebug);
@@ -18,7 +19,7 @@ namespace Core.Extensions
                 Helper.DrawBoxCast(origin + directionCenter, new Vector2(reach, width), Vector2.right.Angle(directionCenter), Vector2.zero, 0f, 0);
             }
             return Physics2D.BoxCastNonAlloc(origin + directionCenter, new Vector2(reach, width), Vector2.right.Angle(directionCenter), Vector2.zero, result);
-        }
+        }*/
         #region Boxcast Wrapper
         static public RaycastHit2D DrawBoxCast(Vector2 origen, Vector2 size, float angle, Vector2 direction, float distance, int mask, float debugTime = 0.5f)
         {

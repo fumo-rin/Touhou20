@@ -43,5 +43,10 @@ namespace Bremsengine
             AttackDirectionPacket packet = new(owner, null);
             attack.PerformAttack(packet);
         }
+
+        protected override void WhenStart()
+        {
+
+        }
     }
 }

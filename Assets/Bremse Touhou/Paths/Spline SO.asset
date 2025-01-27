@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa563fafe43d634084b70dfd962c2c4, type: 3}
+  m_Name: Spline SO
+  m_EditorClassIdentifier: 
+  <containedSpline>k__BackingField:
+    m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: -8.191692
+      TangentOut:
+        x: 0
+        y: 0
+        z: 8.191692
+      Rotation:
+        value:
+          x: -0.6479598
+          y: 0.28310418
+          z: -0.2831042
+          w: 0.64795995
+    - Position:
+        x: 7.7917023
+        y: -2.5044756
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -2.2565155
+      TangentOut:
+        x: 0
+        y: 0
+        z: 2.1282904
+      Rotation:
+        value:
+          x: 0.5562391
+          y: -0.4365752
+          z: 0.43657538
+          w: -0.55623907
+    - Position:
+        x: 12.911964
+        y: 2.671441
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.1468475
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.95359176
+      Rotation:
+        value:
+          x: 0.43859854
+          y: -0.5546453
+          z: 0.55464524
+          w: -0.43859854
+    - Position:
+        x: 14.470305
+        y: -2.114891
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.0550178
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.0174625
+      Rotation:
+        value:
+          x: -0.3965014
+          y: 0.5854798
+          z: -0.5854798
+          w: 0.39650142
+    - Position:
+        x: 18.588778
+        y: 0.11131096
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.46816435
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.46816435
+      Rotation:
+        value:
+          x: -0.6073543
+          y: 0.362106
+          z: -0.36210585
+          w: 0.60735434
+    m_MetaData:
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 1
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []

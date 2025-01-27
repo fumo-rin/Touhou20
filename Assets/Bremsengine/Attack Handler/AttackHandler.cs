@@ -15,6 +15,11 @@ namespace Bremsengine
         {
             UnitAlive = state;
         }
+        protected abstract void WhenStart();
+        private void Start()
+        {
+            WhenStart();
+        }
         public Transform OwnerTransform => owner;
         public BremseFaction Faction => faction;
         public abstract bool CanAttack();

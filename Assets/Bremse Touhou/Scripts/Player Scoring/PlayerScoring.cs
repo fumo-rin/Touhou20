@@ -40,6 +40,11 @@ namespace BremseTouhou
                 grazeDecayFreezeEndTime = ((grazeDecayFreezeEndTime + 0.5f).Max(Time.time + 0.5f)).Min(Time.time + instance.grazeDecayMaxFreezeTime);
             }
         }
+        private static void SetMaxGrazeTimer()
+        {
+            grazeDecayFreezeEndTime = Time.time + instance.grazeDecayMaxFreezeTime;
+            grazedRecently = instance.grazedRecentlyToAutoloot;
+        }
     }
     #endregion
     #region Pickups
@@ -61,13 +66,23 @@ namespace BremseTouhou
         static Bounds? nullableWorldBounds;
         static float minimumYPositionForAutoLoot;
         static float bottomOfScreen;
-        static bool autoLoot => grazeAutoLoot || PlayerUnit.Player.Center.y >= minimumYPositionForAutoLoot;
+        static bool autoLoot => grazeAutoLoot || PlayerTopOfScreenAutoloot();
+        private static bool PlayerTopOfScreenAutoloot()
+        {
+            bool state = PlayerUnit.Player.Center.y >= minimumYPositionForAutoLoot;
+            if (state)
+            {
+                SetMaxGrazeTimer();
+            }
+            return state;
+        }
         private static void OnSceneChange(Scene oldScene, Scene newScene)
         {
             nullableWorldBounds = null;
             minimumYPositionForAutoLoot = 1000f;
+            InitializeAutoLootWorldBounds();
         }
-        public static void SpawnPickup(Vector2 position)
+        private static void InitializeAutoLootWorldBounds()
         {
             if (nullableWorldBounds == null)
             {
@@ -77,6 +92,10 @@ namespace BremseTouhou
                 nullableWorldBounds = b;
                 minimumYPositionForAutoLoot = autoLoot.min.y;
             }
+        }
+        public static void SpawnPickup(Vector2 position)
+        {
+            InitializeAutoLootWorldBounds();
             if (nullableWorldBounds != null && ((Bounds)nullableWorldBounds).Contains(position))
             {
                 pickupQueue.Enqueue(position);
@@ -252,6 +271,7 @@ namespace BremseTouhou
             InvokeRepeating(nameof(PickupLoop), 0.1f, 0.1f);
             StartCoroutine(CO_RunPickupQueue(35));
             SceneManager.activeSceneChanged += OnSceneChange;
+            InitializeAutoLootWorldBounds();
         }
         private void OnDestroy()
         {

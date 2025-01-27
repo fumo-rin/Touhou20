@@ -7,8 +7,9 @@ namespace Core.Extensions
         static int[] randomIntTable;
         static int randomIntIndex;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        static void Generate()
+        static void FillTable()
         {
+            randomIntIndex = 0;
             int length = 256;
             randomIntTable = new int[length];
             int seed = 3378;
@@ -23,7 +24,7 @@ namespace Core.Extensions
         {
             if (randomIntTable == null)
             {
-                Generate();
+                FillTable();
             }
             if (randomIntIndex >= randomIntTable.Length)
             {

@@ -142,16 +142,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 703
-    y: 603
+    x: 721
+    y: 628
     width: 350
     height: 700
   ID: 37555460-309c-4eb8-9206-078ce0f8990a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 447
-    y: 633
+    x: 465
+    y: 658
     width: 250
     height: 250
   directionalOffset: 13
@@ -242,7 +242,7 @@ MonoBehaviour:
   Retargetting: 1
   OffScreenClearEdgePadding: 13
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.25
+  timeBetweenRepeats: 0.25
   repeatCount: 40
   repeatAddedAngle: 5
 --- !u!114 &9038424163522143496

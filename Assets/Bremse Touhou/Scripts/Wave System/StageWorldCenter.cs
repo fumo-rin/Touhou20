@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Bremsengine;
 using UnityEngine.UI;
+using Core.Extensions;
 
 namespace BremseTouhou
 {
@@ -18,6 +19,7 @@ namespace BremseTouhou
         private void Start()
         {
             DirectionSolver.SetBounds(Center, CalculateSize());
+            SplinePathSettings.SetWorldCenter(Center);
         }
         private static Vector2 CalculateSize()
         {

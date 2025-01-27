@@ -15,36 +15,20 @@ MonoBehaviour:
   m_GroupName: Projectile Graphs
   m_GUID: 053063d36edf99e43b42b7a129e30cf8
   m_SerializeEntries:
-  - m_GUID: 2d52bd3799216a94f842b54776786925
-    m_Address: Assets/Bremsengine/Projectile Engine/ProjectileGraph/Testing/john
-      balls.asset
+  - m_GUID: 03a72b5218319d444bcecb2f3e350b22
+    m_Address: Assets/Bremse Touhou/_Projectile Graphs/Standard Attacks
     m_ReadOnly: 0
     m_SerializedLabels:
     - Projectile Graph
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 791740c69de48d44a9273274c4f71eb7
-    m_Address: Assets/Bremsengine/Projectile Engine/ProjectileGraph/Testing/Simple
-      Test Projectile.asset
+  - m_GUID: 2cecb8ea02bbf9d45af42dd35d2a46f5
+    m_Address: Assets/Bremsengine/Projectile Engine/ProjectileGraph/Testing
     m_ReadOnly: 0
     m_SerializedLabels:
     - Projectile Graph
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 82265d9edf6804a46bcd924caf770357
-    m_Address: Assets/Bremsengine/Projectile Engine/ProjectileGraph/Testing/Test
-      Graph.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Projectile Graph
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d650f07e5c0b1624d8366d5626352748
-    m_Address: Assets/Bremsengine/Projectile Engine/ProjectileGraph/Testing/Snowstorm
-      test.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Projectile Graph
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dabe711ab4efd6f42a842607b5596575
-    m_Address: Assets/_Projectile Graphs/Player/Standard Player Attack.asset
+  - m_GUID: 4bc57f699be5af54d812e6f2dc888d51
+    m_Address: Assets/Bremse Touhou/_Projectile Graphs/Player Attacks
     m_ReadOnly: 0
     m_SerializedLabels:
     - Projectile Graph

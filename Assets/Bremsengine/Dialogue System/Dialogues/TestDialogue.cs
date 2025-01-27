@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bremsengine
 {
-    public class TestDialogue : DialogueCollection
+    public class TestDialogue : Dialogue
     {
         protected override IEnumerator DialogueContents()
         {
@@ -23,14 +23,19 @@ namespace Bremsengine
             DialogueEventBus.TriggerEvent(EventKeys.Skeletron);
             ForceEndDialogue();
         }
-        protected override void WhenStart()
+        protected override void WhenStartDialogue()
         {
-            StartDialogue();
+
+        }
+        protected override void WhenEndDialogue()
+        {
+
         }
         private void TestFeature()
         {
             activeText.AddText(" 100 money :)");
             Debug.Log("100 moneys fortnite burger");
         }
+
     }
 }

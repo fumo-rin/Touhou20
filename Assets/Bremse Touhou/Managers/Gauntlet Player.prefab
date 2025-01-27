@@ -6632,8 +6632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0156f00827041a14b9acfd2db914888c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grazedRecentlyToAutoloot: 30
-  grazeDecayRate: 9
+  grazedRecentlyToAutoloot: 25
+  grazeDecayRate: 6
   grazeDecayMaxFreezeTime: 1.666667
   ScoreItemPrefab: {fileID: 6076243941187219546, guid: b5424c17e50c70a4aa295b64818b7d6e, type: 3}
   scorePullForce: 1.4

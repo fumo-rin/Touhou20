@@ -7,11 +7,11 @@ namespace Bremsengine
     public class DialogueRunner : MonoBehaviour
     {
         static DialogueRunner Instance;
-        [SerializeField] List<DialogueCollection.DialogueButton> dialogueButtons;
+        [SerializeField] List<Dialogue.DialogueButton> dialogueButtons;
         [SerializeField] DialogueText dialogueText;
         [SerializeField] TMP_Text dialogueTextComponent;
         [SerializeField] GameObject dialogueContainer;
-        public static List<DialogueCollection.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
+        public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
         {
             if (Instance != null)
@@ -21,9 +21,10 @@ namespace Bremsengine
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            DialogueCollection.BindDialogueText(dialogueText);
-            DialogueCollection.BindRunner(this);
+            Dialogue.BindDialogueText(dialogueText);
+            Dialogue.BindRunner(this);
             DialogueText.SetDialogueTextRenderer(dialogueTextComponent);
+            dialogueContainer.SetActive(false);
         }
         public static void SetDialogueVisibility(bool state)
         {
@@ -31,7 +32,7 @@ namespace Bremsengine
         }
         public void PressButton(int index)
         {
-            DialogueCollection.PressButton(index);
+            Dialogue.PressButton(index);
         }
     }
 }

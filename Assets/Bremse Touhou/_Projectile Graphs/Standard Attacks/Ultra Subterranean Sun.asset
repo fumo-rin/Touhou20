@@ -163,6 +163,6 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 13
   linkedOverrideDirection: {fileID: -4645281529380067432}
-  repeatInterval: 0.33333334
+  timeBetweenRepeats: 0.33333334
   repeatCount: 6
   repeatAddedAngle: 4

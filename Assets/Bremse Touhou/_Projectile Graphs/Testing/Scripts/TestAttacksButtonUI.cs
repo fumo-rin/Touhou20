@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.Extensions;
 using TMPro;
+using Core;
 
 namespace BremseTouhou
 {
     public class TestAttacksButtonUI : MonoBehaviour
     {
+        static string StringKeyProjectileGraphs = "Projectile Graph";
         HashSet<ProjectileAttack> attacks = new();
         ProjectileGraphSO lastSelectedAttack;
         [SerializeField] TestAttackButton buttonPrefab;
@@ -19,6 +21,7 @@ namespace BremseTouhou
         [SerializeField] TMP_InputField dummyEntriesCountField;
         [SerializeField] HashSet<GameObject> skeletrons = new();
         TargetDummyDPS activeTargetDummy;
+        HashSet<ProjectileGraphSO> registeredAttacks = new();
         public void ToggleUI()
         {
             toggleBox.gameObject.SetActive(!toggleBox.gameObject.activeInHierarchy);
@@ -26,14 +29,33 @@ namespace BremseTouhou
         public void CloseUI() { toggleBox.gameObject.SetActive(false); }
         public void BuildButtons()
         {
+            registeredAttacks.Clear();
             for (int i = 0; i < buttonsAnchor.childCount; i++)
             {
                 Destroy(buttonsAnchor.GetChild(i).gameObject);
             }
             foreach (var i in knownAttacks)
             {
+                if (registeredAttacks.Contains(i))
+                {
+                    continue;
+                }
                 TestAttackButton spawnedButton = Instantiate(buttonPrefab, buttonsAnchor);
                 spawnedButton.Bind(i, this);
+                registeredAttacks.Add(i);
+            }
+            foreach (var i in AddressablesTools.LoadKeys<ProjectileGraphSO>(StringKeyProjectileGraphs))
+            {
+                if (i != null)
+                {
+                    if (registeredAttacks.Contains(i))
+                    {
+                        continue;
+                    }
+                    TestAttackButton spawnedButton = Instantiate(buttonPrefab, buttonsAnchor);
+                    spawnedButton.Bind(i, this);
+                    registeredAttacks.Add(i);
+                }
             }
         }
         public void SpawnSkeletron()
@@ -96,11 +118,11 @@ namespace BremseTouhou
         {
             BuildButtons();
             SpawnSkeletron();
-            DialogueEventBus.BindEvent(EventKeys.Skeletron, SpawnSkeletron);
+            DialogueEventBus.BindEvent(Dialogue.EventKeys.Skeletron, SpawnSkeletron);
         }
         private void OnDestroy()
         {
-            DialogueEventBus.ReleaseEvent(EventKeys.Skeletron, SpawnSkeletron);
+            DialogueEventBus.ReleaseEvent(Dialogue.EventKeys.Skeletron, SpawnSkeletron);
         }
         public void SetAttack(ProjectileGraphSO graph)
         {

@@ -25,8 +25,9 @@ MonoBehaviour:
   - {fileID: -6013896878417400853}
   addedDelay: 1.6
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.08
+  timeBetweenRepeats: 0.08
   repeatCount: 7
   repeatAddedAngle: 18
 --- !u!114 &-8059709350141314257
@@ -79,8 +80,9 @@ MonoBehaviour:
   - {fileID: -6013896878417400853}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.04
+  timeBetweenRepeats: 0.04
   repeatCount: 14
   repeatAddedAngle: 10
 --- !u!114 &-6013896878417400853
@@ -196,8 +198,9 @@ MonoBehaviour:
   - {fileID: 4330141135589927404}
   addedDelay: 0.8
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.04
+  timeBetweenRepeats: 0.04
   repeatCount: 14
   repeatAddedAngle: -10
 --- !u!114 &11400000
@@ -290,8 +293,9 @@ MonoBehaviour:
   - {fileID: 4330141135589927404}
   addedDelay: 2
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.08
+  timeBetweenRepeats: 0.08
   repeatCount: 7
   repeatAddedAngle: 18
 --- !u!114 &4330141135589927404

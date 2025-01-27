@@ -27,7 +27,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.15
   repeatCount: 14
   repeatAddedAngle: 7
 --- !u!114 &-8059709350141314257
@@ -84,7 +84,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.05
+  timeBetweenRepeats: 0.05
   repeatCount: 11
   repeatAddedAngle: 9.8
 --- !u!114 &-6013896878417400853
@@ -202,7 +202,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.05
+  timeBetweenRepeats: 0.05
   repeatCount: 11
   repeatAddedAngle: -9.8
 --- !u!114 &-1368627582006452420
@@ -391,7 +391,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.15
+  timeBetweenRepeats: 0.15
   repeatCount: 13
   repeatAddedAngle: -7
 --- !u!114 &4049341105968773472
@@ -420,7 +420,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.3
+  timeBetweenRepeats: 0.3
   repeatCount: 42
   repeatAddedAngle: 0
 --- !u!114 &4330141135589927404
@@ -537,7 +537,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
-  repeatInterval: 0.3
+  timeBetweenRepeats: 0.3
   repeatCount: 4
   repeatAddedAngle: 0
 --- !u!114 &7622276712491956589

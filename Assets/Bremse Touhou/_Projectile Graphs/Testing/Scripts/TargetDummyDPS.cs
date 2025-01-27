@@ -33,11 +33,8 @@ namespace BremseTouhou
             float dps = totalDamage / (Time.time - EndOfQueueTime).Max(0.05f);
 
             TargetDummyEntry entry = dummyEntries.Dequeue();
-            Debug.Log(EndOfQueueTime);
             EndOfQueueTime = entry.time;
             totalDamage -= entry.damage;
-
-            Debug.Log($"Damage : {totalDamage} : Timespan : {Time.time - EndOfQueueTime}");
 
             return dps;
         }

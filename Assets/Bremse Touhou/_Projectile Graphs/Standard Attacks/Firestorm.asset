@@ -1,0 +1,575 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8864761139285108391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1069
+    y: 129
+    width: 350
+    height: 200
+  ID: 64b913c1-ef81-40c4-93af-0913eebff6c1
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -8154406106840368890}
+  addedDelay: 1.5
+  Retargetting: 0
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 6685616178855321722}
+  timeBetweenRepeats: 0.24
+  repeatCount: 11
+  repeatAddedAngle: 53
+--- !u!114 &-8154406106840368890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1091
+    y: 441
+    width: 350
+    height: 700
+  ID: bc25904f-e100-4c04-bbfc-5108df651a1c
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 835
+    y: 471
+    width: 250
+    height: 250
+  directionalOffset: 0.5
+  spread: 0
+  speed: 12
+  addedAngle: -16
+  ReverseDirection: 0
+  ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  attachedProjectileMods: []
+  projectileCountFloat: 14
+  AngleCoverage: 360
+  startingAngle: 3
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-6713236825767206606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1855
+    y: 941
+    width: 350
+    height: 150
+  ID: bea7ae35-2080-4eb3-9e99-bcd09750d660
+  graph: {fileID: 11400000}
+  attachedNodes: []
+  containedMod: {fileID: 11400000, guid: d2a7d34bb5040974089b1388de22f44b, type: 2}
+  isEnabled: 1
+--- !u!114 &-5550349847055231639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1317
+    y: 193
+    width: 250
+    height: 200
+  ID: cb4aff75-7147-4509-9e37-82ff5e28fa1a
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: -1}
+--- !u!114 &-4369821151793355612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1974
+    y: 918
+    width: 350
+    height: 150
+  ID: 368033cf-6d12-458d-99af-637744542f07
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: -1633707483574578315}
+  containedMod: {fileID: 11400000, guid: 68597881eda7d264d8d89721ee6467cd, type: 2}
+  isEnabled: 1
+--- !u!114 &-1633707483574578315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1571
+    y: 615
+    width: 350
+    height: 700
+  ID: 7babb88d-20f1-43ec-a4cf-96c5ab181418
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: 1315
+    y: 645
+    width: 250
+    height: 250
+  directionalOffset: 0.5
+  spread: 0
+  speed: 2
+  addedAngle: 0
+  ReverseDirection: 0
+  ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
+  spawnDelay: 0
+  linkedProjectileEvents: []
+  attachedProjectileMods: []
+  projectileCountFloat: 3
+  AngleCoverage: 20
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: Firestorm
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -1633707483574578315}
+  - {fileID: 2326897790985527493}
+  - {fileID: 1341134463456685259}
+  - {fileID: 236900737383429035}
+  - {fileID: -8154406106840368890}
+  - {fileID: 7569380528958689920}
+  - {fileID: -8864761139285108391}
+  - {fileID: 8488381588429359972}
+  - {fileID: 7786280743516474269}
+  - {fileID: 416646149992379239}
+  - {fileID: 8877647166588157311}
+  - {fileID: -4369821151793355612}
+  - {fileID: 6685616178855321722}
+  projectileGraphName: Firestorm
+  Developing: 0
+  nodes:
+  - {fileID: -1633707483574578315}
+  - {fileID: -8154406106840368890}
+  emitters:
+  - {fileID: 2326897790985527493}
+  - {fileID: 1341134463456685259}
+  - {fileID: 236900737383429035}
+  - {fileID: -8864761139285108391}
+  - {fileID: 8488381588429359972}
+  - {fileID: 7786280743516474269}
+  modNodes:
+  - {fileID: -6713236825767206606}
+  - {fileID: 7569380528958689920}
+  - {fileID: 416646149992379239}
+  - {fileID: 8877647166588157311}
+  - {fileID: -4369821151793355612}
+  GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
+--- !u!114 &236900737383429035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1314
+    y: -141
+    width: 350
+    height: 200
+  ID: c9a33c9f-4301-4412-9516-0876edfa2b92
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -8154406106840368890}
+  addedDelay: 0.75
+  Retargetting: 0
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 6685616178855321722}
+  timeBetweenRepeats: 0.32
+  repeatCount: 11
+  repeatAddedAngle: -97
+--- !u!114 &416646149992379239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 506
+    y: 800
+    width: 350
+    height: 150
+  ID: 28a1eb77-7d1e-4c38-82f3-ad225bd473a0
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: -8154406106840368890}
+  containedMod: {fileID: 11400000, guid: 740c0b7dbe6fcf841a70dd4dba8fa660, type: 2}
+  isEnabled: 1
+--- !u!114 &1341134463456685259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1508
+    y: 120
+    width: 350
+    height: 200
+  ID: 5ae23f86-5893-4386-b2a8-3c5cb0885ed4
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -8154406106840368890}
+  addedDelay: 0
+  Retargetting: 0
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 6685616178855321722}
+  timeBetweenRepeats: 0.4
+  repeatCount: 11
+  repeatAddedAngle: 79
+--- !u!114 &2326897790985527493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1956
+    y: 534
+    width: 350
+    height: 200
+  ID: b40d6510-84dd-4803-9a3b-703b4cc82dbd
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -1633707483574578315}
+  addedDelay: 1
+  Retargetting: 1
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 0}
+  timeBetweenRepeats: 0.18
+  repeatCount: 10
+  repeatAddedAngle: 0
+--- !u!114 &6685616178855321722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaeb0134217204e902cda7b6f3f106, type: 3}
+  m_Name: 'Direction Override : (0.0, -1.0)'
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1008
+    y: -343
+    width: 250
+    height: 200
+  ID: fb7da5cf-6561-4e8d-8f75-13b2b412218f
+  graph: {fileID: 11400000}
+  overrideDirection: {x: 0, y: -1}
+--- !u!114 &7569380528958689920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 394
+    y: 578
+    width: 350
+    height: 150
+  ID: 19c2a483-5b98-4bf6-ac14-84a24ec68dba
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: -8154406106840368890}
+  containedMod: {fileID: 11400000, guid: 5e23ae40480c3234d954ebafdb16ceda, type: 2}
+  isEnabled: 1
+--- !u!114 &7786280743516474269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 578
+    y: 197
+    width: 350
+    height: 200
+  ID: 91d451c0-645f-41ca-986a-a83d0bdaacfd
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -8154406106840368890}
+  addedDelay: 3
+  Retargetting: 0
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 6685616178855321722}
+  timeBetweenRepeats: 0.08
+  repeatCount: 11
+  repeatAddedAngle: 21
+--- !u!114 &8488381588429359972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21867a78b58a1844a96b996a2d7864a3, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 682
+    y: -112
+    width: 350
+    height: 200
+  ID: 481318b4-b043-4434-9b44-156fbdf74637
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -8154406106840368890}
+  addedDelay: 2.25
+  Retargetting: 0
+  OffScreenClearEdgePadding: 2
+  linkedOverrideDirection: {fileID: 6685616178855321722}
+  timeBetweenRepeats: 0.16
+  repeatCount: 11
+  repeatAddedAngle: -31
+--- !u!114 &8877647166588157311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669b416987fe224c84ed1982542728f, type: 3}
+  m_Name: Projectile Mod Container
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 530
+    y: 1000
+    width: 350
+    height: 150
+  ID: 8f81175c-667b-48d9-96c7-ed07e89f555f
+  graph: {fileID: 11400000}
+  attachedNodes:
+  - {fileID: -8154406106840368890}
+  containedMod: {fileID: 11400000, guid: bdefc0e3fbc9eab47a00a1a960331ce4, type: 2}
+  isEnabled: 1

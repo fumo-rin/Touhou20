@@ -45,6 +45,7 @@ MonoBehaviour:
   - {fileID: 3498969347279867446}
   emitters:
   - {fileID: 6086193807053045391}
+  modNodes: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 0}
@@ -85,6 +86,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -5003205887613729579}
+  attachedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 0
   startingAngle: 0
@@ -162,4 +164,5 @@ MonoBehaviour:
   - {fileID: 3498969347279867446}
   addedDelay: 0
   Retargetting: 0
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
