@@ -159,6 +159,7 @@ namespace Bremsengine
             this.speedMod *= speedMod;
             return this;
         }
+        public float SpeedMod => speedMod;
         public ProjectileNodeDirection AddAngle(float angle)
         {
             AngleOffset += angle;

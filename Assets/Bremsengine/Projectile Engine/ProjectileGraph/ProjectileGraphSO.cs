@@ -208,8 +208,13 @@ namespace Bremsengine
             {
                 nodes.Remove(n);
             }
+            if (c is not null and ProjectileModNodeSO m)
+            {
+                modNodes.Remove(m);
+            }
             components.Remove(c);
             UndoStack.Push(c);
+            c.DeleteComponent();
             c.OnGraphDelete();
         }
     }

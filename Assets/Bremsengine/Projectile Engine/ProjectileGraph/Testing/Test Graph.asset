@@ -175,6 +175,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 3
   repeatAddedAngle: 0.8
+  addedStartingAngle: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +248,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 14
   repeatAddedAngle: 7
+  addedStartingAngle: 0
 --- !u!114 &685339135572628869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +451,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 7
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &4109024477987867913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +617,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 4
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &6302776682013068324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,6 +739,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 4
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &7455491696039527185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,3 +907,4 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 20
   repeatAddedAngle: 6.75
+  addedStartingAngle: 0

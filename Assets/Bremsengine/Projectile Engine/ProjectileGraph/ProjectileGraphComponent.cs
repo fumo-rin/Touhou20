@@ -82,7 +82,9 @@ namespace Bremsengine
         public void DeleteComponent()
         {
             OnGraphDelete();
+            graph.Dirty();
             graph.components.Remove(this);
+            AssetDatabase.RemoveObjectFromAsset(this);
             AssetDatabase.SaveAssets();
         }
         public void AddSpace(int count)

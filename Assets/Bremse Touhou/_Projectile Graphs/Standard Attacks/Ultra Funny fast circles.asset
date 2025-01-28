@@ -55,6 +55,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.09
   repeatCount: 20
   repeatAddedAngle: 1.40625
+  addedStartingAngle: 0
 --- !u!114 &-313141836235419511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.11
   repeatCount: 12
   repeatAddedAngle: -1.4
+  addedStartingAngle: 0
 --- !u!114 &560888909156609607
 MonoBehaviour:
   m_ObjectHideFlags: 0

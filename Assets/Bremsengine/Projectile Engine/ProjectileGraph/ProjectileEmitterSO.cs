@@ -34,7 +34,7 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 3f);
+            addedDelay = EditorGUILayout.Slider("Added Delay", addedDelay, 0f, 10f);
             OffScreenClearEdgePadding = (float)EditorGUILayout.IntField("Offscreen Edge Padding Outwards", (int)OffScreenClearEdgePadding);
             Retargetting = EditorGUILayout.Toggle("Retargetting", Retargetting);
 
@@ -96,7 +96,7 @@ namespace Bremsengine
             yield return settings.WaitForEntryDelay;
             for (int i = 0; i < settings.RepeatCounts.Max(1); i++)
             {
-                input.addedAngle = settings.ComputeAngle(i-1);
+                input.addedAngle = settings.ComputeAngle(i);
                 if (input.Owner == null || !input.Owner.gameObject.activeInHierarchy)
                 {
                     yield break;
@@ -154,7 +154,7 @@ namespace Bremsengine
             }
             public float ComputeAngle(int iterations)
             {
-                return AddedAngleEmitter + AddedAnglePerIteration.Multiply(iterations);
+                return AddedAngleEmitter + AddedAnglePerIteration.Multiply(iterations.Max(0));
             }
             private static WaitForSeconds GetCachedDelay(float delay)
             {

@@ -11,6 +11,8 @@ namespace BremseTouhou
         TestAttacksButtonUI boundUI;
         public void Bind(ProjectileGraphSO graph, TestAttacksButtonUI boundUI)
         {
+            if (graph == null)
+                return;
             this.boundUI = boundUI;
             attack = (ProjectileGraphSO)graph;
             string builtText = attack.projectileGraphName;

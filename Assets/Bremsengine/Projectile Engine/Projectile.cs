@@ -20,6 +20,7 @@ namespace Bremsengine
             isActive = true;
 
             mainCollider.size = proj.mainCollider.size;
+            mainCollider.enabled = proj.mainCollider.enabled;
 
             //transform.name = proj.transform.name;
 

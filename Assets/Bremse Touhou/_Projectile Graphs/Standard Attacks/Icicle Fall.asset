@@ -31,6 +31,32 @@ MonoBehaviour:
   addedAngle: -105
   spread: 2
   OffScreenClearEdgePadding: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-8063571252079463087
 MonoBehaviour:
@@ -63,6 +89,32 @@ MonoBehaviour:
   addedAngle: 105
   spread: 2
   OffScreenClearEdgePadding: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-6726217897975526738
 MonoBehaviour:
@@ -278,6 +330,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.15
   repeatCount: 28
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &-3957244216771015848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +362,32 @@ MonoBehaviour:
   addedAngle: 90
   spread: 0
   OffScreenClearEdgePadding: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &-3307353721253079092
 MonoBehaviour:
@@ -574,3 +653,4 @@ MonoBehaviour:
   timeBetweenRepeats: 0.2
   repeatCount: 25
   repeatAddedAngle: 0
+  addedStartingAngle: 0

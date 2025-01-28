@@ -145,6 +145,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.06
   repeatCount: 3
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &5010464049080702738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ MonoBehaviour:
   speed: 25
   addedAngle: 0
   ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: 30e63894b53d342459d3750cfe179168, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 2b6a9b361ff34024bbdc3ef9236a64f1, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -595416381803295515}

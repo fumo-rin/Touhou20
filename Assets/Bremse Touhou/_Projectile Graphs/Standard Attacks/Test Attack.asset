@@ -31,6 +31,8 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &-4673846698117420520
 MonoBehaviour:
@@ -63,6 +65,8 @@ MonoBehaviour:
   addedAngle: 0
   spread: 15
   OffScreenClearEdgePadding: 0
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-4645281529380067432
 MonoBehaviour:
@@ -214,6 +218,8 @@ MonoBehaviour:
   addedAngle: -180
   spread: 5
   OffScreenClearEdgePadding: 0
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-975918989488927012
 MonoBehaviour:
@@ -246,6 +252,8 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -341,6 +349,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 2
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &4702568455512365157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +502,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.33333334
   repeatCount: 82
   repeatAddedAngle: 6
+  addedStartingAngle: 0
 --- !u!114 &8356021628667667561
 MonoBehaviour:
   m_ObjectHideFlags: 0

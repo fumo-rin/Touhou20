@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Projectile Graph
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ee26352d570a814d8acbb8fb535a8d1
+    m_Address: Assets/Bremse Touhou/_Projectile Graphs/Organized Attacks
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Projectile Graph
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bc57f699be5af54d812e6f2dc888d51
     m_Address: Assets/Bremse Touhou/_Projectile Graphs/Player Attacks
     m_ReadOnly: 0

@@ -208,6 +208,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 7
   repeatAddedAngle: 30
+  addedStartingAngle: 0
 --- !u!114 &-2037170189828797116
 MonoBehaviour:
   m_ObjectHideFlags: 0

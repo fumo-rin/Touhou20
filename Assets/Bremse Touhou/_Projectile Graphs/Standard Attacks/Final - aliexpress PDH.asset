@@ -31,39 +31,34 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
-  Faction: 0
---- !u!114 &-5372908114899752924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
-  m_Name: Projectile Crawler Event
-  m_EditorClassIdentifier: 
-  rect:
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
     serializedVersion: 2
-    x: 992
-    y: 601
-    width: 400
-    height: 300
-  ID: 18a6e39f-d4d0-4561-982f-fde48ab56aa0
-  graph: {fileID: 11400000}
-  EventDelay: 0.35
-  isActive: 1
-  projectilePrefab: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
-  fanAngle: 60
-  projectileCopies: 2
-  destroyOriginal: 0
-  directionalOffset: 0.5
-  speed: 5
-  addedAngle: 0
-  spread: 5
-  OffScreenClearEdgePadding: 0
-  Faction: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
+  Faction: 0
 --- !u!114 &-4673846698117420520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +90,33 @@ MonoBehaviour:
   addedAngle: 0
   spread: 15
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-4645281529380067432
 MonoBehaviour:
@@ -131,23 +153,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 999
-    y: 960
+    x: 931
+    y: 593
     width: 400
-    height: 300
+    height: 375
   ID: 3cfab4f6-f0cf-47ff-bbd3-c0920ee0c3f9
   graph: {fileID: 11400000}
-  EventDelay: 0.75
+  EventDelay: 0.2
   isActive: 1
   projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
-  fanAngle: 360
-  projectileCopies: 7
+  fanAngle: 10
+  projectileCopies: 2
   destroyOriginal: 0
   directionalOffset: 0.5
   speed: 1
-  addedAngle: 0
-  spread: 15
+  addedAngle: 180
+  spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 36
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 10
+  RepeatInterval: 0.1
   Faction: 2
 --- !u!114 &-4191760690823002199
 MonoBehaviour:
@@ -163,29 +212,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 453
-    y: 450
+    x: 400
+    y: 403
     width: 350
     height: 700
   ID: f40ef764-7b6c-4b66-9d79-cc574b6a049e
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 197
-    y: 480
+    x: 144
+    y: 433
     width: 250
     height: 250
   directionalOffset: 0.25
   spread: 10
-  speed: 5
+  speed: 10
   addedAngle: 0
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
-  - {fileID: 8668174804917119523}
   - {fileID: -4345314284584146708}
-  - {fileID: -5372908114899752924}
   attachedProjectileMods: []
   projectileCountFloat: 4
   AngleCoverage: 110
@@ -279,6 +326,33 @@ MonoBehaviour:
   addedAngle: -180
   spread: 5
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &-975918989488927012
 MonoBehaviour:
@@ -311,6 +385,33 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &-126381390994912820
 MonoBehaviour:
@@ -343,6 +444,33 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -359,9 +487,7 @@ MonoBehaviour:
   components:
   - {fileID: 4109503866884801225}
   - {fileID: -4191760690823002199}
-  - {fileID: 8668174804917119523}
   - {fileID: -4345314284584146708}
-  - {fileID: -5372908114899752924}
   projectileGraphName: Aliexpress PDH
   Developing: 0
   nodes:
@@ -405,6 +531,33 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &4109503866884801225
 MonoBehaviour:
@@ -420,8 +573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 446
-    y: 115
+    x: 393
+    y: 68
     width: 350
     height: 200
   ID: d1409f0e-1e6b-46c7-ab0d-e6901bedc983
@@ -431,11 +584,12 @@ MonoBehaviour:
   - {fileID: -4191760690823002199}
   addedDelay: 0
   Retargetting: 1
-  OffScreenClearEdgePadding: 8
+  OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
   timeBetweenRepeats: 0.3
   repeatCount: 2
   repeatAddedAngle: 0
+  addedStartingAngle: 0
 --- !u!114 &4702568455512365157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +708,33 @@ MonoBehaviour:
   addedAngle: 0
   spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 0
 --- !u!114 &7146652978902811276
 MonoBehaviour:
@@ -622,6 +803,33 @@ MonoBehaviour:
   addedAngle: -180
   spread: 5
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
+  fanProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Repeats: 1
+  RepeatInterval: 0.5
   Faction: 2
 --- !u!114 &7744886453231968892
 MonoBehaviour:
@@ -652,6 +860,7 @@ MonoBehaviour:
   timeBetweenRepeats: 0.3
   repeatCount: 82
   repeatAddedAngle: 6
+  addedStartingAngle: 0
 --- !u!114 &8356021628667667561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,35 +888,3 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 0}
---- !u!114 &8668174804917119523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50b306c97b854645b4f5103d64bb6db, type: 3}
-  m_Name: Projectile Crawler Event
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 1012
-    y: 261
-    width: 400
-    height: 300
-  ID: cde8151e-230e-4c0a-8df5-90f4cf27919a
-  graph: {fileID: 11400000}
-  EventDelay: 2.25
-  isActive: 1
-  projectilePrefab: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
-  fanAngle: 120
-  projectileCopies: 5
-  destroyOriginal: 1
-  directionalOffset: 0.25
-  speed: 3
-  addedAngle: -180
-  spread: 5
-  OffScreenClearEdgePadding: 8
-  Faction: 2

@@ -166,3 +166,4 @@ MonoBehaviour:
   timeBetweenRepeats: 0.33333334
   repeatCount: 6
   repeatAddedAngle: 4
+  addedStartingAngle: 0

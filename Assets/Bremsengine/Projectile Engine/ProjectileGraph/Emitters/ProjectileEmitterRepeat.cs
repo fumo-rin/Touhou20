@@ -25,8 +25,9 @@ namespace Bremsengine
         {
             base.OnDraw(style);
             timeBetweenRepeats = EditorGUILayout.Slider("Time Between Repeats", timeBetweenRepeats, 0f, 2f);
-            repeatCount = EditorGUILayout.IntSlider("Repeat Count", repeatCount, 1, 100);
+            repeatCount = EditorGUILayout.IntSlider("Repeat Count", repeatCount, 1, 250);
             repeatAddedAngle = EditorGUILayout.Slider("Repeat Added Angle", repeatAddedAngle, -180f, 180f);
+            addedStartingAngle = EditorGUILayout.Slider("Added Starting Angle", addedStartingAngle, -180f, 180f);
         }
 
         protected override void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type)
@@ -43,11 +44,13 @@ namespace Bremsengine
         public float timeBetweenRepeats = 0.3f;
         public int repeatCount = 4;
         public float repeatAddedAngle = 0f;
+        public float addedStartingAngle = 0f;
         public override void Trigger(TriggeredEvent triggeredEvent, ProjectileGraphInput input, Projectile.SpawnCallback callback, int forcedLayer)
         {
             EmitterSettings settings = new();
             settings.EntryDelay = addedDelay;
             settings.AddedAnglePerIteration = repeatAddedAngle;
+            settings.AddedAngleEmitter = addedStartingAngle;
             settings.RepeatCounts = repeatCount;
             settings.TimeBetweenRepeats = timeBetweenRepeats;
             ProjectileEmitterTimelineHandler.Queue(Co_Emit(settings, triggeredEvent, input, callback, forcedLayer), input.Owner);

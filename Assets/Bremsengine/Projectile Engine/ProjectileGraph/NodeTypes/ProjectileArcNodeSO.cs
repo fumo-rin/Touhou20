@@ -72,7 +72,6 @@ namespace Bremsengine
 
                 direction.AddAngle(input.addedAngle);
                 direction.AddAngle(RandomAngle ? GetRandomAngle : iterationAngle.Multiply(CurveValue(arcProgressionAngleMultiplier, progress)));
-                Debug.DrawLine(input.OwnerCurrentPosition,input.OwnerCurrentPosition + direction.Direction.ScaleToMagnitude(5f),Color.yellow,0.5f);
                 Projectile spawn = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
                 l.Add(spawn);
                 iterationAngle += AngleIncrement;
