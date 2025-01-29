@@ -35,14 +35,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 682
-    y: 393
+    x: 178
+    y: 344
     width: 250
     height: 200
   ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
   graph: {fileID: 11400000}
   overrideDirection: {x: 0, y: 1}
---- !u!114 &-595416381803295515
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: Player Frontal
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 5010464049080702738}
+  - {fileID: 3802485916838778856}
+  - {fileID: -1614631124295729775}
+  - {fileID: 1353319660269403633}
+  projectileGraphName: Player Frontal
+  Developing: 0
+  nodes:
+  - {fileID: 5010464049080702738}
+  emitters:
+  - {fileID: 3802485916838778856}
+  modNodes: []
+  GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0
+  headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
+  previewLine: 0
+  connectingLineWidth: 3
+--- !u!114 &1353319660269403633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,44 +85,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1732
-    y: 641
+    x: 1290
+    y: 446
     width: 350
     height: 100
-  ID: c8812ad8-11a5-4430-b445-23cc074a9d67
+  ID: e939f8a0-d3f6-4402-bda2-652dec9f1923
   graph: {fileID: 11400000}
   EventDelay: 0
   acw: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
   repeatCooldown: 0.03
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
-  m_Name: Player Spreadshot
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: 5010464049080702738}
-  - {fileID: 3802485916838778856}
-  - {fileID: -595416381803295515}
-  - {fileID: -1614631124295729775}
-  projectileGraphName: 
-  Developing: 0
-  nodes:
-  - {fileID: 5010464049080702738}
-  emitters:
-  - {fileID: 3802485916838778856}
-  modNodes: []
-  GraphGlobalProjectileSpeed: 1
-  addedCooldown: 0.1
-  headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
-  previewLine: 0
-  connectingLineWidth: 3
 --- !u!114 &3514923049788479832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 819
-    y: 689
+    x: 315
+    y: 640
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -142,8 +142,8 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: -1614631124295729775}
-  timeBetweenRepeats: 0.06
-  repeatCount: 3
+  timeBetweenRepeats: 0.08
+  repeatCount: 5
   repeatAddedAngle: 0
   addedStartingAngle: 0
 --- !u!114 &5010464049080702738
@@ -160,30 +160,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1296
-    y: 302
+    x: 792
+    y: 253
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1040
-    y: 332
+    x: 536
+    y: 283
     width: 250
     height: 250
-  directionalOffset: 0.6
-  spread: 2.5
-  speed: 25
+  directionalOffset: 0
+  spread: 0
+  speed: 30
   addedAngle: 0
   ReverseDirection: 0
-  ProjectileType: {fileID: 11400000, guid: 2b6a9b361ff34024bbdc3ef9236a64f1, type: 2}
+  ProjectileType: {fileID: 11400000, guid: 03eaf7117004c9a4b993c4058d8732c6, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
-  - {fileID: -595416381803295515}
+  - {fileID: 1353319660269403633}
   attachedProjectileMods: []
-  projectileCountFloat: 11
-  AngleCoverage: 45
+  projectileCountFloat: 1
+  AngleCoverage: 0
   startingAngle: 0
   RandomAngle: 0
   arcProgressionSpeed:
@@ -192,29 +192,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0.20000005
-      outSlope: 0.20000005
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.20000005
-      outSlope: -0.20000005
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

@@ -1,4 +1,6 @@
-using QFSW.QC;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Core.Extensions
@@ -150,6 +152,13 @@ namespace Core.Extensions
                 return trueValue;
             }
             return falseValue;
+        }
+        public static IEnumerable<float> StepFromTo(this float steps, float from, float to)
+        {
+            for (float i = from; i <= to; i += steps)
+            {
+                yield return i;
+            }
         }
     }
 }

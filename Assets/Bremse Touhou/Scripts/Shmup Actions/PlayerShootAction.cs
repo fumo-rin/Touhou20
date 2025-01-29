@@ -1,13 +1,14 @@
 using UnityEngine;
 using Core.Input;
 using Bremsengine;
+using System.Collections.Generic;
 
 namespace BremseTouhou
 {
     public class PlayerShootAction : MonoBehaviour
     {
         [SerializeField] BremseInputEventBus eventBus;
-        [SerializeField] PlayerAttackHandler attackHandler;
+        [SerializeField] List<PlayerAttackHandler> handlers = new();
         bool isHeld;
         private void Start()
         {
@@ -19,17 +20,21 @@ namespace BremseTouhou
             eventBus.ReleaseAction(BremseInputPhase.Performed, PressDown);
             eventBus.ReleaseAction(BremseInputPhase.Cancelled, PressUp);
         }
-        private void Update()
-        {
-            attackHandler.SetAttackPressed(isHeld);
-        }
         private void PressDown()
         {
             isHeld = true;
+            foreach (var item in handlers)
+            {
+                item.SetAttackPressed(isHeld);
+            }
         }
         private void PressUp()
         {
             isHeld = false;
+            foreach (var item in handlers)
+            {
+                item.SetAttackPressed(isHeld);
+            }
         }
     }
 }

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e88b55324cf994b987b71cd85298ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyEntriesCount: 50
+  startingDummyEntries: 150
   dummyTargetBox: {fileID: 1211709543079646217}
   dummyText: {fileID: 3034994761321914800}
 --- !u!61 &8170421038160118289

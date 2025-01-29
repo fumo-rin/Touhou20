@@ -59,7 +59,7 @@ namespace Bremsengine
             return curve.Evaluate(time);
         }
         public float AngleIncrement => AngleCoverage / (ProjectileCount - (AngleCoverage < 360 ? 1 : 0));
-        public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
+        public override void Spawn(in List<Projectile> newProjectiles, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
             float progress = 0f;
             int iteration = 0;
@@ -73,7 +73,7 @@ namespace Bremsengine
                 direction.AddAngle(input.addedAngle);
                 direction.AddAngle(RandomAngle ? GetRandomAngle : iterationAngle.Multiply(CurveValue(arcProgressionAngleMultiplier, progress)));
                 Projectile spawn = CreateProjectile(ProjectileType.Prefab, input.OwnerCurrentPosition, direction);
-                l.Add(spawn);
+                newProjectiles.Add(spawn);
                 iterationAngle += AngleIncrement;
                 iteration++;
                 progress = iteration == 0 ? 0f : ((float)iteration / ((float)ProjectileCount - 1)).Clamp(0f, 1f);

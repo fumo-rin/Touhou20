@@ -711,7 +711,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventBus: {fileID: 11400000, guid: 7f1c8a5ae1a8eb84d8f1d7633b3594cd, type: 2}
-  attackHandler: {fileID: 8756501816092386084}
+  handlers:
+  - {fileID: 677092202957666550}
+  - {fileID: 6025008150098531759}
+  - {fileID: 6357577220590377810}
 --- !u!1 &3146216557020109922
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,9 +859,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3138990009264341777}
-  - component: {fileID: 8756501816092386084}
   m_Layer: 0
-  m_Name: Attack Handler
+  m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -878,24 +880,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8759028687096453378}
+  - {fileID: 2878716524619755209}
+  - {fileID: 8930274627771059939}
   m_Father: {fileID: 4857404270182001220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8756501816092386084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3518326585063353207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06be47a0e0dbd004292843654863112d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assignedTarget: {fileID: 0}
-  owner: {fileID: 4857404270182001220}
-  faction: 1
-  TESTINGcurrentAttack: {fileID: 6134377792351427018}
 --- !u!1 &4245914011593199028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,6 +6823,71 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &8284512541165482541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2878716524619755209}
+  - component: {fileID: 7299638398637964908}
+  - component: {fileID: 6025008150098531759}
+  m_Layer: 0
+  m_Name: Shot Frontal L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2878716524619755209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284512541165482541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3138990009264341777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7299638398637964908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284512541165482541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackHandler: {fileID: 6025008150098531759}
+  attackBaseDamage: 3
+  projectileAttack: {fileID: 11400000, guid: abcbea84ff3ac4d44b693af645266ed9, type: 2}
+  projectileSortingIndex: -100
+--- !u!114 &6025008150098531759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284512541165482541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06be47a0e0dbd004292843654863112d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedTarget: {fileID: 0}
+  owner: {fileID: 2878716524619755209}
+  faction: 1
+  TESTINGcurrentAttack: {fileID: 7299638398637964908}
 --- !u!1 &8293559821794238775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7040,13 +7093,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8759028687096453378}
   - component: {fileID: 6134377792351427018}
+  - component: {fileID: 677092202957666550}
   m_Layer: 0
   m_Name: Standard Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8759028687096453378
 Transform:
   m_ObjectHideFlags: 0
@@ -7074,10 +7128,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHandler: {fileID: 8756501816092386084}
-  attackBaseDamage: 1
+  attackHandler: {fileID: 677092202957666550}
+  attackBaseDamage: 0.6
   projectileAttack: {fileID: 11400000, guid: af9b80ad38eb53d4d89b320a4cca2cd7, type: 2}
   projectileSortingIndex: -100
+--- !u!114 &677092202957666550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479090062607594360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06be47a0e0dbd004292843654863112d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedTarget: {fileID: 0}
+  owner: {fileID: 4857404270182001220}
+  faction: 1
+  TESTINGcurrentAttack: {fileID: 6134377792351427018}
+--- !u!1 &9028990000823481090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8930274627771059939}
+  - component: {fileID: 69145331177664368}
+  - component: {fileID: 6357577220590377810}
+  m_Layer: 0
+  m_Name: Shot Frontal R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8930274627771059939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028990000823481090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3138990009264341777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69145331177664368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028990000823481090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f2a6bffb7801143ba0b9faaf83e160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackHandler: {fileID: 6357577220590377810}
+  attackBaseDamage: 3
+  projectileAttack: {fileID: 11400000, guid: abcbea84ff3ac4d44b693af645266ed9, type: 2}
+  projectileSortingIndex: -100
+--- !u!114 &6357577220590377810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028990000823481090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06be47a0e0dbd004292843654863112d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedTarget: {fileID: 0}
+  owner: {fileID: 8930274627771059939}
+  faction: 1
+  TESTINGcurrentAttack: {fileID: 69145331177664368}
 --- !u!1001 &4919778516789937312
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -119,6 +119,8 @@ namespace BremseTouhou
             DontDestroyOnLoad(gameObject);
             Time.maximumDeltaTime = 1f / 60f;
             Time.maximumParticleDeltaTime = 1f / 60f;
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 120;
             LoadDifficultyFromLastSelected();
         }
         public static void CloseGame()

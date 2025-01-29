@@ -27,5 +27,12 @@ namespace Core.Extensions
             s = s.Replace(lineBreakSequence, "\n");
             return s;
         }
+        public static IEnumerable<char> StringChop(this string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                yield return s[i];
+            }
+        }
     }
 }

@@ -104,7 +104,7 @@ namespace BremseTouhou
         }
         public void SetTargetDummy()
         {
-            if (activeTargetDummy)
+            if (activeTargetDummy && string.IsNullOrWhiteSpace(dummyEntriesCountField.text))
             {
                 activeTargetDummy.SetMaxDummyEntries(int.Parse(dummyEntriesCountField.text).Clamp(5, 500));
             }

@@ -146,27 +146,12 @@ namespace Bremsengine
             public float AddedAngleEmitter;
             public float AddedAnglePerIteration;
             public float TimeBetweenRepeats;
-            public static Dictionary<float, WaitForSeconds> RepeatSettingsStallLookup;
-            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-            private static void ResetLookup()
-            {
-                RepeatSettingsStallLookup = new();
-            }
             public float ComputeAngle(int iterations)
             {
                 return AddedAngleEmitter + AddedAnglePerIteration.Multiply(iterations.Max(0));
             }
-            private static WaitForSeconds GetCachedDelay(float delay)
-            {
-                if (RepeatSettingsStallLookup.ContainsKey(delay) && RepeatSettingsStallLookup[delay] != null)
-                {
-                    return RepeatSettingsStallLookup[delay];
-                }
-                RepeatSettingsStallLookup[delay] = new WaitForSeconds(delay);
-                return RepeatSettingsStallLookup[delay];
-            }
-            public WaitForSeconds WaitForEntryDelay => GetCachedDelay(EntryDelay) ?? new WaitForSeconds(EntryDelay);
-            public WaitForSeconds WaitForRepeatDelay => GetCachedDelay(TimeBetweenRepeats) ?? new WaitForSeconds(TimeBetweenRepeats);
+            public WaitForSeconds WaitForEntryDelay => Helper.GetWaitForSeconds(EntryDelay) ?? new WaitForSeconds(EntryDelay);
+            public WaitForSeconds WaitForRepeatDelay => Helper.GetWaitForSeconds(TimeBetweenRepeats) ?? new WaitForSeconds(TimeBetweenRepeats);
         }
     }
 }

@@ -7,6 +7,53 @@ using UnityEngine.UI;
 
 namespace Bremsengine
 {
+    #region Dialogue Editor Custom Inspector
+#if UNITY_EDITOR
+    using UnityEditor;
+
+    [CustomEditor(typeof(TestDialogue))]
+    public partial class DialogueInspectorEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Start Dialogue") && Application.isPlaying && target is Dialogue d and not null)
+            {
+                d.StartDialogue();
+            }
+        }
+    }
+#endif
+    #endregion
+    #region Dialogue Internal Coroutines
+    public partial class Dialogue
+    {
+        Dictionary<string, Coroutine> activeRoutines = new();
+        public bool TryGetSubroutine(string key, out Coroutine c)
+        {
+            c = null;
+            if (activeRoutines.ContainsKey(key))
+            {
+                c = activeRoutines[key];
+                return true;
+            }
+            return false;
+        }
+        public void TryEndSubroutine(string key)
+        {
+            if (TryGetSubroutine(key, out Coroutine c))
+            {
+                if (c != null)
+                    StopCoroutine(c);
+            }
+        }
+        public void StartSubroutine(string key, IEnumerator coroutine)
+        {
+            TryEndSubroutine(key);
+            activeRoutines[key] = StartCoroutine(coroutine);
+        }
+    }
+    #endregion
     #region Dialogue Event Busses
     public partial class Dialogue
     {
@@ -72,6 +119,17 @@ namespace Bremsengine
                 ContinueDialogueWhenPressed = state;
                 return this;
             }
+            public DialogueButton SetForceEndWhenPressed()
+            {
+                void ButtonEndDialogue()
+                {
+                    if (Dialogue.ActiveDialogue == null)
+                        return;
+                    Dialogue.ActiveDialogue.ForceEndDialogue();
+                }
+                OnPressedAction += ButtonEndDialogue;
+                return this;
+            }
             private TMP_Text FindAndCacheTextComponent(Button b)
             {
                 if (b == null)
@@ -90,6 +148,10 @@ namespace Bremsengine
             public DialogueButton PressButton()
             {
                 OnPressedAction?.Invoke();
+                if (this == null)
+                {
+                    return null;
+                }
                 if (ContinueDialogueWhenPressed)
                 {
                     Dialogue.TriggerContinue?.Invoke(Dialogue.activeDialogueCollection);
@@ -153,6 +215,7 @@ namespace Bremsengine
                     continue;
                 }
                 iteration = item.Value;
+                iteration.OnPressedAction = null;
                 iteration.SetVisible(false);
             }
         }
@@ -210,6 +273,11 @@ namespace Bremsengine
             text += s;
             ReDrawText();
         }
+        public void AddText(char c)
+        {
+            text += c;
+            ReDrawText();
+        }
     }
     public abstract partial class Dialogue
     {
@@ -234,7 +302,8 @@ namespace Bremsengine
         protected abstract IEnumerator DialogueContents();
         public delegate void DialogueEvent(Dialogue dialogue);
         public static DialogueEvent TriggerContinue;
-        static Coroutine activeDialogue;
+        static Coroutine activeDialogueRoutine;
+        static Dialogue ActiveDialogue;
         protected static bool IsWaiting;
         private void Start()
         {
@@ -250,30 +319,34 @@ namespace Bremsengine
         {
             runnerInstance = runner;
         }
+        [ContextMenu("Start Dialogue")]
         public void StartDialogue()
         {
-            if (activeDialogue != null && runnerInstance == null)
+            if (activeDialogueRoutine != null && runnerInstance == null)
             {
                 Debug.Log("Really bad");
             }
-            if (activeDialogue != null && runnerInstance != null)
+            if (activeDialogueRoutine != null && runnerInstance != null)
             {
-                runnerInstance.StopCoroutine(activeDialogue);
+                runnerInstance.StopCoroutine(activeDialogueRoutine);
             }
+            ActiveDialogue = this;
             IsWaiting = false;
-            activeDialogue = runnerInstance.StartCoroutine(DialogueContents());
+            activeDialogueRoutine = runnerInstance.StartCoroutine(DialogueContents());
+            DialogueRunner.SetDialogueVisibility(true);
             WhenStartDialogue();
         }
         public void ForceEndDialogue()
         {
             DialogueRunner.SetDialogueVisibility(false);
-            if (activeDialogue != null)
+            if (activeDialogueRoutine != null)
             {
-                runnerInstance.StopCoroutine(activeDialogue);
-                activeDialogue = null;
+                runnerInstance.StopCoroutine(activeDialogueRoutine);
+                activeDialogueRoutine = null;
             }
             WhenEndDialogue();
             IsWaiting = false;
+            ActiveDialogue = null;
         }
     }
 }

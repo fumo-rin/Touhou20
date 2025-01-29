@@ -31,6 +31,7 @@ MonoBehaviour:
   addedAngle: -105
   spread: 2
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
   fanProgressionSpeed:
     serializedVersion: 2
     m_Curve:
@@ -89,6 +90,7 @@ MonoBehaviour:
   addedAngle: 105
   spread: 2
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
   fanProgressionSpeed:
     serializedVersion: 2
     m_Curve:
@@ -362,6 +364,7 @@ MonoBehaviour:
   addedAngle: 90
   spread: 0
   OffScreenClearEdgePadding: 0
+  repeatAddedAngle: 0
   fanProgressionSpeed:
     serializedVersion: 2
     m_Curve:

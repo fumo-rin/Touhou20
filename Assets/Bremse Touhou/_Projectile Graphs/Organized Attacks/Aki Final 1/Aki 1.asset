@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1543
-    y: 285
+    x: 1339
+    y: 53
     width: 350
     height: 700
   ID: 98bcf433-ec28-4274-9f75-4a0de673557a
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1287
-    y: 315
+    x: 1083
+    y: 83
     width: 250
     height: 250
   directionalOffset: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 269
-    y: 143
+    x: 65
+    y: -89
     width: 350
     height: 150
   ID: f54a6cee-c2f0-4c91-8821-ca3844f35e1a
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 638
-    y: 344
+    x: 434
+    y: 112
     width: 350
     height: 200
   ID: 2b52aae0-0389-484f-9ef9-ffd636bb6185
@@ -189,8 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 216
-    y: 390
+    x: 12
+    y: 158
     width: 250
     height: 200
   ID: 408799da-13d8-454b-a396-452bf9c50e53
@@ -210,16 +210,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 609
-    y: 738
+    x: 405
+    y: 506
     width: 350
     height: 400
   ID: 64c1ec6d-48b6-4d0c-8296-dc6942d172ae
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 353
-    y: 768
+    x: 149
+    y: 536
     width: 250
     height: 250
   directionalOffset: 1
@@ -246,8 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1049
-    y: 859
+    x: 845
+    y: 627
     width: 400
     height: 375
   ID: 9e8a4db1-eb57-4945-ab39-45afd2ba5d7a
@@ -288,11 +288,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0.5
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
+      inSlope: -1.1416855
+      outSlope: -1.1416855
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.125
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

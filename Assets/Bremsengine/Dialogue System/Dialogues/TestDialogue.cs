@@ -1,4 +1,6 @@
+using Core.Extensions;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace Bremsengine
@@ -16,12 +18,29 @@ namespace Bremsengine
             SetButton(2, "NOOO", SpawnBoss);
             yield return Wait;
             ReDrawDialogue("yooo");
-            SetButton(2, "Close", ForceEndDialogue);
+            SetButton(2, "Bro").SetContinueWhenPressed(true);
+            StartSubroutine("Test Range", TestRange());
+            yield return Wait;
+            TryEndSubroutine("Test Range");
+            ReDrawDialogue("jao");
+            SetButton(2, "Close", SpawnBoss).SetForceEndWhenPressed();
         }
         private void SpawnBoss()
         {
             DialogueEventBus.TriggerEvent(EventKeys.Skeletron);
-            ForceEndDialogue();
+        }
+        private IEnumerator TestRange()
+        {
+            string add = " ";
+            foreach (var item in 30f.StepFromTo(-100f, 360f))
+            {
+                add += item + " ";
+            }
+            foreach (char item in add.StringChop())
+            {
+                activeText.AddText(item);
+                yield return Helper.GetWaitForSeconds(1f / 30f);
+            }
         }
         protected override void WhenStartDialogue()
         {
@@ -34,7 +53,7 @@ namespace Bremsengine
         private void TestFeature()
         {
             activeText.AddText(" 100 money :)");
-            Debug.Log("100 moneys fortnite burger");
+            UnityEngine.Debug.Log("100 moneys fortnite burger");
         }
 
     }

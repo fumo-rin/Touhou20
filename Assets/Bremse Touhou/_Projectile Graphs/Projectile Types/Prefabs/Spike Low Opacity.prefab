@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3417849383627458229, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Name
-      value: Large Projectile
+      value: Spike Low Opacity
       objectReference: {fileID: 0}
     - target: {fileID: 5096362763981196352, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,44 +53,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8972900555782299237, guid: 1d7946f487621d94b82bbd98377cf226, type: 3}
+      objectReference: {fileID: 3619374306951625730, guid: feadbdbfba52df9499e72909ed0bfd3b, type: 3}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Color.a
-      value: 0.54509807
+      value: 0.3137255
       objectReference: {fileID: 0}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.6367924
       objectReference: {fileID: 0}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.8003999
       objectReference: {fileID: 0}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2331925e49f77254883f295c9d970504, type: 2}
+      objectReference: {fileID: 2100000, guid: d7ebf556b2b06854b9a90ce8f51d5ad2, type: 2}
     - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167763196187541489, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Size.x
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9167763196187541489, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Size.y
-      value: 0.6
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
