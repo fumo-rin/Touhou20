@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using Core.Extensions;
+using System;
 namespace Bremsengine
 {
 #if UNITY_EDITOR
@@ -26,13 +27,16 @@ namespace Bremsengine
         }
         public void DrawContextMenu()
         {
-            void AddGraphComponent(ProjectileGraphComponent component, Vector2 position)
+            void AddGraphComponent<T>(Vector2 position) where T : ProjectileGraphComponent
             {
-                if (component != null)
+                ProjectileGraphComponent spawned = null;
+                spawned = ScriptableObject.CreateInstance<T>();
+
+                if (spawned is ProjectileGraphComponent and not null)
                 {
-                    component.Initialize(position, graph);
-                    AssetDatabase.AddObjectToAsset(component, graph);
-                    AssetDatabase.SaveAssets();
+                    spawned.Initialize(position, graph);
+                    AssetDatabase.AddObjectToAsset(spawned, graph);
+                    graph.Dirty();
                 }
             }
             void CreateComponent(int index)
@@ -40,14 +44,15 @@ namespace Bremsengine
                 Vector2 position = new(rect.min.x, rect.max.y);
                 switch (index)
                 {
-                    case 0: AddGraphComponent(ScriptableObject.CreateInstance<ProjectileEmitterRepeat>(), position); break;
-                    case 1: AddGraphComponent(ScriptableObject.CreateInstance<ProjectileEmitterSingle>(), position); break;
-                    case 2: AddGraphComponent(ScriptableObject.CreateInstance<ProjectileArcNodeSO>(), position); break;
-                    case 3: AddGraphComponent(ScriptableObject.CreateInstance<SingleProjectileNodeSO>(), position); break;
-                    case 4: AddGraphComponent(ScriptableObject.CreateInstance<ProjectileGraphDirectionNode>(), position); break;
-                    case 5: AddGraphComponent(ScriptableObject.CreateInstance<CrawlerEventSO>(), position); break;
-                    case 6: AddGraphComponent(ScriptableObject.CreateInstance<PlaySoundEventSO>(), position); break;
-                    case 7: AddGraphComponent(ScriptableObject.CreateInstance<ProjectileModNodeSO>(), position); break;
+                    case 0: AddGraphComponent<ProjectileEmitterRepeat>(position); break;
+                    case 1: AddGraphComponent<ProjectileEmitterSingle>(position); break;
+                    case 2: AddGraphComponent<ProjectileArcNodeSO>(position); break;
+                    case 3: AddGraphComponent<SingleProjectileNodeSO>(position); break;
+                    case 4: AddGraphComponent<ProjectileGraphDirectionNode>(position); break;
+                    case 5: AddGraphComponent<CrawlerEventSO>(position); break;
+                    case 6: AddGraphComponent<PlaySoundEventSO>(position); break;
+                    case 7: AddGraphComponent<ProjectileModNodeSO>(position); break;
+                    case 8: AddGraphComponent<ProjectileRotateArcNodeSO>(position); break;
                     default:
                         break;
                 }
@@ -61,7 +66,8 @@ namespace Bremsengine
                 nameof(ProjectileGraphDirectionNode),
                 nameof(CrawlerEventSO),
                 nameof(PlaySoundEventSO),
-                nameof(ProjectileModNodeSO)
+                nameof(ProjectileModNodeSO),
+                nameof(ProjectileRotateArcNodeSO)
             };
             EditorGUI.BeginChangeCheck();
             selected = EditorGUILayout.Popup(selected, options);
