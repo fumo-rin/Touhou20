@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5096362763981196352, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.553
       objectReference: {fileID: 0}
     - target: {fileID: 5096362763981196352, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -27.595
       objectReference: {fileID: 0}
     - target: {fileID: 5096362763981196352, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6112890488319390909, guid: feadbdbfba52df9499e72909ed0bfd3b, type: 3}
+      objectReference: {fileID: 3992487083814194144, guid: 348aaa0ca33c55a4b8633e8dd989fd9d, type: 3}
     - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -80,13 +80,17 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6647900155055438474, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 712c87fb93a338145bbdb532be87fcff, type: 2}
     - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7415640386221739915, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 9167763196187541489, guid: 813c9accc8d78c240b200c65876e4dad, type: 3}
       propertyPath: m_Size.x

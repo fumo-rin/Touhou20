@@ -7,7 +7,7 @@ namespace Bremsengine
     public class ProjectileEmitterTimelineHandler : MonoBehaviour
     {
         static ProjectileEmitterTimelineHandler instance;
-        static Dictionary<Transform, List<Coroutine>> activeRoutines;
+        public static Dictionary<Transform, List<Coroutine>> activeRoutines;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
@@ -28,9 +28,10 @@ namespace Bremsengine
                 {
                     if (item == null)
                         continue;
+                    Debug.Log("End Transform : " + owner.name);
                     instance.StopCoroutine(item);
                 }
-                activeRoutines[owner] = null;
+                activeRoutines[owner].Clear();
             }
         }
         public static void Queue(IEnumerator coroutine, Transform owner)
@@ -40,14 +41,7 @@ namespace Bremsengine
             {
                 return;
             }
-            if (!activeRoutines.ContainsKey(owner))
-            {
-                activeRoutines[owner] = new();
-            }
-            if (activeRoutines.ContainsKey(owner) && activeRoutines[owner] != null)
-            {
-                activeRoutines[owner].Add(co);
-            }
+            activeRoutines[owner].Add(co);
         }
     }
 }

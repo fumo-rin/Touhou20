@@ -53,6 +53,127 @@ PlayableDirector:
     value: {fileID: 1986733335093352007}
   m_ExposedReferences:
     m_References: []
+--- !u!1 &1791148991524587169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4838503278165753960}
+  - component: {fileID: 5818120516551959344}
+  m_Layer: 6
+  m_Name: Test Timeline (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4838503278165753960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791148991524587169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764145623622930894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &5818120516551959344
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791148991524587169}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3375846823026880629, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 3499684433431638726}
+  - key: {fileID: -5459930130527068455, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 1986733335093352007}
+  m_ExposedReferences:
+    m_References: []
+--- !u!1 &3604989676144291077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8931521457257173555}
+  - component: {fileID: 1629787125349927963}
+  m_Layer: 6
+  m_Name: Phase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8931521457257173555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604989676144291077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764145623622930894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629787125349927963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604989676144291077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e046b74ecba3e4e8c9ad7790aa6c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 2643452124519384497}
+  owner: {fileID: 8312179920446060853}
+  phaseIndex: 0
+  phaseList:
+  - timeline: {fileID: 1924371244919506700}
+    mainAttack: {fileID: 11400000, guid: 550764d37ba4690499aebf14be1b34c2, type: 2}
+    MaxHealth: 50
+    phaseBonus: 6000000
+    phaseBonusDecay: 60000
+  - timeline: {fileID: 5818120516551959344}
+    mainAttack: {fileID: 11400000, guid: de26d4516baa1484bb902cc59ad7db16, type: 2}
+    MaxHealth: 80
+    phaseBonus: 4000000
+    phaseBonusDecay: 40000
+  - timeline: {fileID: 7942363148004373863}
+    mainAttack: {fileID: 11400000, guid: 5a855c8b735cff148a0b7ddda328b31e, type: 2}
+    MaxHealth: 150
+    phaseBonus: 15000000
+    phaseBonusDecay: 150000
+  - timeline: {fileID: 3798534413141213173}
+    mainAttack: {fileID: 11400000, guid: e8b10536fb27c9849a26aa545a7d9478, type: 2}
+    MaxHealth: 200
+    phaseBonus: 15000000
+    phaseBonusDecay: 150000
 --- !u!1 &3617978010491384252
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +212,11 @@ Transform:
   m_Children:
   - {fileID: 1786833032260305616}
   - {fileID: 786264811752417594}
+  - {fileID: 4838503278165753960}
+  - {fileID: 5999349325725035399}
+  - {fileID: 1779814908996382022}
   - {fileID: 8821991897630143877}
+  - {fileID: 8931521457257173555}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &27842812483433922
@@ -290,7 +415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 0}
-  unitName: Headhunter, Leather Belt
+  unitName: John Cinder, Lord of Heat
+  MaxHealth: 1000
   targetBoxes:
   - {fileID: 4878940202612455719}
   Active: 0
@@ -305,6 +431,59 @@ MonoBehaviour:
   testAttackEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &4443429560887534149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779814908996382022}
+  - component: {fileID: 3798534413141213173}
+  m_Layer: 6
+  m_Name: Test Timeline (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1779814908996382022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443429560887534149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764145623622930894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &3798534413141213173
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443429560887534149}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3375846823026880629, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 3499684433431638726}
+  - key: {fileID: -5459930130527068455, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 1986733335093352007}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &5014603809959119114
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,3 +636,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 236923071763997394}
+--- !u!1 &6446513917384938121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5999349325725035399}
+  - component: {fileID: 7942363148004373863}
+  m_Layer: 6
+  m_Name: Test Timeline (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5999349325725035399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446513917384938121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764145623622930894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &7942363148004373863
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446513917384938121}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3375846823026880629, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 3499684433431638726}
+  - key: {fileID: -5459930130527068455, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 1986733335093352007}
+  m_ExposedReferences:
+    m_References: []

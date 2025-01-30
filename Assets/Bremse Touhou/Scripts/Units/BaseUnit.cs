@@ -79,6 +79,11 @@ namespace BremseTouhou
     #region Health & Activity
     public partial class BaseUnit
     {
+        public void SetPhaseHandler(DeathPhase d)
+        {
+            phaseHandler = d;
+        }
+        DeathPhase phaseHandler;
         HashSet<AttackHandler> unitAttackHandlers = new();
         bool knownAliveState = true;
         private void ReFindAttackHandlers()
@@ -115,7 +120,7 @@ namespace BremseTouhou
         public string UnitName => unitName;
         public string unitName = "Headhunter, Leather Belt";
         public string HealthText => $"{CurrentHealth.Ceil().Max(0f)}/{MaxHealth.Ceil()}";
-        public float MaxHealth => 1000f;
+        public float MaxHealth = 1000f;
         public float CurrentHealth => unitHealth;
         private float unitHealth;
         public void Hurt(float damage, Vector2 damagePosition)
@@ -136,22 +141,50 @@ namespace BremseTouhou
             }
             OnHealthChange?.Invoke(this);
         }
+        public void SetNewHealth(float newHealth, float maxHealth)
+        {
+            this.MaxHealth = maxHealth;
+            this.unitHealth = newHealth;
+            if (unitHealth <= 0f)
+            {
+                Kill();
+            }
+            OnHealthChange?.Invoke(this);
+            RecalculateAttackHandlerState();
+        }
         public void SetActive(bool state)
         {
             Active = state;
         }
+
         private void Kill()
         {
-            gameObject.SetActive(false);
-            if (this is EnemyUnit enemy)
+            Debug.Log("Death");
+            if (phaseHandler != null)
             {
-                if (enemy.isBoss)
+                SpellCardUI.CompleteSpell();
+                phaseHandler.SetNextPhase();
+                if (phaseHandler.ShouldDie())
                 {
-                    TouhouManager.PlayBossKillSound(enemy.Center);
-                    Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, PlayerScoring.SpawnPickup);
+                    Debug.Log("T2");
+                    gameObject.SetActive(false);
+                    if (this is EnemyUnit enemy)
+                    {
+                        if (enemy.isBoss)
+                        {
+                            TouhouManager.PlayBossKillSound(enemy.Center);
+                        }
+                    }
+                }
+                else
+                {
+                    PhaseEntry entry = phaseHandler.GetPhase();
+                    float newHealth = entry.MaxHealth;
+                    SetNewHealth(newHealth, newHealth);
                 }
             }
             Projectile.ClearProjectileTimelineFor(transform);
+            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, PlayerScoring.SpawnPickup);
         }
     }
     #endregion
@@ -236,6 +269,7 @@ namespace BremseTouhou
         [SerializeField] BremseFaction UnitFaction;
         public delegate void HealthEvent(BaseUnit unit);
         public HealthEvent OnHealthChange;
+        public HealthEvent OnDeath;
         [SerializeField] Collider2D unitCollider;
         public Collider2D Collider => unitCollider;
         public Vector2 CurrentVelocity => rb.linearVelocity;
@@ -247,7 +281,7 @@ namespace BremseTouhou
                 rb = GetComponent<Rigidbody2D>();
             }
             FactionInterface.SetFaction(UnitFaction);
-            unitHealth = MaxHealth;
+            SetNewHealth(MaxHealth, MaxHealth);
             ReFindAttackHandlers();
             WhenAwake();
         }

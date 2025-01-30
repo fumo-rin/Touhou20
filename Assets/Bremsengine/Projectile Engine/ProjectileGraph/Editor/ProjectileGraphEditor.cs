@@ -276,46 +276,6 @@ namespace Bremsengine
             }
         }
         #endregion
-        #region Mouse Over Components
-        private bool IsMouseOverModNode(Event e, out ProjectileModNodeSO foundMod)
-        {
-            foundMod = null;
-            for (int i = 0; i < ActiveGraph.components.Count; i++)
-            {
-                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileModNodeSO found and not null)
-                {
-                    foundMod = found;
-                    break;
-                }
-            }
-            return foundMod != null;
-        }
-        private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
-        {
-            node = null;
-            for (int i = 0; i < ActiveGraph.nodes.Count; i++)
-            {
-                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition) && ActiveGraph.nodes[i] is ProjectileNodeSO found and not null)
-                {
-                    node = ActiveGraph.nodes[i];
-                    break;
-                }
-            }
-            return node != null;
-        }
-        private bool IsMouseOverDirection(Event e, out ProjectileGraphDirectionNode d)
-        {
-            d = null;
-            for (int i = 0; i < ActiveGraph.components.Count; i++)
-            {
-                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileGraphDirectionNode found and not null)
-                {
-                    d = found;
-                    break;
-                }
-            }
-            return d != null;
-        }
         private bool IsMouseOverComponent(Event e, out ProjectileGraphComponent c)
         {
             c = null;
@@ -329,52 +289,11 @@ namespace Bremsengine
             }
             return c != null;
         }
-        private bool IsMouseOverProjectileEvent(Event e, out ProjectileEventSO foundEvent)
-        {
-            foundEvent = null;
-            for (int i = 0; i < ActiveGraph.components.Count; i++)
-            {
-                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileEventSO found and not null)
-                {
-                    foundEvent = found;
-                    break;
-                }
-            }
-            return foundEvent != null;
-        }
-        private bool IsMouseOverEmitter(Event e, out ProjectileEmitterSO foundEmitter)
-        {
-            foundEmitter = null;
-            for (int i = 0; i < ActiveGraph.components.Count; i++)
-            {
-                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileEmitterSO found and not null)
-                {
-                    foundEmitter = found;
-                    break;
-                }
-            }
-            return foundEmitter != null;
-        }
-        #endregion
     }
     #endregion
-    #region Projectile Nodes & Events
+    #region Projectile Selector Node
     public partial class ProjectileGraphEditor
     {
-        #region Add Crawler Event
-        private void AddCrawlerEvent(object mousePosition)
-        {
-            //LoadCache();
-            ProjectileEventSO newEvent = null;
-            newEvent = ScriptableObject.CreateInstance<CrawlerEventSO>();
-            if (newEvent != null)
-            {
-                newEvent.Initialize((Vector2)mousePosition, ActiveGraph);
-
-                AssetDatabase.AddObjectToAsset(newEvent, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
         private void AddSelector(object mousePosition)
         {
             ProjectileComponentSelector selector = ScriptableObject.CreateInstance<ProjectileComponentSelector>();
@@ -385,7 +304,6 @@ namespace Bremsengine
                 AssetDatabase.SaveAssets();
             }
         }
-        #endregion
     }
     #endregion
     public partial class ProjectileGraphEditor : UnityEditor.EditorWindow

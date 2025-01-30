@@ -37,11 +37,9 @@ namespace BremseTouhou
             NextHitSoundTime = Time.time + MinimumHitSoundInterval;
             if (unit.CurrentHealth < ((EnemyUnit)unit).lowHealth)
             {
-                Debug.Log("Test");
                 LowHitSound.Play(unit.Center);
                 return;
             }
-            Debug.Log("Test");
             HitSound.Play(unit.Center);
         }
     }

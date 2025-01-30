@@ -24,6 +24,7 @@ namespace BremseTouhou
             hitSound.Play(Center);
             hitCounter++;
             hitCounterText.text = hitCounter.ToString();
+            SpellCardUI.FailSpell();
             return true;
         }
     }

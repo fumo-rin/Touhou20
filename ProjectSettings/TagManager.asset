@@ -38,11 +38,17 @@ TagManager:
   - 
   - Unit Target Scanners
   m_SortingLayers:
+  - name: Skybox
+    uniqueID: 2931204071
+    locked: 0
   - name: Background
     uniqueID: 1966905039
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player Projectile
+    uniqueID: 4160692859
     locked: 0
   - name: YSort
     uniqueID: 109278603
@@ -52,9 +58,6 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 1773792273
-    locked: 0
-  - name: Player Projectile
-    uniqueID: 4160692859
     locked: 0
   - name: Foreground
     uniqueID: 1939373753

@@ -69,6 +69,17 @@ namespace Bremsengine
                 //node.Spawn(spawns, input, projectileEvents);
                 //callback?.Invoke(, input.Owner, input.Target);
             }*/
+
+            if (input.Owner == null)
+            {
+                return;
+            }
+            if (!ProjectileEmitterTimelineHandler.activeRoutines.ContainsKey(input.Owner))
+            {
+                ProjectileEmitterTimelineHandler.activeRoutines[input.Owner] = new();
+            }
+            ProjectileEmitterTimelineHandler.ClearEmitQueue(input.Owner);
+            
             foreach (ProjectileEmitterSO emitter in emitters.Where(x => x.Active))
             {
                 emitter.Trigger(projectileEvents, input, callback, forcedLayer);

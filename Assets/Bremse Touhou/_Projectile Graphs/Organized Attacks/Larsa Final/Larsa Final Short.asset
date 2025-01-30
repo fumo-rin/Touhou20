@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 735
-    y: -251
+    x: 1114
+    y: -559
     width: 250
     height: 200
   ID: 0dae5f90-edfc-4f5a-88ee-8734d8d5e9e6
@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1119
-    y: -265
+    x: 1498
+    y: -573
     width: 350
     height: 200
   ID: 6604a943-027b-462a-9b5a-ad156fff838d
@@ -66,16 +66,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1108
-    y: 317
+    x: 1487
+    y: 9
     width: 350
     height: 400
   ID: 2dc212c6-ac16-44c9-a248-3924de69e694
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 852
-    y: 347
+    x: 1231
+    y: 39
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -88,7 +88,7 @@ MonoBehaviour:
   linkedProjectileEvents:
   - {fileID: 3238931383581717993}
   - {fileID: -5726395347030457879}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
 --- !u!114 &-6964321903347930820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 780
-    y: 928
+    x: 1159
+    y: 620
     width: 250
     height: 200
   ID: 06c413c9-9c42-496a-bb3f-8a21642fc74c
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 624
-    y: 1553
+    x: 1003
+    y: 1245
     width: 350
     height: 200
   ID: 09a996a0-b604-4b5c-b0a5-1715da68409e
@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1620
-    y: -31
+    x: 1999
+    y: -339
     width: 400
     height: 350
   ID: 9f193a0b-4053-4802-a431-6d51945e3841
@@ -214,8 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 453
-    y: 37
+    x: 832
+    y: -271
     width: 250
     height: 200
   ID: 357b6107-5f87-43bb-9339-6246652804a0
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 567
-    y: 1237
+    x: 946
+    y: 929
     width: 350
     height: 200
   ID: 1b2d7232-d619-4de8-9cdd-253cb4e9eb30
@@ -266,16 +266,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1281
-    y: 1222
+    x: 1660
+    y: 914
     width: 350
     height: 700
   ID: 3f962938-fc14-4252-a102-64e6a7731106
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1025
-    y: 1252
+    x: 1404
+    y: 944
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -286,7 +286,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 24
   AngleCoverage: 360
   startingAngle: 0
@@ -353,16 +353,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 115
-    y: 969
+    x: 494
+    y: 661
     width: 350
     height: 700
   ID: 29836c75-170c-44ed-82e3-93c6c0c55044
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -141
-    y: 999
+    x: 238
+    y: 691
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -373,7 +373,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 12
   AngleCoverage: 270
   startingAngle: 0
@@ -487,8 +487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1630
-    y: 456
+    x: 2009
+    y: 148
     width: 400
     height: 350
   ID: 4c7a81da-c326-4182-8800-ec390688e0ff
@@ -546,8 +546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 827
-    y: 17
+    x: 1206
+    y: -291
     width: 350
     height: 200
   ID: 988ad5e4-b975-41e7-8c87-e33665b28045
@@ -577,8 +577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1250
-    y: 817
+    x: 1629
+    y: 509
     width: 350
     height: 150
   ID: 91c57840-7fcf-401b-9d0e-a3a97f91c120
@@ -601,8 +601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 427
-    y: 640
+    x: 794
+    y: 410
     width: 350
     height: 150
   ID: f9e85bde-8b67-4000-9467-558dc3a41fd4
