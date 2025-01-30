@@ -4,6 +4,7 @@ namespace Bremsengine
 {
     public abstract class BaseAttack : MonoBehaviour
     {
+        public AttackHandler Handler => attackHandler;
         [SerializeField] protected AttackHandler attackHandler;
         [SerializeField] private float attackBaseDamage = 10f;
         public abstract float GetAttackCooldown();

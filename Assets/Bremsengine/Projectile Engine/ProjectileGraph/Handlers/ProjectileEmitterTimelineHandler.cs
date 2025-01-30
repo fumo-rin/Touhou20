@@ -28,7 +28,6 @@ namespace Bremsengine
                 {
                     if (item == null)
                         continue;
-                    Debug.Log("End Transform : " + owner.name);
                     instance.StopCoroutine(item);
                 }
                 activeRoutines[owner].Clear();

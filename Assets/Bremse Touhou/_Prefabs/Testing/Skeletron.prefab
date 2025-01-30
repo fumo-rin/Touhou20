@@ -159,21 +159,33 @@ MonoBehaviour:
     MaxHealth: 50
     phaseBonus: 6000000
     phaseBonusDecay: 60000
+    MoveToCenter: 1
+    GraceTimer: 1.5
+    IsSpellCard: 0
   - timeline: {fileID: 5818120516551959344}
     mainAttack: {fileID: 11400000, guid: de26d4516baa1484bb902cc59ad7db16, type: 2}
     MaxHealth: 80
     phaseBonus: 4000000
     phaseBonusDecay: 40000
+    MoveToCenter: 1
+    GraceTimer: 1.5
+    IsSpellCard: 1
   - timeline: {fileID: 7942363148004373863}
     mainAttack: {fileID: 11400000, guid: 5a855c8b735cff148a0b7ddda328b31e, type: 2}
     MaxHealth: 150
     phaseBonus: 15000000
     phaseBonusDecay: 150000
+    MoveToCenter: 1
+    GraceTimer: 1.5
+    IsSpellCard: 1
   - timeline: {fileID: 3798534413141213173}
     mainAttack: {fileID: 11400000, guid: e8b10536fb27c9849a26aa545a7d9478, type: 2}
     MaxHealth: 200
     phaseBonus: 15000000
     phaseBonusDecay: 150000
+    MoveToCenter: 1
+    GraceTimer: 1.5
+    IsSpellCard: 1
 --- !u!1 &3617978010491384252
 GameObject:
   m_ObjectHideFlags: 0

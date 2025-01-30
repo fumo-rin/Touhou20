@@ -3,6 +3,8 @@ using UnityEngine.Timeline;
 using System.Collections.Generic;
 using Bremsengine;
 using UnityEngine.Playables;
+using Core.Extensions;
+using System.Collections;
 namespace BremseTouhou
 {
     [System.Serializable]
@@ -15,8 +17,30 @@ namespace BremseTouhou
         public float phaseBonusDecay;
         public bool MoveToCenter;
         public float GraceTimer;
-        //ADD A GRACE TIMER AND RESET THE ATTACK TIME
-        //MOVE THE BOSS TO CENTER
+        public bool IsSpellCard;
+        //Lock the movement if under grace timer.
+        public IEnumerator CO_CenterBoss(Transform boss, float duration, float speed)
+        {
+            if (boss == null)
+                yield break;
+
+            float lerp = 0f;
+            Vector2 startPosition = boss.position;
+            Vector2 centerTarget = (Vector2)DirectionSolver.GetPaddedBounds(0f).center + new Vector2(0f, 2.5f);
+            while (lerp <= 1f)
+            {
+                lerp += Time.deltaTime * speed;
+                if (boss is Transform t and not null)
+                {
+                    t.position = Vector2.Lerp(startPosition, centerTarget, (Mathf.Sqrt(lerp).Clamp(0f, 1f)));
+                    if (t.GetComponent<Rigidbody2D>() is Rigidbody2D rb and not null)
+                    {
+                        rb.linearVelocity *= 0f;
+                    }
+                }
+                yield return null;
+            }
+        }
     }
     public interface DeathPhase
     {
@@ -68,6 +92,10 @@ namespace BremseTouhou
             phase.timeline.time = 0f;
             phase.timeline.Play();
             SpellCardUI.SetPhase(phase);
+            if (!phase.IsSpellCard && SpellCardUI.activeRunner != null)
+            {
+                SpellCardUI.activeRunner.HidePhase();
+            }
         }
         public bool IsLastPhase()
         {
@@ -82,6 +110,11 @@ namespace BremseTouhou
             phaseIndex++;
             PhaseEntry e = phaseList[phaseIndex % phaseList.Count];
             SetOwnerPhase(e);
+            attack.Handler.ForceSetNewAttackDelay(e.GraceTimer);
+            if (e.MoveToCenter)
+            {
+                StartCoroutine(e.CO_CenterBoss(owner.transform, 1.5f.Min(e.GraceTimer), 1.5f));
+            }
         }
         public bool ShouldDie()
         {

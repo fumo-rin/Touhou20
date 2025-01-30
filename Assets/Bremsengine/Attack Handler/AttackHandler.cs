@@ -24,6 +24,7 @@ namespace Bremsengine
         public BremseFaction Faction => faction;
         public abstract bool CanAttack();
         public abstract void TriggerAttack(BaseAttack attack);
+        public void ForceSetNewAttackDelay(float newDelay) => SetNextAttackDelay(newDelay);
         protected void SetNextAttackDelay(float delay) => nextAttackTime = Time.time + delay;
         public void AssignTarget(Transform t)
         {

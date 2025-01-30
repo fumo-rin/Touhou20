@@ -16,24 +16,30 @@ namespace BremseTouhou
         public static void SetPhase(PhaseEntry e)
         {
             currentPhase = e;
-            Debug.Log(e.phaseBonus);
             spellBonus = e.phaseBonus;
             spellBonusDecay = e.phaseBonusDecay;
+            activeRunner.HidePhase();
         }
-        private void AssignRunner()
+        public void HidePhase()
         {
-            activeRunner = GetComponent<SpellCardUI>();
+            spellText.gameObject.SetActive(currentPhase.IsSpellCard);
+        }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Reinitialize()
+        {
+            activeRunner = null;
+        }
+        private void Awake()
+        {
+            activeRunner = this;
         }
         private void Start()
         {
             InvokeRepeating(nameof(UILoop), 0f, 0.05f);
+            HidePhase();
         }
         private void UILoop()
         {
-            if (activeRunner == null || !activeRunner.gameObject.activeInHierarchy)
-            {
-                AssignRunner();
-            }
             if (activeRunner == this)
             {
                 ProgressSpell(0.05f);
@@ -51,7 +57,7 @@ namespace BremseTouhou
         }
         public static void CompleteSpell()
         {
-            if (spellBonus > 0f)
+            if (currentPhase.IsSpellCard && spellBonus > 0f)
             {
                 GeneralManager.AddScore(SpellScore);
                 GeneralManager.AddScoreAnalysisKey("Spell Bonus", spellBonus);

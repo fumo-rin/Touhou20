@@ -166,7 +166,6 @@ namespace BremseTouhou
                 phaseHandler.SetNextPhase();
                 if (phaseHandler.ShouldDie())
                 {
-                    Debug.Log("T2");
                     gameObject.SetActive(false);
                     if (this is EnemyUnit enemy)
                     {
