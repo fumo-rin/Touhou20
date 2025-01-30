@@ -6870,7 +6870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 6025008150098531759}
   attackBaseDamage: 3
-  projectileAttack: {fileID: 11400000, guid: abcbea84ff3ac4d44b693af645266ed9, type: 2}
+  projectileAttack: {fileID: 11400000, guid: fba6d3b7398ce79448ab3a0217f18b2d, type: 2}
   projectileSortingIndex: -100
 --- !u!114 &6025008150098531759
 MonoBehaviour:
@@ -7100,7 +7100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8759028687096453378
 Transform:
   m_ObjectHideFlags: 0
@@ -7195,7 +7195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 6357577220590377810}
   attackBaseDamage: 3
-  projectileAttack: {fileID: 11400000, guid: abcbea84ff3ac4d44b693af645266ed9, type: 2}
+  projectileAttack: {fileID: 11400000, guid: fba6d3b7398ce79448ab3a0217f18b2d, type: 2}
   projectileSortingIndex: -100
 --- !u!114 &6357577220590377810
 MonoBehaviour:

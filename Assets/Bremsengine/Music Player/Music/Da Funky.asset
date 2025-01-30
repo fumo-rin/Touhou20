@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackName: Da Funky
   musicClip: {fileID: 8300000, guid: 0b8c9a90e7f465240ba99f44bcd8634a, type: 3}
-  musicVolume: 0.7
+  musicVolume: 0.55

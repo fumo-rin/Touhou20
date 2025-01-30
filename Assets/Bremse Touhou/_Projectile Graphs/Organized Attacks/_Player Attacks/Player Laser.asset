@@ -21,6 +21,29 @@ MonoBehaviour:
   ID: b47987b8-0334-4a0f-bf74-22d4f8b14ada
   graph: {fileID: 11400000}
   overrideDirection: {x: 0, y: -1}
+--- !u!114 &-4975679003722011645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 425
+    y: 200
+    width: 350
+    height: 100
+  ID: 9e9c9f9f-0d5a-40db-a8ca-a44298f2f57c
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
+  repeatCooldown: 0.09
 --- !u!114 &-1614631124295729775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 178
-    y: 344
+    x: 196
+    y: 454
     width: 250
     height: 200
   ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
@@ -58,6 +81,7 @@ MonoBehaviour:
   - {fileID: 5010464049080702738}
   - {fileID: 3802485916838778856}
   - {fileID: -1614631124295729775}
+  - {fileID: -4975679003722011645}
   projectileGraphName: Player Frontal
   Developing: 0
   nodes:
@@ -65,6 +89,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 3802485916838778856}
   modNodes: []
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0
   headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
@@ -105,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 315
-    y: 640
+    x: 333
+    y: 750
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -136,16 +161,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 792
-    y: 253
+    x: 810
+    y: 363
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 536
-    y: 283
+    x: 554
+    y: 393
     width: 250
     height: 250
   directionalOffset: 0.6
@@ -155,8 +180,9 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 4df6c42745f82bb4a9a5ab062f691b88, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileEvents:
+  - {fileID: -4975679003722011645}
+  linkedProjectileMods: []
   projectileCountFloat: 1
   AngleCoverage: 0
   startingAngle: 0

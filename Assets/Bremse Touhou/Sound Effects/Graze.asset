@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Graze
   m_EditorClassIdentifier: 
   SoundName: Graze
-  soundVolume: 0.7
+  soundVolume: 0.3
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 217ef0129294c164cbb61d3f6d1f7f90, type: 3}
     PitchVariancePercent: 5
     PitchOrigin: 2
-    Volume: 1
+    Volume: 0.7
     Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

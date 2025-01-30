@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 375
-    y: 418
+    x: 259
+    y: 458
     width: 250
     height: 200
   ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
@@ -56,8 +56,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1448
-    y: 546
+    x: 1332
+    y: 586
     width: 350
     height: 150
   ID: 4bb8eee4-daac-4b77-985c-c5882cd2faa6
@@ -83,6 +83,7 @@ MonoBehaviour:
   - {fileID: 3802485916838778856}
   - {fileID: -1614631124295729775}
   - {fileID: -232540261729738822}
+  - {fileID: 4289350386356401821}
   projectileGraphName: 
   Developing: 0
   nodes:
@@ -91,6 +92,7 @@ MonoBehaviour:
   - {fileID: 3802485916838778856}
   modNodes:
   - {fileID: -232540261729738822}
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0.1
   headerTexture: {fileID: 2800000, guid: 272f3cfed8425824c93d4dcfaf9429f6, type: 3}
@@ -131,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 512
-    y: 714
+    x: 396
+    y: 754
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -148,6 +150,29 @@ MonoBehaviour:
   repeatCount: 3
   repeatAddedAngle: 0
   addedStartingAngle: 0
+--- !u!114 &4289350386356401821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c14811572d1fea41b1ef84c4dbc0bd2, type: 3}
+  m_Name: (Delay:0)None
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 467
+    y: 229
+    width: 350
+    height: 100
+  ID: de9428be-8011-4b4a-a2f3-28852d3da756
+  graph: {fileID: 11400000}
+  EventDelay: 0
+  acw: {fileID: 11400000, guid: 2a788902c7726b04eaeecab451b160f8, type: 2}
+  repeatCooldown: 0.03
 --- !u!114 &5010464049080702738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,29 +187,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 989
-    y: 327
+    x: 873
+    y: 367
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 733
-    y: 357
+    x: 617
+    y: 397
     width: 250
     height: 250
-  directionalOffset: 0.6
-  spread: 2.5
-  speed: 6
-  addedAngle: 0
-  ReverseDirection: 0
+  directionalOffset: 1
+  spread: 20
+  speed: 10
+  addedAngle: 180
+  ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 2b6a9b361ff34024bbdc3ef9236a64f1, type: 2}
   spawnDelay: 0
-  linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileEvents:
+  - {fileID: 4289350386356401821}
+  linkedProjectileMods: []
   projectileCountFloat: 11
-  AngleCoverage: 45
+  AngleCoverage: 25
   startingAngle: 0
   RandomAngle: 0
   arcProgressionSpeed:

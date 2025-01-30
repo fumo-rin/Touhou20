@@ -14504,10 +14504,6 @@ PrefabInstance:
       propertyPath: editorStage
       value: 
       objectReference: {fileID: 11400000, guid: 264687eefeab83c4e9d16be0cb13e07d, type: 2}
-    - target: {fileID: 1258191251273386422, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
-      propertyPath: bossKillSound
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4837859286974725894, guid: 85cf2fb5f05d11c499ed2d5720a79a69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -13,22 +13,20 @@ MonoBehaviour:
   m_Name: Audio Manager
   m_EditorClassIdentifier: 
   m_GroupName: Audio Manager
-  m_Data:
-    m_SerializedData: []
   m_GUID: 81e40c6c79239d445925ff8d5892f795
   m_SerializeEntries:
-  - m_GUID: 22d1a635bf21f944b9757574802c0707
-    m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Target Channels.mixer
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Single Channels
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34215ea08f295ea4f9e78bbe991ca3df
     m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Audio Engine Sound
       Effects.mixer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Dynamic Channels
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76bc17acced13644e9689246d8b6104a
+    m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Single Channels.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Single Channels
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3d0c3b1bbcee314fa91d6246890b7bf
     m_Address: Assets/Core Extensions & Helpers/Audio Clip Wrapper/Addressable

@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 229
-    y: 308
+    x: 439
+    y: 395
     width: 250
     height: 200
   ID: bd62ffb9-51fb-4ded-a8b2-791377a9f231
@@ -86,8 +86,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1325
-    y: 359
+    x: 1525
+    y: 449
     width: 350
     height: 100
   ID: e939f8a0-d3f6-4402-bda2-652dec9f1923
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 298
-    y: 612
+    x: 474
+    y: 722
     width: 350
     height: 200
   ID: 43ec78d2-8305-4da7-8db6-a9b1c70bc11d
@@ -161,16 +161,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 772
-    y: 215
+    x: 982
+    y: 302
     width: 350
     height: 700
   ID: fce3bf85-6914-4773-a292-974c003408c1
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 516
-    y: 245
+    x: 726
+    y: 332
     width: 250
     height: 250
   directionalOffset: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 1353319660269403633}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 1
   AngleCoverage: 0
   startingAngle: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackName: Da Wonky
   musicClip: {fileID: 8300000, guid: 91269c69adce5914782703a0b3e10857, type: 3}
-  musicVolume: 0.7
+  musicVolume: 0.55

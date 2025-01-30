@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackName: Ontology of Character 2B Parallel of Dreamland
   musicClip: {fileID: 8300000, guid: 68fcdfc2abe5afa4892b0cc2e8a533c5, type: 3}
-  musicVolume: 0.8
+  musicVolume: 0.6

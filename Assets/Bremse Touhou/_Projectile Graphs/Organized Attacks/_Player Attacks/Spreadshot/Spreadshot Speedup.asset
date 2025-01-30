@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8deac1c03be8448ab54a5a0f7733b6, type: 3}
   m_Name: Spreadshot Speedup
   m_EditorClassIdentifier: 
-  delayInSeconds: 0
+  delayInSeconds: 0.2
   tickRate: 15
   duration: 0.5
-  maxSpeed: 15
-  acceleration: 3
+  maxSpeed: 22
+  acceleration: 6

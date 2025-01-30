@@ -252,6 +252,8 @@ MonoBehaviour:
   unitCenterAnchor: {fileID: 5013386844134779638}
   UnitFaction: 2
   unitCollider: {fileID: 0}
+  HitSound: {fileID: 11400000, guid: fde422e1fad62fa4ab17468e742f4b63, type: 2}
+  LowHitSound: {fileID: 11400000, guid: 7057c1f896d8de244be74568524e9b94, type: 2}
   targetHandler: {fileID: 3077432884337324847}
   <isBoss>k__BackingField: 0
   addedAttackDelay: 0.4
