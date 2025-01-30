@@ -11,12 +11,36 @@ using Core.Extensions;
 using UnityEditor.Callbacks;
 namespace Bremsengine
 {
+    #region Context Menu
+    public partial class ProjectileGraphEditor
+    {
+        private void ShowContextMenu(Event e)
+        {
+            GenericMenu menu = new GenericMenu();
+            Vector2 position = e.mousePosition;
+            ProjectileGraphComponent hover = null;
+            if (IsMouseOverComponent(e, out hover))
+            {
+
+            }
+            if (hover != null)
+            {
+                menu.AddItem(new GUIContent("Destroy Copmonent"), false, hover.DeleteComponent);
+                menu.AddItem(new GUIContent("Try Break Links"), false, hover.TryBreakLinks);
+                menu.AddItem(new GUIContent("Reinitialize"), false, hover.Reinitialize);
+                menu.AddItem(new GUIContent("Redraw Box"), false, hover.RecalculateRect);
+            }
+            menu.AddItem(new GUIContent("Add Component"), false, AddSelector, position);
+            menu.ShowAsContext();
+            ActiveDrag = null;
+        }
+    }
+    #endregion
     #region Double Click & Window
     public partial class ProjectileGraphEditor
     {
         private static Dictionary<string, ProjectileGraphSO> graphsCache;
         private static ProjectileGraphSO ActiveGraph;
-        const string lastLoadedGraphIDKey = "LAST_LOADED_PROJECTILE_GRAPH_ID";
         private static string GraphsAddressablesKey = "Projectile Graph";
         [OnOpenAsset(0)]
         public static bool OnDoubleClickAsset(int instanceID, int line)
@@ -36,83 +60,17 @@ namespace Bremsengine
             if (g != null)
             {
                 ActiveGraph.SetActiveGraph();
-                ActiveGraph.SetNewGraphID();
                 if (g != null)
                 {
-                    EditorPrefs.SetString(lastLoadedGraphIDKey, g.graphID);
+                    Selection.activeObject = g;
                 }
             }
-            
-        }
-        private static void InitializeGraphsCache()
-        {
-            graphsCache = new();
-            foreach (var item in AddressablesTools.LoadKeys<ProjectileGraphSO>(GraphsAddressablesKey))
-            {
-                if (item == null)
-                    continue;
-                if (graphsCache.ContainsValue(item))
-                {
-                    Debug.LogError("Duplicate Graph IDs for : "+item.name.Color(ColorHelper.Peach));
-                    continue;
-                }
-                item.SetNewGraphID();
-                graphsCache[item.graphID] = item;
-            }
-        }
 
+        }
         [MenuItem("Projectile Editor", menuItem = "Bremsengine/Projectile Editor")]
         private static void OpenWindow()
         {
             GetWindow<ProjectileGraphEditor>("Projectile Editor");
-            if (ActiveGraph == null)
-            {
-                InitializeGraphsCache();
-                if (EditorPrefs.HasKey(lastLoadedGraphIDKey) && EditorPrefs.GetString(lastLoadedGraphIDKey) is string loadedID && loadedID != null)
-                {
-                    if (string.IsNullOrEmpty(loadedID))
-                    {
-                        return;
-                    }
-                    ProjectileGraphSO load;
-                    if (graphsCache.ContainsKey(loadedID))
-                    {
-                        load = graphsCache[loadedID];
-                        SelectGraphToEdit(load);
-                    }
-                }
-            }
-        }
-    }
-    #endregion
-    #region Load Projectiles
-    public partial class ProjectileGraphEditor
-    {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void ClearCache()
-        {
-            projectilePrefabs = null;
-            LoadCache();
-        }
-        private static List<ProjectileTypeSO> projectilePrefabs;
-        public static List<ProjectileTypeSO> ProjectileTypeLookup => LoadCache();
-        private const string ProjectileAddressablesKey = "Projectile Types";
-        private static List<ProjectileTypeSO> LoadCache()
-        {
-            if (projectilePrefabs == null)
-            {
-                projectilePrefabs = new List<ProjectileTypeSO>();
-                foreach (var item in AddressablesTools.LoadKeys<ProjectileTypeSO>(ProjectileAddressablesKey).Where(x => x is ProjectileTypeSO and not null))
-                {
-                    projectilePrefabs.Add(item);
-                }
-            }
-            if (projectilePrefabs == null || projectilePrefabs.Count <= 0)
-            {
-                Debug.LogWarning("projectiles arent initialized properly or doesnt exist");
-                return null;
-            }
-            return projectilePrefabs;
         }
     }
     #endregion
@@ -127,7 +85,7 @@ namespace Bremsengine
         private void DragGrid(Vector2 delta)
         {
             graphDrag = delta;
-            if (isDraggingGrid)
+            if (isDraggingGrid && ActiveDrag == null)
             {
                 foreach (var item in ActiveGraph.components)
                 {
@@ -182,7 +140,6 @@ namespace Bremsengine
             float width = rect.width - 25f;
             Rect header = new(new(rect.center.x - (width * 0.5f), rect.center.y + -(rect.height * 0.5f) - height), new(width, height));
             GUILayout.BeginArea(header, title, HeaderStyle);
-            //EditorGUILayout.LabelField(title);
             GUILayout.EndArea();
         }
     }
@@ -190,93 +147,49 @@ namespace Bremsengine
     #region Input Events
     public partial class ProjectileGraphEditor
     {
-        ProjectileEventSO projectileEventDragSelection;
-        ProjectileEmitterSO emitterSelection;
-        ProjectileGraphDirectionNode directionSelection;
-        ProjectileModNodeSO modSelection;
-        static bool CursorMoveDrag;
+        static ProjectileGraphComponent ActiveDrag;
+        static ProjectileGraphComponent LinkAttemptStart;
+        static bool IsDragging;
         static Vector2 DragLinePreviewStart;
         #region Mouse Down
         private void ProcessMouseDownEvent(Event e)
         {
+            void TryDragGrid(Event e)
+            {
+                isDraggingGrid = true;
+            }
             bool StartDragItem(Event e)
             {
                 ForceEndDrag();
                 if (e.button == 2)
                 {
-                    if (IsMouseOverNode(e, out ProjectileNodeSO drag))
+                    if (IsMouseOverComponent(e, out ProjectileGraphComponent drag))
                     {
                         if (drag != null)
                         {
-                            dragNode = drag;
-                            CursorMoveDrag = true;
+                            ActiveDrag = drag;
+                            IsDragging = true;
                             return true;
                         }
                     }
-                    if (IsMouseOverDirection(e, out directionSelection))
-                    {
-                        if (directionSelection != null)
-                        {
-                            CursorMoveDrag = true;
-                            return true;
-                        }
-                    }
-                    if (IsMouseOverProjectileEvent(e, out projectileEventDragSelection))
-                    {
-                        if (projectileEventDragSelection != null)
-                        {
-                            CursorMoveDrag = true;
-                            return true;
-                        }
-                    }
-                    if (IsMouseOverEmitter(e, out emitterSelection))
-                    {
-                        if (emitterSelection != null)
-                        {
-                            CursorMoveDrag = true;
-                            return true;
-                        }
-                    }
-                    if (IsMouseOverModNode(e, out modSelection))
-                    {
-                        if (modSelection != null)
-                        {
-                            CursorMoveDrag = true;
-                            return true;
-                        }
-                    }
+                    return false;
                 }
                 if (e.button == 0)
                 {
-                    if (IsMouseOverProjectileEvent(e, out projectileEventDragSelection))
+                    ActiveDrag = null;
+                    IsDragging = false;
+                    if (IsMouseOverComponent(e, out ProjectileGraphComponent linkDrag))
                     {
-                        DragLinePreviewStart = e.mousePosition;
-                        ActiveGraph.StartLine(e.mousePosition);
-                    }
-                    if (IsMouseOverEmitter(e, out emitterSelection))
-                    {
-                        DragLinePreviewStart = e.mousePosition;
-                        ActiveGraph.StartLine(e.mousePosition);
-                    }
-                    if (IsMouseOverDirection(e, out directionSelection))
-                    {
-                        DragLinePreviewStart = e.mousePosition;
-                        ActiveGraph.StartLine(e.mousePosition);
-                    }
-                    if (IsMouseOverModNode(e, out modSelection))
-                    {
-                        DragLinePreviewStart = e.mousePosition;
-                        ActiveGraph.StartLine(e.mousePosition);
+                        if (linkDrag != null && linkDrag.TryStartLink(out ProjectileGraphComponent linkStart))
+                        {
+                            Debug.Log("Try Link");
+                            LinkAttemptStart = linkStart;
+                            ActiveGraph.StartPreviewLine(e.mousePosition);
+                            return true;
+                        }
                     }
                 }
                 return false;
-            }
-            void TryDragGrid(Event e)
-            {
-                if (e.button == 2 && !IsMouseOverNode(e, out _) && !IsMouseOverProjectileEvent(e, out _))
-                {
-                    isDraggingGrid = true;
-                }
             }
             if (e.button == 1)
             {
@@ -291,120 +204,51 @@ namespace Bremsengine
         #region Mouse Up
         private void ProcessMouseUpEvent(Event e)
         {
-            CursorMoveDrag = false;
+            IsDragging = false;
+            ActiveDrag = null;
             if (e.button == 2)
             {
-                dragNode = null;
                 isDraggingGrid = false;
             }
             if (e.button == 0)
             {
-                if (directionSelection != null && IsMouseOverEmitter(e, out ProjectileEmitterSO hoverE))
+                if (IsMouseOverComponent(e, out ProjectileGraphComponent hover))
                 {
-                    EditorGUI.BeginChangeCheck();
-
-                    hoverE.linkedOverrideDirection = directionSelection;
-                    EditorUtility.SetDirty(hoverE);
-                    EditorUtility.SetDirty(ActiveGraph);
-
-                    if (EditorGUI.EndChangeCheck())
+                    if (LinkAttemptStart != null && hover != null && hover != LinkAttemptStart)
                     {
-                        EditorUtility.SetDirty(this);
-                        AssetDatabase.SaveAssetIfDirty(this);
+                        LinkAttemptStart.TryCreateLink(hover);
                     }
-                }
-                if (projectileEventDragSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover))
-                {
-                    EditorGUI.BeginChangeCheck();
-
-                    Debug.Log("Add event: " + projectileEventDragSelection.name + " to :" + hover.name);
-                    hover.linkedProjectileEvents.Add(projectileEventDragSelection);
-                    EditorUtility.SetDirty(hover);
-                    EditorUtility.SetDirty(ActiveGraph);
-
-                    if (EditorGUI.EndChangeCheck())
-                    {
-                        EditorUtility.SetDirty(this);
-                        AssetDatabase.SaveAssetIfDirty(this);
-                    }
-                }
-                if (emitterSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover2))
-                {
-                    EditorGUI.BeginChangeCheck();
-
-                    Debug.Log("Add emitter: " + emitterSelection.name + " to : " + hover2.name);
-                    emitterSelection.linkedNodes.AddIfDoesntExist(hover2);
-                    EditorUtility.SetDirty(hover2);
-                    EditorUtility.SetDirty(ActiveGraph);
-
-                    if (EditorGUI.EndChangeCheck())
-                    {
-                        EditorUtility.SetDirty(this);
-                        AssetDatabase.SaveAssetIfDirty(this);
-                    }
-                }
-                if (modSelection != null && IsMouseOverNode(e, out ProjectileNodeSO hover3))
-                {
-                    EditorGUI.BeginChangeCheck();
-
-                    Debug.Log(modSelection);
-                    Debug.Log("Hover : " + hover3);
-
-                    Debug.Log("Add Mod: " + modSelection.name + " to : " + hover3.name);
-                    modSelection.attachedNodes.AddIfDoesntExist(hover3);
-                    EditorUtility.SetDirty(hover3);
-                    EditorUtility.SetDirty(ActiveGraph);
-
-                    if (EditorGUI.EndChangeCheck())
-                    {
-                        EditorUtility.SetDirty(this);
-                        AssetDatabase.SaveAssetIfDirty(this);
-                    }
-                }
-                if (ActiveGraph.previewLine && IsMouseOverNode(e, out ProjectileNodeSO lineToNode))
-                {
-
                 }
                 ActiveGraph.EndPreviewLine();
+                LinkAttemptStart = null;
             }
+            /*
             projectileEventDragSelection = null;
             emitterSelection = null;
             directionSelection = null;
             modSelection = null;
+            */
         }
         #endregion
         #region Mouse Drag
-        private static ProjectileNodeSO dragNode;
         public static void ForceEndDrag()
         {
-            dragNode = null;
+            ActiveDrag = null;
         }
         private void ProcessMouseDrag(Event e)
         {
-            if (CursorMoveDrag)
+            if (LinkAttemptStart != null)
             {
-                if (dragNode)
-                {
-                    dragNode.Drag(e.delta);
-                }
-                if (projectileEventDragSelection)
-                {
-                    projectileEventDragSelection.DragEvent(e.delta);
-                }
-                if (emitterSelection)
-                {
-                    emitterSelection.Drag(e.delta);
-                }
-                if (directionSelection)
-                {
-                    directionSelection.Drag(e.delta);
-                }
-                if (modSelection)
-                {
-                    modSelection.Drag(e.delta);
-                }
+                return;
             }
-            DragGrid(e.delta);
+            if (IsDragging && ActiveDrag != null)
+            {
+                ActiveDrag.Drag(e.delta);
+            }
+            else
+            {
+                DragGrid(e.delta);
+            }
         }
         #endregion
         #region Process Events
@@ -432,7 +276,33 @@ namespace Bremsengine
             }
         }
         #endregion
-        #region Mouse Over Projectile Event
+        #region Mouse Over Components
+        private bool IsMouseOverModNode(Event e, out ProjectileModNodeSO foundMod)
+        {
+            foundMod = null;
+            for (int i = 0; i < ActiveGraph.components.Count; i++)
+            {
+                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileModNodeSO found and not null)
+                {
+                    foundMod = found;
+                    break;
+                }
+            }
+            return foundMod != null;
+        }
+        private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
+        {
+            node = null;
+            for (int i = 0; i < ActiveGraph.nodes.Count; i++)
+            {
+                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition) && ActiveGraph.nodes[i] is ProjectileNodeSO found and not null)
+                {
+                    node = ActiveGraph.nodes[i];
+                    break;
+                }
+            }
+            return node != null;
+        }
         private bool IsMouseOverDirection(Event e, out ProjectileGraphDirectionNode d)
         {
             d = null;
@@ -486,233 +356,15 @@ namespace Bremsengine
             return foundEmitter != null;
         }
         #endregion
-        #region Mouse Over Node
-        private bool IsMouseOverNode(Event e, out ProjectileNodeSO node)
-        {
-            node = null;
-            for (int i = 0; i < ActiveGraph.nodes.Count; i++)
-            {
-                if (ActiveGraph.nodes[i].rect.Contains(e.mousePosition) && ActiveGraph.nodes[i] is ProjectileNodeSO found and not null)
-                {
-                    node = ActiveGraph.nodes[i];
-                    break;
-                }
-            }
-            return node != null;
-        }
-        #endregion
-        #region Mouse Over Mod Node
-        private bool IsMouseOverModNode(Event e, out ProjectileModNodeSO foundMod)
-        {
-            foundMod = null;
-            for (int i = 0; i < ActiveGraph.components.Count; i++)
-            {
-                if (ActiveGraph.components[i].IsMouseOver(e.mousePosition) && ActiveGraph.components[i] is ProjectileModNodeSO found and not null)
-                {
-                    foundMod = found;
-                    break;
-                }
-            }
-            return foundMod != null;
-        }
-        #endregion
-    }
-    #endregion
-    #region Context Menu
-    public partial class ProjectileGraphEditor
-    {
-        private void ShowContextMenu(Event e)
-        {
-            GenericMenu menu = new GenericMenu();
-            Vector2 position = e.mousePosition;
-            ProjectileNodeSO mouseOverNode = null;
-            ProjectileEventSO mouseOverProjectileEvent = null;
-            ProjectileEmitterSO mouseOverEmitter = null;
-            ProjectileGraphDirectionNode mouseOverDirection = null;
-            ProjectileModNodeSO mouseoverModNode = null;
-            if (IsMouseOverEmitter(e, out mouseOverEmitter))
-            {
-                menu.AddItem(new GUIContent("Break Emitter Links"), false, mouseOverEmitter.BreakLinks);
-                menu.AddItem(new GUIContent("Re Initialize"), false, mouseOverEmitter.Reinitialize);
-            }
-            if (IsMouseOverNode(e, out mouseOverNode))
-            {
-                if (ActiveGraph.Developing)
-                {
-                    menu.AddItem(new GUIContent("Re Initialize Node"), false, mouseOverNode.Reinitialize);
-                }
-            }
-            if (IsMouseOverProjectileEvent(e, out mouseOverProjectileEvent))
-            {
-                if (ActiveGraph.Developing)
-                {
-                    menu.AddItem(new GUIContent("Re Initialize Event"), false, mouseOverProjectileEvent.Reinitialize);
-                }
-            }
-            if (IsMouseOverDirection(e, out mouseOverDirection))
-            {
-                menu.AddItem(new GUIContent("Break Direction Links"), false, mouseOverDirection.BreakDirectionLinks);
-                menu.AddItem(new GUIContent("Remove Direction Component"), false, ActiveGraph.DestroyComponent, mouseOverDirection);
-            }
-            if (IsMouseOverComponent(e, out ProjectileGraphComponent c))
-            {
-                menu.AddItem(new GUIContent("Remove Graph Component"), false, ActiveGraph.DestroyComponent, c);
-            }
-            if (IsMouseOverModNode(e, out ProjectileModNodeSO mod))
-            {
-                menu.AddItem(new GUIContent("Break Mod Links"), false, mod.BreakLinks);
-            }
-            bool anyMouseOver = mouseOverNode != null || mouseOverProjectileEvent != null;
-            if (mouseOverNode == null)
-            {
-                menu.AddItem(new GUIContent("Add Single Projectile"), false, AddSingleProjectile, position);
-                menu.AddItem(new GUIContent("Add Projectile Arc"), false, AddProjectileArc, position);
-                if (ActiveGraph.CanUndo)
-                {
-                    menu.AddItem(new GUIContent("Undo Delete"), false, ActiveGraph.UndoLastDelete);
-                }
-            }
-            if (mouseOverDirection == null)
-            {
-                menu.AddItem(new GUIContent("Add Direction Node"), false, AddDirectionNode, position);
-            }
-            if (mouseOverProjectileEvent == null)
-            {
-                menu.AddItem(new GUIContent("Add Play Sound Event"), false, AddPlaySoundEvent, position);
-                menu.AddItem(new GUIContent("Add Crawler Event"), false, AddCrawlerEvent, position);
-            }
-            if (mouseOverEmitter == null)
-            {
-                menu.AddItem(new GUIContent("Add Single Emitter"), false, AddSingleEmitter, position);
-                menu.AddItem(new GUIContent("Add Repeat Emitter"), false, AddRepeatEmitter, position);
-            }
-            if (mouseoverModNode == null)
-            {
-                menu.AddItem(new GUIContent("Add Projectile Mod"), false, AddProjectileMod, position);
-            }
-            menu.ShowAsContext();
-        }
     }
     #endregion
     #region Projectile Nodes & Events
     public partial class ProjectileGraphEditor
     {
-        #region Add Direction  Node
-        private void AddDirectionNode(object mousePositionObject)
-        {
-            LoadCache();
-            ProjectileGraphDirectionNode direction = null;
-            Vector2 mousePosition = (Vector2)mousePositionObject;
-            direction = ScriptableObject.CreateInstance<ProjectileGraphDirectionNode>();
-            if (direction != null)
-            {
-                direction.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
-
-                AssetDatabase.AddObjectToAsset(direction, ActiveGraph);
-                AssetDatabase.SaveAssets();
-
-            }
-        }
-        #endregion
-        #region Add Single Emitter
-        private void AddSingleEmitter(object mousePositionObject)
-        {
-            LoadCache();
-            ProjectileEmitterSO emitter = null;
-            Vector2 mousePosition = (Vector2)mousePositionObject;
-            emitter = ScriptableObject.CreateInstance<ProjectileEmitterSingle>();
-            if (emitter != null)
-            {
-                emitter.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
-
-                AssetDatabase.AddObjectToAsset(emitter, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        #endregion
-        #region Add Repeat Emitter
-        private void AddRepeatEmitter(object mousePositionObject)
-        {
-            LoadCache();
-            ProjectileEmitterSO emitter = null;
-            Vector2 mousePosition = (Vector2)mousePositionObject;
-            emitter = ScriptableObject.CreateInstance<ProjectileEmitterRepeat>();
-            if (emitter != null)
-            {
-                emitter.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
-
-                AssetDatabase.AddObjectToAsset(emitter, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        #endregion
-        #region Add Single Projectile
-        private void AddSingleProjectile(object mousePositionObject)
-        {
-            LoadCache();
-            ProjectileNodeSO newNode = null;
-            Vector2 mousePosition = (Vector2)mousePositionObject;
-            newNode = ScriptableObject.CreateInstance<SingleProjectileNodeSO>();
-            if (newNode != null)
-            {
-                Debug.Log(ActiveGraph);
-                Debug.Log(projectilePrefabs.Count);
-                Debug.Log(newNode);
-                newNode.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
-
-                AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        #endregion
-        #region Add Projectile Mod
-        private void AddProjectileMod(object mousePositionObject)
-        {
-            ProjectileModNodeSO selectedMod = null;
-            selectedMod = ScriptableObject.CreateInstance<ProjectileModNodeSO>();
-
-            if (selectedMod != null)
-            {
-                selectedMod.Initialize((Vector2)mousePositionObject, ActiveGraph);
-
-                AssetDatabase.AddObjectToAsset(selectedMod, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        #endregion
-        #region Add Projectile Arc
-        private void AddProjectileArc(object mousePositionObject)
-        {
-            LoadCache();
-            ProjectileNodeSO newNode = null;
-            Vector2 mousePosition = (Vector2)mousePositionObject;
-            newNode = ScriptableObject.CreateInstance<ProjectileArcNodeSO>();
-            if (newNode != null)
-            {
-                newNode.Initialize(mousePosition, ActiveGraph, projectilePrefabs[0]);
-
-                AssetDatabase.AddObjectToAsset(newNode, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
-        #endregion
-        #region Add Play Sound Event
-        private void AddPlaySoundEvent(object mousePosition)
-        {
-            LoadCache();
-            ProjectileGraphComponent newEvent = null;
-            newEvent = ScriptableObject.CreateInstance<PlaySoundEventSO>();
-            if (newEvent != null)
-            {
-                newEvent.Initialize((Vector2)mousePosition, ActiveGraph);
-
-                AssetDatabase.AddObjectToAsset(newEvent, ActiveGraph);
-                AssetDatabase.SaveAssets();
-            }
-        }
+        #region Add Crawler Event
         private void AddCrawlerEvent(object mousePosition)
         {
-            LoadCache();
+            //LoadCache();
             ProjectileEventSO newEvent = null;
             newEvent = ScriptableObject.CreateInstance<CrawlerEventSO>();
             if (newEvent != null)
@@ -723,21 +375,17 @@ namespace Bremsengine
                 AssetDatabase.SaveAssets();
             }
         }
-        #endregion
-        #region Add Crawler Event
-
-        #endregion
-    }
-    #endregion
-    #region Drag
-    public partial class ProjectileEventSO
-    {
-        public void DragEvent(Vector2 delta)
+        private void AddSelector(object mousePosition)
         {
-            rect.position += delta;
-            GUI.changed = true;
-            this.Dirty();
+            ProjectileComponentSelector selector = ScriptableObject.CreateInstance<ProjectileComponentSelector>();
+            if (selector != null)
+            {
+                selector.Initialize((Vector2)mousePosition, ActiveGraph);
+                AssetDatabase.AddObjectToAsset(selector, ActiveGraph);
+                AssetDatabase.SaveAssets();
+            }
         }
+        #endregion
     }
     #endregion
     public partial class ProjectileGraphEditor : UnityEditor.EditorWindow
@@ -782,11 +430,5 @@ namespace Bremsengine
             EditorUtility.SetDirty(target);
         }
     }
-    #region Helper
-    public static partial class ProjectileGraphHelper
-    {
-        public static void Dirty(this UnityEngine.Object o) => EditorUtility.SetDirty(o);
-    }
-    #endregion
 }
 #endif

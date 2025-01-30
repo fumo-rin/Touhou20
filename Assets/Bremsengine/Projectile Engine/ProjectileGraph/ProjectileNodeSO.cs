@@ -14,7 +14,6 @@ namespace Bremsengine
 #if UNITY_EDITOR
     public partial class ProjectileNodeSO : ProjectileGraphComponent
     {
-        protected static List<ProjectileTypeSO> ProjectileCache => ProjectileGraphEditor.ProjectileTypeLookup;
         const float spritePreviewSize = 250f;
         [HideInInspector] public Rect projectileImagePreview;
         Texture previewTexture;
@@ -43,20 +42,12 @@ namespace Bremsengine
         protected override void OnDraw(GUIStyle style)
         {
             EditorGUI.BeginChangeCheck();
-            int selected = ProjectileCache.FindIndex(x => x == ProjectileType);
-            int selection = EditorGUILayout.Popup("", selected, GetProjectileTypesToDisplay());
-
-            ProjectileType = ProjectileCache[selection];
-            if (ProjectileType != null)
-            {
-                SetPreviewTexture(ProjectileType);
-            }
-
+            ProjectileType = (ProjectileTypeSO)EditorGUILayout.ObjectField("Projectile Type", ProjectileType, typeof(ProjectileTypeSO), false);
             directionalOffset = EditorGUILayout.Slider("Directional Offset", directionalOffset, 0f, 25f);
             spread = EditorGUILayout.Slider("Spread", spread, 0f, 60f);
             speed = EditorGUILayout.Slider("Speed", speed, 0f, 35f);
             addedAngle = EditorGUILayout.Slider("Added Angle", addedAngle, -180f, 180f);
-            ReverseDirection =  EditorGUILayout.Toggle("Reverse Speed", ReverseDirection);
+            ReverseDirection = EditorGUILayout.Toggle("Reverse Speed", ReverseDirection);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
@@ -65,19 +56,7 @@ namespace Bremsengine
         }
         protected override void SecondaryDraw(GUIStyle style)
         {
-            GUILayout.BeginArea(projectileImagePreview, style);
-            EditorGUI.DrawPreviewTexture(new(25f, 25f, 200f, 200f), previewTexture);
-            GUILayout.EndArea();
-        }
-        public string[] GetProjectileTypesToDisplay()
-        {
-            string[] projectileArray = new string[ProjectileCache.Count];
 
-            for (int i = 0; i < ProjectileCache.Count; i++)
-            {
-                projectileArray[i] = ProjectileCache[i].name;
-            }
-            return projectileArray;
         }
         public override void OnDrag(Vector2 delta)
         {
@@ -95,6 +74,46 @@ namespace Bremsengine
                 {
                     mod.attachedNodes.Remove(this);
                 }
+                if (item is ProjectileEmitterSO emitter)
+                {
+                    emitter.linkedNodes.Remove(this);
+                }
+            }
+            graph.nodes.Remove(this);
+        }
+
+        public override void TryBreakLinks()
+        {
+            foreach (var c in graph.components)
+            {
+                if (c is ProjectileModNodeSO mod)
+                {
+                    mod.attachedNodes.Remove(this);
+                }
+            }
+        }
+        public override void TryCreateLink(ProjectileGraphComponent other)
+        {
+            if (other is ProjectileModNodeSO mod)
+            {
+                mod.attachedNodes.AddIfDoesntExist(this);
+            }
+            if (other is ProjectileEmitterSO emitter)
+            {
+                emitter.linkedNodes.AddIfDoesntExist(this);
+            }
+            if (other is ProjectileEventSO eventSo)
+            {
+                linkedProjectileEvents.AddIfDoesntExist(eventSo);
+            }
+        }
+
+        public override void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink)
+        {
+            linkedProjectileEvents.Remove(unlink as ProjectileEventSO);
+            if (unlink is ProjectileModNodeSO modNode)
+            {
+                linkedProjectileMods.Remove(modNode.containedMod);
             }
         }
     }
@@ -208,7 +227,7 @@ namespace Bremsengine
         public ProjectileTypeSO ProjectileType;
         public float spawnDelay;
         public List<ProjectileEventSO> linkedProjectileEvents = new();
-        public List<ProjectileMod> attachedProjectileMods = new();
+        public List<ProjectileMod> linkedProjectileMods = new();
         public abstract void Spawn(in List<Projectile> list, ProjectileGraphInput input, TriggeredEvent triggeredEvent);
         public void SendProjectileEvents(Projectile p, TriggeredEvent triggeredEvent)
         {
@@ -243,6 +262,11 @@ namespace Bremsengine
         }
         protected Projectile CreateProjectile(Projectile p, Vector2 position, ProjectileNodeDirection direction)
         {
+            if (p == null)
+            {
+                Debug.Log("Missing Prefab");
+                return null;
+            }
             direction.SetSpeed(speed * graph.GetGlobalSpeed());
             direction.AddAngle(addedAngle);
             direction.SetSpread(spread);

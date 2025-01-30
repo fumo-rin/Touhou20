@@ -34,6 +34,11 @@ namespace Bremsengine
     {
         public override void Spawn(in List<Projectile> l, ProjectileGraphInput input, TriggeredEvent triggeredEvent)
         {
+            if (ProjectileType == null || ProjectileType.Prefab == null)
+            {
+                Debug.Log("Missing Prefab on : " + graph.name);
+                return;
+            }
             ProjectileNodeDirection direction = BuildDirectionAlternate(input);
             direction.ReverseSpeed = ReverseDirection;
             direction.AddAngle(input.addedAngle);

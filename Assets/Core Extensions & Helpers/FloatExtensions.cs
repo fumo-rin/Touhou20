@@ -160,5 +160,12 @@ namespace Core.Extensions
                 yield return i;
             }
         }
+        public static IEnumerable<float> StepThroughCurve(this AnimationCurve curve, float timeStep, int maximumIterations)
+        {
+            for (float i = 0f; i <= curve.length || i <= maximumIterations * timeStep; i += timeStep)
+            {
+                yield return curve.Evaluate(i);
+            }
+        }
     }
 }

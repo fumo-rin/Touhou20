@@ -47,6 +47,31 @@ namespace Bremsengine
         {
             attachedNodes.Clear();
         }
+
+        public override void TryBreakLinks()
+        {
+            attachedNodes.Clear();
+        }
+
+        public override void TryCreateLink(ProjectileGraphComponent other)
+        {
+            if (other is ProjectileNodeSO node)
+            {
+                attachedNodes.AddIfDoesntExist(node);
+            }
+            if (other is ProjectileEmitterSO emitter)
+            {
+                foreach (var item in emitter.linkedNodes)
+                {
+                    attachedNodes.Add(item);
+                }
+            }
+        }
+
+        public override void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink)
+        {
+            attachedNodes.Remove(unlink as ProjectileNodeSO);
+        }
     }
 #endif
     public partial class ProjectileModNodeSO : ProjectileGraphComponent

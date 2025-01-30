@@ -20,7 +20,10 @@ namespace Bremsengine
         {
 
         }
+        public override void TryBreakLinks()
+        {
 
+        }
         public override void OnGraphDelete()
         {
             graph.emitters.Remove(this);
@@ -67,6 +70,26 @@ namespace Bremsengine
                 }
             }
             LinkDirection(null);
+        }
+
+        public override void TryCreateLink(ProjectileGraphComponent other)
+        {
+            if (other is ProjectileNodeSO node)
+            {
+                linkedNodes.AddIfDoesntExist(node);
+            }
+            if (other is ProjectileModNodeSO mod)
+            {
+                foreach (var item in linkedNodes)
+                {
+                    mod.attachedNodes.AddIfDoesntExist(item);
+                }
+            }
+        }
+
+        public override void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink)
+        {
+            linkedNodes.Remove(unlink as ProjectileNodeSO);
         }
     }
 #endif

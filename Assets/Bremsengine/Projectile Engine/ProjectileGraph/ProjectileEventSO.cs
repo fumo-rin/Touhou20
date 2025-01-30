@@ -34,6 +34,26 @@ namespace Bremsengine
                 item.linkedProjectileEvents.Remove(this);
             }
         }
+        public override void TryBreakLinks()
+        {
+            foreach(var item in graph.nodes)
+            {
+                item.linkedProjectileEvents.Remove(this);
+            }
+        }
+
+        public override void TryCreateLink(ProjectileGraphComponent other)
+        {
+            if (other is ProjectileNodeSO node)
+            {
+                node.linkedProjectileEvents.AddIfDoesntExist(this);
+            }
+        }
+
+        public override void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink)
+        {
+
+        }
     }
 #endif
     #endregion

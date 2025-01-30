@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 3499684433431638726}
   attackBaseDamage: 10
-  projectileAttack: {fileID: 11400000, guid: 550764d37ba4690499aebf14be1b34c2, type: 2}
+  projectileAttack: {fileID: 11400000, guid: b0a44e3cbbb2e0042a5943c7ca3fea62, type: 2}
   projectileSortingIndex: 0
 --- !u!61 &2707715528630502555
 BoxCollider2D:

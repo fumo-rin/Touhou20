@@ -14,7 +14,6 @@ namespace Bremsengine
         {
             return "Projectile Crawler Event";
         }
-
         public override void OnDrag(Vector2 delta)
         {
 
@@ -99,6 +98,11 @@ namespace Bremsengine
         public float AngleIncrement => fanAngle / (projectileCopies - (fanAngle < 360 ? 1 : 0));
         private IEnumerator CO_Split(float delay, Projectile p, TriggeredEvent e)
         {
+            if (projectilePrefab == null || projectilePrefab.Prefab == null)
+            {
+                Debug.Log("Missing Prefab on : " + graph.name);
+                yield break;
+            }
             Vector2 ownerVelocity = new();
             yield return new WaitForSeconds(delay);
             float repeatIterationAngle = 0f;

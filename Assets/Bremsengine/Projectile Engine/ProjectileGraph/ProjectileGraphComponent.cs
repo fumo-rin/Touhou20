@@ -19,6 +19,8 @@ namespace Bremsengine
         public abstract void OnGraphDelete();
         protected abstract void OnInitialize(Vector2 mousePosition, ProjectileGraphSO graph, ProjectileTypeSO type);
         protected abstract void OnDraw(GUIStyle style);
+        public abstract void TryBreakLinks();
+        public abstract void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink);
         public void Drag(Vector2 delta)
         {
             rect.position += delta;
@@ -26,6 +28,17 @@ namespace Bremsengine
             GUI.changed = true;
             this.Dirty();
         }
+        public virtual bool TryStartLink(out ProjectileGraphComponent linkStart)
+        {
+            linkStart = this;
+            return true;
+        }
+        public virtual bool TryEndLink(out ProjectileGraphComponent linkEnd)
+        {
+            linkEnd = this;
+            return true;
+        }
+        public abstract void TryCreateLink(ProjectileGraphComponent other);
         public void RecalculateRect()
         {
             if (rect == null)
@@ -57,7 +70,6 @@ namespace Bremsengine
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
-                AssetDatabase.SaveAssetIfDirty(this);
             }
             GUILayout.EndArea();
             SecondaryDraw(style);
@@ -81,9 +93,20 @@ namespace Bremsengine
         }
         public void DeleteComponent()
         {
+            TryBreakLinks();
             OnGraphDelete();
             graph.Dirty();
+            foreach (var item in graph.components)
+            {
+                if (item == this)
+                    continue;
+                item.ReceiveBroadcastUnlink(this);
+            }
             graph.components.Remove(this);
+            graph.nodes.Remove(this as ProjectileNodeSO);
+            graph.emitters.Remove(this as ProjectileEmitterSO);
+            graph.modNodes.Remove(this as ProjectileModNodeSO);
+            graph.componentSelectors.Remove(this as ProjectileComponentSelector);
             AssetDatabase.RemoveObjectFromAsset(this);
             AssetDatabase.SaveAssets();
         }

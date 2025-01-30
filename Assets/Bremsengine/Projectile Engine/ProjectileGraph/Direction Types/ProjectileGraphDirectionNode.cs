@@ -41,6 +41,30 @@ namespace Bremsengine
             }
         }
 
+        public override void ReceiveBroadcastUnlink(ProjectileGraphComponent unlink)
+        {
+
+        }
+
+        public override void TryBreakLinks()
+        {
+            foreach(var item in graph.components)
+            {
+                if (item is ProjectileEmitterSO emitter && emitter.linkedOverrideDirection == this)
+                {
+                    emitter.linkedOverrideDirection = null;
+                }
+            }
+        }
+
+        public override void TryCreateLink(ProjectileGraphComponent other)
+        {
+            if (other is ProjectileEmitterSO emitter)
+            {
+                emitter.linkedOverrideDirection = this;
+            }
+        }
+
         protected override Rect GetRect(Vector2 mousePosition)
         {
             return new(new(mousePosition.x,mousePosition.y), new(250f,200f));

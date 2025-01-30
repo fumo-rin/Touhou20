@@ -32,6 +32,7 @@ namespace Bremsengine
         public List<ProjectileNodeSO> nodes = new();
         public List<ProjectileEmitterSO> emitters = new();
         public List<ProjectileModNodeSO> modNodes = new();
+        public List<ProjectileComponentSelector> componentSelectors = new();
         [Range(0.1f, 5f)][SerializeField] float GraphGlobalProjectileSpeed = 1f;
         [Range(-10f, 10f)]
         [SerializeField] float addedCooldown = 1f;
@@ -115,24 +116,12 @@ namespace Bremsengine
             Debug.Log("End Pleae");
             previewLine = false;
         }
-        public void StartLine(Vector2 position)
+        public void StartPreviewLine(Vector2 position)
         {
             Debug.Log("Start Line");
             previewLinePosition = position;
             previewLineEnd = position;
             previewLine = true;
-        }
-        public string graphID { get; private set; }
-        public bool SetNewGraphID()
-        {
-            if (string.IsNullOrEmpty(graphID))
-            {
-                graphID = System.Guid.NewGuid().ToString();
-                this.Dirty();
-                AssetDatabase.SaveAssetIfDirty(this);
-                return true;
-            }
-            return false;
         }
     }
     #region Draw
@@ -167,8 +156,14 @@ namespace Bremsengine
                     DrawLink(item, mod);
                 }
             }
-            foreach (ProjectileGraphComponent c in components)
+            for (int i = 0; i < components.Count; i++)
             {
+                ProjectileGraphComponent c = components[i];
+                if (components[i] == null)
+                {
+                    i--;
+                    continue;
+                }
                 ProjectileGraphEditor.DrawHeader(c.rect, c.GetGraphComponentName());
                 c.Draw(style);
             }
