@@ -22,7 +22,10 @@ namespace Bremsengine
         }
         public override void TryBreakLinks()
         {
-
+            foreach (var item in graph.nodes)
+            {
+                linkedNodes.Remove(item);
+            }
         }
         public override void OnGraphDelete()
         {

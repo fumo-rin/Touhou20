@@ -167,5 +167,9 @@ namespace Core.Extensions
                 yield return curve.Evaluate(i);
             }
         }
+        public static float Duration(this AnimationCurve c)
+        {
+            return c.keys[c.length - 1].time;
+        }
     }
 }
