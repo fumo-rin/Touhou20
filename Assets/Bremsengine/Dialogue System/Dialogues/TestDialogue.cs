@@ -10,20 +10,22 @@ namespace Bremsengine
         protected override IEnumerator DialogueContents()
         {
             ReDrawDialogue("Test Text");
-            SetButton(0, "Yes", TestFeature).SetContinueWhenPressed(true);
+            SetButton(0, "Yes", TestFeature).SetContinueWhenPressed();
             yield return Wait;
             ReDrawDialogue("Mewo mewo");
-            SetButton(0, "Yes").SetContinueWhenPressed(true);
+            SetButton(0, "Yes").SetContinueWhenPressed();
             SetButton(1, "+100 money", TestFeature);
             SetButton(2, "NOOO", SpawnBoss);
             yield return Wait;
             ReDrawDialogue("yooo");
-            SetButton(2, "Bro").SetContinueWhenPressed(true);
+            SetButton(2, "Bro").SetContinueWhenPressed();
             StartSubroutine("Test Range", TestRange());
             yield return Wait;
             TryEndSubroutine("Test Range");
             ReDrawDialogue("jao");
-            SetButton(2, "Close", SpawnBoss).SetForceEndWhenPressed();
+            SetButton(2, "Close", SpawnBoss).SetContinueWhenPressed();
+            yield return Wait;
+            ForceEndDialogue();
         }
         private void SpawnBoss()
         {

@@ -17,6 +17,12 @@ namespace Core.Input
         BremseInputEventHandler OnPerformed;
         BremseInputEventHandler OnCancelled;
         BremseInputEventHandler OnJustPressed;
+        private void Awake()
+        {
+            OnPerformed = null;
+            OnCancelled = null;
+            OnJustPressed = null;
+        }
         public void BindAction(BremseInputPhase p, Action @actionEvent)
         {
             switch (p)

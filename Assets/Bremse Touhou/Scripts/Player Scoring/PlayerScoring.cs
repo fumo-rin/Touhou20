@@ -107,10 +107,8 @@ namespace BremseTouhou
             Vector2 position;
             while (true)
             {
-                Debug.Log("T");
                 if (instance == null)
                 {
-                    Debug.LogWarning("Missing Player Scoring Instance");
                     continue;
                 }
                 for (i = 0; i < amountPerIteration; i++)
@@ -151,7 +149,6 @@ namespace BremseTouhou
             if (pickupsIteration == null || pickupsIteration.Length <= 0)
                 return;
 
-            Debug.Log("!!!!");
             foreach (Collider2D col in pickupsIteration)
             {
                 Pickup(col);
@@ -210,6 +207,7 @@ namespace BremseTouhou
             lootedPickups.Remove(pickup);
             pickupSound.Play(transform.position);
             scoreItemAddedValue++;
+            PlayerBombAction.AddBombValue(1);
             float score = AddScore(baseScorePerPickup);
             if (GeneralManager.ShouldAddScoreKey)
             {

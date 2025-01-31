@@ -1,5 +1,6 @@
 using Bremsengine;
 using Core.Extensions;
+using Core.Input;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace BremseTouhou
         public static float spellBonusCurrentDelay;
         public static float spellTimeRemaining;
         public static SpellCardUI activeRunner;
+        [SerializeField] BremseInputEventBus bombAction;
         public static void SetPhase(PhaseEntry e)
         {
             currentPhase = e;
@@ -65,10 +67,19 @@ namespace BremseTouhou
         {
             activeRunner = this;
         }
+        private void BombInput()
+        {
+            FailSpell();
+        }
         private void Start()
         {
             InvokeRepeating(nameof(UILoop), 0f, 0.05f);
             RecalculatePhaseVisibility();
+            bombAction.BindAction(BremseInputPhase.Performed, BombInput);
+        }
+        private void OnDestroy()
+        {
+            bombAction.ReleaseAction(BremseInputPhase.Performed, BombInput);
         }
         private void UILoop()
         {

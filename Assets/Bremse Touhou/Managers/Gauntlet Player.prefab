@@ -6439,6 +6439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventBus: {fileID: 11400000, guid: 3e7946f74c5880245bb6b04cdc7637f2, type: 2}
   bombLength: {fileID: 11400000, guid: fb9f8384ac4e9a642a99d949150f7cc1, type: 2}
+  bombSound: {fileID: 11400000, guid: e2a22f2e4d9f1b242b7498b5d6deca3a, type: 2}
+  bombSoundExplosion: {fileID: 11400000, guid: d5b5a75eb399b114e930c9772bbbaf14, type: 2}
 --- !u!1 &7035057891130996790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,7 +6608,7 @@ MonoBehaviour:
   grazeDecayRate: 6
   grazeDecayMaxFreezeTime: 1.666667
   ScoreItemPrefab: {fileID: 6076243941187219546, guid: b5424c17e50c70a4aa295b64818b7d6e, type: 3}
-  scorePullForce: 1.4
+  scorePullForce: 1.55
   pickupDistance: 1.5
   verticalSpawnForce: 7
   forceSpreadPercent: 15
@@ -6906,7 +6908,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 623495815094977767}
   - {fileID: 6779072035132559036}
   - {fileID: 1571843913613554111}
   - {fileID: 929880504736225038}
@@ -6972,7 +6973,7 @@ MonoBehaviour:
   bombEvent: {fileID: 11400000, guid: 3e7946f74c5880245bb6b04cdc7637f2, type: 2}
   testAimProfile: {fileID: 11400000, guid: 815d48c08bbd1024ea288a8f7d25c70b, type: 2}
   TestAttack: {fileID: 0}
-  TestFocusAttack: {fileID: 11400000, guid: 55a19f7535e7e3f489608dcc5bfb6110, type: 2}
+  TestFocusAttack: {fileID: 0}
   fireRate: 12
   sneakMotor: {fileID: 11400000, guid: b61cfbc94349a964c9893dede27050f4, type: 2}
 --- !u!50 &7879819984942896527
@@ -7198,57 +7199,3 @@ MonoBehaviour:
   owner: {fileID: 8930274627771059939}
   faction: 1
   TESTINGcurrentAttack: {fileID: 69145331177664368}
---- !u!1001 &4919778516789937312
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4857404270182001220}
-    m_Modifications:
-    - target: {fileID: 2115265243665585155, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_Name
-      value: Player Input Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 2115265243665585155, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
---- !u!4 &623495815094977767 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5539861149810491463, guid: 57f49947f701afd4594fb7c2e1c82b33, type: 3}
-  m_PrefabInstance: {fileID: 4919778516789937312}
-  m_PrefabAsset: {fileID: 0}

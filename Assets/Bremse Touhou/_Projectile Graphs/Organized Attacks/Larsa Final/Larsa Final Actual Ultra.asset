@@ -498,7 +498,7 @@ MonoBehaviour:
   - {fileID: 3087078512008356832}
   componentSelectors: []
   GraphGlobalProjectileSpeed: 1
-  addedCooldown: 2.5
+  addedCooldown: 4
   headerTexture: {fileID: 0}
   previewLine: 0
   connectingLineWidth: 3

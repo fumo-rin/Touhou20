@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 namespace Bremsengine
 {
+    using Core.Input;
     #region Dialogue Editor Custom Inspector
 #if UNITY_EDITOR
     using UnityEditor;
@@ -114,7 +115,7 @@ namespace Bremsengine
                 ButtonReference.gameObject.SetActive(state);
                 return this;
             }
-            public DialogueButton SetContinueWhenPressed(bool state)
+            public DialogueButton SetContinueWhenPressed(bool state = true)
             {
                 ContinueDialogueWhenPressed = state;
                 return this;
@@ -294,6 +295,25 @@ namespace Bremsengine
         }
     }
     #endregion
+    #region Continue Shortcut Input
+    public partial class Dialogue
+    {
+        public static bool IsContinueHeld { get; private set; }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Reinitialize()
+        {
+            IsContinueHeld = false;
+        }
+        public static void PressContinueInput()
+        {
+            IsContinueHeld = true;
+        }
+        public static void UnpressContinueInput()
+        {
+            IsContinueHeld = false;
+        }
+    }
+    #endregion
     public abstract partial class Dialogue : MonoBehaviour
     {
         public WaitUntil Wait => new WaitUntil(() => !IsWaiting);
@@ -305,10 +325,6 @@ namespace Bremsengine
         static Coroutine activeDialogueRoutine;
         static Dialogue ActiveDialogue;
         protected static bool IsWaiting;
-        private void Start()
-        {
-
-        }
         protected abstract void WhenStartDialogue();
         protected abstract void WhenEndDialogue();
         public static void SetWaiting(bool state)
@@ -347,6 +363,14 @@ namespace Bremsengine
             WhenEndDialogue();
             IsWaiting = false;
             ActiveDialogue = null;
+        }
+        private void Update()
+        {
+            if (IsContinueHeld)
+            {
+                IsWaiting = false;
+                IsContinueHeld = false;
+            }
         }
     }
 }

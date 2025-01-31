@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Core.Input;
 namespace Bremsengine
 {
     public class DialogueRunner : MonoBehaviour
@@ -11,6 +12,7 @@ namespace Bremsengine
         [SerializeField] DialogueText dialogueText;
         [SerializeField] TMP_Text dialogueTextComponent;
         [SerializeField] GameObject dialogueContainer;
+
         public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
         {
@@ -33,6 +35,17 @@ namespace Bremsengine
         public void PressButton(int index)
         {
             Dialogue.PressButton(index);
+        }
+        [SerializeField] BremseInputEventBus continueEventBus;
+        private void Start()
+        {
+            continueEventBus.BindAction(BremseInputPhase.Performed, Dialogue.PressContinueInput);
+            continueEventBus.BindAction(BremseInputPhase.Cancelled, Dialogue.UnpressContinueInput);
+        }
+        private void OnDestroy()
+        {
+            continueEventBus.ReleaseAction(BremseInputPhase.Performed, Dialogue.PressContinueInput);
+            continueEventBus.ReleaseAction(BremseInputPhase.Cancelled, Dialogue.UnpressContinueInput);
         }
     }
 }

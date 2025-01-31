@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
-  m_Name: Pickup Sound
+  m_Name: Bomb Sound Explosion
   m_EditorClassIdentifier: 
-  SoundName: Pickups
-  soundVolume: 0.12
+  SoundName: ' Explode'
+  soundVolume: 0.5
   <soundClips>k__BackingField:
-  - clip: {fileID: 8300000, guid: 121e4acfa4b0a0a40a98d98c2417737d, type: 3}
-    PitchVariancePercent: 11.6
-    PitchOrigin: 2.19
-    Volume: 0.4
+  - clip: {fileID: 8300000, guid: b1d8aa514836f454e915b91a7ddbe29e, type: 3}
+    PitchVariancePercent: 2
+    PitchOrigin: 0.25
+    Volume: 0.35
     Muted: 0
-  - clip: {fileID: 8300000, guid: 3aee9d1139fe3d0488d1e494686e99bb, type: 3}
-    PitchVariancePercent: 11.6
-    PitchOrigin: 1.5
-    Volume: 0.3
+  - clip: {fileID: 8300000, guid: fb0f477419bdda94cba0799d97081715, type: 3}
+    PitchVariancePercent: 2
+    PitchOrigin: 0.75
+    Volume: 0.65
     Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

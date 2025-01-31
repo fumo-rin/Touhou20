@@ -262,7 +262,7 @@ namespace BremseTouhou
     public abstract partial class BaseUnit : MonoBehaviour
     {
         public static BaseUnit Player;
-        public bool Alive => CurrentHealth > 0f;
+        public bool Alive => CurrentHealth > 0f && gameObject.activeInHierarchy;
         public bool Active;
         public static BaseUnit GameTarget => Player;
         [SerializeField] protected Transform unitCenterAnchor;

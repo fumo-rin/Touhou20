@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90252a6eb170c2e43adb15b74b359f61, type: 3}
-  m_Name: Standard Bomb Duration In Seconds
+  m_Script: {fileID: 11500000, guid: 1ceb773d10504e968f2171473b801a37, type: 3}
+  m_Name: WingmanPersistentData
   m_EditorClassIdentifier: 
-  value: 4
+  indexLookUp: 
+  searchFields: []
+  selectedCompIds: []
