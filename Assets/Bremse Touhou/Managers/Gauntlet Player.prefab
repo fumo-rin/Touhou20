@@ -847,8 +847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialQueue: {fileID: 391870670978894966}
-  flashMaterial: {fileID: 2100000, guid: cc83e78036234e54589b443288084464, type: 2}
-  flashInterval: 0.05
 --- !u!1 &3518326585063353207
 GameObject:
   m_ObjectHideFlags: 0
@@ -7069,6 +7067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SR>k__BackingField: {fileID: 5578969039941932744}
+  flashMaterial: {fileID: 2100000, guid: cc83e78036234e54589b443288084464, type: 2}
+  flashInterval: 0.1
 --- !u!1 &8479090062607594360
 GameObject:
   m_ObjectHideFlags: 0

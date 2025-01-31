@@ -24,18 +24,18 @@ namespace BremseTouhou
         int hitCounter = 0;
         protected override bool ProjectileHit(Projectile p)
         {
-            Debug.Log(IFrameEndTime);
             if (FactionInterface.IsFriendsWith(p.Faction))
             {
                 return false;
             }
             if (Time.time < IFrameEndTime)
                 return true;
+            SetIFrames(3f, false);
             SpellCardUI.FailSpell();
             hitSound.Play(Center);
             hitCounter++;
             hitCounterText.text = hitCounter.ToString();
-            GeneralManager.Instance.StartCoroutine(CO_PlayerHit(transform));
+            StartCoroutine(CO_PlayerHit());
             return true;
         }
         float DeathBombTime;
@@ -50,29 +50,32 @@ namespace BremseTouhou
         {
             DeathBombPressed = false;
         }
-        IEnumerator CO_PlayerHit(Transform t)
+        public static void SetIFrames(float duration, bool flashSprite)
         {
-            Time.timeScale = 0.25f;
-            DeathBombTime = Time.time + 0.08f;
-            while(Time.time <= DeathBombTime)
+            IFrameEndTime = Time.time + duration;
+            if (flashSprite)
             {
-                if (DeathBombPressed && PlayerBombAction.CanBomb)
+                ((PlayerUnit)Player).flashMaterial.TriggerFlashMaterial(duration);
+            }
+        }
+        IEnumerator CO_PlayerHit()
+        {
+            Time.timeScale = 0.03f;
+            DeathBombTime = Time.unscaledTime + 0.35f;
+            bool deathBombed = false;
+            while (Time.unscaledTime <= DeathBombTime && !deathBombed)
+            {
+                yield return null;
+                if ((DeathBombPressed && PlayerBombAction.CanBomb) || PlayerBombAction.BombIframesTime >= Time.time)
                 {
                     Time.timeScale = 1f;
-                    Debug.Log("Test");
-                    IFrameEndTime = Time.time + 4f;
-                    flashMaterial.TriggerFlashMaterial(4f);
+                    SetIFrames(4f, true);
+                    deathBombed = true;
                     yield break;
                 }
-                yield return null;
             }
             Time.timeScale = 1f;
-            t.gameObject.SetActive(false);
-            yield return new WaitForSeconds(1.5f);
-            t.position = Origin;
-            t.gameObject.SetActive(true);
-            IFrameEndTime = Time.time + 4f;
-            flashMaterial.TriggerFlashMaterial(4f);
+            SetIFrames(4f, true);
         }
     }
     #endregion

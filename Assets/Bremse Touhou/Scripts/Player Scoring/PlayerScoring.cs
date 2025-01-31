@@ -180,7 +180,7 @@ namespace BremseTouhou
             {
                 return;
             }
-            GeneralManager.Instance.StartCoroutine(CO_Pickup(t.root));
+            StartCoroutine(CO_Pickup(t.root));
         }
         private IEnumerator CO_Pickup(Transform pickup)
         {

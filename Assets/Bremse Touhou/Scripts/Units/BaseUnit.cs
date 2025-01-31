@@ -127,7 +127,7 @@ namespace BremseTouhou
         {
             ChangeHealth(-(damage.Absolute()));
         }
-        public void ChangeHealth(float delta)
+        public void ChangeHealth(float delta, bool dropLoot = true)
         {
             if (unitHealth <= 0f)
                 return;
@@ -137,11 +137,11 @@ namespace BremseTouhou
             RecalculateAttackHandlerState();
             if (unitHealth <= 0f)
             {
-                Kill();
+                Kill(dropLoot);
             }
             OnHealthChange?.Invoke(this);
         }
-        public void SetNewHealth(float newHealth, float maxHealth)
+        public void SetNewHealth(float newHealth, float maxHealth, bool dropLoot = true)
         {
             this.MaxHealth = maxHealth;
             this.unitHealth = newHealth;
@@ -154,14 +154,14 @@ namespace BremseTouhou
         }
         public void ForceKill()
         {
-            SetNewHealth(0, MaxHealth);
+            SetNewHealth(0, MaxHealth, false);
         }
         public void SetActive(bool state)
         {
             Active = state;
         }
 
-        private void Kill()
+        private void Kill(bool dropScore = false)
         {
             Debug.Log("Death");
             if (phaseHandler != null)
@@ -187,7 +187,7 @@ namespace BremseTouhou
                 }
             }
             Projectile.ClearProjectileTimelineFor(transform);
-            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, PlayerScoring.SpawnPickup);
+            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, dropScore ? PlayerScoring.SpawnPickup : null);
         }
     }
     #endregion

@@ -39,7 +39,7 @@ namespace BremseTouhou
             if (CanBomb)
             {
                 Projectile.PlayerTriggerBomb(bombLength, bombSound,bombSoundExplosion);
-                PlayerUnit.SetIFrames(bombLength);
+                PlayerUnit.SetIFrames(bombLength, true);
                 SetBombValue(currentBombValue - bombCost);
                 BombIframesTime = Time.time + bombLength;
             }
