@@ -5,11 +5,11 @@ namespace Core.Extensions
 {
     public static partial class Helper
     {
-        public static Dictionary<float, WaitForSeconds> RepeatSettingsStallLookup;
+        public static Dictionary<float, WaitForSeconds> RepeatSettingsStallLookup = new();
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ResetLookup()
         {
-            RepeatSettingsStallLookup = new();
+            RepeatSettingsStallLookup.Clear();
         }
         public static WaitForSeconds GetWaitForSeconds(float delay)
         {

@@ -12,20 +12,67 @@ namespace BremseTouhou
     #region Projectile Hit
     public partial class PlayerUnit
     {
+        public static float IFrameEndTime = 0f;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Reinitialize()
+        {
+            IFrameEndTime = 0f;
+        }
         [SerializeField] AudioClipWrapper hitSound;
         [SerializeField] TMP_Text hitCounterText;
+        [SerializeField] SpriteFlashMaterial flashMaterial;
         int hitCounter = 0;
         protected override bool ProjectileHit(Projectile p)
         {
+            Debug.Log(IFrameEndTime);
             if (FactionInterface.IsFriendsWith(p.Faction))
             {
                 return false;
             }
+            if (Time.time < IFrameEndTime)
+                return true;
+            SpellCardUI.FailSpell();
             hitSound.Play(Center);
             hitCounter++;
             hitCounterText.text = hitCounter.ToString();
-            SpellCardUI.FailSpell();
+            GeneralManager.Instance.StartCoroutine(CO_PlayerHit(transform));
             return true;
+        }
+        float DeathBombTime;
+        bool bombPressed;
+        private bool DeathBombPressed;
+        [SerializeField] BremseInputEventBus bombEvent;
+        private void SetDeathBombInput()
+        {
+            DeathBombPressed = true;
+        }
+        private void ReleaseDeathBombInput()
+        {
+            DeathBombPressed = false;
+        }
+        IEnumerator CO_PlayerHit(Transform t)
+        {
+            Time.timeScale = 0.25f;
+            DeathBombTime = Time.time + 0.08f;
+            while(Time.time <= DeathBombTime)
+            {
+                if (DeathBombPressed && PlayerBombAction.CanBomb)
+                {
+                    Time.timeScale = 1f;
+                    Debug.Log("Test");
+                    IFrameEndTime = Time.time + 4f;
+                    flashMaterial.TriggerFlashMaterial(4f);
+                    yield break;
+                }
+                yield return null;
+            }
+            Time.timeScale = 1f;
+            t.gameObject.SetActive(false);
+            yield return new WaitForSeconds(1.5f);
+            t.position = Origin;
+            t.gameObject.SetActive(true);
+            IFrameEndTime = Time.time + 4f;
+            flashMaterial.TriggerFlashMaterial(4f);
         }
     }
     #endregion
@@ -140,10 +187,13 @@ namespace BremseTouhou
         protected override void WhenStart()
         {
             DirectionSolver.SetKnownTarget(transform);
+            bombEvent.BindAction(BremseInputPhase.Performed, SetDeathBombInput);
+            bombEvent.BindAction(BremseInputPhase.Cancelled, ReleaseDeathBombInput);
         }
         protected override void WhenDestroy()
         {
-
+            bombEvent.ReleaseAction(BremseInputPhase.Performed, SetDeathBombInput);
+            bombEvent.ReleaseAction(BremseInputPhase.Cancelled, ReleaseDeathBombInput);
         }
         private void Update()
         {

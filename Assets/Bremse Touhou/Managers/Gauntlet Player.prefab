@@ -848,7 +848,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialQueue: {fileID: 391870670978894966}
   flashMaterial: {fileID: 2100000, guid: cc83e78036234e54589b443288084464, type: 2}
-  duration: 3
   flashInterval: 0.05
 --- !u!1 &3518326585063353207
 GameObject:
@@ -6404,7 +6403,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7707233716064989504}
   - component: {fileID: 8466730640042156166}
-  - component: {fileID: 5363732152274714350}
   m_Layer: 3
   m_Name: Bomb
   m_TagString: Untagged
@@ -6441,22 +6439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventBus: {fileID: 11400000, guid: 3e7946f74c5880245bb6b04cdc7637f2, type: 2}
   bombLength: {fileID: 11400000, guid: fb9f8384ac4e9a642a99d949150f7cc1, type: 2}
---- !u!114 &5363732152274714350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767694282307565449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f054696af98e4da439b7c4fea1628eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialQueue: {fileID: 0}
-  flashMaterial: {fileID: 0}
-  duration: 0
-  flashInterval: 0
 --- !u!1 &7035057891130996790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,7 +6930,7 @@ SortingGroup:
   m_GameObject: {fileID: 8293559821794238775}
   m_Enabled: 1
   m_SortingLayerID: 109278603
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortAtRoot: 1
 --- !u!114 &4225954830407253458
@@ -6978,6 +6960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardMotor: {fileID: 11400000, guid: ebd6399bce3fbe948b3a6d0a95de75eb, type: 2}
   unitName: Headhunter, Leather Belt
+  MaxHealth: 1000
   targetBoxes: []
   Active: 1
   unitCenterAnchor: {fileID: 1571843913613554111}
@@ -6985,6 +6968,8 @@ MonoBehaviour:
   unitCollider: {fileID: 6094093426875161875}
   hitSound: {fileID: 11400000, guid: e6207bd98f01fa3408e50cf800258423, type: 2}
   hitCounterText: {fileID: 2883629679738320383}
+  flashMaterial: {fileID: 743889624564368117}
+  bombEvent: {fileID: 11400000, guid: 3e7946f74c5880245bb6b04cdc7637f2, type: 2}
   testAimProfile: {fileID: 11400000, guid: 815d48c08bbd1024ea288a8f7d25c70b, type: 2}
   TestAttack: {fileID: 0}
   TestFocusAttack: {fileID: 11400000, guid: 55a19f7535e7e3f489608dcc5bfb6110, type: 2}

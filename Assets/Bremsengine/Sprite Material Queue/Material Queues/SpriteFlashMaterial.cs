@@ -7,11 +7,10 @@ namespace Bremsengine
     {
         [SerializeField] SpriteMaterialQueue materialQueue;
         [SerializeField] Material flashMaterial;
-        [SerializeField] float duration;
         [SerializeField] float flashInterval;
 
         [ContextMenu("Activate Flash")]
-        public void TriggerFlashMaterial()
+        public void TriggerFlashMaterial(float duration)
         {
             materialQueue.RunMaterialQueue(CO_FlashMaterial(flashMaterial, duration, flashInterval));
         }

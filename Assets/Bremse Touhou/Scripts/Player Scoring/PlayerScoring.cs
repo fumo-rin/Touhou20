@@ -107,6 +107,7 @@ namespace BremseTouhou
             Vector2 position;
             while (true)
             {
+                Debug.Log("T");
                 if (instance == null)
                 {
                     Debug.LogWarning("Missing Player Scoring Instance");
@@ -135,6 +136,8 @@ namespace BremseTouhou
         }
         private void PickupLoop()
         {
+            if (!gameObject.activeInHierarchy)
+                return;
             if (autoLoot)
             {
                 foreach (var pickup in spawnedPickups)
@@ -148,6 +151,7 @@ namespace BremseTouhou
             if (pickupsIteration == null || pickupsIteration.Length <= 0)
                 return;
 
+            Debug.Log("!!!!");
             foreach (Collider2D col in pickupsIteration)
             {
                 Pickup(col);
@@ -159,6 +163,8 @@ namespace BremseTouhou
             {
                 return;
             }
+            if (!gameObject.activeInHierarchy)
+                return;
             col.enabled = false;
             PickupTransform(col.transform);
         }
@@ -168,6 +174,8 @@ namespace BremseTouhou
             {
                 return;
             }
+            if (!gameObject.activeInHierarchy)
+                return;
             if (lootedPickups.Contains(t))
                 return;
             lootedPickups.Add(t);
@@ -175,7 +183,7 @@ namespace BremseTouhou
             {
                 return;
             }
-            StartCoroutine(CO_Pickup(t.root));
+            GeneralManager.Instance.StartCoroutine(CO_Pickup(t.root));
         }
         private IEnumerator CO_Pickup(Transform pickup)
         {
@@ -220,6 +228,7 @@ namespace BremseTouhou
         static int scoreItemAddedValue = 0;
         [SerializeField] float baseScorePerGraze = 1000f;
         [SerializeField] float baseScorePerPickup = 5000f;
+        float nextpickupLoopTime;
         public static string ScoreItemText()
         {
             string s = $"{scoreItemAddedValue + instance.baseScorePerPickup} x {GrazeMultiplier.ToString("F3")}";
@@ -252,6 +261,11 @@ namespace BremseTouhou
         private void Update()
         {
             RunGrazeAutoLootLoop();
+            if (Time.time >= nextpickupLoopTime)
+            {
+                PickupLoop();
+                nextpickupLoopTime = Time.time + 0.1f;
+            }
         }
         private void Awake()
         {
@@ -268,10 +282,12 @@ namespace BremseTouhou
         private void Start()
         {
             GrazeBox.OnGraze += GrazeAction;
-            InvokeRepeating(nameof(PickupLoop), 0.1f, 0.1f);
-            StartCoroutine(CO_RunPickupQueue(35));
             SceneManager.activeSceneChanged += OnSceneChange;
             InitializeAutoLootWorldBounds();
+        }
+        private void OnEnable()
+        {
+            StartCoroutine(CO_RunPickupQueue(35));
         }
         private void OnDestroy()
         {

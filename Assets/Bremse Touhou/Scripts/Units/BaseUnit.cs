@@ -277,8 +277,10 @@ namespace BremseTouhou
         public Collider2D Collider => unitCollider;
         public Vector2 CurrentVelocity => rb.linearVelocity;
         public static LayerMask EnemyLayer { get; } = 1 << 6;
+        public Vector2 Origin { get; private set; }
         private void Awake()
         {
+            Origin = Center;
             if (rb == null)
             {
                 rb = GetComponent<Rigidbody2D>();

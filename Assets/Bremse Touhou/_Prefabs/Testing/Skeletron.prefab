@@ -155,7 +155,7 @@ MonoBehaviour:
   phaseIndex: 0
   phaseList:
   - timeline: {fileID: 1924371244919506700}
-    mainAttack: {fileID: 11400000, guid: eb6a244a955aa514eaa75e1589bf849c, type: 2}
+    mainAttack: {fileID: 11400000, guid: 550764d37ba4690499aebf14be1b34c2, type: 2}
     MaxHealth: 500
     phaseBonus: 2000000
     phaseBonusIncrease: 50000

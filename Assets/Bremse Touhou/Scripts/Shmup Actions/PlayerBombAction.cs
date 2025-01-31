@@ -9,6 +9,7 @@ namespace BremseTouhou
     {
         [SerializeField] BremseInputEventBus eventBus;
         [SerializeField] FloatSO bombLength;
+        public static bool CanBomb = true;
         private void Start()
         {
             eventBus.BindAction(BremseInputPhase.JustPressed, TriggerBomb);

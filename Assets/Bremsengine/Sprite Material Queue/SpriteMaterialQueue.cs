@@ -18,7 +18,7 @@ namespace Bremsengine
             {
                 StopCoroutine(activeRoutine);
             }
-            activeRoutine = StartCoroutine(Coroutine);
+            activeRoutine = GeneralManager.Instance.StartCoroutine(Coroutine);
         }
         public void TriggerOnComplete()
         {
