@@ -152,6 +152,10 @@ namespace BremseTouhou
             OnHealthChange?.Invoke(this);
             RecalculateAttackHandlerState();
         }
+        public void ForceKill()
+        {
+            SetNewHealth(0, MaxHealth);
+        }
         public void SetActive(bool state)
         {
             Active = state;

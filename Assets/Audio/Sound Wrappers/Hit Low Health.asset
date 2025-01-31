@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hit Low Health
   m_EditorClassIdentifier: 
   SoundName: Hit Low
-  soundVolume: 0.25
+  soundVolume: 0.18
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 9abf9cee221bc8a47a8366e29e788735, type: 3}
     PitchVariancePercent: 2.55

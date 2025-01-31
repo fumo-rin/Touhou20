@@ -155,34 +155,42 @@ MonoBehaviour:
   phaseIndex: 0
   phaseList:
   - timeline: {fileID: 1924371244919506700}
-    mainAttack: {fileID: 11400000, guid: 550764d37ba4690499aebf14be1b34c2, type: 2}
-    MaxHealth: 50
-    phaseBonus: 6000000
-    phaseBonusDecay: 60000
+    mainAttack: {fileID: 11400000, guid: eb6a244a955aa514eaa75e1589bf849c, type: 2}
+    MaxHealth: 500
+    phaseBonus: 2000000
+    phaseBonusIncrease: 50000
+    phaseBonusIncreaseDelay: 3
+    phaseLength: 25
     MoveToCenter: 1
     GraceTimer: 1.5
     IsSpellCard: 0
   - timeline: {fileID: 5818120516551959344}
-    mainAttack: {fileID: 11400000, guid: de26d4516baa1484bb902cc59ad7db16, type: 2}
-    MaxHealth: 80
-    phaseBonus: 4000000
-    phaseBonusDecay: 40000
+    mainAttack: {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
+    MaxHealth: 800
+    phaseBonus: 3000000
+    phaseBonusIncrease: 60000
+    phaseBonusIncreaseDelay: 3
+    phaseLength: 35
     MoveToCenter: 1
     GraceTimer: 1.5
     IsSpellCard: 1
   - timeline: {fileID: 7942363148004373863}
     mainAttack: {fileID: 11400000, guid: 5a855c8b735cff148a0b7ddda328b31e, type: 2}
-    MaxHealth: 150
-    phaseBonus: 15000000
-    phaseBonusDecay: 150000
+    MaxHealth: 600
+    phaseBonus: 5000000
+    phaseBonusIncrease: 80000
+    phaseBonusIncreaseDelay: 0
+    phaseLength: 45
     MoveToCenter: 1
     GraceTimer: 1.5
     IsSpellCard: 1
   - timeline: {fileID: 3798534413141213173}
     mainAttack: {fileID: 11400000, guid: e8b10536fb27c9849a26aa545a7d9478, type: 2}
-    MaxHealth: 200
-    phaseBonus: 15000000
-    phaseBonusDecay: 150000
+    MaxHealth: 1000
+    phaseBonus: 6000000
+    phaseBonusIncrease: 100000
+    phaseBonusIncreaseDelay: 0
+    phaseLength: 75
     MoveToCenter: 1
     GraceTimer: 1.5
     IsSpellCard: 1

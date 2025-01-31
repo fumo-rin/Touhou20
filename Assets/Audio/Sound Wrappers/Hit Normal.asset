@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hit Normal
   m_EditorClassIdentifier: 
   SoundName: Hit Normal
-  soundVolume: 0.21
+  soundVolume: 0.14
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 2dc63be134f4337439830144bb8ee766, type: 3}
     PitchVariancePercent: 3.5

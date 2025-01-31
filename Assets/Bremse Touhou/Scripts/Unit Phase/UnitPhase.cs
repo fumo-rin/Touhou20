@@ -8,17 +8,25 @@ using System.Collections;
 namespace BremseTouhou
 {
     [System.Serializable]
-    public struct PhaseEntry
+    public class PhaseEntry
     {
+        public UnitPhase Phase => phase;
         public PlayableDirector timeline;
+        UnitPhase phase;
         public ProjectileGraphSO mainAttack;
         public float MaxHealth;
         public float phaseBonus;
-        public float phaseBonusDecay;
+        public float phaseBonusIncrease;
+        public float phaseBonusIncreaseDelay;
+        public float phaseLength;
         public bool MoveToCenter;
         public float GraceTimer;
         public bool IsSpellCard;
         //Lock the movement if under grace timer.
+        public void SetPhase(UnitPhase p)
+        {
+            phase = p;
+        }
         public IEnumerator CO_CenterBoss(Transform boss, float duration, float speed)
         {
             if (boss == null)
@@ -41,6 +49,16 @@ namespace BremseTouhou
                 yield return null;
             }
         }
+        public void ForceNextPhase()
+        {
+            if (phase is DeathPhase p)
+            {
+                if (!p.IsLastPhase())
+                {
+                    phase.Unit.ForceKill();
+                }
+            }
+        }
     }
     public interface DeathPhase
     {
@@ -51,6 +69,8 @@ namespace BremseTouhou
     }
     public class UnitPhase : MonoBehaviour, DeathPhase
     {
+        public BaseUnit Unit => owner;
+        public ProjectileAttack Attack => attack;
         [SerializeField] ProjectileAttack attack;
         [SerializeField] BaseUnit owner;
         PlayableDirector activeTimeline;
@@ -67,6 +87,7 @@ namespace BremseTouhou
             foreach (var item in phaseList)
             {
                 item.timeline.playOnAwake = false;
+                item.SetPhase(this);
             }
         }
         private void OnDestroy()
@@ -84,6 +105,10 @@ namespace BremseTouhou
             {
                 owner.SetNewHealth(phase.MaxHealth, phase.MaxHealth);
             }
+            else
+            {
+                return;
+            }
             if (activeTimeline != null)
             {
                 activeTimeline.Stop();
@@ -94,7 +119,11 @@ namespace BremseTouhou
             SpellCardUI.SetPhase(phase);
             if (!phase.IsSpellCard && SpellCardUI.activeRunner != null)
             {
-                SpellCardUI.activeRunner.HidePhase();
+                SpellCardUI.activeRunner.RecalculatePhaseVisibility();
+            }
+            if (PhaseSliderValues(out int total, out int phasesLeft))
+            {
+                SpellCardUI.SetPhaseSlider(total, phasesLeft);
             }
         }
         public bool IsLastPhase()
@@ -105,6 +134,12 @@ namespace BremseTouhou
         {
             return phaseList[phaseIndex];
         }
+        private bool PhaseSliderValues(out int total, out int phasesLeft)
+        {
+            total = phaseList.Count;
+            phasesLeft = phaseList.Count - phaseIndex;
+            return true;
+        }
         public void SetNextPhase()
         {
             phaseIndex++;
@@ -114,6 +149,10 @@ namespace BremseTouhou
             if (e.MoveToCenter)
             {
                 StartCoroutine(e.CO_CenterBoss(owner.transform, 1.5f.Min(e.GraceTimer), 1.5f));
+            }
+            if (IsLastPhase())
+            {
+                SpellCardUI.HideUI();
             }
         }
         public bool ShouldDie()

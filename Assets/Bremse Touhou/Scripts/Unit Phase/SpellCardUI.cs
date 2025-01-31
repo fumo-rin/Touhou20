@@ -3,31 +3,63 @@ using Core.Extensions;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BremseTouhou
 {
     public class SpellCardUI : MonoBehaviour
     {
-        [SerializeField] TMP_Text spellText;
+        [SerializeField] TMP_Text spellNameText;
+        [SerializeField] TMP_Text spellValueText;
+        [SerializeField] TMP_Text spellTimeText;
+        [SerializeField] Slider phaseCountSlider;
         public static PhaseEntry currentPhase;
         public static float spellBonus;
-        public static float spellBonusDecay;
+        public static float spellBonusIncrease;
+        public static float spellBonusCurrentDelay;
+        public static float spellTimeRemaining;
         public static SpellCardUI activeRunner;
         public static void SetPhase(PhaseEntry e)
         {
             currentPhase = e;
             spellBonus = e.phaseBonus;
-            spellBonusDecay = e.phaseBonusDecay;
-            activeRunner.HidePhase();
+            spellBonusIncrease = e.phaseBonusIncrease;
+            spellBonusCurrentDelay = e.phaseBonusIncreaseDelay;
+            spellTimeRemaining = e.phaseLength;
+            activeRunner.RecalculatePhaseVisibility();
         }
-        public void HidePhase()
+        public static void HideUI()
         {
-            spellText.gameObject.SetActive(currentPhase.IsSpellCard);
+            if (activeRunner == null)
+            {
+                Debug.LogWarning("Missing Instance of Spellcard UI");
+                return;
+            }
+            activeRunner.spellNameText.gameObject.SetActive(false);
+            activeRunner.spellTimeText.gameObject.SetActive(false);
+            activeRunner.spellValueText.gameObject.SetActive(false);
+            activeRunner.phaseCountSlider.gameObject.SetActive(false);
+        }
+        public void RecalculatePhaseVisibility()
+        {
+            if (currentPhase == null)
+            {
+                HideUI();
+                return;
+            }
+            spellNameText.gameObject.SetActive(currentPhase.IsSpellCard);
+            spellTimeText.gameObject.SetActive(currentPhase.phaseLength > 0f);
+            spellValueText.gameObject.SetActive(currentPhase.IsSpellCard && currentPhase.phaseBonus > 0f);
+            activeRunner.phaseCountSlider.gameObject.SetActive(true);
         }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Reinitialize()
         {
             activeRunner = null;
+            spellBonusCurrentDelay = 0f;
+            spellBonus = 0f;
+            spellBonusIncrease = 0f;
+            spellTimeRemaining = 0f;
         }
         private void Awake()
         {
@@ -36,7 +68,7 @@ namespace BremseTouhou
         private void Start()
         {
             InvokeRepeating(nameof(UILoop), 0f, 0.05f);
-            HidePhase();
+            RecalculatePhaseVisibility();
         }
         private void UILoop()
         {
@@ -44,20 +76,37 @@ namespace BremseTouhou
             {
                 ProgressSpell(0.05f);
             }
-            spellText.text = BuildPhaseText();
+            BuildPhaseText();
+        }
+        public static void SetPhaseSlider(int total, int phasesLeft)
+        {
+            activeRunner.phaseCountSlider.maxValue = total - 1;
+            activeRunner.phaseCountSlider.value = phasesLeft - 1;
         }
         private static void ProgressSpell(float time)
         {
-            if (spellBonus > 0)
+            spellTimeRemaining -= time;
+            if (spellTimeRemaining <= 0f)
             {
-                spellBonus -= time * spellBonusDecay;
+                spellBonus = 0f;
+                currentPhase.ForceNextPhase();
+                return;
+            }
+            if (spellBonus > 0f && spellBonusCurrentDelay > 0f)
+            {
+                spellBonusCurrentDelay -= time;
+                return;
+            }
+            if (spellBonus > 0 && spellBonusIncrease > 0f)
+            {
+                spellBonus += time * spellBonusIncrease;
                 return;
             }
             spellBonus = 0f;
         }
         public static void CompleteSpell()
         {
-            if (currentPhase.IsSpellCard && spellBonus > 0f)
+            if (currentPhase.IsSpellCard && spellBonus > 0f && spellTimeRemaining > 0f)
             {
                 GeneralManager.AddScore(SpellScore);
                 GeneralManager.AddScoreAnalysisKey("Spell Bonus", spellBonus);
@@ -70,10 +119,25 @@ namespace BremseTouhou
             spellBonus = 0;
             activeRunner.UILoop();
         }
-        private string BuildPhaseText()
+        private void BuildPhaseText()
         {
-            string spellName = currentPhase.mainAttack.projectileGraphName;
-            return spellName + "##".ReplaceLineBreaks("##") + (SpellScore > 0 ? (SpellScore) : "FAILED");
+            spellNameText.text = currentPhase.mainAttack.projectileGraphName;
+            spellTimeText.text = spellTimeRemaining < 0.05f ? 0f.ToString("F0") : spellTimeRemaining.Ceil().ToString("F0");
+            if (currentPhase.IsSpellCard)
+            {
+                if (spellBonus > 0f)
+                {
+                    spellValueText.text = SpellScore.ToString("F0");
+                }
+                else
+                {
+                    spellValueText.text = "Failed";
+                }
+            }
+            else
+            {
+                spellValueText.text = "";
+            }
         }
     }
 }

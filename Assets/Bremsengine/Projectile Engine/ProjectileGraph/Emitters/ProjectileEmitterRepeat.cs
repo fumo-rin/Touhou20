@@ -18,7 +18,7 @@ namespace Bremsengine
 
         protected override Rect GetRect(Vector2 mousePosition)
         {
-            return base.GetRect(mousePosition);
+            return new(mousePosition, new(350f, 350f));
         }
 
         protected override void OnDraw(GUIStyle style)
@@ -53,6 +53,7 @@ namespace Bremsengine
             settings.AddedAngleEmitter = addedStartingAngle;
             settings.RepeatCounts = repeatCount;
             settings.TimeBetweenRepeats = timeBetweenRepeats;
+
             ProjectileEmitterTimelineHandler.Queue(Co_Emit(settings, triggeredEvent, input, callback, forcedLayer), input.Owner);
             /*for (int i = 0; i < repeatCount; i++)
             {
