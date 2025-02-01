@@ -36,6 +36,14 @@ namespace Core.Input
             BindAction(s.Bomb, Bomb);
             BindAction(s.WeaponNext, WeaponPrevious);
             BindAction(s.WeaponPrevious, WeaponNext);
+
+            Focus.Reinitialize();
+            Shoot.Reinitialize();
+            AutoFire.Reinitialize();
+            Berserk.Reinitialize();
+            WeaponPrevious.Reinitialize();
+            WeaponNext.Reinitialize();
+            Bomb.Reinitialize();
         }
         private void OnDestroy()
         {

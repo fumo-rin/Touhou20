@@ -76,6 +76,7 @@ namespace Bremsengine
         }
         private void PlayCrossfade(MusicWrapper clip, float crossfade = 0.5f)
         {
+            Debug.Log(clip.TrackName);
             StartCoroutine(FadeTrack(clip, crossfade));
         }
         private IEnumerator FadeTrack(MusicWrapper clip, float crossfade)
@@ -90,7 +91,6 @@ namespace Bremsengine
             if (selectedTrack != 2)
             {
                 track2.clip = clip;
-                track2.Play();
                 song2 = clip;
                 selectedTrack = 2;
                 if (crossfade == 0)
@@ -102,18 +102,19 @@ namespace Bremsengine
                 {
                     while (timeElapsed < crossfade)
                     {
-                        track2.volume = Mathf.Lerp(0f, song2, timeElapsed / crossfade) * (clip.musicVolume * GlobalVolume);
                         track1.volume = Mathf.Lerp(song1, 0f, timeElapsed / crossfade);
                         timeElapsed += Time.deltaTime;
                         yield return null;
                     }
                 }
                 track1.Stop();
+                Debug.Log("Track 2 volume: " + clip.musicVolume * GlobalVolume);
+                track2.volume = clip.musicVolume * GlobalVolume;
+                track2.Play();
             }
             else
             {
                 track1.clip = clip;
-                track1.Play();
                 song1 = clip;
                 selectedTrack = 1;
                 if (crossfade == 0)
@@ -125,13 +126,15 @@ namespace Bremsengine
                 {
                     while (timeElapsed <= crossfade)
                     {
-                        track1.volume = Mathf.Lerp(0f, song1, timeElapsed / crossfade) * (clip.musicVolume * GlobalVolume);
                         track2.volume = Mathf.Lerp(song2, 0f, timeElapsed / crossfade);
                         timeElapsed += Time.deltaTime;
                         yield return null;
                     }
                 }
                 track2.Stop();
+                Debug.Log("Track 1 volume: " + clip.musicVolume * GlobalVolume);
+                track1.volume = clip.musicVolume * GlobalVolume;
+                track1.Play();
             }
         }
     }

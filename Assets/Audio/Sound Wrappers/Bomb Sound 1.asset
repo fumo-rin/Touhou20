@@ -24,6 +24,21 @@ MonoBehaviour:
     PitchVariancePercent: 2
     PitchOrigin: 1
     Volume: 0.6
+    Muted: 1
+  - clip: {fileID: 8300000, guid: 366332db2da5efa47a05478025acf021, type: 3}
+    PitchVariancePercent: 2
+    PitchOrigin: 0.6
+    Volume: 0.6
+    Muted: 1
+  - clip: {fileID: 8300000, guid: ed505820b12b40742b46631716b495de, type: 3}
+    PitchVariancePercent: 2
+    PitchOrigin: 0.6
+    Volume: 0.6
+    Muted: 0
+  - clip: {fileID: 8300000, guid: 944911ddf7456da4abf01f70ad892e6b, type: 3}
+    PitchVariancePercent: 2
+    PitchOrigin: 0.6
+    Volume: 0.6
     Muted: 0
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

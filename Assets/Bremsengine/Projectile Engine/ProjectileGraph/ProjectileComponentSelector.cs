@@ -29,10 +29,7 @@ namespace Bremsengine
         {
             void AddGraphComponent<T>(Vector2 position) where T : ProjectileGraphComponent
             {
-                ProjectileGraphComponent spawned = null;
-                spawned = ScriptableObject.CreateInstance<T>();
-
-                if (spawned is ProjectileGraphComponent and not null)
+                if (ScriptableObject.CreateInstance<T>() is ProjectileGraphComponent spawned and not null)
                 {
                     spawned.Initialize(position, graph);
                     AssetDatabase.AddObjectToAsset(spawned, graph);

@@ -488,10 +488,10 @@ namespace Bremsengine
         }
         static float lastBombTime = -1f;
         static float playerIframesInSeconds;
-        public static void PlayerTriggerBomb(float bombLength, AudioClipWrapper bombSound ,AudioClipWrapper bombExplosion)
+        public static void PlayerTriggerBomb(float bombLength, float explosionDelay, AudioClipWrapper bombSound ,AudioClipWrapper bombExplosion)
         {
             lastBombTime = Time.time;
-            GeneralManager.Instance.StartCoroutine(CO_BombClear(1f, bombSound,bombExplosion));
+            GeneralManager.Instance.StartCoroutine(CO_BombClear(explosionDelay, bombSound,bombExplosion));
         }
         static IEnumerator CO_BombClear(float delay, AudioClipWrapper bombSound, AudioClipWrapper bombExplosion)
         {

@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 931
-    y: 593
+    x: 983
+    y: 583
     width: 400
     height: 375
   ID: 3cfab4f6-f0cf-47ff-bbd3-c0920ee0c3f9
@@ -170,7 +170,7 @@ MonoBehaviour:
   addedAngle: 180
   spread: 0
   OffScreenClearEdgePadding: 0
-  repeatAddedAngle: 36
+  repeatAddedAngle: 24
   fanProgressionSpeed:
     serializedVersion: 2
     m_Curve:
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Repeats: 10
+  Repeats: 15
   RepeatInterval: 0.1
   Faction: 2
 --- !u!114 &-4191760690823002199
@@ -212,28 +212,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 400
-    y: 403
+    x: 452
+    y: 393
     width: 350
     height: 700
   ID: f40ef764-7b6c-4b66-9d79-cc574b6a049e
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 144
-    y: 433
+    x: 196
+    y: 423
     width: 250
     height: 250
   directionalOffset: 0.25
   spread: 10
-  speed: 10
+  speed: 7
   addedAngle: 0
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -4345314284584146708}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 4
   AngleCoverage: 110
   startingAngle: 0
@@ -495,6 +495,7 @@ MonoBehaviour:
   emitters:
   - {fileID: 4109503866884801225}
   modNodes: []
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 1
   headerTexture: {fileID: 0}
@@ -573,8 +574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 393
-    y: 68
+    x: 445
+    y: 58
     width: 350
     height: 200
   ID: d1409f0e-1e6b-46c7-ab0d-e6901bedc983
@@ -624,7 +625,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 20
   AngleCoverage: 360
   startingAngle: 0
@@ -771,7 +772,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -2109712739337020061}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
 --- !u!114 &7712379449139107685
 MonoBehaviour:
   m_ObjectHideFlags: 0

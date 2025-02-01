@@ -75,6 +75,9 @@ namespace BremseTouhou
                 }
             }
             Time.timeScale = 1f;
+            PlayerScoring.PlayerDeathRecalculateScoreValue(0.8f);
+            PlayerBombAction.SetBombValue(PlayerBombAction.Full);
+            TouhouManager.AddMiss();
             SetIFrames(4f, true);
         }
     }

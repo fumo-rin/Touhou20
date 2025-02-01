@@ -44,7 +44,11 @@ namespace BremseTouhou
                 spawnedButton.Bind(i, this);
                 registeredAttacks.Add(i);
             }
-            foreach (var i in AddressablesTools.LoadKeys<ProjectileGraphSO>(StringKeyProjectileGraphs))
+            AddressablesTools.LoadKeys<ProjectileGraphSO>(StringKeyProjectileGraphs, BindToUI);
+        }
+        private void BindToUI(IList<ProjectileGraphSO> projectiles)
+        {
+            foreach (var i in projectiles)
             {
                 if (i != null)
                 {

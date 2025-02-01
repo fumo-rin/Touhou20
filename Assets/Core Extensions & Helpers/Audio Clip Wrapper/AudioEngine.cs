@@ -105,21 +105,50 @@ namespace Core.Extensions
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         public static void AfterSceneLoad()
         {
-            AudioMixerGroup[] dynamics = AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey).ToArray();
-            foreach (AudioMixerGroup group in dynamics)
+            void DynamicsSetup(IList<AudioMixerGroup> mixers)
             {
-                if (group == null)
-                    continue;
+                foreach (AudioMixerGroup group in mixers)
+                {
+                    if (group == null)
+                        continue;
 
-                RandomChannelsMixer = group;
+                    RandomChannelsMixer = group;
+                }
             }
-            foreach (AudioMixerGroup group in AddressablesTools.LoadKeys<AudioMixerGroup>(SingleChannelsKey))
+            void RandomChannelsSetup(IList<AudioMixerGroup> mixers)
             {
-                if (group == null)
-                    continue;
+                foreach (AudioMixerGroup group in mixers)
+                {
+                    if (group == null)
+                        continue;
 
-                SingleChannelsMixer = group;
+                    SingleChannelsMixer = group;
+                }
             }
+            void SetupSources(IList<GameObject> sourceObjects)
+            {
+                List<AudioSource> sources = new();
+                foreach (GameObject g in sourceObjects)
+                {
+                    if (g.GetComponent<AudioSource>() is AudioSource source and not null)
+                    {
+                        if (source == null)
+                            continue;
+                        sources.Add(source);
+                        if (source.transform.name == AudioEngine3DPlayerName)
+                        {
+                            Source3D = source;
+                        }
+                        if (source.transform.name == AudioEngine2DPlayerName)
+                        {
+                            Source2D = source;
+                        }
+                    }
+                }
+            }
+            AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey, DynamicsSetup);
+            AddressablesTools.LoadKeys<AudioMixerGroup>(SingleChannelsKey, RandomChannelsSetup);
+            AddressablesTools.LoadKeys<GameObject>(AudioEngineAddressableKey, SetupSources);
             if (RandomChannelsMixer == null)
             {
                 Debug.LogWarning("Failed to find Mixer group for Audio Engine / Random Channels. See AudioEngine.cs to find the addressables string key for RandomChannelsKey");
@@ -127,24 +156,6 @@ namespace Core.Extensions
             if (SingleChannelsMixer == null)
             {
                 Debug.LogWarning("Failed to find Mixer group for Audio Engine / Target Channels. See AudioEngine.cs to find the addressables string key for TargetChannelsKey");
-            }
-            List<AudioSource> sources = new();
-            foreach (GameObject g in AddressablesTools.LoadKeys<GameObject>(AudioEngineAddressableKey))
-            {
-                if (g.GetComponent<AudioSource>() is AudioSource source and not null)
-                {
-                    if (source == null)
-                        continue;
-                    sources.Add(source);
-                    if (source.transform.name == AudioEngine3DPlayerName)
-                    {
-                        Source3D = source;
-                    }
-                    if (source.transform.name == AudioEngine2DPlayerName)
-                    {
-                        Source2D = source;
-                    }
-                }
             }
             foreach (var channel in SoundStack)
             {

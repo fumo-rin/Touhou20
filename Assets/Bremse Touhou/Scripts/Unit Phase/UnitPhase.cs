@@ -22,19 +22,27 @@ namespace BremseTouhou
         public bool MoveToCenter;
         public float GraceTimer;
         public bool IsSpellCard;
+        public float verticalCenterOffset = 4f;
+        bool isLastPhase;
+        [field: SerializeField] public MusicWrapper phaseMusic { get; private set; }
+        public void SetLastPhase(bool state)
+        {
+            isLastPhase = state;
+        }
+        public bool IsLastPhase => isLastPhase;
         //Lock the movement if under grace timer.
         public void SetPhase(UnitPhase p)
         {
             phase = p;
         }
-        public IEnumerator CO_CenterBoss(Transform boss, float duration, float speed)
+        public IEnumerator CO_CenterBoss(Transform boss, float duration, float speed, float verticalCenterOffset)
         {
             if (boss == null)
                 yield break;
 
             float lerp = 0f;
             Vector2 startPosition = boss.position;
-            Vector2 centerTarget = (Vector2)DirectionSolver.GetPaddedBounds(0f).center + new Vector2(0f, 2.5f);
+            Vector2 centerTarget = (Vector2)DirectionSolver.GetPaddedBounds(0f).center + new Vector2(0f, verticalCenterOffset);
             while (lerp <= 1f)
             {
                 lerp += Time.deltaTime * speed;
@@ -74,7 +82,7 @@ namespace BremseTouhou
         [SerializeField] ProjectileAttack attack;
         [SerializeField] BaseUnit owner;
         PlayableDirector activeTimeline;
-        public int phaseIndex;
+        public int phaseIndex = 0;
         [SerializeField] List<PhaseEntry> phaseList = new();
         private void Start()
         {
@@ -100,6 +108,14 @@ namespace BremseTouhou
         }
         private void SetOwnerPhase(PhaseEntry phase)
         {
+            if (IsLastPhase())
+            {
+                phase.SetLastPhase(true);
+            }
+            if (phase.phaseMusic)
+            {
+                phase.phaseMusic.Play();
+            }
             attack.SetAttackGraph(phase.mainAttack);
             if (!IsLastPhase())
             {
@@ -112,6 +128,11 @@ namespace BremseTouhou
             if (activeTimeline != null)
             {
                 activeTimeline.Stop();
+            }
+            attack.Handler.ForceSetNewAttackDelay(phase.GraceTimer);
+            if (phase.MoveToCenter)
+            {
+                StartCoroutine(phase.CO_CenterBoss(owner.transform, 1.5f.Min(phase.GraceTimer), 1.5f, phase.verticalCenterOffset));
             }
             activeTimeline = phase.timeline;
             phase.timeline.time = 0f;
@@ -144,16 +165,12 @@ namespace BremseTouhou
         {
             phaseIndex++;
             PhaseEntry e = phaseList[phaseIndex % phaseList.Count];
-            SetOwnerPhase(e);
-            attack.Handler.ForceSetNewAttackDelay(e.GraceTimer);
-            if (e.MoveToCenter)
-            {
-                StartCoroutine(e.CO_CenterBoss(owner.transform, 1.5f.Min(e.GraceTimer), 1.5f));
-            }
             if (IsLastPhase())
             {
                 SpellCardUI.HideUI();
+                return;
             }
+            SetOwnerPhase(e);
         }
         public bool ShouldDie()
         {

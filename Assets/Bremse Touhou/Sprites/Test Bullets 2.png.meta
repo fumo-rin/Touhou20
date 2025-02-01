@@ -237,6 +237,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1309,7 +1322,55 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Test Bullets 2_0: -138268552554956823
+      Test Bullets 2_1: 5091339700986522446
+      Test Bullets 2_10: 6754200754863560769
+      Test Bullets 2_11: -8460433366568360045
+      Test Bullets 2_12: -3606080749759316856
+      Test Bullets 2_13: 8311303485438893902
+      Test Bullets 2_14: 7934693560892407732
+      Test Bullets 2_15: 2482071816880742844
+      Test Bullets 2_16: 8067339878424379048
+      Test Bullets 2_17: 2231496285851980185
+      Test Bullets 2_18: -6248981651597685054
+      Test Bullets 2_19: -479452508744469120
+      Test Bullets 2_2: -626248782108892248
+      Test Bullets 2_20: 3992487083814194144
+      Test Bullets 2_21: -4509901476072759035
+      Test Bullets 2_22: -4685384245121527496
+      Test Bullets 2_23: 1996679368754961003
+      Test Bullets 2_24: 8981526997001287866
+      Test Bullets 2_25: 8203458231401834792
+      Test Bullets 2_26: -6834681032309527635
+      Test Bullets 2_27: 8240474372911888566
+      Test Bullets 2_28: -7113018575656445830
+      Test Bullets 2_29: -6152894008948804511
+      Test Bullets 2_3: -2617963464242370560
+      Test Bullets 2_30: -8873412409418551390
+      Test Bullets 2_31: 5783271874092058164
+      Test Bullets 2_32: -2370188891913693181
+      Test Bullets 2_33: -5732628378684371799
+      Test Bullets 2_34: 6803142428586181971
+      Test Bullets 2_35: 641367983014706819
+      Test Bullets 2_36: -4526824049439292719
+      Test Bullets 2_37: 1268060433253569983
+      Test Bullets 2_38: 8590990043526779852
+      Test Bullets 2_39: 8190699525054161892
+      Test Bullets 2_4: -8893807110551951248
+      Test Bullets 2_40: 4360531923352169588
+      Test Bullets 2_41: 8998174234748214816
+      Test Bullets 2_42: 8633498376616516173
+      Test Bullets 2_43: 6664867026869966294
+      Test Bullets 2_44: -2251431205966064196
+      Test Bullets 2_45: 2903862588939224646
+      Test Bullets 2_46: -4359910041846826923
+      Test Bullets 2_47: 9072414535037062060
+      Test Bullets 2_5: 6429146018419133441
+      Test Bullets 2_6: 3731027089162236214
+      Test Bullets 2_7: -8957759201051394238
+      Test Bullets 2_8: -3369352521288784311
+      Test Bullets 2_9: -974727943068858309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

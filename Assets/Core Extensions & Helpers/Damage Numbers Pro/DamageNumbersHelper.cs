@@ -11,12 +11,9 @@ namespace Core.Extensions
         static List<DamageNumber> cache;
         public static void Populate()
         {
-            if (cache == null)
+            void CacheDamageNumbers(IList<GameObject> damageNumbers)
             {
-                cache = new();
-
-                IList<GameObject> result = AddressablesTools.LoadKeys<GameObject>("Damage Number");
-                foreach (var item in result)
+                foreach (var item in damageNumbers)
                 {
                     if (item.GetComponent<DamageNumber>() is DamageNumber foundItem)
                     {
@@ -27,6 +24,12 @@ namespace Core.Extensions
                         continue;
                     }
                 }
+            }
+            if (cache == null)
+            {
+                cache = new();
+
+                AddressablesTools.LoadKeys<GameObject>("Damage Number", CacheDamageNumbers);
             }
         }
         public static void Spawn(float damage, Vector2 position, Transform followTransform = null, int index = 0)

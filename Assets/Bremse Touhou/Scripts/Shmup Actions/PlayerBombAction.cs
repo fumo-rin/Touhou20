@@ -12,17 +12,20 @@ namespace BremseTouhou
         [SerializeField] FloatSO bombLength;
         [SerializeField] AudioClipWrapper bombSound;
         [SerializeField] AudioClipWrapper bombSoundExplosion;
+        [SerializeField] ParticleSystem explosionCharge;
+        [SerializeField] ParticleSystem explosionFart;
         public static int Cost => bombCost;
         static int bombCost;
         static int maximumBombValue;
         static int currentBombValue = 0;
         public static float BombIframesTime { get; private set; }
         public static bool CanBomb => PlayerUnit.Player.Alive && currentBombValue >= bombCost;
+        public static int Full => maximumBombValue;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Reinitialize()
         {
-            bombCost = 600;
-            maximumBombValue = 600;
+            bombCost = 950;
+            maximumBombValue = 950;
             currentBombValue = maximumBombValue;
             BombIframesTime = 0f;
         }
@@ -38,11 +41,18 @@ namespace BremseTouhou
         {
             if (CanBomb)
             {
-                Projectile.PlayerTriggerBomb(bombLength, bombSound,bombSoundExplosion);
-                PlayerUnit.SetIFrames(bombLength, true);
+                Projectile.PlayerTriggerBomb(bombLength, 2f,bombSound, bombSoundExplosion);
+                PlayerUnit.SetIFrames(bombLength+ 2f, true);
+                StartCoroutine(BombEffects(2f));
                 SetBombValue(currentBombValue - bombCost);
                 BombIframesTime = Time.time + bombLength;
             }
+        }
+        private IEnumerator BombEffects(float explosionDelay)
+        {
+            explosionCharge.Play();
+            yield return new WaitForSeconds(explosionDelay);
+            explosionFart.Play();
         }
         public static void AddBombValue(int newValue)
         {

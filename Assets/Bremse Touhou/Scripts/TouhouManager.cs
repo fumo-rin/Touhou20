@@ -71,6 +71,12 @@ namespace BremseTouhou
         static string LastDifficultyStringKey = "Last Picked Difficulty";
         public delegate void DifficultyEvent(Difficulty d, string difficultyName);
         public static DifficultyEvent OnDifficultyChange;
+        public static int missCount { get; private set; }
+        public static void AddMiss()
+        {
+            missCount++;
+        }
+        public static Difficulty CurrentDifficulty => SelectedDifficulty;
         [QFSW.QC.Command("-set-difficulty")]
         public static void SetDifficulty(Difficulty d)
         {
@@ -106,6 +112,7 @@ namespace BremseTouhou
         private static void Initialze()
         {
             instance = null;
+            missCount = 0;
         }
         private void Awake()
         {

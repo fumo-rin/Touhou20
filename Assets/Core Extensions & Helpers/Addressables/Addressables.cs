@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityAddressables = UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
 
 namespace Core
 {
@@ -15,55 +16,21 @@ namespace Core
         public static string KeyNameGenerationSettings => "Name Generation Settings";
         #endregion
         #region Async
-        public static async Task<IList<T>> LoadAllAsync<T>()
-        {
-            return await LoadKeysAsync<T>(KeyAny);
-        }
-        public static async Task<IList<T>> LoadKeyListAsync<T>(List<string> keys)
-        {
-            IList<T> loadRequest = await UnityAddressables.Addressables.LoadAssetsAsync<T>(keys, null, UnityEngine.AddressableAssets.Addressables.MergeMode.Union).Task;
-            return loadRequest;
-        }
-        #region Ugly key list
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key) => await LoadKeyListAsync<T>(new List<string> { key });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2) => await LoadKeyListAsync<T>(new List<string> { key1, key2 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3, string key4) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3, key4 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3, string key4, string key5) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3, key4, key5 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3, string key4, string key5, string key6) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3, key4, key5, key6 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3, string key4, string key5, string key6, string key7) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3, key4, key5, key6, key7 });
-        public static async Task<IList<T>> LoadKeysAsync<T>(string key1, string key2, string key3, string key4, string key5, string key6, string key7, string key8) => await LoadKeyListAsync<T>(new List<string> { key1, key2, key3, key4, key5, key6, key7, key8 });
-        #endregion
-        #endregion
-        #region Synchronous
-
-        public static IList<T> LoadAll<T>()
-        {
-            return LoadKeys<T>(KeyAny);
-        }
-        public static IList<T> LoadKeyList<T>(List<string> keys)
+        private static async void LoadKeysToAction<T>(List<string> keys, Action<IList<T>> callback)
         {
             AsyncOperationHandle<IList<T>> loadRequest;
             loadRequest = UnityEngine.AddressableAssets.Addressables.LoadAssetsAsync<T>(keys, null, UnityEngine.AddressableAssets.Addressables.MergeMode.Union);
 
-            loadRequest.WaitForCompletion();
-
+            await loadRequest.Task;
             if (loadRequest.Status == AsyncOperationStatus.Succeeded)
             {
-                return loadRequest.Result;
+                callback?.Invoke(loadRequest.Result);
             }
-            return new List<T>();
         }
-        #region Ugly key list
-        public static IList<T> LoadKeys<T>(string key) => LoadKeyList<T>(new List<string> { key });
-        public static IList<T> LoadKeys<T>(string key1, string key2) => LoadKeyList<T>(new List<string> { key1, key2 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3) => LoadKeyList<T>(new List<string> { key1, key2, key3 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3, string key4) => LoadKeyList<T>(new List<string> { key1, key2, key3, key4 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3, string key4, string key5) => LoadKeyList<T>(new List<string> { key1, key2, key3, key4, key5 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3, string key4, string key5, string key6) => LoadKeyList<T>(new List<string> { key1, key2, key3, key4, key5, key6 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3, string key4, string key5, string key6, string key7) => LoadKeyList<T>(new List<string> { key1, key2, key3, key4, key5, key6, key7 });
-        public static IList<T> LoadKeys<T>(string key1, string key2, string key3, string key4, string key5, string key6, string key7, string key8) => LoadKeyList<T>(new List<string> { key1, key2, key3, key4, key5, key6, key7, key8 });
-        #endregion
+        public static void LoadKeys<T>(string key, Action<IList<T>> callback) => LoadKeysToAction<T>(new List<string> { key }, callback);
+        public static void LoadKeys<T>(string key1, string key2, Action<IList<T>> callback) => LoadKeysToAction<T>(new List<string> { key1, key2 }, callback);
+        public static void LoadKeys<T>(string key1, string key2, string key3, Action<IList<T>> callback) => LoadKeysToAction<T>(new List<string> { key1, key2, key3 }, callback);
+        public static void LoadKeys<T>(string key1, string key2, string key3, string key4, Action<IList<T>> callback) => LoadKeysToAction<T>(new List<string> { key1, key2, key3, key4 }, callback);
         #endregion
     }
 }

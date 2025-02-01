@@ -44,7 +44,7 @@ namespace BremseTouhou
         }
         public void RecalculatePhaseVisibility()
         {
-            if (currentPhase == null)
+            if (currentPhase == null || currentPhase.IsLastPhase)
             {
                 HideUI();
                 return;

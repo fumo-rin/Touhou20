@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Blast
   m_EditorClassIdentifier: 
   SoundName: Headhunter, Leather Belt
-  soundVolume: 0.06
+  soundVolume: 0.07
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: a2b1f1a550715114ea391336e7fb2c16, type: 3}
     PitchVariancePercent: 3

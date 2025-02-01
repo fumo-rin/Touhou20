@@ -132,28 +132,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 461
-    y: 426
+    x: 490
+    y: 463
     width: 350
     height: 700
   ID: 63b364f0-b5fd-4489-a95f-eb6b286c08ed
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 205
-    y: 456
+    x: 234
+    y: 493
     width: 250
     height: 250
   directionalOffset: 6
   spread: 0
-  speed: 8
+  speed: 6
   addedAngle: 0
   ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
-  projectileCountFloat: 40
+  linkedProjectileMods: []
+  projectileCountFloat: 30
   AngleCoverage: 360
   startingAngle: 180
   RandomAngle: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 7
   AngleCoverage: 90
   startingAngle: 0
@@ -307,8 +307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 889
-    y: 733
+    x: 918
+    y: 770
     width: 350
     height: 200
   ID: 3f184fa9-ee81-4b85-ba52-fbe40e45bd4a
@@ -320,7 +320,7 @@ MonoBehaviour:
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  timeBetweenRepeats: 0.15
+  timeBetweenRepeats: 0.19
   repeatCount: 11
   repeatAddedAngle: 2.2
   addedStartingAngle: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -518,6 +518,7 @@ MonoBehaviour:
   - {fileID: 3854469793670337871}
   - {fileID: 5509838464825611284}
   modNodes: []
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1.4
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -537,8 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 873
-    y: 466
+    x: 902
+    y: 503
     width: 350
     height: 200
   ID: 402818d7-086a-4fd2-800a-c499c152cfaf
@@ -546,11 +547,11 @@ MonoBehaviour:
   Active: 1
   linkedNodes:
   - {fileID: -6726217897975526738}
-  addedDelay: 1.65
+  addedDelay: 2.25
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  timeBetweenRepeats: 0.15
+  timeBetweenRepeats: 0.19
   repeatCount: 9
   repeatAddedAngle: -3
   addedStartingAngle: 0
@@ -589,7 +590,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -8063571252079463087}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -656,8 +657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 852
-    y: 176
+    x: 881
+    y: 213
     width: 350
     height: 200
   ID: 723bf7ec-f9b2-4d36-a2b4-61291e27c57c
@@ -665,12 +666,12 @@ MonoBehaviour:
   Active: 1
   linkedNodes:
   - {fileID: -6726217897975526738}
-  addedDelay: 3
+  addedDelay: 4.1
   Retargetting: 0
   OffScreenClearEdgePadding: 0
   linkedOverrideDirection: {fileID: 5882544058816174340}
-  timeBetweenRepeats: 0.15
-  repeatCount: 20
+  timeBetweenRepeats: 0.19
+  repeatCount: 18
   repeatAddedAngle: 3
   addedStartingAngle: 0
 --- !u!114 &5882544058816174340
@@ -687,8 +688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1350
-    y: 483
+    x: 1379
+    y: 520
     width: 250
     height: 200
   ID: 39ca3d93-e9bb-4e09-9930-609d8961a56d

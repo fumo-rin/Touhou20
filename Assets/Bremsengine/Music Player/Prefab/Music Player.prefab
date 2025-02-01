@@ -46,15 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faf9aca3ed81e74e8b220b0e4868e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testStartingMusic: {fileID: 11400000, guid: 42bf525ab66c50248a662d5be97b447f, type: 2}
+  testStartingMusic: {fileID: 0}
   testPlaylist:
-  - {fileID: 11400000, guid: 36beaedd9ae7cbf4da631f75292d855e, type: 2}
-  - {fileID: 11400000, guid: 7a954db222afa0440b0df4eb8e1e778b, type: 2}
-  - {fileID: 11400000, guid: 56b1bc071a534ea4fa4058b5dff553ca, type: 2}
-  - {fileID: 11400000, guid: 42bf525ab66c50248a662d5be97b447f, type: 2}
+  - {fileID: 11400000, guid: d0d2203c970f1c2428adea6f94dec1d3, type: 2}
   track1: {fileID: 7804584576696613903}
   track2: {fileID: 3938290866401767398}
-  crossFadeLength: 1
+  crossFadeLength: 0.35
 --- !u!1 &7707007819652713003
 GameObject:
   m_ObjectHideFlags: 0

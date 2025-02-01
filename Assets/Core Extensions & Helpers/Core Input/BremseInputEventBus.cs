@@ -10,7 +10,7 @@ namespace Core.Input
         Performed,
         Cancelled
     }
-    [CreateAssetMenu(menuName ="Core/Input Event Bus")]
+    [CreateAssetMenu(menuName = "Core/Input Event Bus")]
     public class BremseInputEventBus : ScriptableObject
     {
         private delegate void BremseInputEventHandler();
@@ -19,9 +19,13 @@ namespace Core.Input
         BremseInputEventHandler OnJustPressed;
         private void Awake()
         {
-            OnPerformed = null;
-            OnCancelled = null;
-            OnJustPressed = null;
+
+        }
+        public void Reinitialize()
+        {
+            //OnPerformed = null;
+            //OnCancelled = null;
+            //OnJustPressed = null;
         }
         public void BindAction(BremseInputPhase p, Action @actionEvent)
         {

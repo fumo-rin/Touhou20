@@ -41,8 +41,8 @@ PlayableDirector:
   m_GameObject: {fileID: 262716887592387980}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 11400000, guid: 33b337413982fd9448ae738c707bd1ee, type: 2}
+  m_InitialState: 0
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -50,6 +50,10 @@ PlayableDirector:
   - key: {fileID: 3375846823026880629, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
     value: {fileID: 3499684433431638726}
   - key: {fileID: -5459930130527068455, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 1986733335093352007}
+  - key: {fileID: 3375846823026880629, guid: 33b337413982fd9448ae738c707bd1ee, type: 2}
+    value: {fileID: 3499684433431638726}
+  - key: {fileID: -5459930130527068455, guid: 33b337413982fd9448ae738c707bd1ee, type: 2}
     value: {fileID: 1986733335093352007}
   m_ExposedReferences:
     m_References: []
@@ -94,8 +98,8 @@ PlayableDirector:
   m_GameObject: {fileID: 1791148991524587169}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 11400000, guid: e1be37a254043704d9e64a0c0e1709b6, type: 2}
+  m_InitialState: 0
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -103,6 +107,10 @@ PlayableDirector:
   - key: {fileID: 3375846823026880629, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
     value: {fileID: 3499684433431638726}
   - key: {fileID: -5459930130527068455, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
+    value: {fileID: 1986733335093352007}
+  - key: {fileID: 3375846823026880629, guid: e1be37a254043704d9e64a0c0e1709b6, type: 2}
+    value: {fileID: 3499684433431638726}
+  - key: {fileID: -5459930130527068455, guid: e1be37a254043704d9e64a0c0e1709b6, type: 2}
     value: {fileID: 1986733335093352007}
   m_ExposedReferences:
     m_References: []
@@ -155,45 +163,65 @@ MonoBehaviour:
   phaseIndex: 0
   phaseList:
   - timeline: {fileID: 1924371244919506700}
-    mainAttack: {fileID: 11400000, guid: 87d857b06251f9449ac4236439b48afa, type: 2}
-    MaxHealth: 500
-    phaseBonus: 2000000
-    phaseBonusIncrease: 50000
+    mainAttack: {fileID: 11400000, guid: 550764d37ba4690499aebf14be1b34c2, type: 2}
+    MaxHealth: 2000
+    phaseBonus: 7000000
+    phaseBonusIncrease: 120000
     phaseBonusIncreaseDelay: 0
     phaseLength: 25
     MoveToCenter: 1
     GraceTimer: 1.5
-    IsSpellCard: 0
+    IsSpellCard: 1
+    verticalCenterOffset: 3.5
+    <phaseMusic>k__BackingField: {fileID: 11400000, guid: 51c89ed976cf63f4f8904e23d1a46809, type: 2}
   - timeline: {fileID: 5818120516551959344}
     mainAttack: {fileID: 11400000, guid: 773d6fede1abaf743b537a8d661dfb5b, type: 2}
-    MaxHealth: 800
-    phaseBonus: 3000000
-    phaseBonusIncrease: 60000
+    MaxHealth: 1400
+    phaseBonus: 15000000
+    phaseBonusIncrease: 150000
     phaseBonusIncreaseDelay: 0
     phaseLength: 35
     MoveToCenter: 1
-    GraceTimer: 1.5
+    GraceTimer: 3
     IsSpellCard: 1
-  - timeline: {fileID: 7942363148004373863}
-    mainAttack: {fileID: 11400000, guid: 5a855c8b735cff148a0b7ddda328b31e, type: 2}
-    MaxHealth: 600
-    phaseBonus: 5000000
-    phaseBonusIncrease: 80000
+    verticalCenterOffset: 1.5
+    <phaseMusic>k__BackingField: {fileID: 0}
+  - timeline: {fileID: 3798534413141213173}
+    mainAttack: {fileID: 11400000, guid: 1acfc8487f64daa45bad6ce0986792cf, type: 2}
+    MaxHealth: 1900
+    phaseBonus: 6000000
+    phaseBonusIncrease: 100000
     phaseBonusIncreaseDelay: 0
     phaseLength: 45
     MoveToCenter: 1
-    GraceTimer: 1.5
+    GraceTimer: 4
     IsSpellCard: 1
+    verticalCenterOffset: 2.5
+    <phaseMusic>k__BackingField: {fileID: 0}
+  - timeline: {fileID: 7942363148004373863}
+    mainAttack: {fileID: 11400000, guid: 5a855c8b735cff148a0b7ddda328b31e, type: 2}
+    MaxHealth: 1500
+    phaseBonus: 20000000
+    phaseBonusIncrease: 200000
+    phaseBonusIncreaseDelay: 0
+    phaseLength: 45
+    MoveToCenter: 1
+    GraceTimer: 2.5
+    IsSpellCard: 1
+    verticalCenterOffset: 2.5
+    <phaseMusic>k__BackingField: {fileID: 0}
   - timeline: {fileID: 3798534413141213173}
     mainAttack: {fileID: 11400000, guid: dcd4e02b08ce8e34f927f01eec320e02, type: 2}
-    MaxHealth: 1000
+    MaxHealth: 3800
     phaseBonus: 6000000
     phaseBonusIncrease: 100000
     phaseBonusIncreaseDelay: 0
     phaseLength: 75
     MoveToCenter: 1
-    GraceTimer: 1.5
-    IsSpellCard: 1
+    GraceTimer: 4
+    IsSpellCard: 0
+    verticalCenterOffset: 2.5
+    <phaseMusic>k__BackingField: {fileID: 11400000, guid: 7e06f1ed53fcbf449914fe0371977f36, type: 2}
 --- !u!1 &3617978010491384252
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +239,7 @@ GameObject:
   - component: {fileID: 236923071763997394}
   - component: {fileID: 8312179920446060853}
   m_Layer: 6
-  m_Name: Skeletron
+  m_Name: Larsa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +521,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -698,7 +726,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 7535203fdc42d5343bd12603566807eb, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0

@@ -96,6 +96,11 @@ namespace Bremsengine
             ResyncHighscore();
             return HighestScore;
         }
+        public static float ResetScore()
+        {
+            SetScoreValue(0f);
+            return VisibleScore;
+        }
         private static void SendUpdateScoreEvent(float scoreValue, float highScoreValue)
         {
             OnScoreUpdate?.Invoke(scoreValue, highScoreValue);
