@@ -62,7 +62,7 @@ namespace BremseTouhou
         {
             if (phase is DeathPhase p)
             {
-                if (!p.IsLastPhase())
+                if (!p.IsLastPhase() && phase.Unit != null)
                 {
                     phase.Unit.ForceKill();
                 }

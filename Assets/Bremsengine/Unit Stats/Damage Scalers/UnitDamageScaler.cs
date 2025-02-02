@@ -14,7 +14,8 @@ namespace Bremsengine
         float storedDamageScale = -1f;
         #endregion
         [SerializeField] private float power = 100f;
-        public float DamageScale => buildPower;
+        public float ExternalDamageScale = 1f;
+        public float DamageScale => buildPower * ExternalDamageScale;
         public void AddPower(float power) => this.power += power;
         private void Awake()
         {

@@ -58,6 +58,10 @@ namespace Core.Extensions
         {
             return Vector3.Distance(v, position);
         }
+        public static float SqDistance(this Vector3 v, Vector3 position)
+        {
+            return (v - position).sqrMagnitude;
+        }
         public static float DistanceTo(this Vector2 v, Vector2 position)
         {
             return Vector2.Distance(v, position);

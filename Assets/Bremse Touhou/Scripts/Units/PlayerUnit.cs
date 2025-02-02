@@ -50,9 +50,13 @@ namespace BremseTouhou
         [SerializeField] TMP_Text hitCounterText;
         [SerializeField] SpriteFlashMaterial flashMaterial;
         int hitCounter = 0;
+        public bool ForceHit()
+        {
+            return ProjectileHit(null);
+        }
         protected override bool ProjectileHit(Projectile p)
         {
-            if (FactionInterface.IsFriendsWith(p.Faction))
+            if (p != null && FactionInterface.IsFriendsWith(p.Faction))
             {
                 return false;
             }
@@ -88,7 +92,7 @@ namespace BremseTouhou
         }
         IEnumerator CO_PlayerHit()
         {
-            Time.timeScale = 0.03f;
+            TimeSlowHandler.AddSlow(0.03f, 0.5f);
             DeathBombTime = Time.unscaledTime + 0.5f;
             bool deathBombed = false;
             while (Time.unscaledTime <= DeathBombTime && !deathBombed)
@@ -96,13 +100,11 @@ namespace BremseTouhou
                 yield return null;
                 if ((DeathBombPressed && PlayerBombAction.CanBomb) || PlayerBombAction.BombIframesTime >= Time.time)
                 {
-                    Time.timeScale = 1f;
                     SetIFrames(4f, true);
                     deathBombed = true;
                     yield break;
                 }
             }
-            Time.timeScale = 1f;
             PlayerScoring.PlayerDeathRecalculateScoreValue(0.8f);
             PlayerBombAction.SetBombValue(PlayerBombAction.Full);
             TouhouManager.AddMiss();
@@ -263,53 +265,6 @@ namespace BremseTouhou
         private void OnApplicationQuit()
         {
             Debug.Log("Projectile Count at Game Close : " + Projectile.CountProjectiles);
-        }
-    }
-    public class TimeSlow : MonoBehaviour
-    {
-        static TimeSlow Instance;
-        public class SlowdownEntry
-        {
-            public SlowdownEntry(float amount, float duration)
-            {
-                this.slowdown = amount;
-                this.remainingDuration = duration;
-            }
-            public float slowdown;
-            public float remainingDuration;
-        }
-        bool isPaused;
-        static List<SlowdownEntry> timeSlow = new();
-        private void Update()
-        {
-            foreach (var item in timeSlow)
-            {
-                item.remainingDuration -= Time.unscaledDeltaTime;
-            }
-            Time.timeScale = GetLowestTimeSlow();
-        }
-        public static void AddSlow(float amount, float length)
-        {
-            if (Instance == null)
-            {
-                GameObject g = new GameObject("Gameobject");
-                Instance = g.AddComponent<TimeSlow>();
-            }
-            timeSlow.Add(new SlowdownEntry(amount, length));
-        }
-        private float GetLowestTimeSlow()
-        {
-            if (isPaused)
-                return 0f;
-            float lowestTimeSlow = 1f;
-            foreach (var entry in timeSlow)
-            {
-                if (entry.slowdown < lowestTimeSlow)
-                {
-                    lowestTimeSlow = entry.slowdown;
-                }
-            }
-            return lowestTimeSlow;
         }
     }
 }

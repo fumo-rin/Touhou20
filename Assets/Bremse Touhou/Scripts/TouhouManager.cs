@@ -9,6 +9,16 @@ using UnityEngine.SceneManagement;
 
 namespace BremseTouhou
 {
+    #region Funny Wheel
+    public partial class TouhouManager
+    {
+        [SerializeField] FunnyWheel wheel;
+        private void ResetWheel()
+        {
+            wheel.GameReset();
+        }
+    }
+    #endregion
     #region Boss Kill Sound
     public partial class TouhouManager
     {
@@ -164,7 +174,10 @@ namespace BremseTouhou
         }
         public static void MainMenu()
         {
-            instance.MainMenuMusic.Play();
+            if ((instance.lastUISelection != instance.MainMenuContainer && instance.lastUISelection != instance.leaderBoardContainer))
+            {
+                instance.MainMenuMusic.Play();
+            }
             PlayerInputController.actions.Shmup.Disable();
             SetActiveUI(instance.MainMenuContainer);
         }
@@ -185,6 +198,7 @@ namespace BremseTouhou
             missCount = 0;
             PlayerUnit.SetLives(9);
             BaseUnit.Player.transform.position = (BaseUnit.Player.Origin);
+            instance.ResetWheel();
         }
         private static void SetActiveUI(GameObject ui)
         {
@@ -205,8 +219,13 @@ namespace BremseTouhou
                 if (ui == leaderBoard.gameObject)
                 {
                     leaderBoard.ShowLeaderboard();
+                    if ((instance.lastUISelection != instance.MainMenuContainer && instance.lastUISelection != instance.leaderBoardContainer))
+                    {
+                        instance.MainMenuMusic.Play();
+                    }
                 }
             }
+            instance.lastUISelection = ui;
         }
         [SerializeField] CreditsLoader credits;
         public void ShowCredits()
@@ -228,6 +247,7 @@ namespace BremseTouhou
         [SerializeField] GameObject GameContainer;
         [SerializeField] GameObject MainMenuContainer;
         [SerializeField] GameObject leaderBoardContainer;
+        GameObject lastUISelection;
         HashSet<GameObject> spawnedBosses = new HashSet<GameObject>();
         public static void AddBoss(GameObject boss)
         {

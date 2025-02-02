@@ -185,8 +185,6 @@ namespace Bremsengine
         {
             if (Instance == this)
             {
-                QCHelper.ReleaseCloseAction(UnPauseGame);
-                QCHelper.ReleaseOpenAction(PauseGame);
                 CloseInstance();
             }
         }
@@ -194,8 +192,6 @@ namespace Bremsengine
         {
             if (Instance == this)
             {
-                QCHelper.BindOpenAction(PauseGame);
-                QCHelper.BindCloseAction(UnPauseGame);
                 IsHighscorePotentiallyOutOfSync = true;
                 SetScoreValue(0f);
                 ScoreValidationMultiplier = Random.Range(1f, 10f);
