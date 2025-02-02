@@ -41,6 +41,7 @@ namespace BremseTouhou
             w.ApplyEffect(target);
             runner.Add(new WheelEffectsOverTime(w, w.GetDuration()));
             tooltipText.text = w.Tooltip;
+            w.PlaySound();
         }
         public void GameReset()
         {
@@ -69,7 +70,6 @@ namespace BremseTouhou
             if (forcedSelection >= 0)
             {
                 SelectOutcome(forcedSelection);
-                outcomes[forcedSelection].PlaySound();
             }
             else
             {
