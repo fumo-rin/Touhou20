@@ -48,7 +48,14 @@ namespace BremseTouhou
             }
             HighscoreText.text = hiScore.Floor().ToString("F0");
             ActiveScoreText.text = score.Floor().ToString("F0");
-            ScoreItemText.text = PlayerScoring.ScoreItemText();
+            if (PlayerScoring.HasInstance)
+            {
+                ScoreItemText.text = PlayerScoring.ScoreItemText();
+            }
+            else
+            {
+                ScoreItemText.text = "5000 x 1.000";
+            }
         }
         private void FetchScore()
         {

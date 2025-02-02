@@ -122,7 +122,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 7622276712491956589}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 31
   AngleCoverage: 270
   startingAngle: -60
@@ -228,7 +228,7 @@ MonoBehaviour:
   - {fileID: -9018393782817939170}
   - {fileID: 3028330788642980373}
   - {fileID: 7622276712491956589}
-  projectileGraphName: Mystia funny
+  projectileGraphName: Funny lines
   Developing: 0
   nodes:
   - {fileID: -6013896878417400853}
@@ -241,6 +241,7 @@ MonoBehaviour:
   modNodes:
   - {fileID: -8059709350141314257}
   - {fileID: 1261479498888151844}
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 1
   headerTexture: {fileID: 0}
@@ -337,7 +338,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 7622276712491956589}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 31
   AngleCoverage: 270
   startingAngle: 60

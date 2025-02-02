@@ -1,6 +1,7 @@
 using Core.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Bremsengine
@@ -9,8 +10,21 @@ namespace Bremsengine
     {
         public static float GlobalVolume { get; private set; }
         [SerializeField] MusicWrapper testStartingMusic;
-        Queue<MusicWrapper> Playlist = new();
+        static Queue<MusicWrapper> Playlist = new();
         [SerializeField] List<MusicWrapper> testPlaylist = new();
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ClearPlaylist()
+        {
+            if (Playlist == null)
+            {
+                Playlist = new Queue<MusicWrapper>();
+            }
+            Playlist.Clear();
+        }
+        public static void AddToPlaylist(MusicWrapper w)
+        {
+            Playlist.Enqueue(w);
+        }
         private void Start()
         {
             if (testStartingMusic != null)
@@ -76,7 +90,6 @@ namespace Bremsengine
         }
         private void PlayCrossfade(MusicWrapper clip, float crossfade = 0.5f)
         {
-            Debug.Log(clip.TrackName);
             StartCoroutine(FadeTrack(clip, crossfade));
         }
         private IEnumerator FadeTrack(MusicWrapper clip, float crossfade)
@@ -108,7 +121,6 @@ namespace Bremsengine
                     }
                 }
                 track1.Stop();
-                Debug.Log("Track 2 volume: " + clip.musicVolume * GlobalVolume);
                 track2.volume = clip.musicVolume * GlobalVolume;
                 track2.Play();
             }
@@ -132,7 +144,6 @@ namespace Bremsengine
                     }
                 }
                 track2.Stop();
-                Debug.Log("Track 1 volume: " + clip.musicVolume * GlobalVolume);
                 track1.volume = clip.musicVolume * GlobalVolume;
                 track1.Play();
             }

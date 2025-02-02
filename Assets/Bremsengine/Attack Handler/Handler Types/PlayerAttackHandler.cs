@@ -16,15 +16,13 @@ namespace Bremsengine
         {
             if (!UnitAlive)
                 return false;
+            if (Dialogue.IsDialogueRunning)
+                return false;
             return Time.time >= nextAttackTime;
         }
         private void Update()
         {
-            if (!attackHeld && Gamepad.current != null)
-            {
-                attackHeld = Gamepad.current.buttonSouth.ReadValue() > 0.5f;
-            }
-            if (attackHeld)
+            if (attackHeld || (Gamepad.current != null && Gamepad.current.buttonSouth.ReadValue() > 0.5f))
             {
                 TriggerAttack(ContainedAttack);
             }
@@ -41,6 +39,14 @@ namespace Bremsengine
             }
             ForceAttack(attack);
         }
+        public void SetPressed(InputAction.CallbackContext c)
+        {
+            attackHeld = true;
+        }
+        public void UnsetPressed(InputAction.CallbackContext c)
+        {
+            attackHeld = false;
+        }
         public override void ForceAttack(BaseAttack attack)
         {
             SetNextAttackDelay(attack.GetAttackCooldown());
@@ -50,7 +56,14 @@ namespace Bremsengine
 
         protected override void WhenStart()
         {
-
+            PlayerInputController.actions.Shmup.Fire.started += SetPressed;
+            PlayerInputController.actions.Shmup.Fire.canceled += UnsetPressed;
+            
+        }
+        private void OnDestroy()
+        {
+            PlayerInputController.actions.Shmup.Fire.started -= SetPressed;
+            PlayerInputController.actions.Shmup.Fire.canceled -= UnsetPressed;
         }
     }
 }

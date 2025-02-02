@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
   m_Name: Stage 3 boss
   m_EditorClassIdentifier: 
-  TrackName: Stage 1 Boss
-  musicClip: {fileID: 8300000, guid: b839e40887158c74da29867250a03794, type: 3}
+  TrackName: Cmondeighbour
+  musicClip: {fileID: 8300000, guid: 45101708603fee746afb14a2040ef954, type: 3}
   musicVolume: 0.7

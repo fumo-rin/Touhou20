@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossKillSound: {fileID: 11400000, guid: 47ff135788c6e4c4faf537f7ffffe723, type: 2}
+  GameUIContainer: {fileID: 0}
+  GameContainer: {fileID: 0}
+  MainMenuContainer: {fileID: 0}
+  leaderBoardContainer: {fileID: 0}
 --- !u!114 &5262696143615992830
 MonoBehaviour:
   m_ObjectHideFlags: 0

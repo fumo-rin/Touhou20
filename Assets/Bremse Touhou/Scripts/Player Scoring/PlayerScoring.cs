@@ -218,6 +218,7 @@ namespace BremseTouhou
         }
     }
     #endregion
+    [DefaultExecutionOrder(15)]
     public partial class PlayerScoring : MonoBehaviour
     {
         [Header("Base Score")]
@@ -229,6 +230,7 @@ namespace BremseTouhou
         [SerializeField] float baseScorePerGraze = 1000f;
         [SerializeField] float baseScorePerPickup = 5000f;
         float nextpickupLoopTime;
+        public static bool HasInstance => instance != null && instance.gameObject != null;
         public static string ScoreItemText()
         {
             string s = $"{scoreItemAddedValue + instance.baseScorePerPickup} x {GrazeMultiplier.ToString("F3")}";

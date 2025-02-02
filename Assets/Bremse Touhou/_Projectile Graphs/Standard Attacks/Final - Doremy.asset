@@ -34,7 +34,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 12
   AngleCoverage: 0
   startingAngle: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 7a6f5a997fa5a8f4281c12055fd9f2d3, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 4
   AngleCoverage: 12
   startingAngle: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   - {fileID: 5512771592832184948}
   - {fileID: 2226072745228884785}
   - {fileID: 395836439205374637}
-  projectileGraphName: Aliexpress Doremy
+  projectileGraphName: 
   Developing: 1
   nodes:
   - {fileID: 8600480995370447372}
@@ -234,6 +234,7 @@ MonoBehaviour:
   - {fileID: -1662754599990417016}
   - {fileID: 2226072745228884785}
   modNodes: []
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 1.5
   headerTexture: {fileID: 0}
@@ -379,7 +380,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 0}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
 --- !u!114 &5512771592832184948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +437,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 685549167269662678}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 9
   AngleCoverage: 40
   startingAngle: 0

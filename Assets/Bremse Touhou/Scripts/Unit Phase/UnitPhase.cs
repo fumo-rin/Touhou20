@@ -5,6 +5,7 @@ using Bremsengine;
 using UnityEngine.Playables;
 using Core.Extensions;
 using System.Collections;
+using UnityEngine.Events;
 namespace BremseTouhou
 {
     [System.Serializable]
@@ -82,16 +83,17 @@ namespace BremseTouhou
         [SerializeField] ProjectileAttack attack;
         [SerializeField] BaseUnit owner;
         PlayableDirector activeTimeline;
+        [SerializeField] UnityEvent OnDefeat;
         public int phaseIndex = 0;
         [SerializeField] List<PhaseEntry> phaseList = new();
         private void Start()
         {
+            activeTimeline = null;
             owner.SetPhaseHandler((DeathPhase)this);
             if (phaseList.Count == 0) { return; }
             PhaseEntry p = phaseList[0];
             if (p.mainAttack == null)
                 return;
-            SetOwnerPhase(p);
             foreach (var item in phaseList)
             {
                 item.timeline.playOnAwake = false;
@@ -132,11 +134,17 @@ namespace BremseTouhou
             attack.Handler.ForceSetNewAttackDelay(phase.GraceTimer);
             if (phase.MoveToCenter)
             {
-                StartCoroutine(phase.CO_CenterBoss(owner.transform, 1.5f.Min(phase.GraceTimer), 1.5f, phase.verticalCenterOffset));
+                if (owner != null && owner.transform != null)
+                {
+                    StartCoroutine(phase.CO_CenterBoss(owner.transform, 1.5f.Min(phase.GraceTimer), 1.5f, phase.verticalCenterOffset));
+                }
             }
             activeTimeline = phase.timeline;
-            phase.timeline.time = 0f;
-            phase.timeline.Play();
+            if (phase.timeline != null)
+            {
+                phase.timeline.time = 0f;
+                phase.timeline.Play();
+            }
             SpellCardUI.SetPhase(phase);
             if (!phase.IsSpellCard && SpellCardUI.activeRunner != null)
             {
@@ -146,6 +154,10 @@ namespace BremseTouhou
             {
                 SpellCardUI.SetPhaseSlider(total, phasesLeft);
             }
+        }
+        public void StartFight()
+        {
+            SetOwnerPhase(phaseList[0]);
         }
         public bool IsLastPhase()
         {
@@ -167,6 +179,7 @@ namespace BremseTouhou
             PhaseEntry e = phaseList[phaseIndex % phaseList.Count];
             if (IsLastPhase())
             {
+                OnDefeat?.Invoke();
                 SpellCardUI.HideUI();
                 return;
             }

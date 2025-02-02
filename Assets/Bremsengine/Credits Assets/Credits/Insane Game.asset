@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 'Programming : Fumorin'
   m_EditorClassIdentifier: 
   Priority: 100
-  Title: Programming
-  Credit: Fumorin
+  Title: Programming & everything not below
+  Credit: Bremse
   Website: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -76,10 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a5004c2e082dc46ab1e7cd05f819df, type: 3}
   m_Name: Insane Game
   m_EditorClassIdentifier: 
-  gameName: Foom
-  gameCreator: Fumorin
+  gameName: Sauna Quest
+  gameCreator: Bremse
   credits:
   - {fileID: -978606191320386190}
+  - {fileID: 8692701790121503829}
+  - {fileID: 5477451185507623565}
   - {fileID: 7976282753810417361}
   - {fileID: -6605495973625967450}
   - {fileID: 462068575496133893}
@@ -171,6 +173,22 @@ MonoBehaviour:
   Title: AmazDooM
   Credit: Amazingmax
   Website: https://www.dafont.com/amazingmax.d2472?l[]=10&l[]=1
+--- !u!114 &5477451185507623565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080e8c93a1f7824b82466ae5395310e, type: 3}
+  m_Name: 'Sauna Background : nkaminetskyy'
+  m_EditorClassIdentifier: 
+  Priority: -10
+  Title: Sauna Background
+  Credit: nkaminetskyy
+  Website: https://pixabay.com/photos/pool-sauna-bath-vacation-3001209/
 --- !u!114 &5789429261779479007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +252,22 @@ MonoBehaviour:
   Priority: -99
   Title: Fonts
   Credit: By
+  Website: 
+--- !u!114 &8692701790121503829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080e8c93a1f7824b82466ae5395310e, type: 3}
+  m_Name: 'Boss Sprites : Vitallery'
+  m_EditorClassIdentifier: 
+  Priority: 23
+  Title: Boss Sprites
+  Credit: Vitallery
   Website: 
 --- !u!114 &9020438735517004926
 MonoBehaviour:

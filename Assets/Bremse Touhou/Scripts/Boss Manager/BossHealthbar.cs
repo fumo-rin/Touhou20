@@ -28,6 +28,9 @@ namespace BremseTouhou
             if (!needsChange)
                 return;
 
+            if (unit == null)
+                Destroy(gameObject);
+
             if (unitName.text == "Cool Boss Name")
             {
                 unitName.text = unit.UnitName;

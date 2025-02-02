@@ -9,6 +9,34 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 namespace BremseTouhou
 {
+    #region Player Lives
+    public partial class PlayerUnit
+    {
+        public static int PlayerExtraLives = 9;
+        public static bool HasExtraLives => PlayerExtraLives > 0;
+        public delegate void LivesAction(int current, int max);
+        public static LivesAction OnLivesUpdate;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeLives()
+        {
+            SetLives(9);
+        }
+        [QFSW.QC.Command("-set-lives")]
+        public static void SetLives(int amount)
+        {
+            PlayerExtraLives = amount;
+            SendToUI(PlayerExtraLives, 9);
+        }
+        private static void SendToUI(int lives, int maxLives)
+        {
+            OnLivesUpdate?.Invoke(lives, 9);
+        }
+        public static void RequestHealthRefresh()
+        {
+            SendToUI(PlayerExtraLives, 9);
+        }
+    }
+    #endregion
     #region Projectile Hit
     public partial class PlayerUnit
     {
@@ -61,7 +89,7 @@ namespace BremseTouhou
         IEnumerator CO_PlayerHit()
         {
             Time.timeScale = 0.03f;
-            DeathBombTime = Time.unscaledTime + 0.35f;
+            DeathBombTime = Time.unscaledTime + 0.5f;
             bool deathBombed = false;
             while (Time.unscaledTime <= DeathBombTime && !deathBombed)
             {
@@ -78,6 +106,11 @@ namespace BremseTouhou
             PlayerScoring.PlayerDeathRecalculateScoreValue(0.8f);
             PlayerBombAction.SetBombValue(PlayerBombAction.Full);
             TouhouManager.AddMiss();
+            if (PlayerExtraLives <= 0)
+            {
+                TouhouManager.GameEnd();
+            }
+            SetLives(PlayerExtraLives -1);
             SetIFrames(4f, true);
         }
     }
@@ -195,6 +228,7 @@ namespace BremseTouhou
             DirectionSolver.SetKnownTarget(transform);
             bombEvent.BindAction(BremseInputPhase.Performed, SetDeathBombInput);
             bombEvent.BindAction(BremseInputPhase.Cancelled, ReleaseDeathBombInput);
+            RequestHealthRefresh();
         }
         protected override void WhenDestroy()
         {

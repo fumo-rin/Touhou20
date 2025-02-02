@@ -80,7 +80,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 36
   AngleCoverage: 270
   startingAngle: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   - {fileID: 7764081078859228512}
   - {fileID: -9049418512112746212}
   - {fileID: -3863741141906838769}
-  projectileGraphName: Larsa 1
+  projectileGraphName: surely this one will get ya
   Developing: 0
   nodes:
   - {fileID: 4739405541405172097}
@@ -378,6 +378,7 @@ MonoBehaviour:
   modNodes:
   - {fileID: 5082335921938369382}
   - {fileID: 8171831564082360521}
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 2
   headerTexture: {fileID: 0}
@@ -417,7 +418,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: cea04828446f15143b502d5ef650bc32, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 36
   AngleCoverage: 270
   startingAngle: 4
@@ -531,7 +532,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 6
   AngleCoverage: 360
   startingAngle: 0
@@ -700,7 +701,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 8943469d6303c1545885a68f0cbf2924, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 6
   AngleCoverage: 360
   startingAngle: 0

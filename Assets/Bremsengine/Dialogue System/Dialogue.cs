@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Bremsengine
 {
@@ -11,6 +12,7 @@ namespace Bremsengine
     #region Dialogue Editor Custom Inspector
 #if UNITY_EDITOR
     using UnityEditor;
+    using UnityEngine.InputSystem;
 
     [CustomEditor(typeof(TestDialogue))]
     public partial class DialogueInspectorEditor : Editor
@@ -156,7 +158,7 @@ namespace Bremsengine
                 if (ContinueDialogueWhenPressed)
                 {
                     Dialogue.TriggerContinue?.Invoke(Dialogue.activeDialogueCollection);
-                    IsWaiting = false;
+                    ContinuePressedTime = Time.time;
                 }
                 return this;
             }
@@ -287,56 +289,73 @@ namespace Bremsengine
         {
             activeText = d;
         }
-        protected void ReDrawDialogue(string text)
+        protected void DrawDialogue(string text)
         {
+            DialogueRunner.BoxVisibility(true);
             ClearButtonContents();
             activeText.DisplayText(text);
-            SetWaiting(true);
+        }
+        protected void UnDrawDialogue()
+        {
+            DialogueRunner.BoxVisibility(false);
         }
     }
     #endregion
     #region Continue Shortcut Input
     public partial class Dialogue
     {
-        public static bool IsContinueHeld { get; private set; }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Reinitialize()
         {
-            IsContinueHeld = false;
+            ContinuePressedTime = 0;
         }
-        public static void PressContinueInput()
+        public static void PressContinue()
         {
-            IsContinueHeld = true;
+            ContinuePressedTime = Time.time;
         }
-        public static void UnpressContinueInput()
+        public static void PressContinueInput(InputAction.CallbackContext _)
         {
-            IsContinueHeld = false;
+            PressContinue();
         }
+    }
+    #endregion
+    #region Dialogue Shortcuts
+    public abstract partial class Dialogue
+    {
+        protected void ContinueButton(int index) => SetButton(index, "Continue").SetContinueWhenPressed();
+        protected void ActionButton(int index, Action<bool> buttonAction, bool state)
+        {
+            buttonAction?.Invoke(state);
+        }
+        public static float ContinuePressedTime = 0;
+        protected WaitUntil Wait => new WaitUntil(() => Time.time <= ContinuePressedTime);
     }
     #endregion
     public abstract partial class Dialogue : MonoBehaviour
     {
-        public WaitUntil Wait => new WaitUntil(() => !IsWaiting);
         public static Dialogue activeDialogueCollection { get; protected set; }
         protected static DialogueRunner runnerInstance;
-        protected abstract IEnumerator DialogueContents();
+        protected abstract IEnumerator DialogueContents(int progress = 0);
         public delegate void DialogueEvent(Dialogue dialogue);
         public static DialogueEvent TriggerContinue;
         static Coroutine activeDialogueRoutine;
         static Dialogue ActiveDialogue;
-        protected static bool IsWaiting;
-        protected abstract void WhenStartDialogue();
-        protected abstract void WhenEndDialogue();
-        public static void SetWaiting(bool state)
+        public static bool IsDialogueRunning => ActiveDialogue != null;
+        protected abstract void WhenStartDialogue(int progress);
+        protected abstract void WhenEndDialogue(int dialogueEnding);
+        private void Update()
         {
-            IsWaiting = state;
+            if (ContinuePressedTime + 0.35f < Time.time && Gamepad.current != null && Gamepad.current.buttonSouth.ReadValue() > 0.5f)
+            {
+                PressContinue();
+            }
         }
         public static void BindRunner(DialogueRunner runner)
         {
             runnerInstance = runner;
         }
         [ContextMenu("Start Dialogue")]
-        public void StartDialogue()
+        public void StartDialogue(int progress = 0)
         {
             if (activeDialogueRoutine != null && runnerInstance == null)
             {
@@ -347,12 +366,11 @@ namespace Bremsengine
                 runnerInstance.StopCoroutine(activeDialogueRoutine);
             }
             ActiveDialogue = this;
-            IsWaiting = false;
-            activeDialogueRoutine = runnerInstance.StartCoroutine(DialogueContents());
             DialogueRunner.SetDialogueVisibility(true);
-            WhenStartDialogue();
+            activeDialogueRoutine = runnerInstance.StartCoroutine(DialogueContents(progress));
+            WhenStartDialogue(progress);
         }
-        public void ForceEndDialogue()
+        public void ForceEndDialogue(int ending = 0)
         {
             DialogueRunner.SetDialogueVisibility(false);
             if (activeDialogueRoutine != null)
@@ -360,17 +378,8 @@ namespace Bremsengine
                 runnerInstance.StopCoroutine(activeDialogueRoutine);
                 activeDialogueRoutine = null;
             }
-            WhenEndDialogue();
-            IsWaiting = false;
+            WhenEndDialogue(ending);
             ActiveDialogue = null;
-        }
-        private void Update()
-        {
-            if (IsContinueHeld)
-            {
-                IsWaiting = false;
-                IsContinueHeld = false;
-            }
         }
     }
 }

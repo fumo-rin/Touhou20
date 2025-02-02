@@ -23,6 +23,11 @@ namespace BremseTouhou
         [SerializeField] BremseInputEventBus bombAction;
         public static void SetPhase(PhaseEntry e)
         {
+            if (e == null)
+            {
+                Debug.LogError("Set Null Phase");
+                return;
+            }
             currentPhase = e;
             spellBonus = e.phaseBonus;
             spellBonusIncrease = e.phaseBonusIncrease;
@@ -97,6 +102,8 @@ namespace BremseTouhou
         }
         private static void ProgressSpell(float time)
         {
+            if (currentPhase == null)
+                return;
             spellTimeRemaining -= time;
             if (spellTimeRemaining <= 0f)
             {
@@ -118,6 +125,8 @@ namespace BremseTouhou
         }
         public static void CompleteSpell()
         {
+            if (currentPhase == null)
+                return;
             if (currentPhase.IsSpellCard && spellBonus > 0f && spellTimeRemaining > 0f)
             {
                 GeneralManager.AddScore(SpellScore);
@@ -133,6 +142,10 @@ namespace BremseTouhou
         }
         private void BuildPhaseText()
         {
+            if (currentPhase == null)
+            {
+                return;
+            }
             spellNameText.text = currentPhase.mainAttack.projectileGraphName;
             spellTimeText.text = spellTimeRemaining < 0.05f ? 0f.ToString("F0") : spellTimeRemaining.Ceil().ToString("F0");
             if (currentPhase.IsSpellCard)

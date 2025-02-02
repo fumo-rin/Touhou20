@@ -23,7 +23,7 @@ namespace BremseTouhou
         public static bool CanBomb => PlayerUnit.Player.Alive && currentBombValue >= bombCost;
         public static int Full => maximumBombValue;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Reinitialize()
+        public static void Reinitialize()
         {
             bombCost = 950;
             maximumBombValue = 950;
@@ -32,7 +32,7 @@ namespace BremseTouhou
         }
         private void Start()
         {
-            eventBus.BindAction(BremseInputPhase.JustPressed, TriggerBomb);
+            PlayerInputController.actions.Shmup.Bomb.performed += (InputAction.CallbackContext ctx) => { TriggerBomb(); };
         }
         private void Update()
         {
@@ -43,14 +43,14 @@ namespace BremseTouhou
         }
         private void OnDestroy()
         {
-            eventBus.ReleaseAction(BremseInputPhase.JustPressed, TriggerBomb);
+            PlayerInputController.actions.Shmup.Bomb.performed -= (InputAction.CallbackContext ctx) => { TriggerBomb(); };
         }
         private void TriggerBomb()
         {
             if (CanBomb)
             {
                 Projectile.PlayerTriggerBomb(bombLength, 2f,bombSound, bombSoundExplosion);
-                PlayerUnit.SetIFrames(bombLength+ 2f, true);
+                PlayerUnit.SetIFrames(bombLength + 2f, true);
                 StartCoroutine(BombEffects(2f));
                 SetBombValue(currentBombValue - bombCost);
                 BombIframesTime = Time.time + bombLength;

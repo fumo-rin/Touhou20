@@ -8,6 +8,7 @@ using Bremsengine;
 
 namespace BremseTouhou
 {
+    #region Boss Entry
     [System.Serializable]
     public class BossEntry
     {
@@ -22,10 +23,10 @@ namespace BremseTouhou
             healthBar.SetHealthUI(unit);
         }
     }
+    #endregion
     [DefaultExecutionOrder(-3)]
     public partial class BossManager : MonoBehaviour
     {
-
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnBeforeSceneLoad()
         {
@@ -40,6 +41,12 @@ namespace BremseTouhou
         {
             for (int i = 0; i < bossList.Count; ++i)
             {
+                if (bossList[i].unit == null)
+                {
+                    bossList.RemoveAt(i);
+                    i--;
+                    continue;
+                }
                 if (bossList[i] != null && bossList[i].unit.Alive)
                 {
                     bossList[i].SetBossHealthUI();

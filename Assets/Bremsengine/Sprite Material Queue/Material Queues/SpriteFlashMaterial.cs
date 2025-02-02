@@ -10,7 +10,6 @@ namespace Bremsengine
         [ContextMenu("Activate Flash")]
         public void TriggerFlashMaterial(float duration)
         {
-            Debug.Log(duration);
             materialQueue.RunMaterialQueue(duration);
         }
     }

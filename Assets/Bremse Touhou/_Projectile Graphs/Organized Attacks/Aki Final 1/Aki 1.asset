@@ -34,7 +34,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: f1a1813a151507a47bcd7bb11fd9da29, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 7
   AngleCoverage: 60
   startingAngle: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 5735213130213163337}
   - {fileID: -7791523855736592935}
   - {fileID: -8639767153199179766}
-  projectileGraphName: Aki 1
+  projectileGraphName: Neighbour's Wrath
   Developing: 0
   nodes:
   - {fileID: 3948741944614932988}
@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: -3897449127289368995}
   modNodes:
   - {fileID: -7791523855736592935}
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 2
   headerTexture: {fileID: 0}
@@ -231,7 +232,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: 5735213130213163337}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
 --- !u!114 &5735213130213163337
 MonoBehaviour:
   m_ObjectHideFlags: 0

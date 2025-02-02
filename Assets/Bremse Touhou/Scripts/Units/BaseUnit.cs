@@ -163,19 +163,21 @@ namespace BremseTouhou
 
         private void Kill(bool dropScore = false)
         {
-            Debug.Log("Death");
             if (phaseHandler != null)
             {
                 SpellCardUI.CompleteSpell();
                 phaseHandler.SetNextPhase();
                 if (phaseHandler.ShouldDie())
                 {
-                    gameObject.SetActive(false);
-                    if (this is EnemyUnit enemy)
+                    if (gameObject != null)
                     {
-                        if (enemy.isBoss)
+                        gameObject.SetActive(false);
+                        if (this is EnemyUnit enemy)
                         {
-                            TouhouManager.PlayBossKillSound(enemy.Center);
+                            if (enemy.isBoss)
+                            {
+                                TouhouManager.PlayBossKillSound(enemy.Center);
+                            }
                         }
                     }
                 }
@@ -186,7 +188,9 @@ namespace BremseTouhou
                     SetNewHealth(newHealth, newHealth);
                 }
             }
-            Projectile.ClearProjectileTimelineFor(transform);
+            if (transform != null)
+                Projectile.ClearProjectileTimelineFor(transform);
+
             Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, dropScore ? PlayerScoring.SpawnPickup : null);
         }
     }

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1350
-    y: 1358
+    x: 1187
+    y: 991
     width: 400
     height: 300
   ID: 31fdd948-dbde-43da-bff5-6f1961a237dd
   graph: {fileID: 11400000}
-  EventDelay: 1
+  EventDelay: 1.23
   isActive: 1
   projectilePrefab: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   fanAngle: 0
@@ -73,13 +73,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 909
-    y: 1267
+    x: 746
+    y: 900
     width: 400
     height: 300
   ID: ecfe8415-b05a-484e-b26b-e08d85406b50
   graph: {fileID: 11400000}
-  EventDelay: 1
+  EventDelay: 1.23
   isActive: 1
   projectilePrefab: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   fanAngle: 0
@@ -132,16 +132,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 472
-    y: 81
+    x: 309
+    y: -286
     width: 350
     height: 700
   ID: 63b364f0-b5fd-4489-a95f-eb6b286c08ed
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 216
-    y: 111
+    x: 53
+    y: -256
     width: 250
     height: 250
   directionalOffset: 6
@@ -152,7 +152,7 @@ MonoBehaviour:
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
   linkedProjectileEvents: []
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 9
   AngleCoverage: 150
   startingAngle: 180
@@ -249,7 +249,7 @@ MonoBehaviour:
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 7
   AngleCoverage: 90
   startingAngle: 0
@@ -316,8 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 926
-    y: 297
+    x: 763
+    y: -70
     width: 350
     height: 200
   ID: 3f184fa9-ee81-4b85-ba52-fbe40e45bd4a
@@ -406,8 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1010
-    y: 695
+    x: 847
+    y: 328
     width: 250
     height: 200
   ID: 5918244e-deaf-4c0b-bd04-878be07a6e2b
@@ -427,28 +427,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1525
-    y: 586
+    x: 1362
+    y: 219
     width: 350
     height: 700
   ID: cd771acd-3bd6-4055-a10b-06a3353fbb93
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1269
-    y: 616
+    x: 1106
+    y: 249
     width: 250
     height: 250
   directionalOffset: 0.5
   spread: 0
-  speed: 5
+  speed: 5.5
   addedAngle: 90
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -532,6 +532,7 @@ MonoBehaviour:
   - {fileID: 6325060685933908652}
   - {fileID: -4137284215418995408}
   modNodes: []
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 3
   headerTexture: {fileID: 0}
@@ -551,28 +552,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 521
-    y: 942
+    x: 358
+    y: 575
     width: 350
     height: 700
   ID: 135f0cf1-0200-4dfe-94d5-b300daaa8488
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 265
-    y: 972
+    x: 102
+    y: 605
     width: 250
     height: 250
   directionalOffset: 0.5
   spread: 0
-  speed: 5
+  speed: 5.5
   addedAngle: -90
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
   linkedProjectileEvents:
   - {fileID: -8063571252079463087}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 11
   AngleCoverage: 135
   startingAngle: 0
@@ -639,8 +640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 955
-    y: 1034
+    x: 792
+    y: 667
     width: 350
     height: 200
   ID: 24a5dcfc-3ac0-4d50-9271-8b34068c8d9d

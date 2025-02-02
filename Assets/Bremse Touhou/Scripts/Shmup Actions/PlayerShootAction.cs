@@ -12,13 +12,13 @@ namespace BremseTouhou
         bool isHeld;
         private void Start()
         {
-            eventBus.BindAction(BremseInputPhase.Performed, PressDown);
-            eventBus.BindAction(BremseInputPhase.Cancelled, PressUp);
+            /*eventBus.BindAction(BremseInputPhase.Performed, PressDown);
+            eventBus.BindAction(BremseInputPhase.Cancelled, PressUp);*/
         }
         private void OnDestroy()
         {
-            eventBus.ReleaseAction(BremseInputPhase.Performed, PressDown);
-            eventBus.ReleaseAction(BremseInputPhase.Cancelled, PressUp);
+            /*eventBus.ReleaseAction(BremseInputPhase.Performed, PressDown);
+            eventBus.ReleaseAction(BremseInputPhase.Cancelled, PressUp);*/
         }
         private void PressDown()
         {

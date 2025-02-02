@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
   m_Name: Stage 2 Boss
   m_EditorClassIdentifier: 
-  TrackName: Stage 1 Boss
-  musicClip: {fileID: 8300000, guid: 4c2b727b241ae5643b3b685a11fdc22d, type: 3}
+  TrackName: Jazzy Funky
+  musicClip: {fileID: 8300000, guid: 64f62170e6bb7df47becd332ff7ad4fc, type: 3}
   musicVolume: 0.7

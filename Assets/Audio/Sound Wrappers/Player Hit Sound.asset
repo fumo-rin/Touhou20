@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Player Hit Sound
   m_EditorClassIdentifier: 
   SoundName: Player Hit Sound
-  soundVolume: 0.093
+  soundVolume: 1
   <soundClips>k__BackingField:
-  - clip: {fileID: 8300000, guid: cd2bee36cf6336543ae63d87755b0882, type: 3}
+  - clip: {fileID: 8300000, guid: 143af502f5f90b144b88569ca7964315, type: 3}
     PitchVariancePercent: 7.7
     PitchOrigin: 1
     Volume: 0.696
+    Muted: 0
+  - clip: {fileID: 8300000, guid: 092d3f89c728e824292aa2f0cb6720ac, type: 3}
+    PitchVariancePercent: 7.7
+    PitchOrigin: 1
+    Volume: 0.696
+    Muted: 0
+  <singleChannel>k__BackingField: 0
   <Is3D>k__BackingField: 0

@@ -66,6 +66,10 @@ namespace BremseTouhou
         protected override void WhenStart()
         {
             OnHealthChange += PlayHitSound;
+            if (isBoss)
+            {
+                TouhouManager.AddBoss(gameObject);
+            }
         }
         protected override void WhenDestroy()
         {

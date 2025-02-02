@@ -1250,7 +1250,7 @@ namespace Core.Input
                     ""path"": ""<XInputController>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Gamepad"",
+                    ""groups"": "";Gamepad;Keyboard&Mouse;Touch;Joystick;XR"",
                     ""action"": ""Ability1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1272,7 +1272,7 @@ namespace Core.Input
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Gamepad"",
+                    ""groups"": "";Gamepad;Keyboard&Mouse;Touch;Joystick;XR"",
                     ""action"": ""Bomb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

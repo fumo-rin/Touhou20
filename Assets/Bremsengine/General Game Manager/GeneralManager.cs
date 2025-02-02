@@ -14,7 +14,7 @@ namespace Bremsengine
         [SerializeField] AudioClipWrapper funnyExplosionSound;
         public static void FunnyExplosion(Vector2 position)
         {
-            Destroy(Instantiate(Instance.funnyExplosion, position, Quaternion.identity),1.02f);
+            Destroy(Instantiate(Instance.funnyExplosion, position, Quaternion.identity), 1.02f);
             Instance.funnyExplosionSound.Play(position);
         }
     }
@@ -71,6 +71,8 @@ namespace Bremsengine
     #region Score
     public partial class GeneralManager
     {
+        private static float HiddenScoreValidationSum = 0;
+        private static float ScoreValidationMultiplier;
         public static bool ShouldAddScoreKey => ScoreBreakdownAnalysis != null;
         public static void AddScoreAnalysisKey(string scoreKey, float score)
         {
@@ -79,6 +81,24 @@ namespace Bremsengine
             if (!ScoreBreakdownAnalysis.ContainsKey(scoreKey))
                 ScoreBreakdownAnalysis[scoreKey] = 0;
             ScoreBreakdownAnalysis[scoreKey] += score;
+        }
+        public static bool IsScoreLegit()
+        {
+            float scoreAccuracy = HiddenScoreValidationSum / ScoreValidationMultiplier;
+            if (Mathf.Abs(scoreAccuracy - actualScore) < (actualScore * 0.05f)) 
+            {
+                return true;
+            }
+            return false;
+        }
+        public static float SumUpScoreAnalysis()
+        {
+            float sum = 0f;
+            foreach (var item in ScoreBreakdownAnalysis)
+            {
+                sum += item.Value;
+            }
+            return sum;
         }
         private static Dictionary<string, float> ScoreBreakdownAnalysis;
         [SerializeField] bool breakDownScore = false;
@@ -99,6 +119,8 @@ namespace Bremsengine
         public static float ResetScore()
         {
             SetScoreValue(0f);
+            ScoreBreakdownAnalysis.Clear();
+            HiddenScoreValidationSum = 0;
             return VisibleScore;
         }
         private static void SendUpdateScoreEvent(float scoreValue, float highScoreValue)
@@ -108,6 +130,7 @@ namespace Bremsengine
         public static float AddScore(float value)
         {
             SetScoreValue(actualScore + value);
+            HiddenScoreValidationSum += value * ScoreValidationMultiplier;
             return value;
         }
         public static void ApplyHighscoreToSave(float value)
@@ -175,6 +198,7 @@ namespace Bremsengine
                 QCHelper.BindCloseAction(UnPauseGame);
                 IsHighscorePotentiallyOutOfSync = true;
                 SetScoreValue(0f);
+                ScoreValidationMultiplier = Random.Range(1f, 10f);
             }
         }
         private void StartInstance()

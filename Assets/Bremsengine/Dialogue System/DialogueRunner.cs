@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Core.Input;
+using Core.Extensions;
+using UnityEngine.UI;
 namespace Bremsengine
 {
     public class DialogueRunner : MonoBehaviour
@@ -12,6 +14,7 @@ namespace Bremsengine
         [SerializeField] DialogueText dialogueText;
         [SerializeField] TMP_Text dialogueTextComponent;
         [SerializeField] GameObject dialogueContainer;
+        [SerializeField] List<Image> characterSprites = new();
 
         public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
@@ -25,21 +28,41 @@ namespace Bremsengine
         public static void SetDialogueVisibility(bool state)
         {
             Instance.dialogueContainer.SetActive(state);
+            foreach (var item in Instance.characterSprites)
+            {
+                item.sprite = null;
+            }
+        }
+        public static DialogueRunner BoxVisibility(bool state)
+        {
+            Instance.dialogueContainer.SetActive(state);
+            return Instance;
+        }
+        public static DialogueRunner SetCharacterSprite(int index, Sprite s)
+        {
+            Instance.characterSprites[index].sprite = s;
+            return Instance;
+        }
+        public static DialogueRunner SetCharacterFocus(int index)
+        {
+            foreach (var item in Instance.characterSprites)
+            {
+                item.color = item.color.Opacity(170);
+            }
+            Instance.characterSprites[index].color = Instance.characterSprites[index].color.Opacity(255);
+            return Instance;
         }
         public void PressButton(int index)
         {
             Dialogue.PressButton(index);
         }
-        [SerializeField] BremseInputEventBus continueEventBus;
         private void Start()
         {
-            continueEventBus.BindAction(BremseInputPhase.Performed, Dialogue.PressContinueInput);
-            continueEventBus.BindAction(BremseInputPhase.Cancelled, Dialogue.UnpressContinueInput);
+            PlayerInputController.actions.Shmup.Fire.performed += Dialogue.PressContinueInput;
         }
         private void OnDestroy()
         {
-            continueEventBus.ReleaseAction(BremseInputPhase.Performed, Dialogue.PressContinueInput);
-            continueEventBus.ReleaseAction(BremseInputPhase.Cancelled, Dialogue.UnpressContinueInput);
+            PlayerInputController.actions.Shmup.Fire.performed -= Dialogue.PressContinueInput;
         }
     }
 }

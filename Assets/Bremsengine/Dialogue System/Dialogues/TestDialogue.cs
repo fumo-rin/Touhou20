@@ -7,23 +7,31 @@ namespace Bremsengine
 {
     public class TestDialogue : Dialogue
     {
-        protected override IEnumerator DialogueContents()
+        protected override IEnumerator DialogueContents(int progress = 0)
         {
-            ReDrawDialogue("Test Text");
+            DrawDialogue("Test Text");
             SetButton(0, "Yes", TestFeature).SetContinueWhenPressed();
+            yield return new WaitForSeconds(0.15f);
+
             yield return Wait;
-            ReDrawDialogue("Mewo mewo");
+            DrawDialogue("Mewo mewo");
             SetButton(0, "Yes").SetContinueWhenPressed();
             SetButton(1, "+100 money", TestFeature);
             SetButton(2, "NOOO", SpawnBoss);
+            yield return new WaitForSeconds(0.15f);
+
             yield return Wait;
-            ReDrawDialogue("yooo");
+            DrawDialogue("yooo");
             SetButton(2, "Bro").SetContinueWhenPressed();
             StartSubroutine("Test Range", TestRange());
+            yield return new WaitForSeconds(0.15f);
+
             yield return Wait;
             TryEndSubroutine("Test Range");
-            ReDrawDialogue("jao");
+            DrawDialogue("jao");
             SetButton(2, "Close", SpawnBoss).SetContinueWhenPressed();
+            yield return new WaitForSeconds(0.15f);
+
             yield return Wait;
             ForceEndDialogue();
         }
@@ -44,11 +52,11 @@ namespace Bremsengine
                 yield return Helper.GetWaitForSeconds(1f / 30f);
             }
         }
-        protected override void WhenStartDialogue()
+        protected override void WhenStartDialogue(int progress)
         {
 
         }
-        protected override void WhenEndDialogue()
+        protected override void WhenEndDialogue(int dialogueEnding)
         {
 
         }
