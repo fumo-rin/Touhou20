@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace Bremsengine
 {
@@ -13,6 +14,14 @@ namespace Bremsengine
         private static Vector2 lastCursorPosition;
         public static Vector2 CursorPosition => lastCursorPosition;
         public static bool IsHovering { get; private set; }
+        private void Start()
+        {
+            SceneManager.activeSceneChanged += (Scene s, Scene ss) => { renderCamera = Camera.main; };
+        }
+        private void OnDestroy()
+        {
+            
+        }
         public void OnPointerMove(PointerEventData eventData)
         {
             if (RenderTextureContainsMousePosition(out Vector2 click, eventData, renderTexture))

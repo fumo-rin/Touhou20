@@ -194,8 +194,8 @@ MonoBehaviour:
     m_ActionId: e3d8fc5b-0c88-43d0-86d6-5b11d9c911a1
     m_ActionName: 'Shmup/Autofire[/Keyboard/numpad0]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Shmup
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &830246517140096891

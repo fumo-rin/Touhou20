@@ -49,9 +49,9 @@ namespace BremseTouhou
                 HideUI();
                 return;
             }
-            spellNameText.gameObject.SetActive(currentPhase.IsSpellCard);
-            spellTimeText.gameObject.SetActive(currentPhase.phaseLength > 0f);
-            spellValueText.gameObject.SetActive(currentPhase.IsSpellCard && currentPhase.phaseBonus > 0f);
+            activeRunner.spellNameText.gameObject.SetActive(currentPhase.IsSpellCard);
+            activeRunner.spellTimeText.gameObject.SetActive(currentPhase.phaseLength > 0f);
+            activeRunner.spellValueText.gameObject.SetActive(currentPhase.IsSpellCard && currentPhase.phaseBonus > 0f);
             activeRunner.phaseCountSlider.gameObject.SetActive(true);
         }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -65,7 +65,8 @@ namespace BremseTouhou
         }
         private void Awake()
         {
-            activeRunner = this;
+            if (activeRunner == null)
+                activeRunner = this;
         }
         private void BombInput()
         {

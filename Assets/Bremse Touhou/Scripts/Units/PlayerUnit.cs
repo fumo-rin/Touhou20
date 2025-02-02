@@ -205,7 +205,7 @@ namespace BremseTouhou
         {
             ReadInput(ref input);
             ApplyInput(input);
-            focusHeld = PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f || PlayerInputController.actions.Shmup.Focus.ReadValue<float>() > 0.5f;
+            focusHeld = (Gamepad.current != null && Gamepad.current.buttonWest.ReadValue() > 0.5f) || PlayerInputController.actions.Player.Focus.ReadValue<float>() > 0.5f || PlayerInputController.actions.Shmup.Focus.ReadValue<float>() > 0.5f;
             ProjectileScanOverlap();
         }
         private void ProjectileScanOverlap()
@@ -228,7 +228,54 @@ namespace BremseTouhou
         }
         private void OnApplicationQuit()
         {
-            Debug.Log("Projectile Count at Game Close : "+ Projectile.CountProjectiles);
+            Debug.Log("Projectile Count at Game Close : " + Projectile.CountProjectiles);
+        }
+    }
+    public class TimeSlow : MonoBehaviour
+    {
+        static TimeSlow Instance;
+        public class SlowdownEntry
+        {
+            public SlowdownEntry(float amount, float duration)
+            {
+                this.slowdown = amount;
+                this.remainingDuration = duration;
+            }
+            public float slowdown;
+            public float remainingDuration;
+        }
+        bool isPaused;
+        static List<SlowdownEntry> timeSlow = new();
+        private void Update()
+        {
+            foreach (var item in timeSlow)
+            {
+                item.remainingDuration -= Time.unscaledDeltaTime;
+            }
+            Time.timeScale = GetLowestTimeSlow();
+        }
+        public static void AddSlow(float amount, float length)
+        {
+            if (Instance == null)
+            {
+                GameObject g = new GameObject("Gameobject");
+                Instance = g.AddComponent<TimeSlow>();
+            }
+            timeSlow.Add(new SlowdownEntry(amount, length));
+        }
+        private float GetLowestTimeSlow()
+        {
+            if (isPaused)
+                return 0f;
+            float lowestTimeSlow = 1f;
+            foreach (var entry in timeSlow)
+            {
+                if (entry.slowdown < lowestTimeSlow)
+                {
+                    lowestTimeSlow = entry.slowdown;
+                }
+            }
+            return lowestTimeSlow;
         }
     }
 }

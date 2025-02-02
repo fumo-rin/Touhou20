@@ -16,13 +16,7 @@ namespace Bremsengine
         public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
         {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             Dialogue.BindDialogueText(dialogueText);
             Dialogue.BindRunner(this);
             DialogueText.SetDialogueTextRenderer(dialogueTextComponent);

@@ -26,6 +26,7 @@ namespace BremseTouhou
             Vector2 size = new(10f, 10f);
             if (Camera.main is not null and Camera c)
             {
+                Debug.Log("T");
                 float height = (c.orthographicSize * 2f);
                 size = new(height * c.aspect, height);
             }

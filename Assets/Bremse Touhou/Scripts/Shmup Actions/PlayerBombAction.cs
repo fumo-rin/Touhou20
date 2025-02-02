@@ -3,6 +3,7 @@ using Core.Extensions;
 using Core.Input;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BremseTouhou
 {
@@ -32,6 +33,13 @@ namespace BremseTouhou
         private void Start()
         {
             eventBus.BindAction(BremseInputPhase.JustPressed, TriggerBomb);
+        }
+        private void Update()
+        {
+            if (Gamepad.current != null && Gamepad.current.buttonEast.ReadValue() > 0.5f)
+            {
+                TriggerBomb();
+            }
         }
         private void OnDestroy()
         {

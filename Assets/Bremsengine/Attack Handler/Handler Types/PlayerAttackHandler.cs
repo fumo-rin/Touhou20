@@ -20,6 +20,10 @@ namespace Bremsengine
         }
         private void Update()
         {
+            if (!attackHeld && Gamepad.current != null)
+            {
+                attackHeld = Gamepad.current.buttonSouth.ReadValue() > 0.5f;
+            }
             if (attackHeld)
             {
                 TriggerAttack(ContainedAttack);
