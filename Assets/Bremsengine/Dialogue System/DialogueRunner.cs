@@ -5,6 +5,7 @@ using TMPro;
 using Core.Input;
 using Core.Extensions;
 using UnityEngine.UI;
+using System;
 namespace Bremsengine
 {
     public class DialogueRunner : MonoBehaviour
@@ -15,6 +16,7 @@ namespace Bremsengine
         [SerializeField] TMP_Text dialogueTextComponent;
         [SerializeField] GameObject dialogueContainer;
         [SerializeField] List<Image> characterSprites = new();
+        [SerializeField] BremseInputEventBus continueEvent;
 
         public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
@@ -58,11 +60,11 @@ namespace Bremsengine
         }
         private void Start()
         {
-            PlayerInputController.actions.Shmup.Fire.performed += Dialogue.PressContinueInput;
+            continueEvent.BindAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
         }
         private void OnDestroy()
         {
-            PlayerInputController.actions.Shmup.Fire.performed -= Dialogue.PressContinueInput;
+            continueEvent.ReleaseAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
         }
     }
 }

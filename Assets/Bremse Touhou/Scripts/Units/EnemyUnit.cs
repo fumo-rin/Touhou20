@@ -50,6 +50,7 @@ namespace BremseTouhou
         [field: SerializeField] public bool isBoss { get; private set; }
         protected override void WhenAwake()
         {
+            Debug.Log("is Boss : "+isBoss);
             if (isBoss)
             {
                 BossManager.Bind(this);
@@ -68,7 +69,7 @@ namespace BremseTouhou
             OnHealthChange += PlayHitSound;
             if (isBoss)
             {
-                TouhouManager.AddBoss(gameObject);
+                TouhouManager.AddBoss(this);
             }
         }
         protected override void WhenDestroy()

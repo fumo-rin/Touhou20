@@ -6,13 +6,14 @@ namespace Bremsengine
     {
         public AttackHandler Handler => attackHandler;
         [SerializeField] protected AttackHandler attackHandler;
+        [SerializeField] UnitDamageScaler scaler;
         [SerializeField] private float attackBaseDamage = 10f;
         public abstract float GetAttackCooldown();
         public abstract void PerformAttack(AttackDirectionPacket packet);
         protected void OnProjectileSpawn(Projectile p, Transform owner, Transform target)
         {
             p.SetFaction(attackHandler.Faction);
-            if (owner.GetComponent<UnitDamageScaler>() is not null and UnitDamageScaler scaler)
+            if (scaler != null)
             {
                 p.SetDamage(scaler.DamageScale * attackBaseDamage);
             }

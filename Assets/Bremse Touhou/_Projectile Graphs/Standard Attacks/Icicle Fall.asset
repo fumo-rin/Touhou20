@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1187
-    y: 991
+    x: 1111
+    y: 739
     width: 400
     height: 300
   ID: 31fdd948-dbde-43da-bff5-6f1961a237dd
@@ -59,6 +59,7 @@ MonoBehaviour:
   Repeats: 1
   RepeatInterval: 0.5
   Faction: 2
+  flareIndex: 0
 --- !u!114 &-8063571252079463087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 746
-    y: 900
+    x: 670
+    y: 648
     width: 400
     height: 300
   ID: ecfe8415-b05a-484e-b26b-e08d85406b50
@@ -118,6 +119,7 @@ MonoBehaviour:
   Repeats: 1
   RepeatInterval: 0.5
   Faction: 2
+  flareIndex: 0
 --- !u!114 &-6726217897975526738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,16 +134,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 309
-    y: -286
+    x: 233
+    y: -538
     width: 350
     height: 700
   ID: 63b364f0-b5fd-4489-a95f-eb6b286c08ed
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 53
-    y: -256
+    x: -23
+    y: -508
     width: 250
     height: 250
   directionalOffset: 6
@@ -151,6 +153,7 @@ MonoBehaviour:
   ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
+  FlareIndex: 0
   linkedProjectileEvents: []
   linkedProjectileMods: []
   projectileCountFloat: 9
@@ -247,6 +250,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: c0f413f7203e52b49a3d62a7648f73fe, type: 2}
   spawnDelay: 0
+  FlareIndex: 0
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
   linkedProjectileMods: []
@@ -316,8 +320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 763
-    y: -70
+    x: 687
+    y: -322
     width: 350
     height: 200
   ID: 3f184fa9-ee81-4b85-ba52-fbe40e45bd4a
@@ -392,6 +396,7 @@ MonoBehaviour:
   Repeats: 1
   RepeatInterval: 0.5
   Faction: 0
+  flareIndex: 0
 --- !u!114 &-3307353721253079092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,8 +411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 847
-    y: 328
+    x: 771
+    y: 76
     width: 250
     height: 200
   ID: 5918244e-deaf-4c0b-bd04-878be07a6e2b
@@ -427,16 +432,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1362
-    y: 219
+    x: 1286
+    y: -33
     width: 350
     height: 700
   ID: cd771acd-3bd6-4055-a10b-06a3353fbb93
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1106
-    y: 249
+    x: 1030
+    y: -3
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -446,6 +451,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
+  FlareIndex: 1
   linkedProjectileEvents:
   - {fileID: -9015033927199988437}
   linkedProjectileMods: []
@@ -552,16 +558,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 358
-    y: 575
+    x: 282
+    y: 323
     width: 350
     height: 700
   ID: 135f0cf1-0200-4dfe-94d5-b300daaa8488
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 102
-    y: 605
+    x: 26
+    y: 353
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -571,6 +577,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 6022b1035385c3849b8ddc10dba3e401, type: 2}
   spawnDelay: 0
+  FlareIndex: 1
   linkedProjectileEvents:
   - {fileID: -8063571252079463087}
   linkedProjectileMods: []
@@ -640,8 +647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 792
-    y: 667
+    x: 716
+    y: 415
     width: 350
     height: 200
   ID: 24a5dcfc-3ac0-4d50-9271-8b34068c8d9d

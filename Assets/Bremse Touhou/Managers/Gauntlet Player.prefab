@@ -6795,6 +6795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 6025008150098531759}
+  scaler: {fileID: 4225954830407253458}
   attackBaseDamage: 3
   projectileAttack: {fileID: 11400000, guid: fba6d3b7398ce79448ab3a0217f18b2d, type: 2}
   projectileSortingIndex: -100
@@ -6890,7 +6891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbefb2af5f05da45857d57077bbeccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 150
+  power: 1500
+  ExternalDamageScale: 1
 --- !u!114 &181786792830691265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7061,6 +7063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 677092202957666550}
+  scaler: {fileID: 4225954830407253458}
   attackBaseDamage: 0.6
   projectileAttack: {fileID: 11400000, guid: af9b80ad38eb53d4d89b320a4cca2cd7, type: 2}
   projectileSortingIndex: -100
@@ -7126,6 +7129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 6357577220590377810}
+  scaler: {fileID: 4225954830407253458}
   attackBaseDamage: 3
   projectileAttack: {fileID: 11400000, guid: fba6d3b7398ce79448ab3a0217f18b2d, type: 2}
   projectileSortingIndex: -100

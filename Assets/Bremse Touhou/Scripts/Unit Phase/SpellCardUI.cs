@@ -79,13 +79,20 @@ namespace BremseTouhou
         }
         private void Start()
         {
-            InvokeRepeating(nameof(UILoop), 0f, 0.05f);
-            RecalculatePhaseVisibility();
-            bombAction.BindAction(BremseInputPhase.Performed, BombInput);
+            if (activeRunner == this)
+            {
+                InvokeRepeating(nameof(UILoop), 0f, 0.05f);
+                RecalculatePhaseVisibility();
+                bombAction.BindAction(BremseInputPhase.Performed, BombInput);
+            }
         }
         private void OnDestroy()
         {
-            bombAction.ReleaseAction(BremseInputPhase.Performed, BombInput);
+            if (activeRunner == this)
+            {
+                bombAction.ReleaseAction(BremseInputPhase.Performed, BombInput);
+                activeRunner = null;
+            }
         }
         private void UILoop()
         {

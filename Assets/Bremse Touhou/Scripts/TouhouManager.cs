@@ -2,6 +2,7 @@ using Bremsengine;
 using Core.Extensions;
 using Core.Input;
 using Dan;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,6 @@ using UnityEngine.SceneManagement;
 
 namespace BremseTouhou
 {
-    #region Funny Wheel
-    public partial class TouhouManager
-    {
-        [SerializeField] FunnyWheel wheel;
-        private void ResetWheel()
-        {
-            wheel.GameReset();
-        }
-    }
-    #endregion
     #region Boss Kill Sound
     public partial class TouhouManager
     {
@@ -122,33 +113,44 @@ namespace BremseTouhou
     public partial class TouhouManager
     {
         static int progress;
-        static Dictionary<int, System.Action> ProgressDictionary = new();
+        Dictionary<int, System.Action> ProgressDictionary = new();
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void ResetProgress()
         {
-            ProgressDictionary.Clear();
+            OnSetProgress = null;
             progress = 0;
         }
         public static void DefineProgressTree(int progress, System.Action action)
         {
-            if (!ProgressDictionary.ContainsKey(progress))
-                ProgressDictionary.Add(progress, action);
+            if (!instance.ProgressDictionary.ContainsKey(progress))
+                instance.ProgressDictionary.Add(progress, action);
             else
-                ProgressDictionary[progress] += action;
+                instance.ProgressDictionary[progress] += action;
         }
-        public static void MoveToNextProgress()
+        public static void MoveToGreatestProgress(int greatestProgress)
         {
-            if (!ProgressDictionary.ContainsKey(progress))
+            SetProgress(greatestProgress);
+        }
+        [QFSW.QC.Command("-set-progress")]
+        private static void SetProgress(int newProgress)
+        {
+            if (instance.ProgressDictionary.TryGetValue(newProgress, out Action action))
+            {
+                action?.Invoke();
+                OnSetProgress?.Invoke(progress);
+                progress = newProgress + 1;
+            }
+            else
             {
                 GameEnd();
                 return;
             }
-            ProgressDictionary[progress]?.Invoke();
-            progress += 1;
         }
-        public static void DefineNextProgress(System.Action action)
+        public delegate void StageProgressEvent(int progress);
+        public static StageProgressEvent OnSetProgress;
+        public static void MoveToNextProgress()
         {
-            DefineProgressTree(progress, action);
+            SetProgress(progress);
         }
     }
     #endregion
@@ -198,7 +200,6 @@ namespace BremseTouhou
             missCount = 0;
             PlayerUnit.SetLives(9);
             BaseUnit.Player.transform.position = (BaseUnit.Player.Origin);
-            instance.ResetWheel();
         }
         private static void SetActiveUI(GameObject ui)
         {
@@ -248,19 +249,20 @@ namespace BremseTouhou
         [SerializeField] GameObject MainMenuContainer;
         [SerializeField] GameObject leaderBoardContainer;
         GameObject lastUISelection;
-        HashSet<GameObject> spawnedBosses = new HashSet<GameObject>();
-        public static void AddBoss(GameObject boss)
+        HashSet<BaseUnit> spawnedBosses = new HashSet<BaseUnit>();
+        public static void AddBoss(BaseUnit boss)
         {
             instance.spawnedBosses.Add(boss);
         }
         public static void KillAllBosses()
         {
+            BaseUnit.KillSettings o = new(0);
+            o.BypassPhase = true;
             foreach (var item in instance.spawnedBosses)
             {
                 if (item != null)
                 {
-                    BossHealthbar.
-                    Destroy(item);
+                    item.ForceKill(o);
                 }
             }
         }
@@ -280,7 +282,6 @@ namespace BremseTouhou
             }
             instance = this;
             transform.SetParent(null);
-            DontDestroyOnLoad(gameObject);
             Time.maximumDeltaTime = 1f / 60f;
             Time.maximumParticleDeltaTime = 1f / 60f;
             QualitySettings.vSyncCount = 0;

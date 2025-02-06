@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 673
-    y: 1000
+    x: 570
+    y: 1050
     width: 350
     height: 200
   ID: 0cc3a3d7-0783-497f-8082-5d0272982e06
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 810
-    y: 495
+    x: 707
+    y: 545
     width: 350
     height: 150
   ID: 716e775a-c7aa-4174-b2f8-c7e55740ffde
@@ -70,8 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 662
-    y: 724
+    x: 559
+    y: 774
     width: 350
     height: 200
   ID: 1139b5dc-d150-4f88-9ffd-a77a2119fc07
@@ -101,16 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 200
-    y: 434
+    x: 97
+    y: 484
     width: 350
     height: 700
   ID: 5df7705d-5e2a-4e30-8b16-ca3eef567243
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -56
-    y: 464
+    x: -159
+    y: 514
     width: 250
     height: 250
   directionalOffset: 0.45
@@ -120,6 +120,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
+  FlareIndex: 1
   linkedProjectileEvents:
   - {fileID: 7622276712491956589}
   linkedProjectileMods: []
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1063
-    y: 717
+    x: 960
+    y: 767
     width: 350
     height: 200
   ID: 49c013ab-81cf-4abb-9397-97be916d86f4
@@ -261,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 809
-    y: 317
+    x: 706
+    y: 367
     width: 350
     height: 150
   ID: db10dfc8-7e3e-4992-9fe8-18ff20d9c6e3
@@ -286,8 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1066
-    y: 996
+    x: 963
+    y: 1046
     width: 350
     height: 200
   ID: d273dbee-c535-4c28-8d1a-f6791b0e4ef1
@@ -317,16 +318,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1674
-    y: 407
+    x: 1571
+    y: 457
     width: 350
     height: 700
   ID: ed143334-fcc3-4d16-b6b5-4edc80b54b5d
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1418
-    y: 437
+    x: 1315
+    y: 487
     width: 250
     height: 250
   directionalOffset: 0.45
@@ -336,6 +337,7 @@ MonoBehaviour:
   ReverseDirection: 0
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
+  FlareIndex: 1
   linkedProjectileEvents:
   - {fileID: 7622276712491956589}
   linkedProjectileMods: []
@@ -405,8 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 797
-    y: 121
+    x: 694
+    y: 171
     width: 350
     height: 100
   ID: 08d6cc89-86d3-4315-bb57-cd558ba66690

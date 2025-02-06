@@ -18,9 +18,18 @@ namespace BremseTouhou
         {
             if (unit == null && healthBar != null && healthBar.gameObject != null)
             {
+                Debug.Log("Tt2");
                 GameObject.Destroy(healthBar.gameObject);
             }
             healthBar.SetHealthUI(unit);
+        }
+        public void DestroyEntry()
+        {
+            if (healthBar != null)
+            {
+                Debug.Log("Tt 3 : " + unit.name);
+                GameObject.Destroy(healthBar.gameObject);
+            }
         }
     }
     #endregion
@@ -30,13 +39,13 @@ namespace BremseTouhou
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnBeforeSceneLoad()
         {
-            bossList = new();
+
         }
         static BossManager instance;
         [SerializeField] BossHealthbar healthbarPrefab;
         [SerializeField] BossPositionBar positionBarPrefab;
         [SerializeField] Transform healthbarSocket;
-        static List<BossEntry> bossList;
+        List<BossEntry> bossList = new();
         private void ProcessBossList(int tickIndex, float deltaTime)
         {
             for (int i = 0; i < bossList.Count; ++i)
@@ -73,7 +82,7 @@ namespace BremseTouhou
         public static bool Contains(BaseUnit boss)
         {
             #region Slow Search
-            foreach (var item in bossList)
+            foreach (var item in instance.bossList)
             {
                 if (item.unit == boss)
                     return true;
@@ -83,10 +92,12 @@ namespace BremseTouhou
         }
         public static void Bind(BaseUnit boss)
         {
+            Debug.Log("T1");
             if (Contains(boss))
             {
                 return;
             }
+            Debug.Log("TT1");
             BossEntry entry = new BossEntry();
             entry.unit = boss;
             entry.healthBar = Instantiate(instance.healthbarPrefab, instance.healthbarSocket);
@@ -94,15 +105,18 @@ namespace BremseTouhou
             positionBar.SetTrackedBoss(boss);
             entry.SetBossHealthUI();
 
-            bossList.Add(entry);
+            instance.bossList.Add(entry);
         }
         public static void Release(BaseUnit boss)
         {
-            for (int i = 0; i < bossList.Count; i++)
+            if (boss == null)
+                return;
+            for (int i = 0; i < instance.bossList.Count; i++)
             {
-                if (bossList[i] != null)
+                if (instance.bossList[i].unit == boss)
                 {
-                    bossList.RemoveAt(i);
+                    instance.bossList[i].DestroyEntry();
+                    instance.bossList.RemoveAt(i);
                     i--;
                 }
             }

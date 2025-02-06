@@ -34,7 +34,7 @@ namespace BremseTouhou
             {
                 eventTarget = target.Center;
             }
-            if (!owner.Active || !owner.Alive)
+            if (!owner.Alive)
             {
                 yield break;
             }

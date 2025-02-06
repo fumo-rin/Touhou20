@@ -62,7 +62,7 @@ namespace Core.Extensions
     [DefaultExecutionOrder(5)]
     public static partial class AudioEngine
     {
-        public static AudioMixerGroup RandomChannelsMixer { get; private set; }
+        public static AudioMixerGroup DynamicChannelsMixer { get; private set; }
         public static AudioMixerGroup SingleChannelsMixer { get; private set; }
         const string DynamicChannelsKey = "Dynamic Channels";
         const string SingleChannelsKey = "Single Channels";
@@ -112,10 +112,18 @@ namespace Core.Extensions
                     if (group == null)
                         continue;
 
-                    RandomChannelsMixer = group;
+                    DynamicChannelsMixer = group;
+                }
+                if (DynamicChannelsMixer == null)
+                {
+                    Debug.LogWarning("Failed to find Mixer group for Audio Engine / Random Channels. See AudioEngine.cs to find the addressables string key for RandomChannelsKey");
+                }
+                foreach (var channel in SoundStack)
+                {
+                    channel.outputAudioMixerGroup = DynamicChannelsMixer;
                 }
             }
-            void RandomChannelsSetup(IList<AudioMixerGroup> mixers)
+            void SingleChannelsSetup(IList<AudioMixerGroup> mixers)
             {
                 foreach (AudioMixerGroup group in mixers)
                 {
@@ -123,6 +131,10 @@ namespace Core.Extensions
                         continue;
 
                     SingleChannelsMixer = group;
+                }
+                if (SingleChannelsMixer == null)
+                {
+                    Debug.LogWarning("Failed to find Mixer group for Audio Engine / Target Channels. See AudioEngine.cs to find the addressables string key for TargetChannelsKey");
                 }
             }
             void SetupSources(IList<GameObject> sourceObjects)
@@ -147,20 +159,8 @@ namespace Core.Extensions
                 }
             }
             AddressablesTools.LoadKeys<AudioMixerGroup>(DynamicChannelsKey, DynamicsSetup);
-            AddressablesTools.LoadKeys<AudioMixerGroup>(SingleChannelsKey, RandomChannelsSetup);
+            AddressablesTools.LoadKeys<AudioMixerGroup>(SingleChannelsKey, SingleChannelsSetup);
             AddressablesTools.LoadKeys<GameObject>(AudioEngineAddressableKey, SetupSources);
-            if (RandomChannelsMixer == null)
-            {
-                Debug.LogWarning("Failed to find Mixer group for Audio Engine / Random Channels. See AudioEngine.cs to find the addressables string key for RandomChannelsKey");
-            }
-            if (SingleChannelsMixer == null)
-            {
-                Debug.LogWarning("Failed to find Mixer group for Audio Engine / Target Channels. See AudioEngine.cs to find the addressables string key for TargetChannelsKey");
-            }
-            foreach (var channel in SoundStack)
-            {
-                channel.outputAudioMixerGroup = RandomChannelsMixer;
-            }
         }
     }
 }

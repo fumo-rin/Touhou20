@@ -430,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHandler: {fileID: 3499684433431638726}
+  scaler: {fileID: 0}
   attackBaseDamage: 10
   projectileAttack: {fileID: 11400000, guid: b0a44e3cbbb2e0042a5943c7ca3fea62, type: 2}
   projectileSortingIndex: 0
@@ -521,9 +522,12 @@ MonoBehaviour:
   standardMotor: {fileID: 0}
   unitName: Bear
   MaxHealth: 1000
+  killSettings:
+    BulletCancelLootWeight: 256
+    SkipPhase: 0
+    ClearFactionProjectiles: 1
   targetBoxes:
   - {fileID: 4878940202612455719}
-  Active: 0
   unitCenterAnchor: {fileID: 8764145623622930894}
   UnitFaction: 0
   unitCollider: {fileID: 0}

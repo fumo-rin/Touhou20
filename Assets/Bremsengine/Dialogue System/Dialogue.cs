@@ -313,7 +313,7 @@ namespace Bremsengine
         {
             ContinuePressedTime = Time.time;
         }
-        public static void PressContinueInput(InputAction.CallbackContext _)
+        public static void PressContinueInput()
         {
             PressContinue();
         }
@@ -343,13 +343,6 @@ namespace Bremsengine
         public static bool IsDialogueRunning => ActiveDialogue != null;
         protected abstract void WhenStartDialogue(int progress);
         protected abstract void WhenEndDialogue(int dialogueEnding);
-        private void Update()
-        {
-            if (ContinuePressedTime + 0.35f < Time.time && Gamepad.current != null && Gamepad.current.buttonSouth.ReadValue() > 0.5f)
-            {
-                PressContinue();
-            }
-        }
         public static void BindRunner(DialogueRunner runner)
         {
             runnerInstance = runner;
@@ -372,13 +365,13 @@ namespace Bremsengine
         }
         public void ForceEndDialogue(int ending = 0)
         {
-            DialogueRunner.SetDialogueVisibility(false);
+            WhenEndDialogue(ending);
             if (activeDialogueRoutine != null)
             {
                 runnerInstance.StopCoroutine(activeDialogueRoutine);
                 activeDialogueRoutine = null;
             }
-            WhenEndDialogue(ending);
+            DialogueRunner.SetDialogueVisibility(false);
             ActiveDialogue = null;
         }
     }

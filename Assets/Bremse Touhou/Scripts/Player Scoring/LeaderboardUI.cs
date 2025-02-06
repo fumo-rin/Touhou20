@@ -69,7 +69,6 @@ namespace BremseTouhou
             {
                 for (int i = 0; i < entryTextObjects.Length && i < msg.Length; i++)
                 {
-                    Debug.Log("T");
                     entryTextObjects[i].text = msg[i].Username + " - " +msg[i].Score.ToString("F0");
                 }
             }));

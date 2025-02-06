@@ -25,7 +25,7 @@ namespace BremseTouhou
                     AttackPosition(owner.Center + Vector2.down);
                     return;
                 }
-                if (!owner.Active || !owner.Alive)
+                if (!owner.Alive)
                     return;
                 if (attack is IRetargetAttack r)
                 {

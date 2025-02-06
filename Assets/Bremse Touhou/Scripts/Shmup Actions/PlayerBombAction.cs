@@ -32,21 +32,15 @@ namespace BremseTouhou
         }
         private void Start()
         {
-            PlayerInputController.actions.Shmup.Bomb.performed += (InputAction.CallbackContext ctx) => { TriggerBomb(); };
-        }
-        private void Update()
-        {
-            if (Gamepad.current != null && Gamepad.current.buttonEast.ReadValue() > 0.5f)
-            {
-                TriggerBomb();
-            }
+            eventBus.BindAction(BremseInputPhase.JustPressed, TriggerBomb);
         }
         private void OnDestroy()
         {
-            PlayerInputController.actions.Shmup.Bomb.performed -= (InputAction.CallbackContext ctx) => { TriggerBomb(); };
+            eventBus.ReleaseAction(BremseInputPhase.JustPressed, TriggerBomb);
         }
         private void TriggerBomb()
         {
+            if (this == null) { return; }
             if (CanBomb)
             {
                 Projectile.PlayerTriggerBomb(bombLength, 2f,bombSound, bombSoundExplosion);

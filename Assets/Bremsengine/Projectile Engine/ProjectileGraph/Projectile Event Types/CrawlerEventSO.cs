@@ -44,6 +44,7 @@ namespace Bremsengine
             Repeats = EditorGUILayout.IntSlider("Repeats", Repeats, 1, 50);
             RepeatInterval = EditorGUILayout.Slider("Time Between Repeats", RepeatInterval, 0.1f, 5f);
             repeatAddedAngle = EditorGUILayout.Slider("Added Angle Per Iteration", repeatAddedAngle, -180f, 180f);
+            flareIndex = EditorGUILayout.IntField("Flare ID", flareIndex);
 
             if (EditorGUI.EndChangeCheck())
             {
@@ -75,6 +76,7 @@ namespace Bremsengine
         public int Repeats = 1;
         public float RepeatInterval = 0.5f;
         public BremseFaction Faction;
+        public int flareIndex;
 
         protected override void TriggerEvent(Projectile p, TriggeredEvent e)
         {
@@ -125,6 +127,7 @@ namespace Bremsengine
                     float speedMod = CurveValue(fanProgressionSpeed, progress);
                     direction.AddSpeedModifier(speedMod);
                     direction.AddAngle(iterationAddedAngle + repeatIterationAngle);
+                    direction.SetFlare(flareIndex);
                     iterationAddedAngle += AngleIncrement;
                     #endregion
 

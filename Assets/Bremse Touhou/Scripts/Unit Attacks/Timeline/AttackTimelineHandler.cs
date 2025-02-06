@@ -32,7 +32,7 @@ namespace BremseTouhou
                 {
                     continue;
                 }
-                if (!owner.Active || !owner.Alive)
+                if (!owner.Alive)
                 {
                     yield break;
                 }

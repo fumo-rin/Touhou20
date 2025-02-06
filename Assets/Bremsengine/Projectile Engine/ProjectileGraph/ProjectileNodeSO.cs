@@ -48,6 +48,8 @@ namespace Bremsengine
             speed = EditorGUILayout.Slider("Speed", speed, 0f, 35f);
             addedAngle = EditorGUILayout.Slider("Added Angle", addedAngle, -180f, 180f);
             ReverseDirection = EditorGUILayout.Toggle("Reverse Speed", ReverseDirection);
+            FlareIndex = EditorGUILayout.IntField("Flare ID", FlareIndex);
+
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(this);
@@ -130,6 +132,7 @@ namespace Bremsengine
         float Speed;
         float directionalOffset;
         float speedMod;
+        public int flareIndex { get; private set; }
         public bool ReverseSpeed;
         public ProjectileNodeDirection Clone()
         {
@@ -167,6 +170,12 @@ namespace Bremsengine
             this.directionalOffset = 0.25f;
             this.speedMod = 1f;
             this.ReverseSpeed = false;
+            this.flareIndex = 0;
+        }
+        public ProjectileNodeDirection SetFlare(int i)
+        {
+            this.flareIndex = i;
+            return this;
         }
         public ProjectileNodeDirection SetSpeed(float speed)
         {
@@ -226,6 +235,7 @@ namespace Bremsengine
     {
         public ProjectileTypeSO ProjectileType;
         public float spawnDelay;
+        public int FlareIndex = 0;
         public List<ProjectileEventSO> linkedProjectileEvents = new();
         public List<ProjectileMod> linkedProjectileMods = new();
         public abstract void Spawn(in List<Projectile> list, ProjectileGraphInput input, TriggeredEvent triggeredEvent);
@@ -271,6 +281,7 @@ namespace Bremsengine
             direction.AddAngle(addedAngle);
             direction.SetSpread(spread);
             direction.SetDirectionalOffset(directionalOffset);
+            direction.SetFlare(FlareIndex);
             Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(1f);
             return spawnProjectile;
         }

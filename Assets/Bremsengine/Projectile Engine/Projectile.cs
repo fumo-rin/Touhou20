@@ -185,6 +185,7 @@ namespace Bremsengine
             rb.linearVelocity = direction.VelocityDirection;
             transform.position += (Vector3)direction.DirectionalOffset;
             rotationAnchor.Lookat2D((Vector2)rotationAnchor.position + rb.linearVelocity);
+            BulletFlare.FlareAt(transform.position, direction.flareIndex);
             return this;
         }
         public Projectile LookAtVelocity()

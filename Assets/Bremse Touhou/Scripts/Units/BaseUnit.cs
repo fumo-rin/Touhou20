@@ -1,8 +1,11 @@
 using Bremsengine;
 using Core.Extensions;
+using JetBrains.Annotations;
+using NUnit.Framework.Internal.Commands;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
 
@@ -127,7 +130,7 @@ namespace BremseTouhou
         {
             ChangeHealth(-(damage.Absolute()));
         }
-        public void ChangeHealth(float delta, bool dropLoot = true)
+        public void ChangeHealth(float delta)
         {
             if (unitHealth <= 0f)
                 return;
@@ -137,33 +140,44 @@ namespace BremseTouhou
             RecalculateAttackHandlerState();
             if (unitHealth <= 0f)
             {
-                Kill(dropLoot);
+                Kill(killSettings);
             }
             OnHealthChange?.Invoke(this);
         }
-        public void SetNewHealth(float newHealth, float maxHealth, bool dropLoot = true)
+        public void SetNewHealth(float newHealth, float maxHealth, KillSettings? killOverride = null)
         {
+            bool wasAlive = Alive;
             this.MaxHealth = maxHealth;
             this.unitHealth = newHealth;
-            if (unitHealth <= 0f)
+            if (unitHealth <= 0f && wasAlive)
             {
-                Kill();
+                Kill(killOverride != null ? (KillSettings)killOverride : killSettings);
             }
             OnHealthChange?.Invoke(this);
             RecalculateAttackHandlerState();
         }
-        public void ForceKill()
+        public void ForceKill(KillSettings killOverride)
         {
-            SetNewHealth(0, MaxHealth, false);
+            SetNewHealth(0, MaxHealth, killOverride);
         }
-        public void SetActive(bool state)
+        [System.Serializable]
+        public struct KillSettings
         {
-            Active = state;
+            public bool DropLoot => BulletCancelLootWeight > Helper.SeededRandomInt256;
+            public KillSettings(int lootWeight)
+            {
+                this.BulletCancelLootWeight = lootWeight;
+                this.BypassPhase = false;
+                this.ClearFactionProjectiles = false;
+            }
+            [Range(0, 256)]
+            [SerializeField] int BulletCancelLootWeight;
+            public bool BypassPhase;
+            public bool ClearFactionProjectiles;
         }
-
-        private void Kill(bool dropScore = false)
+        private void Kill(KillSettings settings)
         {
-            if (phaseHandler != null)
+            if (phaseHandler != null && !settings.BypassPhase)
             {
                 SpellCardUI.CompleteSpell();
                 phaseHandler.SetNextPhase();
@@ -172,6 +186,7 @@ namespace BremseTouhou
                     if (gameObject != null)
                     {
                         gameObject.SetActive(false);
+                        BossManager.Release(this);
                         if (this is EnemyUnit enemy)
                         {
                             if (enemy.isBoss)
@@ -188,10 +203,15 @@ namespace BremseTouhou
                     SetNewHealth(newHealth, newHealth);
                 }
             }
+            else
+            {
+                gameObject.SetActive(false);
+                BossManager.Release(this);
+            }
             if (transform != null)
                 Projectile.ClearProjectileTimelineFor(transform);
 
-            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, dropScore ? PlayerScoring.SpawnPickup : null);
+            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, settings.DropLoot ? PlayerScoring.SpawnPickup : null);
         }
     }
     #endregion
@@ -202,6 +222,7 @@ namespace BremseTouhou
         public BaseUnit Target => target;
         public Transform TargetTransform => Target == null ? null : Target.transform;
         public bool HasTarget => Target != null;
+        [SerializeField] KillSettings killSettings;
         public BaseUnit SetTarget(BaseUnit t)
         {
             CancelLoseTarget();
@@ -260,6 +281,39 @@ namespace BremseTouhou
         }
     }
     #endregion
+    #region Stage Progress
+    public abstract partial class BaseUnit
+    {
+        int deleteOnProgress = -1;
+        public BaseUnit SetProgressDeletion(int progress)
+        {
+            deleteOnProgress = progress;
+            return this;
+        }
+        public bool ShouldProgressDelete(int progress)
+        {
+            return deleteOnProgress >= 0 && progress >= deleteOnProgress;
+        }
+        private void TryProgressDelete(int stageProgress)
+        {
+            if (Alive && ShouldProgressDelete(stageProgress))
+            {
+                Debug.Log("Progress Delete : " + ShouldProgressDelete(stageProgress));
+                KillSettings k = new(0);
+                k.BypassPhase = true;
+                ForceKill(k);
+            }
+        }
+        private void BindProgressDeleteEvent()
+        {
+            TouhouManager.OnSetProgress += TryProgressDelete;
+        }
+        private void ReleaseProgressDeleteEvent()
+        {
+            TouhouManager.OnSetProgress -= TryProgressDelete;
+        }
+    }
+    #endregion
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody2D))]
     [DefaultExecutionOrder(100)]
@@ -267,7 +321,6 @@ namespace BremseTouhou
     {
         public static BaseUnit Player;
         public bool Alive => CurrentHealth > 0f && gameObject.activeInHierarchy;
-        public bool Active;
         public static BaseUnit GameTarget => Player;
         [SerializeField] protected Transform unitCenterAnchor;
         public Vector2 Center => unitCenterAnchor == null ? (Vector2)transform.position + new Vector2(0f, 0.5f) : unitCenterAnchor.position;
@@ -298,11 +351,13 @@ namespace BremseTouhou
         {
             BindTargetBoxes();
             WhenStart();
+            BindProgressDeleteEvent();
         }
         private void OnDestroy()
         {
             ReleaseTargetBoxes();
             WhenDestroy();
+            ReleaseProgressDeleteEvent();
         }
         protected abstract void WhenDestroy();
         protected abstract void WhenStart();

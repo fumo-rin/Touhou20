@@ -64,7 +64,7 @@ namespace BremseTouhou
             {
                 if (!p.IsLastPhase() && phase.Unit != null)
                 {
-                    phase.Unit.ForceKill();
+                    phase.Unit.ForceKill(new BaseUnit.KillSettings(0));
                 }
             }
         }
