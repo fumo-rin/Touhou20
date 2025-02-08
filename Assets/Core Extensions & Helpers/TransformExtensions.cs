@@ -7,6 +7,15 @@ namespace Core.Extensions
 {
     public static partial class TransformExtensions
     {
+        /*public static Transform Rotate(this Transform t, float x, float y)
+        {
+            if (x == 0 && y == 0)
+                return t;
+            Quaternion r = t.rotation;
+            r *= Quaternion.Euler(y, x, 0);
+            t.rotation = r;
+            return t;
+        }*/
         public static Transform SetParentDecorator(this Transform t, Transform newParent)
         {
             t.SetParent(newParent);
