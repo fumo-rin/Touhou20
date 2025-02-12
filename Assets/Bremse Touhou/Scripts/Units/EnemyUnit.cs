@@ -62,6 +62,10 @@ namespace BremseTouhou
                     targetHandler.AssignTarget(u.transform);
                 }
             }
+            else
+            {
+                Debug.Log("Stage Target not found. some units might be missing a target");
+            }
         }
         public float lowHealth => MaxHealth * 0.15f;
         protected override void WhenStart()

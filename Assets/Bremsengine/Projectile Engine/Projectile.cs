@@ -1,4 +1,5 @@
 using Core.Extensions;
+using Mono.CSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -82,6 +83,50 @@ namespace Bremsengine
         Collider2D ignoredCollision;
     }
     #endregion
+    #region Sweeping
+    public partial class Projectile
+    {
+        public delegate void BulletSweep(Vector2 position);
+        public static BulletSweep OnSpawnSweep;
+        private static Projectile SweepRunner;
+        static List<Projectile> ToSweep = new();
+        public static float SweepTimeEnd { get; private set; }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeSweep()
+        {
+            SweepTimeEnd = 0f;
+            ToSweep.Clear();
+        }
+        private static void RunSweep(Projectile p)
+        {
+            if (SweepRunner != null && SweepRunner.Active)
+            {
+                return;
+            }
+            SweepRunner = p;
+            while (ToSweep.Count > 0)
+            {
+                if (ToSweep[0] == null || !ToSweep[0].Active)
+                {
+                    ToSweep.RemoveAt(0);
+                    continue;
+                }
+                OnSpawnSweep?.Invoke(ToSweep[0].Position);
+                ToSweep[0].ClearProjectile();
+                ToSweep.RemoveAt(0);
+                Debug.Log("T");
+            }
+        }
+        public static void SetSpawnSweepTime(float duration)
+        {
+            SweepTimeEnd = Time.time + duration;
+        }
+        private static void SpawnSweep(Vector2 position)
+        {
+            OnSpawnSweep?.Invoke(position);
+        }
+    }
+    #endregion
     #region Queue
     public partial class Projectile
     {
@@ -156,7 +201,10 @@ namespace Bremsengine
             projectile.SetProjectile(proj);
             projectile.NewSetDirection(direction);
             projectile.projectileID = GetBulletID;
-
+            if (Time.time < SweepTimeEnd)
+            {
+                ToSweep.Add(projectile);
+            }
             return projectile;
         }
     }
@@ -489,10 +537,10 @@ namespace Bremsengine
         }
         static float lastBombTime = -1f;
         static float playerIframesInSeconds;
-        public static void PlayerTriggerBomb(float bombLength, float explosionDelay, AudioClipWrapper bombSound ,AudioClipWrapper bombExplosion)
+        public static void PlayerTriggerBomb(float bombLength, float explosionDelay, AudioClipWrapper bombSound, AudioClipWrapper bombExplosion)
         {
             lastBombTime = Time.time;
-            GeneralManager.Instance.StartCoroutine(CO_BombClear(explosionDelay, bombSound,bombExplosion));
+            GeneralManager.Instance.StartCoroutine(CO_BombClear(explosionDelay, bombSound, bombExplosion));
         }
         static IEnumerator CO_BombClear(float delay, AudioClipWrapper bombSound, AudioClipWrapper bombExplosion)
         {
@@ -596,6 +644,7 @@ namespace Bremsengine
         }
         private void Update()
         {
+            RunSweep(this);
             RunMods();
         }
         public bool Contains(Vector2 position) => mainCollider.bounds.Contains(position);

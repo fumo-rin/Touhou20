@@ -56,6 +56,7 @@ namespace Bremsengine
             Vector2 center = new(worldBounds.center.x, worldBounds.max.y - maxDistanceToTop.Multiply(0.5f));
             return new(center, new(worldBounds.size.x, maxDistanceToTop));
         }
+        public static Vector2 CurrentCenter => worldBounds.center;
         public static Bounds GetPaddedBounds(float padding)
         {
             return new(worldBounds.center, new Vector2(worldBounds.size.x - padding.Multiply(2f), worldBounds.size.y - padding.Multiply(2f)));

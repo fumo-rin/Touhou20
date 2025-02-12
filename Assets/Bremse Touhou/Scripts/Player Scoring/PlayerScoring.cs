@@ -285,6 +285,7 @@ namespace BremseTouhou
         {
             GrazeBox.OnGraze += GrazeAction;
             SceneManager.activeSceneChanged += OnSceneChange;
+            Projectile.OnSpawnSweep += SpawnPickup;
             InitializeAutoLootWorldBounds();
         }
         private void OnEnable()
@@ -295,6 +296,7 @@ namespace BremseTouhou
         {
             GrazeBox.OnGraze -= GrazeAction;
             SceneManager.activeSceneChanged -= OnSceneChange;
+            Projectile.OnSpawnSweep -= SpawnPickup;
         }
         private void GrazeAction(int graze)
         {

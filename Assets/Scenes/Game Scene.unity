@@ -1188,6 +1188,10 @@ MonoBehaviour:
   boss1: {fileID: 8312179920446060853, guid: 61f55573718fd964ba180caa91f26f61, type: 3}
   boss2: {fileID: 8312179920446060853, guid: abb5df6045f13474bb267660f4c3b434, type: 3}
   boss3: {fileID: 8312179920446060853, guid: 22d929b9946a8584ab34f118fb204331, type: 3}
+  testStagePortion1: {fileID: 3695815941634364500, guid: 1ae3f21b4df66794194f7dbe2ffbef9a, type: 3}
+  testStagePortion2: {fileID: 3695815941634364500, guid: 1ae3f21b4df66794194f7dbe2ffbef9a, type: 3}
+  testStagePortion3: {fileID: 3695815941634364500, guid: 1ae3f21b4df66794194f7dbe2ffbef9a, type: 3}
+  stageMusic1: {fileID: 11400000, guid: f2dd9ca07732d9d4092a221f3d6a603b, type: 2}
 --- !u!1 &70541216
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,7 +9227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y

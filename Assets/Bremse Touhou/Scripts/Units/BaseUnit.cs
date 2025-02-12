@@ -163,13 +163,16 @@ namespace BremseTouhou
         [System.Serializable]
         public struct KillSettings
         {
-            public bool DropLoot => BulletCancelLootWeight > Helper.SeededRandomInt256;
+            public bool DropLoot => Helper.SeededRandomInt256 < BulletCancelLootWeight;
             public KillSettings(int lootWeight)
             {
                 this.BulletCancelLootWeight = lootWeight;
+                this.bulletSweepTimeDuration = 0f;
                 this.BypassPhase = false;
                 this.ClearFactionProjectiles = false;
             }
+            [Range(0f, 2f)]
+            public float bulletSweepTimeDuration;
             [Range(0, 256)]
             [SerializeField] int BulletCancelLootWeight;
             public bool BypassPhase;
@@ -211,7 +214,11 @@ namespace BremseTouhou
             if (transform != null)
                 Projectile.ClearProjectileTimelineFor(transform);
 
-            Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, settings.DropLoot ? PlayerScoring.SpawnPickup : null);
+            if (settings.ClearFactionProjectiles)
+            {
+                Projectile.SetSpawnSweepTime(settings.bulletSweepTimeDuration);
+                Projectile.ClearProjectilesOfFaction(BremseFaction.Enemy, settings.DropLoot ? PlayerScoring.SpawnPickup : null);
+            }
         }
     }
     #endregion

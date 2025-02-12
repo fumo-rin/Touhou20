@@ -282,7 +282,7 @@ namespace Bremsengine
             direction.SetSpread(spread);
             direction.SetDirectionalOffset(directionalOffset);
             direction.SetFlare(FlareIndex);
-            Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction).SetDamage(1f);
+            Projectile spawnProjectile = Projectile.NewCreateFromQueue(p, position, direction);
             return spawnProjectile;
         }
     }

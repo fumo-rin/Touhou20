@@ -77,6 +77,8 @@ namespace Bremsengine
         public bool HasPlayedEvent(Projectile p, ProjectileEventSO e)
         {
             // requires manually adding the event with RegisterEvent
+            if (p == null)
+                return false;
             if (!PlayedEvents.ContainsKey(p.projectileID))
             {
                 return false;

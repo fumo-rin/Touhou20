@@ -114,6 +114,7 @@ namespace BremseTouhou
     {
         static int progress;
         Dictionary<int, System.Action> ProgressDictionary = new();
+        Dictionary<int, float> ProgressDuration = new();
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void ResetProgress()
         {
@@ -131,6 +132,29 @@ namespace BremseTouhou
         {
             SetProgress(greatestProgress);
         }
+        public static void DefineProgressTreeDuration(int progress, float seconds)
+        {
+            instance.ProgressDuration[progress] = seconds;
+        }
+        public static bool TryGetProgressDuration(int progress, out float duration)
+        {
+            duration = 0f;
+            if (instance.ProgressDuration.ContainsKey(progress))
+            {
+                duration = instance.ProgressDuration[progress];
+                return true;
+            }
+            return false;
+        }
+        private static void MoveToNextProgressAfter(float seconds)
+        {
+            IEnumerator CO_WaitAndSetNextProgress(float seconds)
+            {
+                yield return new WaitForSeconds(seconds);
+                MoveToNextProgress();
+            }
+            instance.StartCoroutine(CO_WaitAndSetNextProgress(seconds));
+        }
         [QFSW.QC.Command("-set-progress")]
         private static void SetProgress(int newProgress)
         {
@@ -138,6 +162,10 @@ namespace BremseTouhou
             {
                 action?.Invoke();
                 OnSetProgress?.Invoke(progress);
+                if (TryGetProgressDuration(progress, out float duration))
+                {
+                    MoveToNextProgressAfter(duration);
+                }
                 progress = newProgress + 1;
             }
             else

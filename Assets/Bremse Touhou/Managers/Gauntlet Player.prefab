@@ -6891,7 +6891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbefb2af5f05da45857d57077bbeccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1500
+  power: 150
   ExternalDamageScale: 1
 --- !u!114 &181786792830691265
 MonoBehaviour:
@@ -6908,8 +6908,11 @@ MonoBehaviour:
   standardMotor: {fileID: 11400000, guid: ebd6399bce3fbe948b3a6d0a95de75eb, type: 2}
   unitName: Headhunter, Leather Belt
   MaxHealth: 1000
+  killSettings:
+    BulletCancelLootWeight: 0
+    BypassPhase: 0
+    ClearFactionProjectiles: 0
   targetBoxes: []
-  Active: 1
   unitCenterAnchor: {fileID: 1571843913613554111}
   UnitFaction: 1
   unitCollider: {fileID: 6094093426875161875}

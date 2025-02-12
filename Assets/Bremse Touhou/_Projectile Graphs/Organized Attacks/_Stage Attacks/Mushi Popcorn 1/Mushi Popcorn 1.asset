@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7752304942026819743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7d36bf68b62f143b680a0bb98e151f, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 543
+    y: 7
+    width: 350
+    height: 200
+  ID: 7ee6f584-e2cb-457f-b1e0-1b81503ba138
+  graph: {fileID: 11400000}
+  Active: 1
+  linkedNodes:
+  - {fileID: -1117526494892983801}
+  addedDelay: 0
+  Retargetting: 0
+  OffScreenClearEdgePadding: 0
+  linkedOverrideDirection: {fileID: 0}
+--- !u!114 &-1117526494892983801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b027baacf358b4f9e721cfe759a8f5, type: 3}
+  m_Name: Projectile Node
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 158
+    y: 73
+    width: 350
+    height: 700
+  ID: 7418c9ed-808e-4b7f-94f3-d267f48bad86
+  graph: {fileID: 11400000}
+  projectileImagePreview:
+    serializedVersion: 2
+    x: -98
+    y: 103
+    width: 250
+    height: 250
+  directionalOffset: 0.25
+  spread: 2.5
+  speed: 10
+  addedAngle: 0
+  ReverseDirection: 0
+  ProjectileType: {fileID: 11400000, guid: 3f5cfed7239165747add112a3370cecc, type: 2}
+  spawnDelay: 0
+  FlareIndex: 1
+  linkedProjectileEvents: []
+  linkedProjectileMods: []
+  projectileCountFloat: 7
+  AngleCoverage: 0
+  startingAngle: 0
+  RandomAngle: 0
+  arcProgressionSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3
+      inSlope: 0.7
+      outSlope: 0.7
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.7
+      outSlope: 0.7
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcProgressionAngleMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cacb08745deba4ba9d9efcc6dcb6c7, type: 3}
+  m_Name: Mushi Popcorn 1
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -7752304942026819743}
+  - {fileID: -1117526494892983801}
+  projectileGraphName: 
+  Developing: 0
+  nodes:
+  - {fileID: -1117526494892983801}
+  emitters:
+  - {fileID: -7752304942026819743}
+  modNodes: []
+  componentSelectors: []
+  GraphGlobalProjectileSpeed: 1
+  addedCooldown: 0.35
+  headerTexture: {fileID: 0}
+  previewLine: 0
+  connectingLineWidth: 3
