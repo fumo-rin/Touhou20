@@ -63,7 +63,7 @@ MonoBehaviour:
   FlareIndex: 1
   linkedProjectileEvents: []
   linkedProjectileMods: []
-  projectileCountFloat: 7
+  projectileCountFloat: 3
   AngleCoverage: 0
   startingAngle: 0
   RandomAngle: 0

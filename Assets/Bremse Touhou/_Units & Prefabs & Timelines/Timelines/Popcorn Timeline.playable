@@ -221,10 +221,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: RandomCircleTargetClip
   - m_Version: 1
-    m_Start: 4.45
+    m_Start: 3
     m_ClipIn: 0
     m_Asset: {fileID: -2775242928840347751}
-    m_Duration: 8.133333333333333
+    m_Duration: 9.583333333333332
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7570444528587269369}
     m_EaseInDuration: 0
