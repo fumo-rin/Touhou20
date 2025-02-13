@@ -41,7 +41,6 @@ namespace Bremsengine
     {
         private static Dictionary<string, ProjectileGraphSO> graphsCache;
         private static ProjectileGraphSO ActiveGraph;
-        private static string GraphsAddressablesKey = "Projectile Graph";
         [OnOpenAsset(0)]
         public static bool OnDoubleClickAsset(int instanceID, int line)
         {

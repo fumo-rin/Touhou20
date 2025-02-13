@@ -7,7 +7,7 @@ namespace Core.Extensions
     #region Helper
     public static partial class Helper
     {
-        public static Vector3 Offscreen => new(-1000f, -1000f, -1000f);
+
     }
     #endregion
     public static class VectorExtensions
