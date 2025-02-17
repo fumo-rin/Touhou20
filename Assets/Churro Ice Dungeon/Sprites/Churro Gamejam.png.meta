@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: bab9ee51e56077841869eccde175b349
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5798715566607855895
+    second: Churro Gamejam_0
+  - first:
+      213: 4972838772581801970
+    second: Churro Gamejam_1
+  - first:
+      213: 6070429955152490054
+    second: Churro Gamejam_2
+  - first:
+      213: -397329352837773407
+    second: Churro Gamejam_3
+  - first:
+      213: 9037188905041313250
+    second: Churro Gamejam_4
+  - first:
+      213: 7519334428451083900
+    second: Churro Gamejam_5
+  - first:
+      213: 1587764586157591448
+    second: Churro Gamejam_6
+  - first:
+      213: 2815870231598536156
+    second: Churro Gamejam_7
+  - first:
+      213: -320712264043762707
+    second: Churro Gamejam_8
+  - first:
+      213: -7938709376198881385
+    second: Churro Gamejam_9
+  - first:
+      213: 894877919339390141
+    second: Churro Gamejam_10
+  - first:
+      213: -3786624957817725669
+    second: Churro Gamejam_11
+  - first:
+      213: 6895789765264421487
+    second: Churro Gamejam_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Churro face 1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 402
+        width: 45
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711703db51d297050800000000000000
+      internalID: 5798715566607855895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Churro Head
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 378
+        width: 119
+        height: 128
+      alignment: 9
+      pivot: {x: 0.4711919, y: 0.30869746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e21c6b1ef7e3450800000000000000
+      internalID: 6070429955152490054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Churro Wings
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 155
+        width: 235
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edb6159d6b8a6d70800000000000000
+      internalID: 9037188905041313250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Churro Body
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 125
+        width: 159
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b4ed09a7fd80610800000000000000
+      internalID: 1587764586157591448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Churro Leg
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 76
+        width: 29
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5168857, y: 0.7863049}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d55abc9a4337bc0800000000000000
+      internalID: -3786624957817725669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Churro Arm
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 72
+        width: 39
+        height: 71
+      alignment: 9
+      pivot: {x: 0.81393117, y: 0.73452026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f623c5c8144c2bf50800000000000000
+      internalID: 6895789765264421487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e4b8e9bf2b8124a4f96a330b0176f5fe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Churro Arm: 6895789765264421487
+      Churro Body: 1587764586157591448
+      Churro Gamejam_1: 4972838772581801970
+      Churro Gamejam_10: 894877919339390141
+      Churro Gamejam_3: -397329352837773407
+      Churro Gamejam_5: 7519334428451083900
+      Churro Gamejam_7: 2815870231598536156
+      Churro Gamejam_8: -320712264043762707
+      Churro Gamejam_9: -7938709376198881385
+      Churro Head: 6070429955152490054
+      Churro Leg: -3786624957817725669
+      Churro Wings: 9037188905041313250
+      Churro face 1: 5798715566607855895
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
