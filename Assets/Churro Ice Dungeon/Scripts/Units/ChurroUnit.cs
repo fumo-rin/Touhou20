@@ -8,12 +8,84 @@ namespace ChurroIceDungeon
     #region Click Action
     public partial class ChurroUnit
     {
-        private void OnWorldClick(Vector2 position)
+        RaycastHit2D[] clickHit = new RaycastHit2D[25];
+        private void UpdateClickCast()
         {
-            Debug.DrawLine(position, UnitPosition, ColorHelper.PastelPurple, 1f);
-            if (attackHandler != null)
+            RaycastHit2D hit;
+            RenderTextureHoverTooltip tooltip = null;
+            clickHit = Physics2D.CircleCastAll(RenderTextureCursorHandler.CursorPosition, 1f, Vector2.up, 0f);
+            for (int i = 0; i < clickHit.Length; i++)
             {
-                ClickAttack(position);
+                hit = clickHit[i];
+                if (hit.transform == null)
+                    continue;
+
+                if (hit.transform.GetComponent<RenderTextureHoverTooltip>() is RenderTextureHoverTooltip t and not null)
+                {
+                    tooltip = t;
+                    t.Hover();
+                    break;
+                }
+            }
+            if (tooltip == null)
+            {
+                RenderTextureHoverTooltipUI.ClearTooltipText();
+            }
+        }
+        private void OnWorldClick(Vector2 position, PointerButton pressType)
+        {
+            clickHit = Physics2D.CircleCastAll(position, 1f, Vector2.up, 0f);
+            bool TryAction<T>(out T output) where T : Object
+            {
+                output = null;
+                if (position.SquareDistanceToGreaterThan(CurrentPosition, 3f))
+                {
+                    return false;
+                }
+                for (int i = 0; i < clickHit.Length; i++)
+                {
+                    if (clickHit[i].transform != null && clickHit[i].transform.GetComponent<T>() is T t and not null)
+                    {
+                        output = t;
+                        break;
+                    }
+                }
+                return output != null;
+            }
+            bool TryTalk(out Dialogue dialogue)
+            {
+                return TryAction(out dialogue);
+            }
+            bool TryRenderTextureClick(out RenderTextureClickAction clickAction)
+            {
+                return TryAction(out clickAction);
+            }
+            Debug.DrawLine(position, CurrentPosition, ColorHelper.PastelPurple, 1f);
+            switch (pressType)
+            {
+                case PointerButton.Left:
+                    if (TryTalk(out Dialogue d))
+                    {
+                        d.StartDialogue(0);
+                        return;
+                    }
+                    if (TryRenderTextureClick(out RenderTextureClickAction clickAction))
+                    {
+                        clickAction.ClickPayload();
+                        return;
+                    }
+                    if (attackHandler != null)
+                    {
+                        ClickAttack(position);
+                        return;
+                    }
+                    break;
+                case PointerButton.Right:
+                    break;
+                case PointerButton.Middle:
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -61,6 +133,7 @@ namespace ChurroIceDungeon
         {
             ReadInput(ref moveInput);
             MoveMotor(moveInput, out DungeonMotor.MotorOutput result);
+            UpdateClickCast();
         }
 
         protected override void WhenAwake()

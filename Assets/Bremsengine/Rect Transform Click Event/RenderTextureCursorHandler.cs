@@ -4,12 +4,18 @@ using UnityEngine.SceneManagement;
 
 namespace Bremsengine
 {
+    public enum PointerButton
+    {
+        Left,
+        Right,
+        Middle
+    }
     public class RenderTextureCursorHandler : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler
     {
         [SerializeField] RectTransform renderTexture;
         [SerializeField] Camera renderCamera;
 
-        public delegate void OnClick(Vector2 worldPosition);
+        public delegate void OnClick(Vector2 worldPosition, PointerButton pressType);
         public static event OnClick StaticRectWorldPositionClick;
         private static Vector2 lastCursorPosition;
         public static Vector2 CursorPosition => lastCursorPosition;
@@ -43,7 +49,21 @@ namespace Bremsengine
             if (RenderTextureContainsMousePosition(out Vector2 click, eventData, renderTexture))
             {
                 ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, renderCamera);
-                StaticRectWorldPositionClick?.Invoke(worldPosition);
+                PointerButton pressType = PointerButton.Left;
+                switch (eventData.button)
+                {
+                    case PointerEventData.InputButton.Left:
+                        break;
+                    case PointerEventData.InputButton.Right:
+                        pressType = PointerButton.Right;
+                        break;
+                    case PointerEventData.InputButton.Middle:
+                        pressType = PointerButton.Middle;
+                        break;
+                    default:
+                        break;
+                }
+                StaticRectWorldPositionClick?.Invoke(worldPosition, pressType);
             }
         }
         private void ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, Vector2 normalizedClick, Camera camera)

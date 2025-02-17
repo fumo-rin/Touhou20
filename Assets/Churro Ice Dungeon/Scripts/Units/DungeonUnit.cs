@@ -57,7 +57,7 @@ namespace ChurroIceDungeon
         [SerializeField] Rigidbody2D assignedRB;
         public Rigidbody2D RB => assignedRB;
         public static DungeonUnit Player { get; private set; }
-        public Vector2 UnitPosition => transform.position;
+        public Vector2 CurrentPosition => transform.position;
 
         protected abstract void WhenAwake();
         protected abstract void WhenDestroy();

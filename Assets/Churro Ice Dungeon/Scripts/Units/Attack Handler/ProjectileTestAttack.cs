@@ -15,7 +15,7 @@ namespace ChurroIceDungeon
             {
                 return;
             }
-            ChurroProjectile.InputSettings s = new(owner.UnitPosition, target - (Vector2)owner.UnitPosition);
+            ChurroProjectile.InputSettings s = new(owner.CurrentPosition, target - (Vector2)owner.CurrentPosition);
             ChurroProjectile.ArcSettings arc = new(-45f, 45f, 15f, 5f);
             ChurroProjectile.SingleSettings single = new(0f, 5f);
             s.OnSpawn += ProjectileSpawnCallback;

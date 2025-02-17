@@ -18,8 +18,19 @@ namespace BremseTouhou
         {
             RenderTextureCursorHandler.StaticRectWorldPositionClick -= OnWorldClick;
         }
-        private void OnWorldClick(Vector2 position)
+        private void OnWorldClick(Vector2 position, PointerButton pressType)
         {
+            switch (pressType)
+            {
+                case PointerButton.Left:
+                    break;
+                case PointerButton.Right:
+                    break;
+                case PointerButton.Middle:
+                    break;
+                default:
+                    break;
+            }
             Instantiate(spawnOnClick, position, Quaternion.identity);
         }
     }
