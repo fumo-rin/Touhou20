@@ -121,6 +121,7 @@ namespace ChurroIceDungeon
     {
         public static ChurroUnit PlayerChurro => (ChurroUnit)Player;
         public static bool DoesPlayerExist => PlayerChurro != null;
+        [SerializeField] Animator movementAnimator;
         Vector2 moveInput;
         private void ReadInput(ref Vector2 input)
         {
@@ -134,6 +135,19 @@ namespace ChurroIceDungeon
             ReadInput(ref moveInput);
             MoveMotor(moveInput, out DungeonMotor.MotorOutput result);
             UpdateClickCast();
+            if (result.Failed == false && movementAnimator != null)
+            {
+                float speed = RB.linearVelocity.magnitude;
+                movementAnimator.SetFloat("VELOCITY", speed);
+                if (moveInput != Vector2.zero && speed > 0.5f)
+                {
+                    DanceController.CancelDance(true);
+                }
+                else
+                {
+                    DanceController.CancelDance(false);
+                }
+            }
         }
 
         protected override void WhenAwake()
