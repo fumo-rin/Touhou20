@@ -7,7 +7,6 @@ namespace ChurroIceDungeon
     public class TopDownMotor : DungeonMotor
     {
         [SerializeField] float Acceleration = 25f;
-        [SerializeField] float MaxSpeed = 4f;
         [SerializeField] float Friction = 15f;
         public override void PerformMotor(DungeonUnit unit, Vector2 input, out MotorOutput result)
         {

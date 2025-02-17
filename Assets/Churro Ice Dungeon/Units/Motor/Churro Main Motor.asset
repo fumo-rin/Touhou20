@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf88e67c067cd02448658f24618c1bf1, type: 3}
   m_Name: Churro Main Motor
   m_EditorClassIdentifier: 
+  <MaxSpeed>k__BackingField: 4
   Acceleration: 45
-  MaxSpeed: 4
   Friction: 25

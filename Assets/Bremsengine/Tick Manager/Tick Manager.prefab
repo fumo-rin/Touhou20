@@ -48,4 +48,3 @@ MonoBehaviour:
   mainTickDuration: 0.05
   mainTickSO: {fileID: 11400000, guid: ee65d6162bab18a449b722c8e5875d94, type: 2}
   AITickTime: {fileID: 11400000, guid: 23c9ce97f90a53f4facc7dbc866a6266, type: 2}
-  WasAIThinkTickThisFrame: 0

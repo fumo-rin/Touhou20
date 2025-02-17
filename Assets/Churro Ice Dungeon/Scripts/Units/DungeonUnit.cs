@@ -1,4 +1,6 @@
 using Bremsengine;
+using Core.Extensions;
+using Pathfinding;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -51,6 +53,30 @@ namespace ChurroIceDungeon
         public abstract float DamageScale(float damage);
     }
     #endregion
+    #region Pathing
+    public abstract partial class DungeonUnit
+    {
+        [SerializeField] protected ChurroPather pather;
+        public void SetDestination(Vector2 target)
+        {
+            if (pather == null)
+                return;
+            pather.StartPathing(target);
+        }
+        public bool IsOnNavmesh(float scanSize = 2f)
+        {
+            return CheckNavmeshPosition(CurrentPosition);
+        }
+        public static bool CheckNavmeshPosition(Vector2 position, float scanSize = 2f)
+        {
+            if (((Vector2)(Vector3)AstarPath.active.GetNearest(position, NNConstraint.Walkable)).SquareDistanceToGreaterThan(position, scanSize))
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+    #endregion
     [SelectionBase]
     public abstract partial class DungeonUnit : MonoBehaviour
     {
@@ -69,6 +95,7 @@ namespace ChurroIceDungeon
                 Player = c;
                 FactionInterface.SetFaction(BremseFaction.Player);
             }
+            pather.ValidatePather(this);
             WhenAwake();
         }
         private void Start()

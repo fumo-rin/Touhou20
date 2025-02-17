@@ -5,6 +5,7 @@ namespace ChurroIceDungeon
 
     public abstract class DungeonMotor : ScriptableObject
     {
+        [field: SerializeField] public float MaxSpeed { get; protected set; }
         public struct MotorOutput
         {
             public float NextMoveTime;
