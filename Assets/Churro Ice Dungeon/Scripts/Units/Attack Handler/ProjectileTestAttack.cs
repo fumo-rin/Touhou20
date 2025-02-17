@@ -11,6 +11,10 @@ namespace ChurroIceDungeon
         [SerializeField] float baseDamage = 5f;
         private void PerformContainedAttack(Vector2 target)
         {
+            if (!gameObject.activeInHierarchy)
+            {
+                return;
+            }
             ChurroProjectile.InputSettings s = new(owner.UnitPosition, target - (Vector2)owner.UnitPosition);
             ChurroProjectile.ArcSettings arc = new(-45f, 45f, 15f, 5f);
             ChurroProjectile.SingleSettings single = new(0f, 5f);
@@ -24,6 +28,7 @@ namespace ChurroIceDungeon
         {
             p.Action_SetFaction(faction);
             p.Action_SetDamage(owner.DamageScale(baseDamage));
+            p.Action_SetSpriteLayerIndex(projectileLayerIndex);
         }
         private void Start()
         {

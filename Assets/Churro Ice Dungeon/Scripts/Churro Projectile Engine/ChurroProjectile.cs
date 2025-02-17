@@ -88,6 +88,10 @@ namespace ChurroIceDungeon
         {
             projectileSprite.sprite = s; return this;
         }
+        public ChurroProjectile Action_SetSpriteLayerIndex(int index)
+        {
+            projectileSprite.sortingOrder = index; return this;
+        }
         public ChurroProjectile Action_SetFaction(BremseFaction f)
         {
             this.Faction = f; return this;

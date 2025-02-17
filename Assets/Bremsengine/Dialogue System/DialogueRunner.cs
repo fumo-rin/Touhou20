@@ -60,10 +60,18 @@ namespace Bremsengine
         }
         private void Start()
         {
+            if (continueEvent == null)
+            {
+                return;
+            }
             continueEvent.BindAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
         }
         private void OnDestroy()
         {
+            if (continueEvent == null)
+            {
+                return;
+            }
             continueEvent.ReleaseAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
         }
     }

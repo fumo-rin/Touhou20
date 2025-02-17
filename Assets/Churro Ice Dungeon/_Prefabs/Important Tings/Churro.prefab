@@ -418,9 +418,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2536334871251253555}
   - {fileID: 8387565673252685537}
   - {fileID: 7286501775104534001}
+  - {fileID: 2536334871251253555}
   m_Father: {fileID: 367316601673975916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3490864562218149622
@@ -600,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 3571031585662387528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.379, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_StreamingVersion: 20230301
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 367316601673975916}
+    TrackingTarget: {fileID: 7286501775104534001}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:

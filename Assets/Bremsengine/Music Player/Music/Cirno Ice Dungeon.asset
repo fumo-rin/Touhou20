@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf88e67c067cd02448658f24618c1bf1, type: 3}
-  m_Name: Churro Main Motor
+  m_Script: {fileID: 11500000, guid: 307d317518e553d4e88fa23904ed6798, type: 3}
+  m_Name: Cirno Ice Dungeon
   m_EditorClassIdentifier: 
-  Acceleration: 45
-  MaxSpeed: 4
-  Friction: 25
+  TrackName: Churro Ice Dungeon
+  musicClip: {fileID: 8300000, guid: 27cc6eedae6c0ff47af2a408b5c21eb2, type: 3}
+  musicVolume: 0.7
