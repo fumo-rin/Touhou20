@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 2816653292322224787}
   - component: {fileID: 1474530179978423187}
   - component: {fileID: 5446593708055821190}
+  - component: {fileID: 2388212895686575041}
   m_Layer: 3
   m_Name: Churro
   m_TagString: Untagged
@@ -138,6 +139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMotor: {fileID: 11400000, guid: 7f13ccd773b76d24bb0a5b30619d077b, type: 2}
+  pather:
+    <seeker>k__BackingField: {fileID: 0}
+    patherRadius: 0.75
+    <rvo>k__BackingField: {fileID: 0}
+    collapseDistance: 0.8
   assignedRB: {fileID: 3235564999493768737}
   TestPower: 0
   attackHandler: {fileID: 7026621488142001106}
@@ -239,6 +245,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2388212895686575041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949694651144871677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a634230476dc478b88eceac73b1c8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1073741824
+  updateDistance: 10
+  target: {fileID: 367316601673975916}
+  graphIndex: 0
 --- !u!1 &1146360709315222248
 GameObject:
   m_ObjectHideFlags: 0

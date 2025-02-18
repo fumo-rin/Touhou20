@@ -34,8 +34,12 @@ namespace ChurroIceDungeon
             m.PerformMotor(this, input, out result);
             if (!result.Failed)
             {
-                nextMovetime = result.NextMoveTime;
+                SetNextMovetime(result.NextMoveTime);
             }
+        }
+        public void SetNextMovetime(float time)
+        {
+            nextMovetime = time;
         }
     }
     #endregion
@@ -59,13 +63,20 @@ namespace ChurroIceDungeon
         [SerializeField] protected ChurroPather pather;
         public void SetDestination(Vector2 target)
         {
-            if (pather == null)
+            if (pather == null || pather.isAwaitingPath)
                 return;
+
+            testVector = target;
             pather.StartPathing(target);
         }
-        public bool IsOnNavmesh(float scanSize = 2f)
+        [SerializeField] Vector2 testVector;
+        public bool NavmeshContains(float scanSize = 2f)
         {
-            return CheckNavmeshPosition(CurrentPosition);
+            return CheckNavmeshPosition(CurrentPosition, scanSize);
+        }
+        public bool NavmeshContains(Vector2 position, float scanSize = 2f)
+        {
+            return CheckNavmeshPosition(position, scanSize);
         }
         public static bool CheckNavmeshPosition(Vector2 position, float scanSize = 2f)
         {
@@ -84,12 +95,14 @@ namespace ChurroIceDungeon
         public Rigidbody2D RB => assignedRB;
         public static DungeonUnit Player { get; private set; }
         public Vector2 CurrentPosition => transform.position;
+        public Vector2 Origin { get; private set; }
 
         protected abstract void WhenAwake();
         protected abstract void WhenDestroy();
         protected abstract void WhenStart();
         private void Awake()
         {
+            Origin = transform.position;
             if (this is ChurroUnit c)
             {
                 Player = c;

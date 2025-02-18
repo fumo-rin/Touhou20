@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: ed534c9d8de8e324b876570abdad264d
   m_currentHash:
     serializedVersion: 2
-    Hash: 65953cb961ea8a821a34566f6529be4d
+    Hash: 8828692e2da0711701e5b0a72f6646ca
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
     - Single Channels
     - Projectile Types
     - Projectile Graph
+    - All Items
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3f7df906c1e29f34aa7bdfebec3afd69, type: 2}

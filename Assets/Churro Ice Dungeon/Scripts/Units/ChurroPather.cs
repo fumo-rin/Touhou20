@@ -1,6 +1,7 @@
 using Core.Extensions;
 using Pathfinding;
 using Pathfinding.RVO;
+using System;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -41,15 +42,28 @@ namespace ChurroIceDungeon
         [SerializeField] float patherRadius = 0.75f;
         Vector2 position => owner.CurrentPosition;
         private Vector2 CurrentDirection => GetPathDirection(this.path, this.owner.CurrentPosition);
-        public bool isAwaitingPath { get; set; }
+        public bool isAwaitingPath { get; private set; }
         DungeonUnit owner;
         public Path path { get; private set; }
         int currentWaypoint;
         [field: SerializeField] public RVOController rvo { get; private set; }
         [SerializeField] float collapseDistance = 0.8f;
         public bool HasPath => path != null && currentWaypoint < path.vectorPath.Count - 2;
+        private bool EndOfPath => path != null && !HasPath;
+        public delegate void PathReachEndAction();
+        /// <summary>
+        /// Sets to null every StartPathing Call.
+        /// Add stuff to this to trigger when reaching a natural end of a path. (cancelling or spam calling does not trigger OnReachPathEnd.)
+        /// </summary>
+        private PathReachEndAction OnReachPathEnd;
+        public void BindReachPathEndAction(PathReachEndAction a)
+        {
+            OnReachPathEnd += a;
+        }
         public void StartPathing(Vector2 target)
         {
+            OnReachPathEnd = null;
+            isAwaitingPath = true;
             pathBuilder.PathTo(seeker.transform.position, target);
         }
         public bool PerformPath(out Vector2 pathDirection)
@@ -66,6 +80,11 @@ namespace ChurroIceDungeon
             }
             Vector2 rvoVector = rvo.SolveRVO(CurrentDirection, owner.CollapseMotor().MaxSpeed);
             pathDirection = rvoVector;
+            if (EndOfPath)
+            {
+                Debug.Log("Invoking Reach End Of Path");
+                OnReachPathEnd?.Invoke();
+            }
             return true;
         }
         public void ValidatePather(DungeonUnit owner)
@@ -110,10 +129,6 @@ namespace ChurroIceDungeon
             SetAwaitingPath(false);
             if (p == null)
             {
-                if (path != null)
-                {
-                    Debug.Log("Clear Path");
-                }
                 path = null;
                 currentWaypoint = 0;
                 return;

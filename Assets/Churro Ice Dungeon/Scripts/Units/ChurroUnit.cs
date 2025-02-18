@@ -17,6 +17,8 @@ namespace ChurroIceDungeon
             for (int i = 0; i < clickHit.Length; i++)
             {
                 hit = clickHit[i];
+                if (hit.collider.isTrigger)
+                    continue;
                 if (hit.transform == null)
                     continue;
 
@@ -44,6 +46,8 @@ namespace ChurroIceDungeon
                 }
                 for (int i = 0; i < clickHit.Length; i++)
                 {
+                    if (clickHit[i].collider.isTrigger)
+                        continue;
                     if (clickHit[i].transform != null && clickHit[i].transform.GetComponent<T>() is T t and not null)
                     {
                         output = t;

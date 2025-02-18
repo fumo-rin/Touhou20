@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Packed Assets
   m_GUID: ed534c9d8de8e324b876570abdad264d
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 8a519cf3d8f83cb42880392c9a210d36
+    m_Address: Assets/Churro Ice Dungeon/Items
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - All Items
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a5958f7d4450adc468096f84921060ec, type: 2}
   m_SchemaSet:

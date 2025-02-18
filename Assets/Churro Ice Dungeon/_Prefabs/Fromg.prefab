@@ -103,8 +103,6 @@ GameObject:
   - component: {fileID: 7207817457340602978}
   - component: {fileID: 1258274552377654579}
   - component: {fileID: 3622405316709676049}
-  - component: {fileID: 6157087837146868476}
-  - component: {fileID: 3470603348467561139}
   - component: {fileID: 4211788963010812295}
   - component: {fileID: 5880320325002333572}
   - component: {fileID: 696080663385910975}
@@ -214,33 +212,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &6157087837146868476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8764235353865182344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cdf06a5ef9bc854aa4308398a06c4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1258274552377654579}
---- !u!114 &3470603348467561139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8764235353865182344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956a5e3e74a770d458917beb2d65e8f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltipHoverCollider: {fileID: 0}
-  TooltipText: Click to Freeze frog
 --- !u!114 &4211788963010812295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a8a1ce689bd2e42ad17d42a9093185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMotor: {fileID: 11400000, guid: 7f13ccd773b76d24bb0a5b30619d077b, type: 2}
+  unitMotor: {fileID: 11400000, guid: f9c976e2eea616746864dedeba77c087, type: 2}
   pather:
     <seeker>k__BackingField: {fileID: 5880320325002333572}
     patherRadius: 0.6
@@ -352,6 +323,8 @@ MonoBehaviour:
     collapseDistance: 0.8
   assignedRB: {fileID: 3622405316709676049}
   Power: 10
+  targetMemoryTime: 3
   targetBlockingLayer:
     serializedVersion: 2
     m_Bits: 9
+  targetVisionRange: 5
