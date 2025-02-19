@@ -10,45 +10,81 @@ namespace Bremsengine
         Right,
         Middle
     }
-    public class RenderTextureCursorHandler : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler
+    public class RenderTextureCursorHandler : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler, IPointerUpHandler
     {
         [SerializeField] RectTransform renderTexture;
         [SerializeField] Camera renderCamera;
 
         public delegate void OnClick(Vector2 worldPosition, PointerButton pressType);
-        public static event OnClick StaticRectWorldPositionClick;
+        public static event OnClick ClickDown;
+        public static event OnClick ClickUp;
+        static bool IsPressed;
         private static Vector2 lastCursorPosition;
+        static PointerEventData lastPointerData;
         public static Vector2 CursorPosition => lastCursorPosition;
         public static bool IsHovering { get; private set; }
         private void Start()
         {
             SceneManager.activeSceneChanged += (Scene s, Scene ss) => { renderCamera = Camera.main; };
         }
+        private void RebuildCurrentPosition()
+        {
+            if (lastPointerData == null)
+                return;
+            if (RenderTextureContainsMousePosition(out Vector2 click, lastPointerData, renderTexture))
+            {
+                ScaleRenderClickToCameraWorldPosition(out Vector2 w, click, Camera.main);
+                lastCursorPosition = w;
+            }
+        }
         private void OnDestroy()
         {
-            
+
+        }
+        private void Update()
+        {
+            RebuildCurrentPosition();
+        }
+        private void Awake()
+        {
+            IsPressed = false;
         }
         public void OnPointerMove(PointerEventData eventData)
         {
             if (RenderTextureContainsMousePosition(out Vector2 click, eventData, renderTexture))
             {
-                ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, renderCamera);
+                ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, Camera.main);
                 lastCursorPosition = worldPosition;
+                lastPointerData = eventData;
             }
         }
         public void OnPointerExit(PointerEventData eventData)
         {
             IsHovering = false;
+            if (IsPressed)
+            {
+                TriggerPressEvent(eventData, ClickUp);
+            }
         }
         public void OnPointerEnter(PointerEventData eventData)
         {
             IsHovering = true;
         }
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            TriggerPressEvent(eventData, ClickUp);
+            IsPressed = false;
+        }
         public void OnPointerDown(PointerEventData eventData)
+        {
+            TriggerPressEvent(eventData, ClickDown);
+            IsPressed = true;
+        }
+        private void TriggerPressEvent(PointerEventData eventData, OnClick action)
         {
             if (RenderTextureContainsMousePosition(out Vector2 click, eventData, renderTexture))
             {
-                ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, renderCamera);
+                ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, Camera.main);
                 PointerButton pressType = PointerButton.Left;
                 switch (eventData.button)
                 {
@@ -63,11 +99,15 @@ namespace Bremsengine
                     default:
                         break;
                 }
-                StaticRectWorldPositionClick?.Invoke(worldPosition, pressType);
+                action?.Invoke(worldPosition, pressType);
             }
         }
-        private void ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, Vector2 normalizedClick, Camera camera)
+        private void ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, Vector2 normalizedClick, Camera fallbackCamera)
         {
+            if (renderCamera == null)
+            {
+                renderCamera = fallbackCamera;
+            }
             Vector2 cameraSize = Vector2.zero;
             cameraSize.y = renderCamera.orthographicSize * 2f;
             cameraSize.x = cameraSize.y * renderCamera.aspect;
@@ -84,5 +124,6 @@ namespace Bremsengine
             normalizedPosition = Rect.PointToNormalized(rendererRect.rect, localPosition);
             return true;
         }
+
     }
 }

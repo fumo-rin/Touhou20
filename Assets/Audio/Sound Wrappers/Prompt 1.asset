@@ -21,4 +21,4 @@ MonoBehaviour:
     Volume: 1
     Muted: 0
   <singleChannel>k__BackingField: 0
-  <Is3D>k__BackingField: 0
+  <Is3D>k__BackingField: 1

@@ -100,6 +100,10 @@ namespace ChurroIceDungeon
         {
             this.ContainedDamage = newDamage; return this;
         }
+        public ChurroProjectile Action_SetOwnerReference(DungeonUnit owner)
+        {
+            this.Owner = owner; return this;
+        }
     }
     #endregion
     #region Spawning
@@ -236,8 +240,19 @@ namespace ChurroIceDungeon
                     if (collision.GetComponent<TargetBox>() is TargetBox box and not null)
                     {
                         box.SendDamageEvent(ContainedDamage, CurrentPosition);
+                        if (Owner != null && box.transform.root.GetComponent<EnemyUnit>() is EnemyUnit enemy and not null)
+                        {
+                            enemy.Alert(Owner);
+                        }
+                        ClearProjectile();
+                        return;
                     }
-                    ClearProjectile();
+                    if (collision.GetComponent<IDamageable>() is IDamageable d and not null)
+                    {
+                        d.Hurt(ContainedDamage, CurrentPosition);
+                        ClearProjectile();
+                        return;
+                    }
                     break;
                 default:
                     break;
@@ -273,6 +288,7 @@ namespace ChurroIceDungeon
         public SpriteRenderer projectileSprite;
         [field: SerializeField] public float offScreenClearDistance;
         [SerializeField] Rigidbody2D projectileRB;
+        public DungeonUnit Owner { get; private set; }
         public float ContainedDamage { get; private set; } = 1f;
         public Vector2 CurrentPosition => transform.position;
         public BremseFaction Faction { get; private set; } = BremseFaction.Enemy;

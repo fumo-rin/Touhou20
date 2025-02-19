@@ -5,6 +5,23 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Damageable
+    public partial class ChurroUnit
+    {
+        public override bool IsAlive()
+        {
+            return gameObject.activeInHierarchy && Health > 0f;
+        }
+
+        protected override void OnHurt(float damage, Vector2 damagePosition)
+        {
+            if (ChurroManager.CanRespawn)
+            {
+                ChurroManager.ChangeBraincells(ChurroManager.RespawnCost);
+            }
+        }
+    }
+    #endregion
     #region Click Action
     public partial class ChurroUnit
     {
@@ -32,6 +49,21 @@ namespace ChurroIceDungeon
             if (tooltip == null)
             {
                 RenderTextureHoverTooltipUI.ClearTooltipText();
+            }
+        }
+        private void OnWorldRelease(Vector2 position, PointerButton pressType)
+        {
+            switch (pressType)
+            {
+                case PointerButton.Left:
+                    attackPressed = false;
+                    break;
+                case PointerButton.Right:
+                    break;
+                case PointerButton.Middle:
+                    break;
+                default:
+                    break;
             }
         }
         private void OnWorldClick(Vector2 position, PointerButton pressType)
@@ -80,7 +112,7 @@ namespace ChurroIceDungeon
                     }
                     if (attackHandler != null)
                     {
-                        ClickAttack(position);
+                        attackPressed = true;
                         return;
                     }
                     break;
@@ -115,9 +147,19 @@ namespace ChurroIceDungeon
     public partial class ChurroUnit
     {
         public AttackHandler attackHandler;
-        public void ClickAttack(Vector2 worldPosition)
+        Vector2 cursorPosition => RenderTextureCursorHandler.CursorPosition;
+        bool IsHoveringGame => RenderTextureCursorHandler.IsHovering;
+        bool attackPressed;
+        public void Attack(Vector2 worldPosition)
         {
             attackHandler.TryAttack(worldPosition);
+        }
+        private void AttackLoop()
+        {
+            if (IsHoveringGame && attackPressed)
+            {
+                Attack(cursorPosition);
+            }
         }
     }
     #endregion
@@ -152,6 +194,7 @@ namespace ChurroIceDungeon
                     DanceController.CancelDance(false);
                 }
             }
+            AttackLoop();
         }
 
         protected override void WhenAwake()
@@ -161,12 +204,14 @@ namespace ChurroIceDungeon
 
         protected override void WhenDestroy()
         {
-            RenderTextureCursorHandler.StaticRectWorldPositionClick -= OnWorldClick;
+            RenderTextureCursorHandler.ClickDown -= OnWorldClick;
+            RenderTextureCursorHandler.ClickUp -= OnWorldRelease;
         }
 
         protected override void WhenStart()
         {
-            RenderTextureCursorHandler.StaticRectWorldPositionClick += OnWorldClick;
+            RenderTextureCursorHandler.ClickDown += OnWorldClick;
+            RenderTextureCursorHandler.ClickUp += OnWorldRelease;
         }
     }
 }

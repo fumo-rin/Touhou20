@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abee5e020f82a324c9c5eddf193b46b6, type: 3}
   m_Name: Empty Item
   m_EditorClassIdentifier: 
+  UseEvent:
+    EventKey: -1
   slotType: 0
   itemID: c3d12f0b-a6d4-4714-8d0d-6b3ff41c5dc4
   <itemSprite>k__BackingField: {fileID: 0}

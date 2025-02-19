@@ -26,7 +26,6 @@ namespace ChurroIceDungeon
         public bool IsEmpty()
         {
             bool empty = containedItem.containedData == null || containedItem.containedData.ID == inventory.EmptyItem.containedData.ID;
-            Debug.Log($"Is Empty Item ({SlotID}): " + containedItem.containedData.ID + " : " + (empty));
             return empty;
         }
         public void ClearItem()
@@ -37,7 +36,6 @@ namespace ChurroIceDungeon
         {
             InventoryItem newItem = (InventoryItem)item.Clone();
             containedItem = newItem;
-            Debug.Log($"Setting Slot ({SlotID}) : {item.containedData.ToString()}");
             SetItemSprite(newItem.containedData.itemSprite);
         }
         private void SetItemSprite(Sprite sprite)
@@ -104,6 +102,7 @@ namespace ChurroIceDungeon
 
                 CancelDrag();
             }
+
             private static void SwapSlotContents(ItemSlot startSlot, ItemSlot endSlot)
             {
                 if (startSlot.IsEmpty())
@@ -141,7 +140,7 @@ namespace ChurroIceDungeon
         }
     }
     #endregion
-    public partial class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+    public partial class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler
     {
         public static bool IsDragging => ActiveDrag.startSlot != null;
         [field: SerializeField] public int SlotID;
@@ -204,12 +203,18 @@ namespace ChurroIceDungeon
         }
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (eventData.button == PointerEventData.InputButton.Left)
+            /*if (eventData.button == PointerEventData.InputButton.Left)
             {
                 DropContainedItem();
+            }*/
+        }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (!IsDragging)
+            {
+                containedItem.containedData.UseItem();
             }
         }
-
         public void OnPointerUp(PointerEventData eventData)
         {
             if (ActiveDrag.IsDragging)

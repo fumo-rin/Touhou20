@@ -6,7 +6,115 @@ using UnityEngine;
 
 namespace Bremsengine
 {
-    #region Pause
+    #region Difficulty Multipliers
+    public partial class GeneralManager
+    {
+        public static Difficulty CurrentDifficulty { get; private set; } = Difficulty.Lunatic;
+        public enum Difficulty
+        {
+            Easy,
+            Normal,
+            Hard,
+            Lunatic
+        }
+        public static class DifficultyMultipliers
+        {
+            public enum Modifier
+            {
+                Damage,
+                Speed,
+                Density,
+                AttackDensity
+            }
+            public static float GetMultiplier(Modifier m, Difficulty d)
+            {
+                float multiplier = 1f;
+                switch (m)
+                {
+                    case Modifier.Damage:
+                        switch (d)
+                        {
+                            case Difficulty.Easy:
+                                multiplier = 0.35f;
+                                break;
+                            case Difficulty.Normal:
+                                multiplier = 0.75f;
+                                break;
+                            case Difficulty.Hard:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Lunatic:
+                                multiplier = 2f;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case Modifier.Speed:
+                        switch (d)
+                        {
+                            case Difficulty.Easy:
+                                multiplier = 0.65f;
+                                break;
+                            case Difficulty.Normal:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Hard:
+                                multiplier = 1.15f;
+                                break;
+                            case Difficulty.Lunatic:
+                                multiplier = 1.4f;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case Modifier.Density:
+                        switch (d)
+                        {
+                            case Difficulty.Easy:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Normal:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Hard:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Lunatic:
+                                multiplier = 2f;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case Modifier.AttackDensity:
+                        switch (d)
+                        {
+                            case Difficulty.Easy:
+                                multiplier = 0.25f;
+                                break;
+                            case Difficulty.Normal:
+                                multiplier = 0.65f;
+                                break;
+                            case Difficulty.Hard:
+                                multiplier = 1f;
+                                break;
+                            case Difficulty.Lunatic:
+                                multiplier = 2f;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return multiplier;
+            }
+        }
+    }
+    #endregion
     #region Funny Explosion
     public partial class GeneralManager
     {
@@ -19,6 +127,7 @@ namespace Bremsengine
         }
     }
     #endregion
+    #region Pause
     public partial class GeneralManager
     {
         public static bool IsPaused { get; private set; }
@@ -85,7 +194,7 @@ namespace Bremsengine
         public static bool IsScoreLegit()
         {
             float scoreAccuracy = HiddenScoreValidationSum / ScoreValidationMultiplier;
-            if (Mathf.Abs(scoreAccuracy - actualScore) < (actualScore * 0.05f)) 
+            if (Mathf.Abs(scoreAccuracy - actualScore) < (actualScore * 0.05f))
             {
                 return true;
             }

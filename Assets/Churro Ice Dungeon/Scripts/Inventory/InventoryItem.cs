@@ -1,14 +1,14 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
 {
     [System.Serializable]
-    public struct InventoryItem : ICloneable
+    public partial struct InventoryItem : ICloneable
     {
         public ItemData containedData;
         public float Power;
-
         public object Clone()
         {
             InventoryItem c = new();

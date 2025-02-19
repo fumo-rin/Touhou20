@@ -17,6 +17,7 @@ TagManager:
   - Pickups
   - TargetBox
   - Wheel
+  - Debris
   - 
   - 
   - 
@@ -34,8 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Terrain Collision
   - Unit Target Scanners
   m_SortingLayers:
   - name: Skybox
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: YSort
     uniqueID: 109278603
+    locked: 0
+  - name: Debris
+    uniqueID: 3765986321
     locked: 0
   - name: Boss
     uniqueID: 1539019409

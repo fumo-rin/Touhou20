@@ -82,7 +82,6 @@ namespace ChurroIceDungeon
             pathDirection = rvoVector;
             if (EndOfPath)
             {
-                Debug.Log("Invoking Reach End Of Path");
                 OnReachPathEnd?.Invoke();
             }
             return true;

@@ -11,8 +11,6 @@ namespace ChurroIceDungeon
                 return;
             if (collision.GetComponent<DungeonUnit>() is DungeonUnit unit && !unit.FactionInterface.IsFriendsWith(owner.Faction))
             {
-                Debug.Log("Owner :" + owner.FactionInterface.Faction.ToString());
-                Debug.Log("Other : " + unit.Faction.ToString());
                 owner.SetKnownTarget(unit);
             }
         }
@@ -20,7 +18,6 @@ namespace ChurroIceDungeon
         {
             if (!owner.HasTarget)
                 return;
-            Debug.Log(owner.FactionInterface.Faction.ToString());
             if (collision.GetComponent<DungeonUnit>() is DungeonUnit unit && !owner.FactionInterface.IsFriendsWith(unit.Faction))
             {
                 owner.ForgetTarget();

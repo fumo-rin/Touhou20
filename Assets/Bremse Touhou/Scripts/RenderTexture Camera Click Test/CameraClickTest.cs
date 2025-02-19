@@ -12,11 +12,11 @@ namespace BremseTouhou
         [SerializeField] GameObject spawnOnClick;
         private void Start()
         {
-            RenderTextureCursorHandler.StaticRectWorldPositionClick += OnWorldClick;
+            RenderTextureCursorHandler.ClickDown += OnWorldClick;
         }
         private void OnDestroy()
         {
-            RenderTextureCursorHandler.StaticRectWorldPositionClick -= OnWorldClick;
+            RenderTextureCursorHandler.ClickDown -= OnWorldClick;
         }
         private void OnWorldClick(Vector2 position, PointerButton pressType)
         {

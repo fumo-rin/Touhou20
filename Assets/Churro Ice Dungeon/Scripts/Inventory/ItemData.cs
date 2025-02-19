@@ -7,6 +7,65 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Item Event Keys
+    public enum ItemActionKey
+    {
+        None = -1,
+        Airhorn = 1,
+        Pipebomb = 2
+    }
+    #endregion
+    #region Item Events
+    public partial class ItemData
+    {
+        [SerializeField] ItemEvent UseEvent;
+        static Dictionary<int, Action> UseLookup;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeEvents()
+        {
+            UseLookup = new Dictionary<int, Action>();
+        }
+        public static void BindEvent(Action a, ItemActionKey key)
+        {
+            if (a == null)
+            {
+                return;
+            }
+            if (!UseLookup.ContainsKey((int)key))
+            {
+                UseLookup[(int)key] = null;
+            }
+            UseLookup[(int)key] += a;
+        }
+        public static void ReleaseEvent(Action a, ItemActionKey key)
+        {
+            if (a != null)
+            {
+                UseLookup[(int)key] -= a;
+            }
+        }
+        [System.Serializable]
+        public struct ItemEvent
+        {
+            public ItemActionKey EventKey;
+            public void TriggerEvent()
+            {
+                Debug.Log(EventKey);
+                if (UseLookup.ContainsKey((int)EventKey))
+                {
+                    UseLookup[(int)EventKey]?.Invoke();
+                }
+            }
+        }
+
+        public void UseItem()
+        {
+            if (UseEvent.EventKey == ItemActionKey.None)
+                return;
+            UseEvent.TriggerEvent();
+        }
+    }
+    #endregion
     #region Item Cache
     public partial class ItemData
     {

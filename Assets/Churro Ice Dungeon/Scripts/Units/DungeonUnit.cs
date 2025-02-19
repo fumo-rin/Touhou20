@@ -1,10 +1,49 @@
 using Bremsengine;
 using Core.Extensions;
 using Pathfinding;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Damageable
+    public partial class DungeonUnit : IDamageable
+    {
+        public abstract bool IsAlive();
+        protected IDamageable Damageable => (IDamageable)this;
+        float IDamageable.CurrentHealth { get; set; }
+        public float Health => Damageable.CurrentHealth;
+        void StartDamageable(float startingHealth)
+        {
+            Damageable.CurrentHealth = startingHealth;
+        }
+        void IDamageable.Hurt(float damage, Vector2 damagePosition)
+        {
+            OnHurt(damage, damagePosition);
+        }
+        protected abstract void OnHurt(float damage, Vector2 damagePosition);
+    }
+    #endregion
+    #region Targetbox Integration
+    public partial class DungeonUnit
+    {
+        [SerializeField] List<TargetBox> targetBoxes = new List<TargetBox>();
+        private void StartTargetBoxes()
+        {
+            foreach (var item in targetBoxes)
+            {
+                item.OnTakeDamage += Damageable.Hurt;
+            }
+        }
+        private void EndTargetBoxes()
+        {
+            foreach (var item in targetBoxes)
+            {
+                item.OnTakeDamage -= Damageable.Hurt;
+            }
+        }
+    }
+    #endregion
     #region Motor
     public partial class DungeonUnit
     {
@@ -93,6 +132,8 @@ namespace ChurroIceDungeon
     {
         [SerializeField] Rigidbody2D assignedRB;
         public Rigidbody2D RB => assignedRB;
+        [SerializeField] Transform ai_AimTransformOverride;
+        public Vector2 AimTarget => ai_AimTransformOverride == null ? CurrentPosition : ai_AimTransformOverride.position;
         public static DungeonUnit Player { get; private set; }
         public Vector2 CurrentPosition => transform.position;
         public Vector2 Origin { get; private set; }
@@ -100,8 +141,10 @@ namespace ChurroIceDungeon
         protected abstract void WhenAwake();
         protected abstract void WhenDestroy();
         protected abstract void WhenStart();
+        [SerializeField] float startingHealth = 100;
         private void Awake()
         {
+            StartDamageable(startingHealth);
             Origin = transform.position;
             if (this is ChurroUnit c)
             {
@@ -113,10 +156,12 @@ namespace ChurroIceDungeon
         }
         private void Start()
         {
+            StartTargetBoxes();
             WhenStart();
         }
         private void OnDestroy()
         {
+            EndTargetBoxes();
             WhenDestroy();
         }
     }

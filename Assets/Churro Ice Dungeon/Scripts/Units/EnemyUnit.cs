@@ -1,11 +1,102 @@
 using Bremsengine;
 using Core.Extensions;
 using System.Collections;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 namespace ChurroIceDungeon
 {
-    public class EnemyUnit : DungeonUnit
+    #region Attack
+    public partial class EnemyUnit
+    {
+        [SerializeField] float maxAttackDistance = 8f;
+        public bool CanSeeAttackTarget => canSeeTarget && scanTarget != null;
+        public void SetAttackDistance(float distance)
+        {
+            maxAttackDistance = distance;
+        }
+        public AttackHandler attackHandler;
+        public void TryAttack(Vector2 worldPosition)
+        {
+            if (attackHandler.TryAttack(worldPosition))
+            {
+                SetStallTime(attackHandler.settings.StallDuration);
+                attackHandler.settings.TriggerAttackTime();
+                StallEndTime = attackHandler.settings.NewStallTime;
+            }
+        }
+        private void AttackLoop()
+        {
+            if (CanSeeAttackTarget && scanTarget != null && targetDistance <= maxAttackDistance)
+            {
+                TryAttack(scanTarget.AimTarget);
+            }
+        }
+    }
+    #endregion
+    #region Strafe
+    public partial class EnemyUnit
+    {
+        [SerializeField] StrafeProfile strafeProfile;
+        float targetDistance;
+        float strafeFlipTime;
+        bool flipStrafe;
+        bool TryGetStrafeVector(out Vector2 strafe)
+        {
+            strafe = Vector2.zero;
+            if (strafeProfile == null)
+            {
+                return false;
+            }
+            if (ShouldStrafe)
+            {
+                pather.ClearPath();
+                DungeonUnit strafeTarget = scanTarget;
+                if (strafeProfile.TrySolveDistance(targetDistance, out StrafeProfile.Entry entry))
+                {
+                    if (Time.time >= strafeFlipTime)
+                    {
+                        flipStrafe = !flipStrafe;
+                        strafeFlipTime = Time.time + entry.strafeFlipTimeRange.RandomBetweenXY();
+                    }
+                    strafe = scanTarget.CurrentPosition - CurrentPosition;
+                    strafe = strafe.Rotate2D(flipStrafe ? -entry.strafeAngle : entry.strafeAngle);
+
+                }
+            }
+            strafe = strafe.normalized;
+            return strafe != Vector2.zero;
+        }
+    }
+    #endregion
+    #region Damageable
+    public partial class EnemyUnit
+    {
+        [SerializeField] DestructionItem OptionalDestructionItem;
+        public override bool IsAlive()
+        {
+            return gameObject.activeInHierarchy && Health > 0f;
+        }
+        protected override void OnHurt(float damage, Vector2 damagePosition)
+        {
+            if (!IsAlive())
+            {
+                return;
+            }
+            Damageable.CurrentHealth -= damage;
+            if (Damageable.CurrentHealth <= 0f)
+            {
+                if (OptionalDestructionItem != null && !OptionalDestructionItem.isDestroyed)
+                {
+                    OptionalDestructionItem.DestroyItem();
+                }
+                gameObject.SetActive(false);
+                GeneralManager.FunnyExplosion(damagePosition);
+            }
+        }
+    }
+    #endregion
+    public partial class EnemyUnit : DungeonUnit
     {
         [SerializeField] float Power = 0f;
         public override float DamageScale(float damage)
@@ -42,6 +133,20 @@ namespace ChurroIceDungeon
             }
             return false;
         }
+        public void Alert(DungeonUnit aggressor)
+        {
+            SetKnownTarget(aggressor);
+            if (pathingTarget != null)
+            {
+                return;
+            }
+            pathingTarget = aggressor;
+            loseTargetTime = targetMemoryTime + Time.time;
+            if (pather.HasPath)
+            {
+                pather.ClearPath();
+            }
+        }
         protected override void WhenAwake()
         {
             FactionInterface.SetFaction(BremseFaction.Enemy);
@@ -66,25 +171,38 @@ namespace ChurroIceDungeon
             TickManager.MainTickLightweight += Tick;
             StartPatrol(Origin, 5f);
         }
+        bool canSeeTarget = false;
+        DungeonUnit scanTarget = null;
+        public bool ShouldStrafe => canSeeTarget && scanTarget != null;
+        float StallEndTime;
+        public bool IsStalled => Time.time < StallEndTime;
+        public void SetStallTime(float relativeDelay)
+        {
+            StallEndTime = Time.time + relativeDelay;
+        }
         private void Tick()
         {
+            if (IsStalled)
+                return;
+            AttackLoop();
+
             if (gameObject.activeInHierarchy)
             {
-                bool hasFoundTarget = false;
-                DungeonUnit scanTarget = null;
                 if (KnownTarget != null)
                 {
-                    hasFoundTarget = FindTarget(KnownTarget.CurrentPosition, out scanTarget);
+                    canSeeTarget = FindTarget(KnownTarget.CurrentPosition, out scanTarget);
                 }
-                if (hasFoundTarget)
+                if (canSeeTarget)
                 {
                     loseTargetTime = Time.time + targetMemoryTime;
                     if (pathingTarget == null && KnownTarget != null)
                     {
-                        Debug.Log("Found Target : " + scanTarget.transform.name);
                         pathingTarget = scanTarget;
                     }
+                    targetDistance = scanTarget.CurrentPosition.DistanceTo(CurrentPosition);
+                    return;
                 }
+
                 if (pathingTarget != null && !pather.isAwaitingPath)
                 {
                     SetDestination(pathingTarget.CurrentPosition);
@@ -92,7 +210,6 @@ namespace ChurroIceDungeon
                 if (pathingTarget != null && Time.time > loseTargetTime)
                 {
                     pathingTarget = null;
-                    Debug.Log("Test");
                     pather.ClearPath();
                     SetDestination(Origin);
                     QueuePatrol();
@@ -105,12 +222,10 @@ namespace ChurroIceDungeon
         }
         public void QueuePatrol()
         {
-            Debug.Log("Queueing Patrol");
             pather.BindReachPathEndAction(QueuePatrolCoroutine);
         }
         private void QueuePatrolCoroutine()
         {
-            Debug.Log("Running Patrol Queue");
             StartPatrol(Origin, 5f);
         }
         private void StartPatrol(Vector2 target, float patrolRange)
@@ -149,7 +264,20 @@ namespace ChurroIceDungeon
         private void Update()
         {
             DungeonMotor.MotorOutput result = new();
-            if (pather.HasPath && pather.PerformPath(out Vector2 pathVector))
+            if (IsStalled)
+            {
+                MoveMotor(Vector2.zero, out result);
+                return;
+            }
+            bool strafeSuccess = TryGetStrafeVector(out Vector2 strafe);
+            if (strafeSuccess)
+            {
+                strafe = pather.rvo.SolveRVO(strafe, CollapseMotor().MaxSpeed);
+                MoveMotor(strafe, out result);
+                Debug.DrawLine(CurrentPosition, CurrentPosition + strafe, ColorHelper.DeepGreen, 0.1f);
+                return;
+            }
+            if (!strafeSuccess && pather.HasPath && pather.PerformPath(out Vector2 pathVector))
             {
                 MoveMotor(pathVector, out result);
                 return;
