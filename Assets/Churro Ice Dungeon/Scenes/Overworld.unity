@@ -1146,7 +1146,7 @@ MonoBehaviour:
   useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
-  owner: {fileID: 0}
+  <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
   attackSound: {fileID: 11400000, guid: 55ec0602485d61c47859cbc2e1a8ab95, type: 2}
   prefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
@@ -3197,7 +3197,7 @@ MonoBehaviour:
   useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
-  owner: {fileID: 0}
+  <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
   attackSound: {fileID: 11400000, guid: 55ec0602485d61c47859cbc2e1a8ab95, type: 2}
   prefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
@@ -5414,7 +5414,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1966905039
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -88165,7 +88165,7 @@ MonoBehaviour:
   useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
-  owner: {fileID: 0}
+  <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
   attackSound: {fileID: 11400000, guid: 55ec0602485d61c47859cbc2e1a8ab95, type: 2}
   prefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
@@ -89701,7 +89701,7 @@ MonoBehaviour:
   useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
-  owner: {fileID: 0}
+  <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
   attackSound: {fileID: 11400000, guid: 55ec0602485d61c47859cbc2e1a8ab95, type: 2}
   prefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
@@ -90081,7 +90081,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1966905039
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -1000
   m_Sprite: {fileID: 21300000, guid: 37e8f69e2c65c6047ae3b063a2e610a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -91255,7 +91255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 979419677807306385, guid: 8423ed7baf8c5a64e825f3a5583feec1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 979456703528233101, guid: 8423ed7baf8c5a64e825f3a5583feec1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -91873,6 +91873,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5034583624038534072, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034583624038534072, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034583624038534072, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5096209184516652355, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -91895,6 +91907,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5096209184516652355, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227353495231644718, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227353495231644718, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5445921645585522110, guid: ceea709a0d010a244bbbe3e6d88cb6d2, type: 3}
@@ -92111,22 +92131,6 @@ PrefabInstance:
     - target: {fileID: 949694651144871677, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
       propertyPath: m_Name
       value: Churro
-      objectReference: {fileID: 0}
-    - target: {fileID: 1089316484763324071, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494007474818909136, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7026621488142001106, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
-      propertyPath: <settings>k__BackingField.<StallDuration>k__BackingField
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7026621488142001106, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
-      propertyPath: <settings>k__BackingField.<SwingDuration>k__BackingField
-      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

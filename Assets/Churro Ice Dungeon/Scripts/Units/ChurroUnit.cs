@@ -212,6 +212,7 @@ namespace ChurroIceDungeon
         {
             RenderTextureCursorHandler.ClickDown += OnWorldClick;
             RenderTextureCursorHandler.ClickUp += OnWorldRelease;
+            RenderTextureCursorHandler.SetControllerReference(transform);
         }
     }
 }

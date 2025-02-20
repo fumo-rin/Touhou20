@@ -313,7 +313,7 @@ MonoBehaviour:
   useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
-  <owner>k__BackingField: {fileID: 0}
+  <owner>k__BackingField: {fileID: 2944422382187126942}
   handler: {fileID: 7026621488142001106}
   attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
   spinIncrement: -0.3

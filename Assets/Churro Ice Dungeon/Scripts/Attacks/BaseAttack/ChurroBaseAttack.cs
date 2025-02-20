@@ -19,8 +19,8 @@ namespace ChurroIceDungeon
         [SerializeField] int projectileLayerIndex = 100;
         [Header("Optional")]
         [field: SerializeField] protected DungeonUnit owner { get; private set; }
-        [SerializeField] AttackHandler handler;
-        [SerializeField] AudioClipWrapper attackSound;
+        [SerializeField] protected AttackHandler handler;
+        [SerializeField] protected AudioClipWrapper attackSound;
         private void PerformContainedAttack(Vector2 target)
         {
             if (!gameObject.activeInHierarchy)

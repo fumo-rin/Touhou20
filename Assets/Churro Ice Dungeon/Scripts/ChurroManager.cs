@@ -100,6 +100,7 @@ namespace ChurroIceDungeon
         }
         public static void AddDestruction(float value)
         {
+            Debug.Log(value);
             currentDestruction += value;
             RequestDestructionBarRefresh();
         }

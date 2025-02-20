@@ -18,6 +18,16 @@ namespace ChurroIceDungeon
                 this.Direction = direction;
                 this.OnSpawn = null;
             }
+            public InputSettings SetOrigin(Vector2 position)
+            {
+                Origin = position;
+                return this;
+            }
+            public InputSettings SetDirection(Vector2 direction)
+            {
+                Direction = direction;
+                return this;
+            }
             public Vector2 Origin { get; private set; }
             public Vector2 Direction { get; private set; }
             public ProjectileSpawnAction OnSpawn;

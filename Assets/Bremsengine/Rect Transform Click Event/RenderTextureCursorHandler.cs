@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Bremsengine
@@ -15,20 +17,55 @@ namespace Bremsengine
         [SerializeField] RectTransform renderTexture;
         [SerializeField] Camera renderCamera;
 
+        static Transform controllerReference;
+
         public delegate void OnClick(Vector2 worldPosition, PointerButton pressType);
         public static event OnClick ClickDown;
         public static event OnClick ClickUp;
         static bool IsPressed;
         private static Vector2 lastCursorWorldPosition;
         static PointerEventData lastPointerData;
+        Vector2 lastControllerInput;
         public static Vector2 CursorPosition => lastCursorWorldPosition;
         public static bool IsHovering { get; private set; }
         private void Start()
         {
             SceneManager.activeSceneChanged += (Scene s, Scene ss) => { renderCamera = Camera.main; };
         }
+        public static void SetControllerReference(Transform t)
+        {
+            controllerReference = t;
+        }
         private void RebuildCurrentPosition()
         {
+            bool TryReadRightStick(out Vector2 input)
+            {
+                input = Vector2.zero;
+                if (controllerReference != null && Gamepad.current != null)
+                {
+                    input = Gamepad.current.rightStick.ReadValue();
+                }
+                return input.magnitude >= 0.25f;
+            }
+
+            if (TryReadRightStick(out Vector2 stick))
+            {
+                IsHovering = true;
+                IsPressed = true;
+                stick = stick.normalized;
+                lastControllerInput = stick;
+                lastCursorWorldPosition = (Vector2)controllerReference.position + stick;
+                ClickDown.Invoke(lastCursorWorldPosition, PointerButton.Left);
+
+                return;
+            }
+            if (stick.magnitude < 0.25f && lastControllerInput.magnitude >= 0.25f)
+            {
+                IsPressed = false;
+                IsHovering = false;
+                ClickUp.Invoke((Vector2)controllerReference.position + lastControllerInput, PointerButton.Left);
+                return;
+            }
             if (lastPointerData == null)
                 return;
             if (RenderTextureContainsMousePosition(out Vector2 click, lastPointerData, renderTexture))
