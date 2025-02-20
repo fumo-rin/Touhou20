@@ -164,5 +164,6 @@ namespace ChurroIceDungeon
             EndTargetBoxes();
             WhenDestroy();
         }
+        public Collider2D[] AllColliders => transform.root.GetComponentsInChildren<Collider2D>();
     }
 }

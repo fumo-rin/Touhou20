@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 3640156111637370416, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
       propertyPath: 'testPlaylist.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4ca59e02b1a24184a884ece90b2ce097, type: 2}
+      objectReference: {fileID: 11400000, guid: ebed5bc3fa2613942b0e385c07383b4b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

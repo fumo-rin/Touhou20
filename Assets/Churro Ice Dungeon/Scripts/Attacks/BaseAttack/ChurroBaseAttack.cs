@@ -15,8 +15,11 @@ namespace ChurroIceDungeon
     #endregion
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
-        [SerializeField] DungeonUnit owner;
         [SerializeField] float baseDamage = 5f;
+        [SerializeField] int projectileLayerIndex = 100;
+        [Header("Optional")]
+        [field: SerializeField] protected DungeonUnit owner { get; private set; }
+        [SerializeField] AttackHandler handler;
         [SerializeField] AudioClipWrapper attackSound;
         private void PerformContainedAttack(Vector2 target)
         {
@@ -24,28 +27,39 @@ namespace ChurroIceDungeon
             {
                 return;
             }
-            ChurroProjectile.InputSettings s = new(owner.CurrentPosition, target - (Vector2)owner.CurrentPosition);
+            ChurroProjectile.InputSettings s = new(owner == null ? transform.position : owner.CurrentPosition, target - (owner == null ? transform.position : (Vector2)owner.CurrentPosition));
             s.OnSpawn += ProjectileSpawnCallback;
             attackSound.Play(transform.position);
             AttackPayload(s);
         }
+        public void ExternalForcedAttack()
+        {
+            PerformContainedAttack((Vector2)transform.position + Vector2.down);
+        }
         protected abstract void AttackPayload(ChurroProjectile.InputSettings input);
-        [SerializeField] int projectileLayerIndex = 100;
-        [SerializeField] AttackHandler handler;
         private void ProjectileSpawnCallback(ChurroProjectile p)
         {
-            p.Action_SetFaction(owner.Faction);
-            p.Action_SetDamage(owner.DamageScale(baseDamage));
+            if (owner != null)
+            {
+                p.Action_SetFaction(owner.Faction);
+                p.Action_SetDamage(owner.DamageScale(baseDamage));
+                p.Action_SetOwnerReference(owner);
+            }
+            else
+            {
+                p.Action_SetFaction(BremseFaction.None);
+                p.Action_SetDamage(baseDamage);
+                p.Action_SetOwnerReference(null);
+            }
             p.Action_SetSpriteLayerIndex(projectileLayerIndex);
-            p.Action_SetOwnerReference(owner);
         }
         private void Start()
         {
-            handler.OnAttack += PerformContainedAttack;
+            if (handler != null) handler.OnAttack += PerformContainedAttack;
         }
         private void OnDestroy()
         {
-            handler.OnAttack -= PerformContainedAttack;
+            if (handler != null) handler.OnAttack -= PerformContainedAttack;
         }
     }
 }

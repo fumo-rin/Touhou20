@@ -282,7 +282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5813511860586547654
 Transform:
   m_ObjectHideFlags: 0
@@ -311,13 +311,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useDifficultyModifiers: 0
-  owner: {fileID: 2944422382187126942}
   baseDamage: 5
-  attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
   projectileLayerIndex: 100
+  <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 7026621488142001106}
+  attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
   spinIncrement: -0.3
-  prefab: {fileID: 3506629886063210716, guid: 6241b2a604829ef4996f75bff4f65843, type: 3}
+  prefab: {fileID: 3506629886063210716, guid: 93da472129e72ca4aa9eaba906c9b822, type: 3}
 --- !u!1 &1146360709315222248
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &415344816554614884
 Transform:
   m_ObjectHideFlags: 0
@@ -692,11 +692,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useDifficultyModifiers: 0
-  owner: {fileID: 2944422382187126942}
   baseDamage: 5
-  attackSound: {fileID: 11400000, guid: a6895d9c4cfea2b40a99ae60e5dfeb26, type: 2}
   projectileLayerIndex: 100
+  <owner>k__BackingField: {fileID: 2944422382187126942}
   handler: {fileID: 7026621488142001106}
+  attackSound: {fileID: 11400000, guid: a6895d9c4cfea2b40a99ae60e5dfeb26, type: 2}
   arcIcicle: {fileID: 3506629886063210716, guid: 6241b2a604829ef4996f75bff4f65843, type: 3}
   bigIcicle: {fileID: 3955633436608116546, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
 --- !u!1 &3118046705297955535
@@ -1187,8 +1187,8 @@ MonoBehaviour:
   <settings>k__BackingField:
     SpreadVariation: 0
     <NextAttackTime>k__BackingField: 0
-    <SwingDuration>k__BackingField: 0.03
-    <StallDuration>k__BackingField: 0.03
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0.2
 --- !u!1 &3571031585662387528
 GameObject:
   m_ObjectHideFlags: 0

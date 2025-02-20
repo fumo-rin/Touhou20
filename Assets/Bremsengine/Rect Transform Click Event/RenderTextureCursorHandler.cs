@@ -19,9 +19,9 @@ namespace Bremsengine
         public static event OnClick ClickDown;
         public static event OnClick ClickUp;
         static bool IsPressed;
-        private static Vector2 lastCursorPosition;
+        private static Vector2 lastCursorWorldPosition;
         static PointerEventData lastPointerData;
-        public static Vector2 CursorPosition => lastCursorPosition;
+        public static Vector2 CursorPosition => lastCursorWorldPosition;
         public static bool IsHovering { get; private set; }
         private void Start()
         {
@@ -34,7 +34,7 @@ namespace Bremsengine
             if (RenderTextureContainsMousePosition(out Vector2 click, lastPointerData, renderTexture))
             {
                 ScaleRenderClickToCameraWorldPosition(out Vector2 w, click, Camera.main);
-                lastCursorPosition = w;
+                lastCursorWorldPosition = w;
             }
         }
         private void OnDestroy()
@@ -54,7 +54,7 @@ namespace Bremsengine
             if (RenderTextureContainsMousePosition(out Vector2 click, eventData, renderTexture))
             {
                 ScaleRenderClickToCameraWorldPosition(out Vector2 worldPosition, click, Camera.main);
-                lastCursorPosition = worldPosition;
+                lastCursorWorldPosition = worldPosition;
                 lastPointerData = eventData;
             }
         }
@@ -107,6 +107,11 @@ namespace Bremsengine
             if (renderCamera == null)
             {
                 renderCamera = fallbackCamera;
+            }
+            if (renderCamera == null)
+            {
+                worldPosition = lastCursorWorldPosition;
+                return;
             }
             Vector2 cameraSize = Vector2.zero;
             cameraSize.y = renderCamera.orthographicSize * 2f;

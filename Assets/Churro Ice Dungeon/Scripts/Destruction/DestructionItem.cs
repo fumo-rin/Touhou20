@@ -33,6 +33,7 @@ namespace ChurroIceDungeon
         [SerializeField] UnityEvent destroyEvent;
         [SerializeField] bool spawnExplosion = false;
         [SerializeField] DebrisPacket debrisOnDestroy;
+        [SerializeField] bool TestkillItem;
         public bool isDestroyed { get; private set; }
         private void Awake()
         {
@@ -44,11 +45,15 @@ namespace ChurroIceDungeon
             IEnumerator CO_DestroyAfter(float delay)
             {
                 yield return new WaitForSeconds(delay);
-                gameObject.SetActive(false);
+                if (TestkillItem)
+                {
+                    gameObject.SetActive(false);
+                }
 
             }
             if (gameObject.activeInHierarchy && !isDestroyed)
             {
+                destroyEvent?.Invoke();
                 isDestroyed = true;
                 if (destructionVisualDelay > 0f)
                 {
@@ -59,7 +64,6 @@ namespace ChurroIceDungeon
                     gameObject.SetActive(false);
                 }
                 ChurroManager.AddDestruction(destructionValue);
-                destroyEvent?.Invoke();
                 if (spawnExplosion)
                 {
                     GeneralManager.FunnyExplosion(transform.position);

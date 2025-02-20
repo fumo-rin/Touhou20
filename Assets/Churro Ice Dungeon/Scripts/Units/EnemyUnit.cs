@@ -105,6 +105,7 @@ namespace ChurroIceDungeon
         }
         DungeonUnit pathingTarget;
         DungeonUnit KnownTarget;
+        [SerializeField] bool isBoss;
         float loseTargetTime;
         [SerializeField] float targetMemoryTime = 3f;
         [SerializeField] LayerMask targetBlockingLayer;
@@ -165,11 +166,18 @@ namespace ChurroIceDungeon
         {
             KnownTarget = null;
         }
-
+        [SerializeField] float initialStallTime = 1f;
+        [SerializeField] AudioClipWrapper spawnSound;
         protected override void WhenStart()
         {
+            SetStallTime(initialStallTime);
+            spawnSound.Play(CurrentPosition);
             TickManager.MainTickLightweight += Tick;
             StartPatrol(Origin, 5f);
+            if (isBoss)
+            {
+                Bossbar.BindBar(this);
+            }
         }
         bool canSeeTarget = false;
         DungeonUnit scanTarget = null;

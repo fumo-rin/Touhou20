@@ -104,6 +104,15 @@ namespace ChurroIceDungeon
         {
             this.Owner = owner; return this;
         }
+        public ChurroProjectile Action_AddPosition(Vector2 direction)
+        {
+            transform.position = (Vector2)transform.position + (Vector2)direction;
+            return this;
+        }
+        public ChurroProjectile Action_SetBounceLives(int value)
+        {
+            BounceLives = value; return this;
+        }
     }
     #endregion
     #region Spawning
@@ -205,11 +214,25 @@ namespace ChurroIceDungeon
     #region Pooling (for now no pooling lemao)
     public partial class ChurroProjectile
     {
-        public void ClearProjectile()
+        public void ClearProjectile(int bounceCost = 1)
         {
-            if (gameObject != null)
+            void Local_Destroy()
             {
-                Destroy(gameObject);
+                if (gameObject != null)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            if (BounceLives <= -1)
+            {
+                Local_Destroy();
+                return;
+            }
+            BounceLives -= bounceCost.Abs();
+            if (BounceLives <= 0)
+            {
+                Local_Destroy();
+                return;
             }
         }
     }
@@ -284,6 +307,8 @@ namespace ChurroIceDungeon
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class ChurroProjectile : MonoBehaviour
     {
+        public Collider2D ProjectileCollider { get; private set; }
+        public int BounceLives { get; private set; }
         public Vector2 CurrentVelocity { get; private set; }
         public SpriteRenderer projectileSprite;
         [field: SerializeField] public float offScreenClearDistance;
@@ -297,6 +322,11 @@ namespace ChurroIceDungeon
         private void Update()
         {
             ChurroProjectileOffscreen.SetRunnerIfNoneExists(this);
+        }
+        private void Awake()
+        {
+            ProjectileCollider = GetComponent<Collider2D>();
+            BounceLives = 0;
         }
         private void LateUpdate()
         {
