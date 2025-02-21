@@ -27,7 +27,7 @@ namespace ChurroIceDungeon
         }
         private void AttackLoop()
         {
-            if (CanSeeAttackTarget && scanTarget != null && targetDistance <= maxAttackDistance)
+            if (CanSeeAttackTarget && scanTarget != null && scanTarget.IsAlive() && targetDistance <= maxAttackDistance)
             {
                 TryAttack(scanTarget.AimTarget);
             }
@@ -91,7 +91,6 @@ namespace ChurroIceDungeon
                     OptionalDestructionItem.DestroyItem();
                 }
                 gameObject.SetActive(false);
-                GeneralManager.FunnyExplosion(damagePosition);
             }
         }
     }
@@ -174,6 +173,11 @@ namespace ChurroIceDungeon
             spawnSound.Play(CurrentPosition);
             TickManager.MainTickLightweight += Tick;
             StartPatrol(Origin, 5f);
+            if (ChurroManager.HardMode && attackHandler != null)
+            {
+                attackHandler.settings.SetStallDuration(attackHandler.settings.StallDuration * 0.66f);
+                attackHandler.settings.SetSwingDuration(attackHandler.settings.SwingDuration * 0.66f);
+            }
             if (isBoss)
             {
                 Bossbar.BindBar(this);
@@ -181,7 +185,7 @@ namespace ChurroIceDungeon
         }
         bool canSeeTarget = false;
         DungeonUnit scanTarget = null;
-        public bool ShouldStrafe => canSeeTarget && scanTarget != null;
+        public bool ShouldStrafe => canSeeTarget && scanTarget != null && scanTarget.IsAlive();
         float StallEndTime;
         public bool IsStalled => Time.time < StallEndTime;
         public void SetStallTime(float relativeDelay)
@@ -215,7 +219,7 @@ namespace ChurroIceDungeon
                 {
                     SetDestination(pathingTarget.CurrentPosition);
                 }
-                if (pathingTarget != null && Time.time > loseTargetTime)
+                else if (pathingTarget != null && Time.time > loseTargetTime)
                 {
                     pathingTarget = null;
                     pather.ClearPath();

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Bremsengine
     public class SpriteMaterialQueue : MonoBehaviour
     {
         [field: SerializeField] public SpriteRenderer SR { get; private set; }
+        [SerializeField] List<SpriteRenderer> renderers = new();
         public Material StandardMaterial { get; private set; }
         static Coroutine activeroutine;
         [SerializeField] Material flashMaterial;
@@ -19,25 +21,35 @@ namespace Bremsengine
             SR.sharedMaterial = StandardMaterial;
             if (activeroutine != null)
             {
+                SetRendererMaterial(StandardMaterial);
                 StopCoroutine(activeroutine);
             }
             activeroutine = StartCoroutine(CO_FlashMaterial(flashMaterial, duration, flashInterval));
         }
+        void SetRendererMaterial(Material m)
+        {
+            if (SR != null)
+            {
+                SR.sharedMaterial = m;
+            }
+            foreach (var r in renderers)
+            {
+                if (r == null)
+                    continue;
+                r.sharedMaterial = m;
+            }
+        }
         public IEnumerator CO_FlashMaterial(Material flashMaterial, float duration, float flashInterval)
         {
-            SR.sharedMaterial = StandardMaterial;
+            SetRendererMaterial(StandardMaterial);
             float endTime = Time.time + duration;
             while (Time.time < endTime)
             {
                 Material determinedMaterial = SR.sharedMaterial != flashMaterial ? flashMaterial : StandardMaterial;
-                SR.sharedMaterial = determinedMaterial;
+                SetRendererMaterial(determinedMaterial);
                 yield return new WaitForSeconds(flashInterval);
             }
-            TriggerOnComplete();
-        }
-        public void TriggerOnComplete()
-        {
-            SR.sharedMaterial = StandardMaterial;
+            SetRendererMaterial(StandardMaterial);
         }
     }
 }

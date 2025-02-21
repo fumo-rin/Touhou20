@@ -10,13 +10,13 @@ namespace ChurroIceDungeon
         [SerializeField] float Acceleration = 25f;
         [Range(0f, 100f)]
         [SerializeField] float Friction = 15f;
-        public override void PerformMotor(DungeonUnit unit, Vector2 input, out MotorOutput result)
+        public override void PerformMotor(DungeonUnit unit, Vector2 input, Settings settings, out MotorOutput result)
         {
             result = new MotorOutput();
             result.NextMoveTime = Time.time;
             result.Failed = false;
 
-            float finalSpeed = MaxSpeed;
+            float finalSpeed = MaxSpeed * settings.SpeedMod;
 
             if (input != Vector2.zero)
             {
@@ -25,7 +25,7 @@ namespace ChurroIceDungeon
                     unit.RB.linearVelocity = input.Clamp(0f, 1f) * finalSpeed;
                     return;
                 }
-                unit.RB.VelocityTowards(input.Clamp(0f, 1f) * finalSpeed, Acceleration);
+                unit.RB.VelocityTowards(input.Clamp(0f, 1f) * finalSpeed, Acceleration * settings.AccelerationMod);
             }
             else
             {
@@ -34,7 +34,7 @@ namespace ChurroIceDungeon
                     unit.RB.linearVelocity = Vector2.zero;
                     return;
                 }
-                unit.RB.VelocityTowards(Vector2.zero, Friction);
+                unit.RB.VelocityTowards(Vector2.zero, Friction * settings.FrictionMod);
             }
         }
     }

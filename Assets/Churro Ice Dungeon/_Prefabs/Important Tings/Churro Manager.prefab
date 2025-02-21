@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3075280338341435065}
   - component: {fileID: 7065304569373134874}
+  - component: {fileID: 5379166209519119599}
   m_Layer: 0
   m_Name: Churro Manager
   m_TagString: Untagged
@@ -44,4 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf74d41cf5bb25841b2a4655d28893f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenuSceneString: Tewis Pipebomb Room
   debrisPrefab: {fileID: 7181987044550962279, guid: 6b8a1218bf8273c4ab4e4eef524b2e6d, type: 3}
+--- !u!114 &5379166209519119599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363711290473915322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f49d8f9b05270458095873db47163b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stages:
+  - name: Overworld
+    stageMusic: {fileID: 11400000, guid: 4ca59e02b1a24184a884ece90b2ce097, type: 2}
+  - name: Okuu
+    stageMusic: {fileID: 11400000, guid: 7a954db222afa0440b0df4eb8e1e778b, type: 2}
+  - name: Yukari
+    stageMusic: {fileID: 11400000, guid: 56b1bc071a534ea4fa4058b5dff553ca, type: 2}

@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Churro Ice Dungeon/Scenes/Churro Main Menu.unity
+    guid: 8cdac9439b4c6aa44a46d05687f098af
   - enabled: 1
     path: Assets/Churro Ice Dungeon/Scenes/Overworld.unity
     guid: 62d12823e0d05a443902abe2ffc73f9e
+  - enabled: 1
+    path: Assets/Churro Ice Dungeon/Scenes/Okuu.unity
+    guid: 26d19386deebf8c419814995e45e9cc2
+  - enabled: 1
+    path: Assets/Churro Ice Dungeon/Scenes/Yukari.unity
+    guid: 28f49d9ae7ef6084d90e76375f28076a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9c3c8e57282d16d4f954e677d178b388, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 2673492be3b6c7e4ebb1564b146f203d, type: 2}

@@ -19,7 +19,7 @@ namespace ChurroIceDungeon
         [SerializeField] float timePerShot = 0.04f;
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
-            WaitForSeconds bowapStall = new(timePerShot);
+            WaitForSeconds bowapStall = new(timePerShot * (Hardmode ? 0.8f : 1f));
             List<ChurroProjectile> spawnIteration = new();
             IEnumerator CO_Yukari()
             {
@@ -33,18 +33,23 @@ namespace ChurroIceDungeon
                         e.SetStallTime(handler.settings.StallDuration);
                     }
                 }
-                float speedMod = 0.35f;
+                float speedMod = Hardmode ? 0.50f : 0.35f;
                 float elapsedTime = 0f;
                 while (attackOwner.IsAlive() && elapsedTime < attackLength)
                 {
-                    Debug.Log($"elapsed {elapsedTime.ToString("F1")} : length {attackLength.ToString("F1")}");
                     elapsedTime += timePerShot;
-                    speedMod *= (1f + (timePerShot*0.3f));
-                    spin += (spinIncrement * spinDex);
+                    speedMod = speedMod.MoveTowards(1f, timePerShot * 0.3f);
+                    spin += (spinIncrement.Multiply(Hardmode ? 0.8f : 1f) * spinDex);
                     //spin += Mathf.Sin(Time.deltaTime * 30f) + -3f;
                     spin = spin % 360f;
                     spinDex++;
-                    ChurroProjectile.ArcSettings bowap = new(0f + spin, 360f + spin, 360f / 5f, 5f * speedMod.Min(1f) * (elapsedTime / attackLength * 2f).Max(1f));
+                    ChurroProjectile.ArcSettings bowap = new(0f + spin, 360f + spin, 360f / 5f, 5f * speedMod * (elapsedTime * 1f).Clamp(1, Hardmode ? 1.4f : 1.2f));
+                    if (!ChurroManager.HardMode)
+                    {
+                        bowap = bowap * 0.666f;
+                        bowap = bowap.Speed(0.5f);
+                    }
+
                     input.SetOrigin(attackOwner.CurrentPosition);
                     spawnIteration = ChurroProjectile.SpawnArc(bowapProjectile, input, bowap);
                     foreach (ChurroProjectile p in spawnIteration)

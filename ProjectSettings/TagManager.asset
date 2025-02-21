@@ -16,8 +16,9 @@ TagManager:
   - Room Constraints
   - Pickups
   - TargetBox
-  - Wheel
+  - 
   - Debris
+  - Destructables
   - 
   - 
   - 
@@ -34,8 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - Terrain Collision
+  - PLAYERTERRAINCOLLISION
   - Unit Target Scanners
   m_SortingLayers:
   - name: Skybox

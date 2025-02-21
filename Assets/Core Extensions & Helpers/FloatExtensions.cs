@@ -8,10 +8,6 @@ namespace Core.Extensions
     public static class FloatExtensions
     {
         public static readonly float Percent = 0.01f;
-        public static float MoveTowards(this float f, float target, float delta)
-        {
-            return Mathf.MoveTowards(f, target, delta * Time.deltaTime);
-        }
         public static float LerpTime(this float f, float target, float delta)
         {
             return Mathf.Lerp(f, target, delta * Time.deltaTime);
@@ -170,6 +166,10 @@ namespace Core.Extensions
         public static float Duration(this AnimationCurve c)
         {
             return c.keys[c.length - 1].time;
+        }
+        public static float MoveTowards(this float f, float other, float step)
+        {
+            return Mathf.MoveTowards(f, other, step);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Bremsengine;
 using Core.Extensions;
 using Core.Input;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -8,16 +9,31 @@ namespace ChurroIceDungeon
     #region Damageable
     public partial class ChurroUnit
     {
+        [SerializeField] SpriteFlashMaterial onHurtFlashMaterial;
+        float iFramesEndTime;
+        [SerializeField] float iFramesLength = 2f;
         public override bool IsAlive()
         {
             return gameObject.activeInHierarchy && Health > 0f;
         }
-
         protected override void OnHurt(float damage, Vector2 damagePosition)
         {
-            if (ChurroManager.CanRespawn)
+            if (Time.time < iFramesEndTime)
+            {
+                return;
+            }
+            bool respawn = ChurroManager.CanRespawn;
+            if (respawn)
             {
                 ChurroManager.ChangeBraincells(ChurroManager.RespawnCost);
+                onHurtFlashMaterial.TriggerFlashMaterial(iFramesLength);
+                iFramesEndTime = Time.time + iFramesLength;
+                ChurroManager.KillChangeStrength(0.75f);
+            }
+            else if (gameObject.activeInHierarchy)
+            {
+                gameObject.SetActive(false);
+                ChurroManager.LoseGame();
             }
         }
     }
@@ -139,7 +155,7 @@ namespace ChurroIceDungeon
 
         float PowerScaler.ScaleDamage(float damage)
         {
-            return damage * (CurrentPower / 100f).Max(1f);
+            return damage * (CurrentPower / 100f).Max(1f) * (1f + ((ChurroManager.Strength - 100) / 250f)).Max(1f);
         }
     }
     #endregion
@@ -160,6 +176,55 @@ namespace ChurroIceDungeon
             {
                 Attack(cursorPosition);
             }
+        }
+    }
+    #endregion
+    #region Inventory
+    public partial class ChurroUnit
+    {
+        static Inventory assignedInventory;
+        static Dictionary<int, Inventory.itemSlotSnapshot> InventorySnapShot;
+        public static bool GetFromSnapshot(int id, out Inventory.itemSlotSnapshot item)
+        {
+            item = new();
+            if (InventorySnapShot == null)
+            {
+                return false;
+            }
+            if (InventorySnapShot.ContainsKey(id))
+            {
+                item = InventorySnapShot[id];
+                return true;
+            }
+            return false;
+        }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        static void ReinitializeInventorySnapshot()
+        {
+            assignedInventory = null;
+            InventorySnapShot = null;
+        }
+        public static void SetInventory(Inventory i)
+        {
+            assignedInventory = i;
+        }
+        public static void SnapshotInventory()
+        {
+            Debug.Log("Try Set Player Snapshot");
+            if (Player != null && assignedInventory == null)
+            {
+                Debug.LogError("Bad");
+            }
+            if (assignedInventory.SnapshotCurrent(out Dictionary<int, Inventory.itemSlotSnapshot> snapShot))
+            {
+                Debug.Log("Success, Snapshotted "+snapShot.Count+ " items");
+                InventorySnapShot = snapShot;
+            }
+        }
+        public static bool TryGetInventory(out Inventory i)
+        {
+            i = assignedInventory;
+            return i != null;
         }
     }
     #endregion
@@ -206,13 +271,16 @@ namespace ChurroIceDungeon
         {
             RenderTextureCursorHandler.ClickDown -= OnWorldClick;
             RenderTextureCursorHandler.ClickUp -= OnWorldRelease;
+            GeneralManager.OnStageExitPreLoadingScreen -= SnapshotInventory;
         }
 
         protected override void WhenStart()
         {
             RenderTextureCursorHandler.ClickDown += OnWorldClick;
             RenderTextureCursorHandler.ClickUp += OnWorldRelease;
+
             RenderTextureCursorHandler.SetControllerReference(transform);
+            GeneralManager.OnStageExitPreLoadingScreen += SnapshotInventory;
         }
     }
 }

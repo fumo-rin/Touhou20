@@ -2,7 +2,6 @@ using Bremsengine;
 using Core.Extensions;
 using Mono.CSharp;
 using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -44,17 +43,43 @@ namespace ChurroIceDungeon
         }
         public struct ArcSettings
         {
+            public static ArcSettings operator *(ArcSettings settings, float multiplier)
+            {
+                return new ArcSettings(
+                    settings.StartingAngle,
+                    settings.EndingAngle,
+                    settings.ArcInterval / multiplier,
+                    settings.ProjectileSpeed
+                );
+            }
+            public ArcSettings Widen(float multiplier)
+            {
+                return new ArcSettings(
+                    this.StartingAngle * multiplier,
+                    this.EndingAngle * multiplier,
+                    this.ArcInterval * multiplier,
+                    this.ProjectileSpeed
+                    );
+            }
+            public ArcSettings Speed(float multiplier)
+            {
+                return new ArcSettings(
+                   this.StartingAngle,
+                   this.EndingAngle,
+                   this.ArcInterval,
+                   this.ProjectileSpeed * multiplier);
+            }
             public ArcSettings(float startingAngle, float arcAngle, float arcInterval, float projectileSpeed)
             {
                 this.StartingAngle = startingAngle;
-                this.ArcAngle = arcAngle;
+                this.EndingAngle = arcAngle;
                 this.ArcInterval = arcInterval;
                 this.ProjectileSpeed = projectileSpeed;
             }
-            public float StartingAngle;
-            public float ArcAngle;
-            public float ArcInterval;
-            public float ProjectileSpeed;
+            public float StartingAngle { get; private set; }
+            public float EndingAngle { get; private set; }
+            public float ArcInterval { get; private set; }
+            public float ProjectileSpeed { get; private set; }
         }
         public static ChurroProjectile SpawnSingle(ChurroProjectile prefab, InputSettings input, SingleSettings settings)
         {
@@ -63,7 +88,7 @@ namespace ChurroIceDungeon
         public static List<ChurroProjectile> SpawnArc(ChurroProjectile prefab, InputSettings input, ArcSettings settings)
         {
             List<ChurroProjectile> output = new();
-            foreach (var item in settings.ArcInterval.StepFromTo(settings.StartingAngle, settings.ArcAngle))
+            foreach (var item in settings.ArcInterval.StepFromTo(settings.StartingAngle, settings.EndingAngle))
             {
                 ChurroProjectile p = CreateBullet(prefab, input.Origin, input.Direction.Rotate2D(item), input.OnSpawn, settings.ProjectileSpeed);
                 if (p == null)
@@ -300,7 +325,7 @@ namespace ChurroIceDungeon
             }
             if (other.GetComponent<IFaction>() is IFaction hitListener and not null)
             {
-                if (hitListener.IsFriendsWith(Faction))
+                if (hitListener.Faction != BremseFaction.None && hitListener.IsFriendsWith(Faction))
                 {
                     return CollisionResult.Friends;
                 }

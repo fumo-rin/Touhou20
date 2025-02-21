@@ -157,6 +157,7 @@ namespace Bremsengine
                 }
                 if (ContinueDialogueWhenPressed)
                 {
+                    Debug.Log("Test");
                     Dialogue.TriggerContinue?.Invoke(Dialogue.activeDialogueCollection);
                     ContinuePressedTime = Time.time;
                 }

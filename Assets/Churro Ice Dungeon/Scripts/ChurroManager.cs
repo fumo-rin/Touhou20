@@ -1,8 +1,73 @@
+using Bremsengine;
 using Core.Extensions;
+using QFSW.QC;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ChurroIceDungeon
 {
+    #region Game Progress
+    public partial class ChurroManager
+    {
+        [SerializeField] string MainMenuSceneString = "Churro Main Menu";
+        static Dictionary<int, Action> progressCache;
+        public static int CurrentProgress;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeProgress()
+        {
+            CurrentProgress = 0;
+            progressCache = new Dictionary<int, Action>();
+        }
+        public static void DefineProgress(int progress, System.Action action)
+        {
+            if (!progressCache.ContainsKey(progress))
+                progressCache.Add(progress, action);
+            else
+                progressCache[progress] += action;
+        }
+        [Command("-prog-set")]
+        public static void LoadProgress(int value)
+        {
+            if (progressCache.TryGetValue(value, out Action action))
+            {
+                action?.Invoke();
+                CurrentProgress = value;
+            }
+            else
+            {
+                ProgressEndGame();
+                return;
+            }
+        }
+        [Command("-prog-next")]
+        public static void Test_GoToNextProgress()
+        {
+            if (SceneManager.GetActiveScene().name == instance.MainMenuSceneString)
+            {
+                StartGame?.Invoke();
+            }
+            CurrentProgress++;
+            LoadProgress(CurrentProgress);
+        }
+        public static void LoseGame()
+        {
+            ChurroGameProgress.SetEndGame();
+        }
+        static void ProgressEndGame()
+        {
+            ChurroGameProgress.SetEndGame();
+        }
+        public static void LoadMainMenu(float delay)
+        {
+            ResetStats();
+            RestartGame?.Invoke();
+            GeneralManager.LoadSceneAfterDelay(instance.MainMenuSceneString, 0f);
+        }
+    }
+    #endregion
     #region Debris
     public partial class ChurroManager
     {
@@ -15,7 +80,7 @@ namespace ChurroIceDungeon
             }
             for (int i = 0; i < packet.amount.Min(20); i++)
             {
-                Instantiate(instance.debrisPrefab, position + Random.insideUnitCircle, Quaternion.identity).SetDebris(packet);
+                Instantiate(instance.debrisPrefab, position + UnityEngine.Random.insideUnitCircle, Quaternion.identity).SetDebris(packet);
             }
         }
     }
@@ -23,10 +88,14 @@ namespace ChurroIceDungeon
     #region Stats
     public partial class ChurroManager
     {
-        public const int RespawnCost = -3;
+        public const int RespawnCost = -1;
         public static int Strength { get; private set; }
         public static int Braincells { get; private set; }
-        public static bool CanRespawn => Braincells >= 3;
+        public static bool HardMode = false;
+        public static bool CanRespawn => Braincells >= RespawnCost.Abs();
+        public delegate void GameState();
+        public static GameState RestartGame;
+        public static GameState StartGame;
         public delegate void StatRefresh(int value);
         public static StatRefresh OnStrengthChange;
         public static StatRefresh OnBraincellsChange;
@@ -36,26 +105,43 @@ namespace ChurroIceDungeon
             Strength = 100;
             Braincells = 9;
         }
+        public static void ResetStats()
+        {
+            Strength = 100;
+            Braincells = 9;
+            RequestStatsRefresh();
+        }
         public static void RequestStatsRefresh()
         {
-            OnStrengthChange?.Invoke(Strength);
-            OnBraincellsChange?.Invoke(Braincells);
+            ChangeStrength(0);
+            ChangeBraincells(0);
         }
         [QFSW.QC.Command("-braincells")]
         public static void ChangeBraincells(int amount)
         {
+            /*if (HardMode)
+            {
+                amount = amount.Min(0);
+                Braincells = Braincells.Clamp(0, 9);
+            }*/
             Braincells += amount;
             OnBraincellsChange?.Invoke(Braincells);
         }
         [QFSW.QC.Command("-strength")]
         public static void ChangeStrength(int amount)
         {
+            if (HardMode)
+            {
+                Strength = 100;
+                OnStrengthChange?.Invoke(Strength);
+                return;
+            }
             Strength += amount;
             OnStrengthChange?.Invoke(Strength);
         }
-        public void KillChangeStrength(float multiplier = 0.6f)
+        public static void KillChangeStrength(float multiplier = 0.85f)
         {
-            Strength = ((float)(Strength - 100) * multiplier).Max(100f).Floor().ToInt();
+            Strength = (Strength * multiplier).Floor().Max(100f).ToInt();
             OnStrengthChange?.Invoke(Strength);
         }
     }
@@ -100,7 +186,6 @@ namespace ChurroIceDungeon
         }
         public static void AddDestruction(float value)
         {
-            Debug.Log(value);
             currentDestruction += value;
             RequestDestructionBarRefresh();
         }

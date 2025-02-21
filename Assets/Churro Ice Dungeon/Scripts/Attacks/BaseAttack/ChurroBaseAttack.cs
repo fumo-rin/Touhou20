@@ -4,17 +4,9 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
-    #region Modifiers
-    public partial class ChurroBaseAttack
-    {
-        [SerializeField] bool useDifficultyModifiers;
-        public float Mod_DifficultyBulletDensity => useDifficultyModifiers ? 1f / GeneralManager.DifficultyMultipliers.GetMultiplier(GeneralManager.DifficultyMultipliers.Modifier.AttackDensity, GeneralManager.CurrentDifficulty) : 1f;
-        public float Mod_DifficultyBulletSpeed => useDifficultyModifiers ? GeneralManager.DifficultyMultipliers.GetMultiplier(GeneralManager.DifficultyMultipliers.Modifier.Speed, GeneralManager.CurrentDifficulty) : 1f;
-        public float Mod_DifficultyBulletDamage => useDifficultyModifiers ? GeneralManager.DifficultyMultipliers.GetMultiplier(GeneralManager.DifficultyMultipliers.Modifier.Damage, GeneralManager.CurrentDifficulty) : 1f;
-    }
-    #endregion
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        protected bool Hardmode => ChurroManager.HardMode;
         [SerializeField] float baseDamage = 5f;
         [SerializeField] int projectileLayerIndex = 100;
         [Header("Optional")]

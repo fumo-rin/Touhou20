@@ -10,6 +10,7 @@ namespace ChurroIceDungeon
     {
         IDamageable Damageable => (IDamageable)this;
         float IDamageable.CurrentHealth { get; set; }
+        public BremseFaction Faction => ((IFaction)this).Faction;
         BremseFaction IFaction.Faction { get; set; }
         void IDamageable.Hurt(float damage, Vector2 damagePosition)
         {
@@ -27,7 +28,7 @@ namespace ChurroIceDungeon
         [SerializeField] float destructionValue = 5f;
         [SerializeField] float destructionVisualDelay = 0f;
         [SerializeField] float startingHealth = 100f;
-        [Range(0,100)]
+        [Range(0,500)]
         [SerializeField] int strengthOnDestroy = 1;
         [SerializeField] BremseFaction faction = BremseFaction.None;
         [SerializeField] UnityEvent destroyEvent;

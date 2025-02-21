@@ -1,11 +1,66 @@
 using Core.Extensions;
 using Core.Input;
-using Mono.CSharp;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Bremsengine
 {
+    #region Load Scene
+    public partial class GeneralManager
+    {
+        [SerializeField] GameObject loadingScreen;
+        [SerializeField] TMP_Text loadingScreenText;
+        public static bool IsLoadingScene;
+        public delegate void StageExitAction();
+        public static StageExitAction OnStageExitPreLoadingScreen;
+        [QFSW.QC.Command("-loadscene")]
+        public static void LoadSceneAfterDelay(string sceneName, float delay)
+        {
+            IEnumerator CO_LoadScene(string sceneName, float delay)
+            {
+                void SetLoadingProgress(float progress)
+                {
+                    if (Instance.loadingScreenText != null)
+                    {
+                        Instance.loadingScreenText.text = "Loading: " + (progress * 100f).Clamp(0f, 100f).ToString("F0") + "%";
+                    }
+                }
+                yield return new WaitForSecondsRealtime(delay);
+                OnStageExitPreLoadingScreen?.Invoke();
+                IsLoadingScene = true;
+                if (Instance != null && Instance.loadingScreen != null)
+                {
+                    Instance.loadingScreenText.text = "Loading: 0%";
+                    Instance.loadingScreen.SetActive(true);
+                    yield return new WaitForSecondsRealtime(0.15f);
+                    AsyncOperation o = SceneManager.LoadSceneAsync(sceneName);
+                    float progress = 0f;
+                    while (o != null && !o.isDone)
+                    {
+                        progress = progress.Lerp(o.progress / 0.9f, Time.deltaTime * 3f).Clamp(0f, 1f);
+                        SetLoadingProgress(progress);
+                        yield return null;
+                    }
+                    SetLoadingProgress(1f);
+                    yield return new WaitForSecondsRealtime(0.45f);
+                    Instance.loadingScreen.SetActive(false);
+                    Time.timeScale = 1f;
+                }
+                else
+                {
+                    yield return new WaitForSecondsRealtime(delay);
+                    SceneManager.LoadScene(sceneName);
+                }
+                IsLoadingScene = false;
+            }
+            Instance.StartCoroutine(CO_LoadScene(sceneName, delay));
+        }
+    }
+    #endregion
     #region Difficulty Multipliers
     public partial class GeneralManager
     {
@@ -120,9 +175,11 @@ namespace Bremsengine
     {
         [SerializeField] GameObject funnyExplosion;
         [SerializeField] AudioClipWrapper funnyExplosionSound;
-        public static void FunnyExplosion(Vector2 position)
+        public static void FunnyExplosion(Vector2 position, float scale = 1f)
         {
-            Destroy(Instantiate(Instance.funnyExplosion, position, Quaternion.identity), 1.02f);
+            GameObject x = Instantiate(Instance.funnyExplosion, position, Quaternion.identity);
+            Destroy(x, 1.02f);
+            x.transform.localScale *= scale;
             Instance.funnyExplosionSound.Play(position);
         }
     }
@@ -315,6 +372,10 @@ namespace Bremsengine
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (loadingScreen != null)
+            {
+                loadingScreen.SetActive(false);
+            }
             if (breakDownScore)
             {
                 ScoreBreakdownAnalysis = new();

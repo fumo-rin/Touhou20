@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deea59d85d2ee5649a47206504b6f5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useDifficultyModifiers: 0
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 7160802010199300189}
@@ -139,8 +138,8 @@ MonoBehaviour:
   attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
   attackOwner: {fileID: 7160802010199300189}
   bowapProjectile: {fileID: 4912228362202972655, guid: 173f51e9cc3ef3842a12e561779c815c, type: 3}
-  attackLength: 60
-  timePerShot: 0.02
+  attackLength: 600
+  timePerShot: 0.03
 --- !u!1 &2868101752050942699
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071739171723663955, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_Radius
-      value: 0.65
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2415689870331655932, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_FlipX
@@ -824,6 +823,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7254363983238764829, guid: 16fda80dcb2c80e478e165c5ce12567c, type: 3}
+    - target: {fileID: 4178166997446621582, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: m_Size.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178166997446621582, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: m_Size.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5568486118466390220, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -835,14 +842,14 @@ PrefabInstance:
     - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: spawnSound
       value: 
-      objectReference: {fileID: 11400000, guid: b99df5c02003f4d4ea10d71330ffdf71, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: strafeProfile
       value: 
       objectReference: {fileID: 11400000, guid: 1e533dd7b43eb0144ab8b2e183be20dd, type: 2}
     - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: startingHealth
-      value: 2000
+      value: 7000
       objectReference: {fileID: 0}
     - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: initialStallTime
@@ -858,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6069829716892871237, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: radiusBackingField
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6373227243597716457, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: <settings>k__BackingField.<StallDuration>k__BackingField
@@ -877,12 +884,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1197240366871471300, guid: 16fda80dcb2c80e478e165c5ce12567c, type: 3}
     - target: {fileID: 7107190977447091372, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: spawnExplosion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107190977447091372, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: destructionValue
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7107190977447091372, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: strengthOnDestroy
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7485913815536112230, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_Name

@@ -2,6 +2,7 @@ using Bremsengine;
 using Core.Extensions;
 using Pathfinding;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -53,6 +54,12 @@ namespace ChurroIceDungeon
         {
             return unitMotor;
         }
+        float speedmod = 1f;
+        public DungeonUnit Action_SpeedmodTowards(float speed, float step)
+        {
+            speedmod.MoveTowards(speed, step);
+            return this;
+        }
         protected void MoveMotor(Vector2 input, out DungeonMotor.MotorOutput result)
         {
             bool FailCondition(out DungeonMotor m)
@@ -70,7 +77,8 @@ namespace ChurroIceDungeon
                 result.Failed = true;
                 return;
             }
-            m.PerformMotor(this, input, out result);
+            DungeonMotor.Settings settings = new(speedmod);
+            m.PerformMotor(this, input, settings, out result);
             if (!result.Failed)
             {
                 SetNextMovetime(result.NextMoveTime);
@@ -124,6 +132,51 @@ namespace ChurroIceDungeon
                 return false;
             }
             return true;
+        }
+    }
+    #endregion
+    #region Collect
+    public partial class DungeonUnit
+    {
+        [System.Serializable]
+        public struct CollectionSettings
+        {
+            public CollectionSettings(Vector2 position, float radius, LayerMask mask, bool skipTriggers, BremseFaction friends)
+            {
+                this.position = position;
+                this.radius = radius;
+                this.mask = mask;
+                this.skipTriggers = skipTriggers;
+                this.friends = friends;
+            }
+            [HideInInspector] public Vector2 position;
+            public float radius;
+            public LayerMask mask;
+            public bool skipTriggers;
+            public BremseFaction friends;
+        }
+        public static bool CollectCircle(CollectionSettings settings, out HashSet<DungeonUnit> units, out HashSet<DestructionItem> boxes)
+        {
+            units = new();
+            boxes = new();
+            RaycastHit2D[] hit = Physics2D.CircleCastAll(settings.position, settings.radius, Vector2.zero, 0f, settings.mask);
+            foreach (var item in hit)
+            {
+                if (item.transform == null || (item.collider.isTrigger && settings.skipTriggers))
+                    continue;
+                if (item.transform.GetComponent<DungeonUnit>() is DungeonUnit unit and not null && !unit.FactionInterface.IsFriendsWith(settings.friends))
+                {
+                    units.Add(unit);
+                }
+                if (item.transform.GetComponent<DestructionItem>() is DestructionItem box and not null)
+                {
+                    if (box.Faction == BremseFaction.None || box.Faction != settings.friends)
+                    {
+                        boxes.Add(box);
+                    }
+                }
+            }
+            return (units != null && units.Count > 0) || (boxes != null && boxes.Count > 0);
         }
     }
     #endregion

@@ -26,6 +26,7 @@ namespace Bremsengine
         private static Vector2 lastCursorWorldPosition;
         static PointerEventData lastPointerData;
         Vector2 lastControllerInput;
+        static bool internalWasHovering;
         public static Vector2 CursorPosition => lastCursorWorldPosition;
         public static bool IsHovering { get; private set; }
         private void Start()
@@ -47,7 +48,6 @@ namespace Bremsengine
                 }
                 return input.magnitude >= 0.25f;
             }
-
             if (TryReadRightStick(out Vector2 stick))
             {
                 IsHovering = true;
@@ -56,19 +56,20 @@ namespace Bremsengine
                 lastControllerInput = stick;
                 lastCursorWorldPosition = (Vector2)controllerReference.position + stick;
                 ClickDown.Invoke(lastCursorWorldPosition, PointerButton.Left);
-
                 return;
             }
-            if (stick.magnitude < 0.25f && lastControllerInput.magnitude >= 0.25f)
+            else
             {
-                IsPressed = false;
-                IsHovering = false;
-                ClickUp.Invoke((Vector2)controllerReference.position + lastControllerInput, PointerButton.Left);
-                return;
+                if (lastControllerInput.magnitude >= 0.25f)
+                {
+                    IsPressed = false;
+                    IsHovering = internalWasHovering;
+                    lastControllerInput = Vector2.zero;
+                    ClickUp.Invoke((Vector2)controllerReference.position + lastControllerInput, PointerButton.Left);
+                    return;
+                }
             }
-            if (lastPointerData == null)
-                return;
-            if (RenderTextureContainsMousePosition(out Vector2 click, lastPointerData, renderTexture))
+            if (lastPointerData != null && RenderTextureContainsMousePosition(out Vector2 click, lastPointerData, renderTexture))
             {
                 ScaleRenderClickToCameraWorldPosition(out Vector2 w, click, Camera.main);
                 lastCursorWorldPosition = w;
@@ -158,12 +159,14 @@ namespace Bremsengine
         }
         private bool RenderTextureContainsMousePosition(out Vector2 normalizedPosition, PointerEventData pointer, RectTransform rendererRect)
         {
+            internalWasHovering = false;
             normalizedPosition = Vector2.zero;
             if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(rendererRect, pointer.position, pointer.pressEventCamera, out var localPosition))
             {
                 return false;
             }
             normalizedPosition = Rect.PointToNormalized(rendererRect.rect, localPosition);
+            internalWasHovering = true;
             return true;
         }
 

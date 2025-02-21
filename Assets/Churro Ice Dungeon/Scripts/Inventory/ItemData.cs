@@ -20,6 +20,7 @@ namespace ChurroIceDungeon
     {
         [SerializeField] ItemEvent UseEvent;
         static Dictionary<int, Action> UseLookup;
+        [SerializeField] bool clearOnUse;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ReinitializeEvents()
         {
@@ -57,12 +58,27 @@ namespace ChurroIceDungeon
                 }
             }
         }
-
-        public void UseItem()
+        public enum UseResult
         {
+            NoUse,
+            UseUnlimited,
+            UseLimited
+        }
+        public bool UseItem(out UseResult result)
+        {
+            result = UseResult.NoUse;
             if (UseEvent.EventKey == ItemActionKey.None)
-                return;
+                return result != UseResult.NoUse;
+            if (clearOnUse)
+            {
+                result = UseResult.UseLimited;
+            }
+            else
+            {
+                result = UseResult.UseUnlimited;
+            }
             UseEvent.TriggerEvent();
+            return result != UseResult.NoUse;
         }
     }
     #endregion

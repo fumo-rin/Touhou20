@@ -32,6 +32,10 @@ namespace ChurroIceDungeon
         {
             SetItem(inventory.EmptyItem);
         }
+        public InventoryItem GetContainedItem()
+        {
+            return containedItem;
+        }
         public void SetItem(InventoryItem item)
         {
             InventoryItem newItem = (InventoryItem)item.Clone();
@@ -151,13 +155,18 @@ namespace ChurroIceDungeon
         float ScaleFactor => inventory.canvas.scaleFactor;
         public SlotType slotType;
         Transform dragItemRectParent;
-
-
         private void Start()
         {
             dragItemRectParent = dragItemRect.parent;
             containedItem = inventory.EmptyItem;
-            SetItem(containedItem);
+            if (inventory.GetFromSnapshot(SlotID, out Inventory.itemSlotSnapshot snapshot))
+            {
+                SetItem(snapshot.item);
+            }
+            else
+            {
+                SetItem(containedItem);
+            }
         }
         public void Bind(Inventory toBind)
         {
@@ -212,7 +221,13 @@ namespace ChurroIceDungeon
         {
             if (!IsDragging)
             {
-                containedItem.containedData.UseItem();
+                if (containedItem.containedData.UseItem(out ItemData.UseResult useResult))
+                {
+                    if (useResult == ItemData.UseResult.UseLimited)
+                    {
+                        ClearItem();
+                    }
+                }
             }
         }
         public void OnPointerUp(PointerEventData eventData)

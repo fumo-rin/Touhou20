@@ -6,8 +6,10 @@ using Core.Input;
 using Core.Extensions;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 namespace Bremsengine
 {
+    [DefaultExecutionOrder(5)]
     public class DialogueRunner : MonoBehaviour
     {
         static DialogueRunner Instance;
@@ -16,7 +18,6 @@ namespace Bremsengine
         [SerializeField] TMP_Text dialogueTextComponent;
         [SerializeField] GameObject dialogueContainer;
         [SerializeField] List<Image> characterSprites = new();
-        [SerializeField] BremseInputEventBus continueEvent;
 
         public static List<Dialogue.DialogueButton> GetButtons() => Instance.dialogueButtons.ToList(); //lazy it should just copy this as a new list. it is to not affect the original (idk maybe doesnt matter).
         private void Awake()
@@ -60,19 +61,23 @@ namespace Bremsengine
         }
         private void Start()
         {
-            if (continueEvent == null)
+
+        }
+        private void Update()
+        {
+            float readValue = Gamepad.current.rightTrigger.ReadValue();
+            if (readValue > 0.5f)
             {
-                return;
+                Dialogue.PressContinueInput();
             }
-            continueEvent.BindAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
+        }
+        private void ContinueInput()
+        {
+
         }
         private void OnDestroy()
         {
-            if (continueEvent == null)
-            {
-                return;
-            }
-            continueEvent.ReleaseAction(BremseInputPhase.JustPressed, Dialogue.PressContinueInput);
+
         }
     }
 }
