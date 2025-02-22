@@ -109,6 +109,7 @@ namespace Bremsengine
             {
                 return;
             }
+            MusicPopup.QueuePopup(mw.TrackName);
             instance.PlayCrossfade(mw, !IsPlaying ? 0f : instance.crossFadeLength);
         }
         private void PlayCrossfade(MusicWrapper clip, float crossfade = 0.5f)

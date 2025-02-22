@@ -111,10 +111,10 @@ namespace ChurroIceDungeon
         [SerializeField] float targetVisionRange = 5f;
         Vector2[] addedScanPoints = new Vector2[5]
         {
-            new(-0.65f,-0.65f),
-            new(-0.65f,0.65f),
-            new(0.65f,0.65f),
-            new(0.65f,-0.65f),
+            new(-0.25f,-0.25f),
+            new(-0.25f,0.25f),
+            new(0.25f,0.25f),
+            new(0.25f,-0.25f),
             new(0f,0f)
         };
         RaycastHit2D targettingHit;

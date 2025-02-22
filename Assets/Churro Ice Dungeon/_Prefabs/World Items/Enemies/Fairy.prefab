@@ -892,8 +892,8 @@ MonoBehaviour:
   targetMemoryTime: 4.5
   targetBlockingLayer:
     serializedVersion: 2
-    m_Bits: 9
-  targetVisionRange: 8
+    m_Bits: 8201
+  targetVisionRange: 13
   initialStallTime: 1
   spawnSound: {fileID: 0}
 --- !u!210 &3603354445567635559
