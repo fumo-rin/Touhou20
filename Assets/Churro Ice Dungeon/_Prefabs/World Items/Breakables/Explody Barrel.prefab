@@ -208,6 +208,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   spawnExplosion: 0
+  explosionScale: 1
   debrisOnDestroy:
     spriteList:
     - {fileID: -4360842384837779158, guid: 7150dbfc98583f6439a8967cf7d92b18, type: 3}

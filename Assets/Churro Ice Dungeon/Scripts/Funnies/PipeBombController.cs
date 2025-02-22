@@ -15,10 +15,18 @@ namespace ChurroIceDungeon
             base.Payload(owner);
             TriggerPipeBomb(owner);
         }
-        public void TriggerPipeBomb(DungeonUnit owner)
+        public bool TriggerPipeBomb(DungeonUnit owner)
         {
+            if (!owner.IsAlive())
+            {
+                return false;
+            }
             unitBomber.position = owner.CurrentPosition;
             GeneralManager.FunnyExplosion(transform.position, 4f);
+            if (ChurroManager.HardMode)
+            {
+                ChurroManager.ChangeBraincells(-ChurroManager.Braincells);
+            }
             if (DungeonUnit.CollectCircle(unitBomber, out HashSet<DungeonUnit> output, out HashSet<DestructionItem> otherItems))
             {
                 HashSet<IDamageable> damaged = new();
@@ -43,6 +51,7 @@ namespace ChurroIceDungeon
                     item.DestroyItem();
                 }
             }
+            return true;
             /*
             RaycastHit2D[] hit = Physics2D.CircleCastAll(destructableBomber.position, destructableBomber.radius, Vector2.zero, 0f, destructableBomber.mask);
             foreach (var item in hit)

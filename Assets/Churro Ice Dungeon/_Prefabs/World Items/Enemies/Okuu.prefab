@@ -135,7 +135,7 @@ MonoBehaviour:
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 7160802010199300189}
   handler: {fileID: 7640009371742262203}
-  attackSound: {fileID: 11400000, guid: d5b5a75eb399b114e930c9772bbbaf14, type: 2}
+  attackSound: {fileID: 11400000, guid: ac8d70b33776eff4cb6621a85a53cec2, type: 2}
   okuuProjectile: {fileID: 4912228362202972655, guid: 30518958a914b6141ab9f154aa493107, type: 3}
   initialGrowModifier: 1.45
   growPerSecond: 1.75
@@ -1004,10 +1004,18 @@ PrefabInstance:
       propertyPath: <settings>k__BackingField.<NextAttackTime>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6741956857558724136, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: Priority.m_Value
+      value: -900
+      objectReference: {fileID: 0}
     - target: {fileID: 6919515620244360079, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1197240366871471300, guid: 16fda80dcb2c80e478e165c5ce12567c, type: 3}
+    - target: {fileID: 7107190977447091372, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: explosionScale
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7107190977447091372, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: spawnExplosion
       value: 1

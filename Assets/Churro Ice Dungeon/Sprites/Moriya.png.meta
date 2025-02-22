@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 49a31498dd0da1440bf37d3b53cc2ec2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6969394641019617771
+    second: Moriya_0
+  - first:
+      213: 1715706926776315529
+    second: Moriya_1
+  - first:
+      213: 7620800296725010700
+    second: Moriya_2
+  - first:
+      213: -7118331676959567731
+    second: Moriya_3
+  - first:
+      213: 7642302847353760806
+    second: Moriya_4
+  - first:
+      213: 4225405976847146657
+    second: Moriya_5
+  - first:
+      213: -2568346659138470344
+    second: Moriya_6
+  - first:
+      213: 4296028183866793547
+    second: Moriya_7
+  - first:
+      213: 1738951619220445113
+    second: Moriya_8
+  - first:
+      213: -7647375568830098254
+    second: Moriya_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Moriya_0
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 401
+        width: 102
+        height: 81
+      alignment: 9
+      pivot: {x: 0.08745081, y: 0.5199807}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51eb38adf7cb74f90800000000000000
+      internalID: -6969394641019617771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 278
+        width: 107
+        height: 85
+      alignment: 9
+      pivot: {x: 0.5680661, y: 0.19534877}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98eed251c5a6fc710800000000000000
+      internalID: 1715706926776315529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 209
+        width: 141
+        height: 187
+      alignment: 9
+      pivot: {x: 0.46556458, y: 0.1494778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c095c7e3e7582c960800000000000000
+      internalID: 7620800296725010700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_3
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 297
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d801a69ed0b963d90800000000000000
+      internalID: -7118331676959567731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 99
+        width: 149
+        height: 151
+      alignment: 9
+      pivot: {x: 0.45984077, y: 0.33298427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c2a72f2f9ee0a60800000000000000
+      internalID: 7642302847353760806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 52
+        width: 82
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae59c94958a3aa30800000000000000
+      internalID: 4225405976847146657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moriya_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 111
+        width: 38
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5425905, y: 0.82520485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e52743fde8e9b30800000000000000
+      internalID: 4296028183866793547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2239304900316a34e874cb6df45dc921
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Moriya_0: -6969394641019617771
+      Moriya_1: 1715706926776315529
+      Moriya_10: 1930783118
+      Moriya_2: 7620800296725010700
+      Moriya_3: -7118331676959567731
+      Moriya_4: 7642302847353760806
+      Moriya_5: 4225405976847146657
+      Moriya_6: -2568346659138470344
+      Moriya_7: 4296028183866793547
+      Moriya_8: 1738951619220445113
+      Moriya_9: -7647375568830098254
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -29,17 +29,18 @@ namespace ChurroIceDungeon
                 progressCache[progress] += action;
         }
         [Command("-prog-set")]
-        public static void LoadProgress(int value)
+        public static bool LoadProgress(int value)
         {
             if (progressCache.TryGetValue(value, out Action action))
             {
                 action?.Invoke();
                 CurrentProgress = value;
+                return true;
             }
             else
             {
                 ProgressEndGame();
-                return;
+                return false;
             }
         }
         [Command("-prog-next")]
@@ -62,9 +63,13 @@ namespace ChurroIceDungeon
         }
         public static void LoadMainMenu(float delay)
         {
-            ResetStats();
-            RestartGame?.Invoke();
-            GeneralManager.LoadSceneAfterDelay(instance.MainMenuSceneString, 0f);
+            void ResetGameState()
+            {
+                ResetStats();
+                ChurroUnit.ClearInventorySnapshot();
+                OnRestartGame?.Invoke();
+            }
+            GeneralManager.LoadSceneAfterDelay(instance.MainMenuSceneString, delay, ResetGameState);
         }
     }
     #endregion
@@ -94,7 +99,7 @@ namespace ChurroIceDungeon
         public static bool HardMode = false;
         public static bool CanRespawn => Braincells >= RespawnCost.Abs();
         public delegate void GameState();
-        public static GameState RestartGame;
+        public static GameState OnRestartGame;
         public static GameState StartGame;
         public delegate void StatRefresh(int value);
         public static StatRefresh OnStrengthChange;

@@ -10,11 +10,25 @@ namespace ChurroIceDungeon
         [SerializeField] float Acceleration = 25f;
         [Range(0f, 100f)]
         [SerializeField] float Friction = 15f;
-        public override void PerformMotor(DungeonUnit unit, Vector2 input, Settings settings, out MotorOutput result)
+        protected override void PerformMotor(DungeonUnit unit, Vector2 input, Settings settings, out MotorOutput result, ref float nextMoveTime)
         {
             result = new MotorOutput();
             result.NextMoveTime = Time.time;
             result.Failed = false;
+            float Friction = this.Friction;
+            float Acceleration = this.Acceleration;
+
+            foreach (var item in unit.MotorZones)
+            {
+                if (item.FrictionOverride > 0f)
+                {
+                    Friction = item.FrictionOverride;
+                }
+                if (item.AccelerationOverride > 0f)
+                {
+                    Acceleration = item.AccelerationOverride;
+                }
+            }
 
             float finalSpeed = MaxSpeed * settings.SpeedMod;
 

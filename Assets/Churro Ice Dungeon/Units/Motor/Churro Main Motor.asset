@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Churro Main Motor
   m_EditorClassIdentifier: 
   <MaxSpeed>k__BackingField: 6
+  FailFriction: 6
   Acceleration: 0
   Friction: 0

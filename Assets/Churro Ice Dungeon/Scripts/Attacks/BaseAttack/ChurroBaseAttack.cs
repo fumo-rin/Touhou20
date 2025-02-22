@@ -15,7 +15,11 @@ namespace ChurroIceDungeon
         [SerializeField] protected AudioClipWrapper attackSound;
         private void PerformContainedAttack(Vector2 target)
         {
-            if (!gameObject.activeInHierarchy)
+            PerformContainedAttack(target, false);
+        }
+        private void PerformContainedAttack(Vector2 target, bool bypassAliveCheck = false)
+        {
+            if (gameObject == null || (!gameObject.activeInHierarchy && !bypassAliveCheck))
             {
                 return;
             }
@@ -26,7 +30,7 @@ namespace ChurroIceDungeon
         }
         public void ExternalForcedAttack()
         {
-            PerformContainedAttack((Vector2)transform.position + Vector2.down);
+            PerformContainedAttack((Vector2)transform.position + Vector2.down, true);
         }
         protected abstract void AttackPayload(ChurroProjectile.InputSettings input);
         private void ProjectileSpawnCallback(ChurroProjectile p)

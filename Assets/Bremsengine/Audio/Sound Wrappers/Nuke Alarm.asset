@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nuke Alarm
   m_EditorClassIdentifier: 
   SoundName: Nuke Alarm
-  soundVolume: 1
+  soundVolume: 0.65
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: d068691e726b71c42b0d65d62f3bfd44, type: 3}
     PitchVariancePercent: 0

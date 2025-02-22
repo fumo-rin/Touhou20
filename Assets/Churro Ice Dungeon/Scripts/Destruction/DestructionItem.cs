@@ -33,6 +33,8 @@ namespace ChurroIceDungeon
         [SerializeField] BremseFaction faction = BremseFaction.None;
         [SerializeField] UnityEvent destroyEvent;
         [SerializeField] bool spawnExplosion = false;
+        [Range(1,15)]
+        [SerializeField] float explosionScale;
         [SerializeField] DebrisPacket debrisOnDestroy;
         [SerializeField] bool TestkillItem;
         public bool isDestroyed { get; private set; }
@@ -67,7 +69,7 @@ namespace ChurroIceDungeon
                 ChurroManager.AddDestruction(destructionValue);
                 if (spawnExplosion)
                 {
-                    GeneralManager.FunnyExplosion(transform.position);
+                    GeneralManager.FunnyExplosion(transform.position, explosionScale);
                 }
                 ChurroManager.SpawnDebris(transform.position, debrisOnDestroy);
                 ChurroManager.ChangeStrength(strengthOnDestroy);

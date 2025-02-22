@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: ea20826f9fa0c664db49ea9900a0cba0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 280293039834792260
+    second: Tewi_0
+  - first:
+      213: 4216152457399102737
+    second: Tewi_1
+  - first:
+      213: -3698364756738717117
+    second: Tewi_2
+  - first:
+      213: 4884372046363953975
+    second: Tewi_3
+  - first:
+      213: 527754090467466202
+    second: Tewi_4
+  - first:
+      213: -8910830073147720205
+    second: Tewi_5
+  - first:
+      213: -3044629960157682486
+    second: Tewi_6
+  - first:
+      213: 1957047512649951380
+    second: Tewi_7
+  - first:
+      213: -7738974904288981842
+    second: Tewi_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tewi_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 379
+        width: 72
+        height: 93
+      alignment: 9
+      pivot: {x: 0.51123893, y: 0.39558294}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4410e50e80dc3e300800000000000000
+      internalID: 280293039834792260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 388
+        width: 96
+        height: 101
+      alignment: 9
+      pivot: {x: 0.5252881, y: 0.107403144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ac3c839d4ccacc0800000000000000
+      internalID: -3698364756738717117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ear
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 416
+        width: 88
+        height: 69
+      alignment: 9
+      pivot: {x: 0.09538477, y: 0.19507279}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b0f566f76c8c340800000000000000
+      internalID: 4884372046363953975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Held
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 223
+        width: 42
+        height: 92
+      alignment: 9
+      pivot: {x: 0.38439515, y: 0.3592642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb92139c85f25700800000000000000
+      internalID: 527754090467466202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 111
+        width: 136
+        height: 260
+      alignment: 9
+      pivot: {x: 0.49999988, y: 0.15763338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd7924924f565480800000000000000
+      internalID: -8910830073147720205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamd
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 294
+        width: 57
+        height: 36
+      alignment: 9
+      pivot: {x: 0.10248285, y: 0.6348716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac42a40be2d4fb5d0800000000000000
+      internalID: -3044629960157682486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amulet
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 74
+        width: 71
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5341925, y: 0.92967993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498ef080854d82b10800000000000000
+      internalID: 1957047512649951380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lerg
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 152
+        width: 33
+        height: 103
+      alignment: 9
+      pivot: {x: 0.47547773, y: 0.9085434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac4130d353a99490800000000000000
+      internalID: -7738974904288981842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 41cefc53b3937124ba53468ef009c600
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Amulet: 1957047512649951380
+      Body: -8910830073147720205
+      Carrot Held: 527754090467466202
+      Ear: 4884372046363953975
+      Hamd: -3044629960157682486
+      Head: -3698364756738717117
+      Lerg: -7738974904288981842
+      Tewi_0: 280293039834792260
+      Tewi_1: 4216152457399102737
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

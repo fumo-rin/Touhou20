@@ -928,7 +928,8 @@ MonoBehaviour:
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
-  spawnExplosion: 0
+  spawnExplosion: 1
+  explosionScale: 1
   debrisOnDestroy:
     spriteList: []
     debrisColor:

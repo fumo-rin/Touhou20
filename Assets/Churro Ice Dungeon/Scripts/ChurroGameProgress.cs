@@ -29,21 +29,21 @@ namespace ChurroIceDungeon
             }
             HasLoadedProgress = true;
             ChurroManager.DefineProgress(1, () => GeneralManager.LoadSceneAfterDelay(stages[0].name, 0f));
+            ChurroManager.DefineProgress(1, () => MusicPlayer.PlayMusicWrapper(stages[0].stageMusic));
             HashSet<string> added = new()
             {
                 stages[0].name
             };
             int progress = 2;
-            int musicIteration = 1;
             foreach (gameStage scene in stages)
             {
                 if (added.Contains(scene.name))
                 {
                     continue;
                 }
-                ChurroManager.DefineProgress(progress, () => GeneralManager.LoadSceneAfterDelay(scene.name, 2f));
+                ChurroManager.DefineProgress(progress, () => GeneralManager.LoadSceneAfterDelay(scene.name, 0.25f));
+                ChurroManager.DefineProgress(progress, () => MusicPlayer.PlayMusicWrapper(scene.stageMusic));
                 progress++;
-                musicIteration++;
             }
         }
         public static void SetEndGame()
@@ -55,8 +55,7 @@ namespace ChurroIceDungeon
         {
             if (!GameStarted)
             {
-                ChurroManager.LoadProgress(1);
-                GameStarted = true;
+                GameStarted = ChurroManager.LoadProgress(1);
             }
         }
     }

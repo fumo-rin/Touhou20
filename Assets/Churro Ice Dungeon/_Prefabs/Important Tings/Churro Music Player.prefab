@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2554351114568500527, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
       propertyPath: m_Name
-      value: Music Player Variant
+      value: Churro Music Player
       objectReference: {fileID: 0}
     - target: {fileID: 3058743762626054692, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,6 +59,14 @@ PrefabInstance:
     - target: {fileID: 3640156111637370416, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
       propertyPath: 'testPlaylist.Array.data[0]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938290866401767398, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804584576696613903, guid: 4ae26136ef8ae5a44b6b55f7530c4fb2, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 696080663385910975}
   - component: {fileID: 7886225700959722106}
   - component: {fileID: 4198219528687464872}
+  - component: {fileID: 67077952087705967}
   m_Layer: 6
   m_Name: Fromg
   m_TagString: Untagged
@@ -525,7 +526,8 @@ MonoBehaviour:
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
-  spawnExplosion: 0
+  spawnExplosion: 1
+  explosionScale: 1.4
   debrisOnDestroy:
     spriteList: []
     debrisColor:
@@ -535,6 +537,18 @@ MonoBehaviour:
     amount: 0
     force: 0
   TestkillItem: 0
+--- !u!210 &67077952087705967
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764235353865182344}
+  m_Enabled: 1
+  m_SortingLayerID: 109278603
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 1
 --- !u!1 &9023776803817678496
 GameObject:
   m_ObjectHideFlags: 0

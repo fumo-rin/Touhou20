@@ -48,7 +48,17 @@ namespace ChurroIceDungeon
     #region Motor
     public partial class DungeonUnit
     {
+        HashSet<MotorZone> knownModifiers = new();
         [SerializeField] DungeonMotor unitMotor;
+        public HashSet<MotorZone> MotorZones => knownModifiers;
+        public void BindMotorZone(MotorZone m)
+        {
+            knownModifiers.Add(m);
+        }
+        public void ReleaseMotorZone(MotorZone m)
+        {
+            knownModifiers.Remove(m);
+        }
         float nextMovetime;
         public virtual DungeonMotor CollapseMotor()
         {
@@ -75,10 +85,12 @@ namespace ChurroIceDungeon
             {
                 result = new();
                 result.Failed = true;
+                m.ApplyFailFriction(this);
                 return;
             }
-            DungeonMotor.Settings settings = new(speedmod);
-            m.PerformMotor(this, input, settings, out result);
+            DungeonMotor.Settings settings = new(this);
+            settings.SpeedMod = speedmod;
+            m.RunMotor(this, input, settings, out result, ref nextMovetime);
             if (!result.Failed)
             {
                 SetNextMovetime(result.NextMoveTime);

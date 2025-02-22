@@ -8,6 +8,25 @@ namespace Bremsengine
 {
     public class MusicPlayer : MonoBehaviour
     {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeActiveTrack()
+        {
+            currentlyPlaying = new();
+        }
+        public struct activeTrack
+        {
+            public int track;
+            public MusicWrapper music;
+        }
+        static activeTrack currentlyPlaying;
+        public static bool IsPlayingOnTrack(int track, MusicWrapper music)
+        {
+            if (currentlyPlaying.music != music)
+            {
+                return false;
+            }
+            return currentlyPlaying.track == track;
+        }
         public static float GlobalVolume { get; private set; }
         [SerializeField] MusicWrapper testStartingMusic;
         static Queue<MusicWrapper> Playlist = new();
@@ -86,6 +105,10 @@ namespace Bremsengine
                 Debug.Log("Music Wrapper is null");
                 return;
             }
+            if (mw.dontReplaceSelf && IsPlayingOnTrack(instance.selectedTrack, mw))
+            {
+                return;
+            }
             instance.PlayCrossfade(mw, !IsPlaying ? 0f : instance.crossFadeLength);
         }
         private void PlayCrossfade(MusicWrapper clip, float crossfade = 0.5f)
@@ -94,6 +117,7 @@ namespace Bremsengine
         }
         private IEnumerator FadeTrack(MusicWrapper clip, float crossfade)
         {
+            activeTrack newTrack = new();
             crossfade = crossfade.Max(0.00f);
             float timeElapsed = 0f;
             if (clip.musicClip == null)
@@ -147,6 +171,9 @@ namespace Bremsengine
                 track1.volume = clip.musicVolume * GlobalVolume;
                 track1.Play();
             }
+            newTrack.track = selectedTrack;
+            newTrack.music = clip;
+            currentlyPlaying = newTrack;
         }
     }
 }

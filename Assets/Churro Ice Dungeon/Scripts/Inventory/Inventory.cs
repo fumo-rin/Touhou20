@@ -11,6 +11,20 @@ namespace ChurroIceDungeon
             public int slotID;
             public InventoryItem item;
         }
+        public bool ClearInventory(ref Dictionary<int, itemSlotSnapshot> snapshot)
+        {
+            snapshot = new();
+            foreach (var item in standardSlotsCache)
+            {
+                snapshot.Add(item.SlotID, new()
+                {
+                    slotID = item.SlotID,
+                    item = EmptyItem
+                });
+            }
+            ReloadLastSnapshot();
+            return snapshot != null && snapshot.Count > 0;
+        }
         public bool SnapshotCurrent(out Dictionary<int, itemSlotSnapshot> snapshot)
         {
             snapshot = new();
@@ -24,9 +38,19 @@ namespace ChurroIceDungeon
             }
             return snapshot != null && snapshot.Count > 0;
         }
-        public bool GetFromSnapshot(int id, out itemSlotSnapshot snapshot)
+        public void ReloadLastSnapshot()
         {
-            return ChurroUnit.GetFromSnapshot(id, out snapshot);
+            foreach (var item in standardSlotsCache)
+            {
+                if (slotsIDCache.TryGetValue(item.SlotID, out ItemSlot slot))
+                {
+                    slot.SetSlotFromSnapshot();
+                }
+            }
+        }
+        public bool GetItemFromSnapshot(int id, out itemSlotSnapshot snapshot)
+        {
+            return ChurroUnit.TryGetFromSnapshot(id, out snapshot);
         }
         [field: SerializeField] public Canvas canvas { get; private set; }
         public Canvas DraggingCanvas;

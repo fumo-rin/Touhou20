@@ -12,13 +12,19 @@ namespace Bremsengine
     #region Load Scene
     public partial class GeneralManager
     {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeSceneLoader()
+        {
+            IsLoadingScene = false;
+            OnStageExitPreLoadingScreen = null;
+        }
         [SerializeField] GameObject loadingScreen;
         [SerializeField] TMP_Text loadingScreenText;
         public static bool IsLoadingScene;
         public delegate void StageExitAction();
         public static StageExitAction OnStageExitPreLoadingScreen;
         [QFSW.QC.Command("-loadscene")]
-        public static void LoadSceneAfterDelay(string sceneName, float delay)
+        public static void LoadSceneAfterDelay(string sceneName, float delay, System.Action callback = null)
         {
             IEnumerator CO_LoadScene(string sceneName, float delay)
             {
@@ -29,9 +35,9 @@ namespace Bremsengine
                         Instance.loadingScreenText.text = "Loading: " + (progress * 100f).Clamp(0f, 100f).ToString("F0") + "%";
                     }
                 }
+                IsLoadingScene = true;
                 yield return new WaitForSecondsRealtime(delay);
                 OnStageExitPreLoadingScreen?.Invoke();
-                IsLoadingScene = true;
                 if (Instance != null && Instance.loadingScreen != null)
                 {
                     Instance.loadingScreenText.text = "Loading: 0%";
@@ -47,6 +53,8 @@ namespace Bremsengine
                     }
                     SetLoadingProgress(1f);
                     yield return new WaitForSecondsRealtime(0.45f);
+                    yield return new WaitForFixedUpdate();
+                    callback?.Invoke();
                     Instance.loadingScreen.SetActive(false);
                     Time.timeScale = 1f;
                 }
@@ -57,7 +65,10 @@ namespace Bremsengine
                 }
                 IsLoadingScene = false;
             }
-            Instance.StartCoroutine(CO_LoadScene(sceneName, delay));
+            if (!IsLoadingScene)
+            {
+                Instance.StartCoroutine(CO_LoadScene(sceneName, delay));
+            }
         }
     }
     #endregion
@@ -177,9 +188,11 @@ namespace Bremsengine
         [SerializeField] AudioClipWrapper funnyExplosionSound;
         public static void FunnyExplosion(Vector2 position, float scale = 1f)
         {
+            Debug.Log("Funny Explosion");
             GameObject x = Instantiate(Instance.funnyExplosion, position, Quaternion.identity);
             Destroy(x, 1.02f);
             x.transform.localScale *= scale;
+            x.transform.localScale = new(x.transform.localScale.x.Max(0.25f), x.transform.localScale.y.Max(0.25f), 1);
             Instance.funnyExplosionSound.Play(position);
         }
     }

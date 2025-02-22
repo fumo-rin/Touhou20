@@ -19,8 +19,8 @@ namespace ChurroIceDungeon
     public partial class ItemData
     {
         [SerializeField] ItemEvent UseEvent;
-        static Dictionary<int, Action> UseLookup;
         [SerializeField] bool clearOnUse;
+        static Dictionary<int, Action> UseLookup;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ReinitializeEvents()
         {

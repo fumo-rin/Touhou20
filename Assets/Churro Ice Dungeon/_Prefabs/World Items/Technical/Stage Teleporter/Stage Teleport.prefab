@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3395541047887702422}
   - component: {fileID: 2296365470032018460}
   - component: {fileID: 2874672215748257877}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Stage Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,3 +152,4 @@ MonoBehaviour:
   listenToCompletionEvent: 0
   gameStarter: 1
   visualObject: {fileID: 0}
+  progressOverride: -1

@@ -61,8 +61,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stages:
   - name: Overworld
-    stageMusic: {fileID: 11400000, guid: 4ca59e02b1a24184a884ece90b2ce097, type: 2}
+    stageMusic: {fileID: 11400000, guid: 49a27458fe275904c8463dca14742a20, type: 2}
+  - name: Orin
+    stageMusic: {fileID: 11400000, guid: 67b11aa140ae8724c953de538d48120c, type: 2}
+  - name: Reimus Room
+    stageMusic: {fileID: 11400000, guid: 67b11aa140ae8724c953de538d48120c, type: 2}
   - name: Okuu
-    stageMusic: {fileID: 11400000, guid: 7a954db222afa0440b0df4eb8e1e778b, type: 2}
+    stageMusic: {fileID: 11400000, guid: 2b540295c62ebf94099308bd0b75f5b8, type: 2}
+  - name: Youkai Mountain
+    stageMusic: {fileID: 11400000, guid: 2b540295c62ebf94099308bd0b75f5b8, type: 2}
   - name: Yukari
-    stageMusic: {fileID: 11400000, guid: 56b1bc071a534ea4fa4058b5dff553ca, type: 2}
+    stageMusic: {fileID: 11400000, guid: f916a2756efd0a74ba5cbdb93ba2305c, type: 2}
+  - name: Makai
+    stageMusic: {fileID: 11400000, guid: f916a2756efd0a74ba5cbdb93ba2305c, type: 2}

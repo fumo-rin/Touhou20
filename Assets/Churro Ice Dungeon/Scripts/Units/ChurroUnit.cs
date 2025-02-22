@@ -184,7 +184,11 @@ namespace ChurroIceDungeon
     {
         static Inventory assignedInventory;
         static Dictionary<int, Inventory.itemSlotSnapshot> InventorySnapShot;
-        public static bool GetFromSnapshot(int id, out Inventory.itemSlotSnapshot item)
+        public static void ClearInventorySnapshot()
+        {
+            assignedInventory.ClearInventory(ref InventorySnapShot);
+        }
+        public static bool TryGetFromSnapshot(int id, out Inventory.itemSlotSnapshot item)
         {
             item = new();
             if (InventorySnapShot == null)
@@ -230,8 +234,6 @@ namespace ChurroIceDungeon
     #endregion
     public partial class ChurroUnit : DungeonUnit
     {
-        public static ChurroUnit PlayerChurro => (ChurroUnit)Player;
-        public static bool DoesPlayerExist => PlayerChurro != null;
         [SerializeField] Animator movementAnimator;
         Vector2 moveInput;
         private void ReadInput(ref Vector2 input)

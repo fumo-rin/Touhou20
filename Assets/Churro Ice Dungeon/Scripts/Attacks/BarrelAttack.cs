@@ -13,6 +13,11 @@ namespace ChurroIceDungeon
         {
             ChurroProjectile.ArcSettings bigArc = new(0f, 360f, 72f, 2.5f);
             ChurroProjectile.ArcSettings smallArc = new(0f, 360f, 30f, 2.5f);
+            if (!Hardmode)
+            {
+                smallArc = smallArc * 0.6f;
+                bigArc = bigArc * 0.75f;
+            }
 
             foreach (var item in ChurroProjectile.SpawnArc(bigPrefab, input, bigArc))
             {

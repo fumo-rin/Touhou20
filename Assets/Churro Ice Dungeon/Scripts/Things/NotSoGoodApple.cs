@@ -14,7 +14,8 @@ namespace ChurroIceDungeon
         {
             SetMode(ChurroManager.HardMode);
         }
-        private void SetMode(bool state)
+        [QFSW.QC.Command("Hardmode")]
+        public void SetMode(bool state)
         {
             modeDisplay.enabled = state;
             ChurroManager.HardMode = state;

@@ -159,7 +159,11 @@ namespace ChurroIceDungeon
         {
             dragItemRectParent = dragItemRect.parent;
             containedItem = inventory.EmptyItem;
-            if (inventory.GetFromSnapshot(SlotID, out Inventory.itemSlotSnapshot snapshot))
+            SetSlotFromSnapshot();
+        }
+        public void SetSlotFromSnapshot()
+        {
+            if (inventory.GetItemFromSnapshot(SlotID, out Inventory.itemSlotSnapshot snapshot))
             {
                 SetItem(snapshot.item);
             }
@@ -219,7 +223,7 @@ namespace ChurroIceDungeon
         }
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!IsDragging)
+            if (!IsDragging && ChurroUnit.Player != null && ChurroUnit.Player.IsAlive())
             {
                 if (containedItem.containedData.UseItem(out ItemData.UseResult useResult))
                 {

@@ -11,6 +11,8 @@ namespace ChurroIceDungeon
         int progressToLoad;
         [Header("Optional")]
         [SerializeField] GameObject visualObject;
+        [Range(-1, 15)]
+        [SerializeField] int progressOverride = -1;
         private void Awake()
         {
             progressHitbox.enabled = startActive;
@@ -22,7 +24,7 @@ namespace ChurroIceDungeon
         }
         private void OnDestroy()
         {
-            ChurroManager.OnDestructionRefresh += DestructionRefresh;
+            ChurroManager.OnDestructionRefresh -= DestructionRefresh;
         }
         private void DestructionRefresh(float destruction, float destructionMax)
         {
@@ -30,8 +32,17 @@ namespace ChurroIceDungeon
             {
                 bool state = destruction >= destructionMax;
                 if (visualObject) visualObject.SetActive(state);
-                progressHitbox.enabled = state;
+                if (progressHitbox != null)
+                {
+                    progressHitbox.enabled = state;
+                    SetMapTarget(transform.position, state);
+                }
             }
+        }
+        private static void SetMapTarget(Vector2 position, bool visibility)
+        {
+            ChurroPortalDirection.SetVisibility(visibility);
+            ChurroPortalDirection.SetDirection(position);
         }
         public void TriggerProgress()
         {
@@ -40,7 +51,7 @@ namespace ChurroIceDungeon
                 ChurroGameProgress.StartGame();
                 return;
             }
-            ChurroManager.LoadProgress(progressToLoad);
+            ChurroManager.LoadProgress(progressOverride >= 0 ? progressOverride : progressToLoad);
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
