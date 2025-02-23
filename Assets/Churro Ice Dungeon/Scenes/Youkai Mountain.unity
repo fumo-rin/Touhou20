@@ -7956,6 +7956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Churro
       objectReference: {fileID: 0}
+    - target: {fileID: 1143449542911653719, guid: 936cce2240e20f045924586fdc0f4eb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -98870,6 +98874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1971708280753631566, guid: d515ee5f20a3dd2438d05fb75109ef89, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAAIIewlyWhBywIAAAEGAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1v4jAQ/SvI5wUFCg3d2y5Quoe2aOmqh6UHEw/EwtiR7RRo1f++M45DAitVwn3z9ebNTD6Z1K6AzBs7t1I8GgHse4fRm33rNMYHOPKt0Uv5AbXPqxQ+JycefH5zLw3ifQpzZg/eyuyH3ipyThAstdwYu5+JLUyM8w7hDVcO0GSNp2iN0GeHHfGnOxwhfsLXIKXgD3zdJZ0vfGagPdiW67h3k97cpIMYcNsb343S/niUxrgqrNSZ4vsCBPXQRKd1nXQU3DR2Fz2SHtkyo5R0kRzzpyI0vyxysEDdC8mx10CIWs9BbnNPvNuxz5uNAx+FsPw0lRYlq5Kyn6bScc/driL2zlVJZfqBUpXy8T9rtzJvrNk/1FX7CVXwucx2v/kp4863ZG7D00vapT5wteNrBa856Cczt6bUAo3elhRaOhhMm3/PjU1yyHYNXlG9AsuikTuJatczpR6+Qu/HpYfi3EfSGzboHwduqUxQPuYkS0TuKBdYnNsv7CfskYsVECWSGP/Ct+2Fi4Z7aZ1HUxQhouS7wPmAAJ1B1L1LDprorU1pKRebBa6kRuknxmoIcCRYgObKnxaY0V8vwJWtxevKcs/p9iK7aKtP6iokwI1/klyZFuZwHrYtFbiwzvXr7xsNweXm8Agufy69krqlNhmeUOCJ0bra27aYddiytBuetcI8HH1pYco9D9WQDi6YaIeiliFCl0rRLocGAiNsgP7eSN+cY10VYPZkdLi7i99Af1tKcXkhLBmP+boP6WCdAR8lm+4w5ckgG65v12PBxThh4YSkRrm5WlR6xSnhdummF43nUn8ZO3PLi3CywvLDXH7sTWvyUm/MMrMA+rnKcG4WLBbBb4uYCYltLsF7qcNess8VUybbgVidE62CsLOjt3zVZFmxQr4bT8iKTcKncMUIPp8kru67hAMVv0gGCkcH4kUq2POCTMkX+/oHUEsDBBQAAAgIAAAIIeyBI9E6bAAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNUz1jPWUVBKL0osyCgGChiCOKWZKSB2tJKBhUVikmGquVFScmqiqUGarol5ooFRskmSWZJFSmKKhYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7CXJaEHLAgAAAQYAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7IEj0TpsAAAAdwAAAAkAJAAAAAAAAAAAAAAAGAMAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAADPAwAAAAA=
+      objectReference: {fileID: 0}
     - target: {fileID: 4941254152472619616, guid: d515ee5f20a3dd2438d05fb75109ef89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

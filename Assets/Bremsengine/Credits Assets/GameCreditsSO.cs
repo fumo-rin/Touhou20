@@ -24,7 +24,7 @@ namespace Bremsengine
         {
             credits.Sort(CreditsSO.SortByPriority);
             string spam = "";
-            spam += $"{gameName}##by {gameCreator}####".ReplaceLineBreaks("##");
+            spam += $"{gameName}##by {gameCreator}########".ReplaceLineBreaks("##");
             foreach (var c in credits)
             {
                 spam += c.ToString();

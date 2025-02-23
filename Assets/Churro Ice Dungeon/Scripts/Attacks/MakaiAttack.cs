@@ -11,10 +11,10 @@ namespace ChurroIceDungeon
         [SerializeField] Collider2D ignoreProjectileCollider;
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
-            float small = 360f / (Hardmode ? 30f : 12f);
+            float small = 360f / (Hardmode ? 15f : 7f);
             float big = 360f / (Hardmode ? 24f : 8f);
-            ChurroProjectile.ArcSettings bigArc = new(0f, 360f, big, Hardmode ? 4.5f : 3f);
-            ChurroProjectile.ArcSettings smallArc = new(0f, 360f, small, Hardmode ? 6 : 4f);
+            ChurroProjectile.ArcSettings bigArc = new(0f, 360f, big, Hardmode ? 3f : 4.5f);
+            ChurroProjectile.ArcSettings smallArc = new(0f, 360f, small, Hardmode ? 3f : 6f);
 
             foreach (var item in ChurroProjectile.SpawnArc(bigPrefab, input, bigArc))
             {
@@ -28,12 +28,31 @@ namespace ChurroIceDungeon
             StartCoroutine(CO_ExtraSmallRings(4, small / 4f));
             IEnumerator CO_ExtraSmallRings(int count, float rotationStep)
             {
-                for (int i = 0; i < count * (Hardmode ? 3f :1f); i++)
+                ChurroProjectile.InputSettings reverse = new(input.Origin, input.Direction)
                 {
-                    yield return new WaitForSeconds(0.2f * (Hardmode ? 0.33f : 1f));
-                    input.SetDirection(input.Direction.Rotate2D(rotationStep * (Hardmode ? 3f: 1f)));
+                    OnSpawn = input.OnSpawn,
+                };
+                for (int i = 0; i < count; i++)
+                {
+                    yield return new WaitForSeconds(Hardmode ? 0.2f : 0.065f);
+                    input.SetDirection(input.Direction.Rotate2D(rotationStep));
                     foreach (var item in ChurroProjectile.SpawnArc(prefab, input, smallArc))
                     {
+                        attackSound.Play(transform.position);
+                        item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(-2.5f));
+                        if (ignoreProjectileCollider)
+                        {
+                            Physics2D.IgnoreCollision(ignoreProjectileCollider, item.ProjectileCollider);
+                        }
+                    }
+                    if (!Hardmode)
+                    {
+                        continue;
+                    }
+                    reverse.SetDirection(reverse.Direction.Rotate2D(-rotationStep));
+                    foreach (var item in ChurroProjectile.SpawnArc(prefab, reverse, smallArc))
+                    {
+                        attackSound.Play(transform.position);
                         item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(-2.5f));
                         if (ignoreProjectileCollider)
                         {

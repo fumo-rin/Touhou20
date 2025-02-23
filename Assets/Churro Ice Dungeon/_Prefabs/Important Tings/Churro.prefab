@@ -100,7 +100,6 @@ GameObject:
   - component: {fileID: 3235564999493768737}
   - component: {fileID: 1474530179978423187}
   - component: {fileID: 5446593708055821190}
-  - component: {fileID: 2388212895686575041}
   - component: {fileID: 241867899157074750}
   m_Layer: 3
   m_Name: Churro
@@ -217,22 +216,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2388212895686575041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949694651144871677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a634230476dc478b88eceac73b1c8a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1073741824
-  updateDistance: 10
-  target: {fileID: 367316601673975916}
-  graphIndex: 0
 --- !u!58 &241867899157074750
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -320,6 +303,54 @@ MonoBehaviour:
   attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
   spinIncrement: -0.3
   prefab: {fileID: 3506629886063210716, guid: 93da472129e72ca4aa9eaba906c9b822, type: 3}
+--- !u!1 &1143449542911653719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065923731505766065}
+  - component: {fileID: 6348526691951596920}
+  m_Layer: 3
+  m_Name: Navmesh Mover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065923731505766065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143449542911653719}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1334493553923259923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6348526691951596920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143449542911653719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a634230476dc478b88eceac73b1c8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1073741824
+  updateDistance: 10
+  target: {fileID: 367316601673975916}
+  graphIndex: 0
 --- !u!1 &1146360709315222248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1197,7 @@ Transform:
   - {fileID: 44338786635896259}
   - {fileID: 4431381564225845202}
   - {fileID: 4081084548055576518}
+  - {fileID: 2065923731505766065}
   m_Father: {fileID: 367316601673975916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3376281092527795608

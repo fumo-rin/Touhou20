@@ -10,9 +10,15 @@ namespace Bremsengine
         [SerializeField] Rigidbody2D rb;
         [SerializeField] float upwardsForce;
         [SerializeField] GameObject container;
+        [SerializeField] bool loadCredits;
         private void Start()
         {
-            creditsText.text = gameCredits.CompileCredits();
+            if (loadCredits)
+            {
+                creditsText.text = gameCredits.CompileCredits();
+                return;
+            }
+            creditsText.text = "";
         }
         public void StartCredits()
         {

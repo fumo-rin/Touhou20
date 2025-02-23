@@ -65,6 +65,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199227970920768971, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
+      propertyPath: startingHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199227970920768971, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
+      propertyPath: destructionValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199227970920768971, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
       propertyPath: strengthOnDestroy
       value: 35
       objectReference: {fileID: 0}
@@ -88,6 +96,10 @@ PrefabInstance:
       propertyPath: destroyEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4199227970920768971, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
+      propertyPath: destroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2212419937364401905}
     - target: {fileID: 4199227970920768971, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
       propertyPath: destroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -182,6 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3628394689764769154, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
+    - {fileID: 7400109879233386829, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -209,14 +222,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888447acb1957424db3cabd98228fd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 5
+  baseDamage: 0.25
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
-  attackSound: {fileID: 0}
-  prefab: {fileID: 0}
-  bigPrefab: {fileID: 0}
-  ignoreProjectileCollider: {fileID: 0}
+  attackSound: {fileID: 11400000, guid: 69ed299960fdb084dad0f679782840b7, type: 2}
+  prefab: {fileID: 4912228362202972655, guid: 788fd3e95b81f0348aaeed819d2b62b7, type: 3}
+  bigPrefab: {fileID: 4912228362202972655, guid: 6305ee9be2910044da96475d4085d724, type: 3}
+  ignoreProjectileCollider: {fileID: 1435836136172978599}
 --- !u!61 &1435836136172978599 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6537412369145911186, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
