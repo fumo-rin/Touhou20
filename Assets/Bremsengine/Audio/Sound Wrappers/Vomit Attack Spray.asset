@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Vomit Attack Spray
   soundVolume: 0.566
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 46ec5a91be702f248a1ecb5f224a525c, type: 3}
     PitchVariancePercent: 10

@@ -106,6 +106,10 @@ PrefabInstance:
       propertyPath: targetVisionRange
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 5355312390181609475, guid: 106a75c626a266740bf52e9c34330885, type: 3}
+      propertyPath: Priority.m_Value
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 5743103674598938050, guid: 106a75c626a266740bf52e9c34330885, type: 3}
       propertyPath: <settings>k__BackingField.<SwingDuration>k__BackingField
       value: 3

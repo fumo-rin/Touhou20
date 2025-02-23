@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a06174be832c302418f130762bb4083e
+guid: a45ab11fdac6f524cbb51c6a399e8db2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5095136759583569033
-    second: Makai Skybox_0
+      213: -1922979618149193216
+    second: Exit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Makai Skybox_0
+      name: Exit_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 79
+        y: 71
+        width: 346
+        height: 378
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 984730d33ef85b640800000000000000
-      internalID: 5095136759583569033
+      spriteID: 00aa6e5c9343055e0800000000000000
+      internalID: -1922979618149193216
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Makai Skybox_0: 5095136759583569033
+      Exit_0: -1922979618149193216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

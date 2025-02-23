@@ -26,6 +26,7 @@ namespace Core.Extensions
                 a.clip = entry.clip;
                 a.pitch = entry.PitchOrigin.Spread(entry.PitchVariancePercent);
                 a.volume = sound.GetVolume(index);
+                sound.ApplyMixerOverride(a);
                 a.Set3D(sound);
                 a.Play();
             }

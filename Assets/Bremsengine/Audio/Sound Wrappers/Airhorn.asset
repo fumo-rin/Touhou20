@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Horn
   soundVolume: 0.833
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: d2364f357fd6bcf41b619277a8d1722f, type: 3}
     PitchVariancePercent: 2

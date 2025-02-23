@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Hit Normal
   soundVolume: 0.14
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 2dc63be134f4337439830144bb8ee766, type: 3}
     PitchVariancePercent: 3.5

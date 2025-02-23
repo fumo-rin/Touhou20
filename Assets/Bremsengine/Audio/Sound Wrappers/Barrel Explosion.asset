@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Barrel Blast
   soundVolume: 0.17
+  audioMixerOverride: {fileID: 4947940112376965473, guid: 34215ea08f295ea4f9e78bbe991ca3df, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: f950b92f4d415224dad4c6d4c57a8ef0, type: 3}
     PitchVariancePercent: 3

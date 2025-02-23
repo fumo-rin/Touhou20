@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Player Weapon
   soundVolume: 0.3
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: b51539351a926754899c22cb267cf4cb, type: 3}
     PitchVariancePercent: 5

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Snow Buff
   soundVolume: 1
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: af1b0fac7f19c9c469b64544ba53b7ad, type: 3}
     PitchVariancePercent: 0

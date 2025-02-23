@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-5305454637749190133
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: aa73d6ec06fa1804f9cbc09a6d68a04c
+  m_EffectName: Attenuation
+  m_MixLevel: d33f79c6eccdd4243b0c479647081c24
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-1549346045928506887
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Single Channels Sub
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: dd852090afddd954c80c36b57575b34a
+  m_Children: []
+  m_Volume: 32e85ac7564581f4a8fe8c4b69618571
+  m_Pitch: 12978d5340a341744a30f0495765abc9
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -5305454637749190133}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -15,10 +48,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 2e4d5ac219e4c6a41ada24f0d3232c17
+    name: Volume
   m_AudioMixerGroupViews:
   - guids:
     - fb9b1065f2afd9245bc761f7f153cefc
+    - dd852090afddd954c80c36b57575b34a
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -31,7 +67,8 @@ AudioMixerGroupController:
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fb9b1065f2afd9245bc761f7f153cefc
-  m_Children: []
+  m_Children:
+  - {fileID: -1549346045928506887}
   m_Volume: 2e4d5ac219e4c6a41ada24f0d3232c17
   m_Pitch: 0849e9f12e2688a4285059b21fd2080c
   m_Send: 00000000000000000000000000000000
@@ -68,11 +105,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 5907448ceba5bd24fa008ffdc5b80829
   m_FloatValues:
-    2e4d5ac219e4c6a41ada24f0d3232c17: -3.8468595
+    2e4d5ac219e4c6a41ada24f0d3232c17: 0
     94a3c023586308440bcbb479ff785c37: -10.5
     ef4b1b237a9b23848bd3e2a2e06b7595: -1095
     1ea19373e49a7454c9c8c00449f140b8: -1606
     420bf89480de86243acf34a87c47ab91: -8314
+    32e85ac7564581f4a8fe8c4b69618571: 0
     7ad0fa88ec2cc3c4ab85cb4cfbae9edb: 1.3
     75c47f3c5c9372d4688b76dfca8292a8: -350
     9ee71dcce438b44489a7a755ab0298d9: 319

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Pickups
   soundVolume: 0.12
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 121e4acfa4b0a0a40a98d98c2417737d, type: 3}
     PitchVariancePercent: 11.6

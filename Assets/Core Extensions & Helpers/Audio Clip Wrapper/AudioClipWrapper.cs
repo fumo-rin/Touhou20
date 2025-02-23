@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Core.Extensions
 {
@@ -10,6 +11,14 @@ namespace Core.Extensions
         public string SoundName = "Headhunter, Leather Belt";
         [Range(0f,1f)]
         [SerializeField] float soundVolume = 0.7f;
+        [SerializeField] AudioMixerGroup audioMixerOverride;
+        public void ApplyMixerOverride(AudioSource source)
+        {
+            if (audioMixerOverride != null)
+            {
+                source.outputAudioMixerGroup = audioMixerOverride;
+            }
+        }
         [field: SerializeField] public List<ACWrapperEntry> soundClips { get; private set; } = new();
         [field: SerializeField] public bool singleChannel { get; private set; } = false;
         [field: SerializeField] public bool Is3D { get; private set; }

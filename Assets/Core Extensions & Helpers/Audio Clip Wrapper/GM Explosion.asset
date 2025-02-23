@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Game Maker Explosion
   soundVolume: 0.16
+  audioMixerOverride: {fileID: 4947940112376965473, guid: 34215ea08f295ea4f9e78bbe991ca3df, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 409fa8f771be2b14c9e6fa72ef32e65d, type: 3}
     PitchVariancePercent: 0

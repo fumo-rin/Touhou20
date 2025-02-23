@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Prompt 2
   soundVolume: 0.7
+  audioMixerOverride: {fileID: 4947940112376965473, guid: 34215ea08f295ea4f9e78bbe991ca3df, type: 2}
   <soundClips>k__BackingField:
   - clip: {fileID: 8300000, guid: 59709a5fb6700024a81a5b2cf39a410d, type: 3}
     PitchVariancePercent: 0

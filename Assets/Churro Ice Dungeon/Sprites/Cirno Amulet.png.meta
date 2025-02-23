@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cirno Amulet_0: -5483149930184364833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
