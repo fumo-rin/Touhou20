@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &454642468038625182
+--- !u!1001 &7864624941705505283
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,31 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_Color.a
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+      value: 0.43137255
       objectReference: {fileID: 0}
     - target: {fileID: 6773106329707360286, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_Name
-      value: Player Small Icicle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
+      value: Player Big Ice
       objectReference: {fileID: 0}
     - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5adbc91b1d3f39428da25921be9b0ed, type: 3}
+  m_Name: Slug
+  m_EditorClassIdentifier: 
+  UseEvent:
+    EventKey: 3
+  clearOnUse: 0
+  slotType: 0
+  itemID: 1
+  <itemSprite>k__BackingField: {fileID: 21300000, guid: 477259188eb1b6248bb6ab7cd34ddfc4, type: 3}
+  <containedAttackPrefab>k__BackingField: {fileID: 7211631123061013741, guid: 49e68aebab15e8945854b6aeb9a74a1a, type: 3}

@@ -1,11 +1,24 @@
 using Bremsengine;
 using Core.Extensions;
 using UnityEngine;
+using UnityEditor;
 
 namespace ChurroIceDungeon
 {
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        [SerializeField] bool shouldOverrideSettings;
+        [SerializeField] AttackHandler.AttackTimeSettings overrideSettings;
+        protected ChurroProjectile.ArcSettings Arc(float startAngle, float endAngle, float angleInterval, float projectileSpeed) => new(startAngle, endAngle, angleInterval, projectileSpeed);
+        public bool TryGetOverrideSettings(out AttackHandler.AttackTimeSettings output)
+        {
+            output = null;
+            if (shouldOverrideSettings && overrideSettings != null)
+            {
+                output = overrideSettings;
+            }
+            return shouldOverrideSettings && output != null;
+        }
         protected bool Hardmode => ChurroManager.HardMode;
         [SerializeField] float baseDamage = 5f;
         [SerializeField] int projectileLayerIndex = 100;
@@ -13,6 +26,19 @@ namespace ChurroIceDungeon
         [field: SerializeField] protected DungeonUnit owner { get; private set; }
         [SerializeField] protected AttackHandler handler;
         [SerializeField] protected AudioClipWrapper attackSound;
+        public void TriggerAttackLoad()
+        {
+            Debug.Log("Seperate this from start, and move it onto items when i make it pleae for all that is holy");
+            if (handler != null && TryGetOverrideSettings(out AttackHandler.AttackTimeSettings settings))
+            {
+                handler.settings.ApplySettings(settings);
+            }
+            OnAttackLoad();
+        }
+        protected virtual void OnAttackLoad()
+        {
+
+        }
         private void PerformContainedAttack(Vector2 target)
         {
             PerformContainedAttack(target, false);
@@ -38,7 +64,7 @@ namespace ChurroIceDungeon
             if (owner != null)
             {
                 p.Action_SetFaction(owner.Faction);
-                p.Action_SetDamage(owner.DamageScale(baseDamage));
+                p.Action_SetDamage(baseDamage);
                 p.Action_SetOwnerReference(owner);
             }
             else
@@ -49,10 +75,28 @@ namespace ChurroIceDungeon
             }
             p.Action_SetSpriteLayerIndex(projectileLayerIndex);
         }
+        public void SetHandler(AttackHandler handler)
+        {
+            if (handler != null)
+            {
+                handler.OnAttack -= PerformContainedAttack;
+            }
+            this.handler = handler;
+            handler.OnAttack += PerformContainedAttack;
+        }
+        public void SetOwner(DungeonUnit unit)
+        {
+            owner = unit;
+        }
         private void Start()
         {
-            if (handler != null) handler.OnAttack += PerformContainedAttack;
+            TriggerAttackLoad();
             WhenStart();
+            if (handler != null) handler.OnAttack += PerformContainedAttack;
+            if (handler is ChurroAttackHandler churro)
+            {
+                churro.RegisterWeapon(this);
+            }
         }
         protected virtual void WhenStart()
         {

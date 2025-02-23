@@ -190,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <settings>k__BackingField:
     SpreadVariation: 1
-    <NextAttackTime>k__BackingField: 0
     <SwingDuration>k__BackingField: 1.5
     <StallDuration>k__BackingField: 0.5
 --- !u!1 &2632472823983253411
@@ -330,6 +329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd1104c394893545b67453ece871b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldOverrideSettings: 0
+  overrideSettings:
+    SpreadVariation: 0
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 5842509158023467023}
@@ -380,6 +384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8ccdc5d9e702447b0280eb7e25a53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldOverrideSettings: 0
+  overrideSettings:
+    SpreadVariation: 0
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 5842509158023467023}
@@ -819,7 +828,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6069829716892871237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,6 +941,7 @@ MonoBehaviour:
     <rvo>k__BackingField: {fileID: 6069829716892871237}
     collapseDistance: 0.8
   testVector: {x: 0, y: 0}
+  optionalAttackHandler: {fileID: 0}
   assignedRB: {fileID: 1037673031714856360}
   ai_AimTransformOverride: {fileID: 0}
   startingHealth: 1

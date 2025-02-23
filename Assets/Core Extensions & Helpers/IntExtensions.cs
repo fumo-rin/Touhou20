@@ -1,3 +1,4 @@
+using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,14 @@ namespace Core.Extensions
         public static int Spread(this int i, float percentage = 5f)
         {
             return (int)((float)i * (Random.Range(1 - percentage.Clamp(0f, 100f) * FloatExtensions.Percent, 1 + percentage.Clamp(0f, 100f) * FloatExtensions.Percent)));
+        }
+        public static int MultiplyAndFloor(this int i, float multiplier)
+        {
+            return (int)((float)i).Multiply(multiplier).Floor();
+        }
+        public static float MultiplyAndFloorAsFloat(this int i, float multiplier)
+        {
+            return (float)MultiplyAndFloor(i, multiplier);
         }
     }
 }

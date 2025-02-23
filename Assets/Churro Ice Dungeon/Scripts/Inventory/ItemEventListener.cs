@@ -9,7 +9,7 @@ namespace ChurroIceDungeon
         [SerializeField] ItemActionKey listenerKey;
         [Header("On Use is the base call. Use an extended class and use the Payload Method for extra stuff or unit specific.")]
         [SerializeField] UnityEvent OnUse;
-        private void TriggerPayload()
+        private void TriggerPayload(ItemData item)
         {
             Debug.Log("Triggering Payload : " + transform.name);
             OnUse?.Invoke();

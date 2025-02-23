@@ -76,6 +76,10 @@ namespace ChurroIceDungeon
                 this.ArcInterval = arcInterval;
                 this.ProjectileSpeed = projectileSpeed;
             }
+            public List<ChurroProjectile> Spawn(ChurroProjectile.InputSettings input, ChurroProjectile prefab)
+            {
+                return ChurroProjectile.SpawnArc(prefab, input, this);
+            }
             public float StartingAngle { get; private set; }
             public float EndingAngle { get; private set; }
             public float ArcInterval { get; private set; }
@@ -94,6 +98,7 @@ namespace ChurroIceDungeon
                 if (p == null)
                     continue;
                 output.Add(p);
+                p.Action_AddPosition(p.CurrentVelocity.ScaleToMagnitude(0.15f));
             }
             return output;
         }
@@ -107,6 +112,11 @@ namespace ChurroIceDungeon
             Action_SetSprite(other.projectileSprite.sprite);
             offScreenClearDistance = other.offScreenClearDistance;
 
+            return this;
+        }
+        public ChurroProjectile Action_MultiplyVelocity(float multiplier)
+        {
+            CurrentVelocity *= multiplier;
             return this;
         }
         public ChurroProjectile Action_SetVelocity(Vector2 direction, float speed)
@@ -133,6 +143,10 @@ namespace ChurroIceDungeon
         }
         public ChurroProjectile Action_SetDamage(float newDamage)
         {
+            if (Owner != null)
+            {
+                newDamage = Owner.DamageScale(newDamage);
+            }
             this.ContainedDamage = newDamage; return this;
         }
         public ChurroProjectile Action_SetOwnerReference(DungeonUnit owner)
@@ -144,9 +158,13 @@ namespace ChurroIceDungeon
             transform.position = (Vector2)transform.position + (Vector2)direction;
             return this;
         }
+        public ChurroProjectile Action_AddRotation(float value)
+        {
+            return Action_SetVelocity(CurrentVelocity.Rotate2D(value), CurrentVelocity.magnitude);
+        }
         public ChurroProjectile Action_SetBounceLives(int value)
         {
-            BounceLives = value; return this;
+            TerrainBounceLives = value; return this;
         }
     }
     #endregion
@@ -258,13 +276,13 @@ namespace ChurroIceDungeon
                     Destroy(gameObject);
                 }
             }
-            if (BounceLives <= -1)
+            if (TerrainBounceLives <= -1)
             {
                 Local_Destroy();
                 return;
             }
-            BounceLives -= bounceCost.Abs();
-            if (BounceLives <= 0)
+            TerrainBounceLives -= bounceCost.Abs();
+            if (TerrainBounceLives <= 0)
             {
                 Local_Destroy();
                 return;
@@ -301,6 +319,8 @@ namespace ChurroIceDungeon
                         if (Owner != null && box.transform.root.GetComponent<EnemyUnit>() is EnemyUnit enemy and not null)
                         {
                             enemy.Alert(Owner);
+                            ClearProjectile();
+                            return;
                         }
                         ClearProjectile();
                         return;
@@ -343,7 +363,7 @@ namespace ChurroIceDungeon
     public partial class ChurroProjectile : MonoBehaviour
     {
         public Collider2D ProjectileCollider { get; private set; }
-        public int BounceLives { get; private set; }
+        public int TerrainBounceLives { get; private set; }
         public Vector2 CurrentVelocity { get; private set; }
         public SpriteRenderer projectileSprite;
         [field: SerializeField] public float offScreenClearDistance;
@@ -361,7 +381,7 @@ namespace ChurroIceDungeon
         private void Awake()
         {
             ProjectileCollider = GetComponent<Collider2D>();
-            BounceLives = 0;
+            TerrainBounceLives = 0;
         }
         private void LateUpdate()
         {

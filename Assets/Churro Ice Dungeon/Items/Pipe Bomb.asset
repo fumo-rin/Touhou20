@@ -16,5 +16,5 @@ MonoBehaviour:
     EventKey: 2
   clearOnUse: 1
   slotType: 0
-  itemID: 741b3b3d-1990-45b9-b9d7-b6c871db0778
+  itemID: 0b0cf51d-e786-4e22-a132-25bd7f02cfed
   <itemSprite>k__BackingField: {fileID: -7100892632804715839, guid: 04da95581febc8a49b091ecd5147f3b8, type: 3}

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ChurroIceDungeon
 {
@@ -12,21 +13,27 @@ namespace ChurroIceDungeon
     {
         None = -1,
         Airhorn = 1,
-        Pipebomb = 2
+        Pipebomb = 2,
+        Shottype = 3
     }
     #endregion
     #region Item Events
     public partial class ItemData
     {
+        protected virtual void OnUse()
+        {
+
+        }
         [SerializeField] ItemEvent UseEvent;
         [SerializeField] bool clearOnUse;
-        static Dictionary<int, Action> UseLookup;
+        public delegate void ItemUse(ItemData item);
+        static Dictionary<int, ItemUse> UseLookup;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ReinitializeEvents()
         {
-            UseLookup = new Dictionary<int, Action>();
+            UseLookup = new Dictionary<int, ItemUse>();
         }
-        public static void BindEvent(Action a, ItemActionKey key)
+        public static void BindEvent(ItemUse a, ItemActionKey key)
         {
             if (a == null)
             {
@@ -38,7 +45,7 @@ namespace ChurroIceDungeon
             }
             UseLookup[(int)key] += a;
         }
-        public static void ReleaseEvent(Action a, ItemActionKey key)
+        public static void ReleaseEvent(ItemUse a, ItemActionKey key)
         {
             if (a != null)
             {
@@ -49,12 +56,11 @@ namespace ChurroIceDungeon
         public struct ItemEvent
         {
             public ItemActionKey EventKey;
-            public void TriggerEvent()
+            public void TriggerEvent(ItemData item)
             {
-                Debug.Log(EventKey);
                 if (UseLookup.ContainsKey((int)EventKey))
                 {
-                    UseLookup[(int)EventKey]?.Invoke();
+                    UseLookup[(int)EventKey]?.Invoke(item);
                 }
             }
         }
@@ -77,7 +83,8 @@ namespace ChurroIceDungeon
             {
                 result = UseResult.UseUnlimited;
             }
-            UseEvent.TriggerEvent();
+            UseEvent.TriggerEvent(this);
+            OnUse();
             return result != UseResult.NoUse;
         }
     }
@@ -125,9 +132,12 @@ namespace ChurroIceDungeon
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            if (GUILayout.Button("New ID") && target is ItemData d and not null)
+            if (GUILayout.Button("New ID"))
             {
-                d.GetNewID();
+                if (target is ItemData d and not null)
+                {
+                    d.GetNewID();
+                }
             }
         }
     }

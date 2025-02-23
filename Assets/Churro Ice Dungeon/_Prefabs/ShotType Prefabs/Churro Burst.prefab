@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7764015331165839792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2851480275620247905}
+  - component: {fileID: 1809372155281697738}
+  m_Layer: 3
+  m_Name: Churro Burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2851480275620247905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764015331165839792}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1809372155281697738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764015331165839792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70550efde35430c44acca02edc8b0e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldOverrideSettings: 1
+  overrideSettings:
+    SpreadVariation: 0
+    <SwingDuration>k__BackingField: 0.19
+    <StallDuration>k__BackingField: 0
+  baseDamage: 1000
+  projectileLayerIndex: 100
+  <owner>k__BackingField: {fileID: 0}
+  handler: {fileID: 0}
+  attackSound: {fileID: 11400000, guid: a6895d9c4cfea2b40a99ae60e5dfeb26, type: 2}
+  projectilePrefab: {fileID: 6611839576625880385, guid: 421a9f9a90240324ca32a3638de36263, type: 3}
+  miniArc: {fileID: 3506629886063210716, guid: 6241b2a604829ef4996f75bff4f65843, type: 3}
+  burstDamage: 19
+  burstAmount: 4
+  miniArcAmount: 5
+  burstDuration: 0.14
+  spread: 2.5

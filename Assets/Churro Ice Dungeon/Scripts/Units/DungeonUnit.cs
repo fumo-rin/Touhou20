@@ -195,6 +195,7 @@ namespace ChurroIceDungeon
     [SelectionBase]
     public abstract partial class DungeonUnit : MonoBehaviour
     {
+        [SerializeField] AttackHandler optionalAttackHandler;
         [SerializeField] Rigidbody2D assignedRB;
         public Rigidbody2D RB => assignedRB;
         [SerializeField] Transform ai_AimTransformOverride;
@@ -209,6 +210,7 @@ namespace ChurroIceDungeon
         [SerializeField] float startingHealth = 100;
         private void Awake()
         {
+            if (optionalAttackHandler != null) optionalAttackHandler.SetOwner(this);
             StartDamageable(startingHealth);
             Origin = transform.position;
             if (this is ChurroUnit c)
