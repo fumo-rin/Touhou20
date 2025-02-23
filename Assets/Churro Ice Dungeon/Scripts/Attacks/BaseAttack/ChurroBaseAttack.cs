@@ -52,6 +52,11 @@ namespace ChurroIceDungeon
         private void Start()
         {
             if (handler != null) handler.OnAttack += PerformContainedAttack;
+            WhenStart();
+        }
+        protected virtual void WhenStart()
+        {
+
         }
         private void OnDestroy()
         {

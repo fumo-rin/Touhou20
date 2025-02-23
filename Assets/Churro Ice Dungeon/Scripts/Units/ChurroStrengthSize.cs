@@ -1,6 +1,7 @@
 using Core.Extensions;
 using Unity.Cinemachine;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace ChurroIceDungeon
 {
@@ -9,11 +10,24 @@ namespace ChurroIceDungeon
         [SerializeField] Transform scaleAnchor;
         [SerializeField] float standardCameraSize = 6f;
         [SerializeField] CinemachineCamera vCam;
+        [SerializeField] List<Transform> extraScaleObjects;
+        [SerializeField] List<Transform> extraCameraScaleObjects;
         private void SetStrength(int value)
         {
-            float size = ((1f + ((float)value).Percentify() * 0.25f)).Max(1f);
+            float fvalue = ((float)value).Clamp(0f, 3000f);
+            float size = ((1f + (fvalue).Percentify() * 0.25f)).Max(1f);
             scaleAnchor.localScale = new(size, size, 1f);
-            vCam.Lens.OrthographicSize = standardCameraSize * Mathf.Sqrt(size).Max(1f);
+            float cameraMultiplier = Mathf.Sqrt(size).Max(1f);
+            float cameraSize = standardCameraSize * cameraMultiplier;
+            vCam.Lens.OrthographicSize = cameraSize;
+            foreach (Transform t in extraScaleObjects)
+            {
+                t.localScale = new(size, size, 1f);
+            }
+            foreach (Transform t in extraCameraScaleObjects)
+            {
+                t.localScale = new(cameraMultiplier, cameraMultiplier, 1f);
+            }
         }
         private void Start()
         {

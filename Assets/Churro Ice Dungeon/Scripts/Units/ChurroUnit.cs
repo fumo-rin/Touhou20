@@ -155,7 +155,7 @@ namespace ChurroIceDungeon
 
         float PowerScaler.ScaleDamage(float damage)
         {
-            return damage * (CurrentPower / 100f).Max(1f) * (1f + ((ChurroManager.Strength - 100) / 250f)).Max(1f);
+            return damage * (CurrentPower / 100f).Max(1f) * (1f + ((ChurroManager.Strength - 100) / 500f)).Max(1f);
         }
     }
     #endregion

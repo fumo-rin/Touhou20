@@ -32,10 +32,10 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Terrain Collision
   - ONLYUNITS
   - ONLYPLAYER
-  - PLAYERTERRAINCOLLISION
+  - PLAYERTERRAINCOLLIDER
   - Unit Target Scanners
   m_SortingLayers:
   - name: Skybox

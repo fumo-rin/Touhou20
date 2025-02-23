@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Churro Ice Dungeon/Scenes/Reimus Room.unity
     guid: 5cc93b80440b945499c44fa9ee64fe52
+  - enabled: 1
+    path: Assets/Churro Ice Dungeon/Scenes/Makai.unity
+    guid: 62d92622fa1e40942a075e705dfb6a9d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9c3c8e57282d16d4f954e677d178b388, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 2673492be3b6c7e4ebb1564b146f203d, type: 2}

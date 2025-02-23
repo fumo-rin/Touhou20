@@ -993,6 +993,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   spawnExplosion: 0
+  explosionScale: 1
   debrisOnDestroy:
     spriteList: []
     debrisColor:

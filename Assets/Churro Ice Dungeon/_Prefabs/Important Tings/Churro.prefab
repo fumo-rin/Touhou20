@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 3113712956861051400}
   - component: {fileID: 1028127153805375275}
   m_Layer: 30
-  m_Name: Rig Collider
+  m_Name: Terrain Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,8 +647,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.515}
-  m_Radius: 0.3
+  m_Offset: {x: 0, y: -0.65}
+  m_Radius: 0.15
 --- !u!1 &2494007474818909136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1095,8 @@ MonoBehaviour:
   scaleAnchor: {fileID: 3614259616927670365}
   standardCameraSize: 6
   vCam: {fileID: 6865206415811949433}
+  extraScaleObjects: []
+  extraCameraScaleObjects: []
 --- !u!1 &3325499887508518953
 GameObject:
   m_ObjectHideFlags: 0
