@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3feea3b7ff468084eb7446f92fa1c898, type: 3}
+  m_Name: Larsa Ultra Frog
+  m_EditorClassIdentifier: 
+  ranges:
+  - distanceRange: {x: 0, y: 18}
+    strafeAngle: 180
+    strafeFlipTimeRange: {x: 0.4, y: 0.6}
+    canFlip: 0
+  - distanceRange: {x: 18, y: 30}
+    strafeAngle: 60
+    strafeFlipTimeRange: {x: 0.8, y: 3}
+    canFlip: 1
+  - distanceRange: {x: 30, y: 50}
+    strafeAngle: 35
+    strafeFlipTimeRange: {x: 0.3, y: 0.5}
+    canFlip: 1

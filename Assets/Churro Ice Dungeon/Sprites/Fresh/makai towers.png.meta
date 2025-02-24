@@ -116,10 +116,10 @@ TextureImporter:
       name: makai towers_0
       rect:
         serializedVersion: 2
-        x: 183
-        y: 47
-        width: 106
-        height: 386
+        x: 146
+        y: 37
+        width: 171
+        height: 420
       alignment: 9
       pivot: {x: 0.57423055, y: 0.025039168}
       border: {x: 0, y: 0, z: 0, w: 0}

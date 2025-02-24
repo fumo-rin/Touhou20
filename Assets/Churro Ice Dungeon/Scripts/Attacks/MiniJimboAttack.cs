@@ -9,7 +9,6 @@ namespace ChurroIceDungeon
         [SerializeField] ChurroProjectile prefab;
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
-            Debug.Log("T");
             float speed = Hardmode ? 4f : 3f;
             StartCoroutine(CO_Lines(speed));
             ChurroProjectile.SingleSettings single = new(0f, speed);

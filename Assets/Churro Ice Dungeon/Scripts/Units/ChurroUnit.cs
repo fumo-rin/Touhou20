@@ -3,6 +3,7 @@ using Core.Extensions;
 using Core.Input;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace ChurroIceDungeon
 {
@@ -221,7 +222,7 @@ namespace ChurroIceDungeon
             }
             if (assignedInventory.SnapshotCurrent(out Dictionary<int, Inventory.itemSlotSnapshot> snapShot))
             {
-                Debug.Log("Success, Snapshotted "+snapShot.Count+ " items");
+                Debug.Log("Success, Snapshotted " + snapShot.Count + " items");
                 InventorySnapShot = snapShot;
             }
         }
@@ -229,6 +230,29 @@ namespace ChurroIceDungeon
         {
             i = assignedInventory;
             return i != null;
+        }
+    }
+    #endregion
+    #region Motor Focus
+    public partial class ChurroUnit
+    {
+        [SerializeField] DungeonMotor focusMotor;
+        bool focusMovement;
+        private void PressFocus(InputAction.CallbackContext c)
+        {
+            focusMovement = true;
+        }
+        private void ReleaseFocus(InputAction.CallbackContext c)
+        {
+            focusMovement = false;
+        }
+        public override DungeonMotor CollapseMotor()
+        {
+            if (focusMovement)
+            {
+                return focusMotor;
+            }
+            return base.CollapseMotor();
         }
     }
     #endregion
@@ -263,7 +287,6 @@ namespace ChurroIceDungeon
             }
             AttackLoop();
         }
-
         protected override void WhenAwake()
         {
 
@@ -274,6 +297,9 @@ namespace ChurroIceDungeon
             RenderTextureCursorHandler.ClickDown -= OnWorldClick;
             RenderTextureCursorHandler.ClickUp -= OnWorldRelease;
             GeneralManager.OnStageExitPreLoadingScreen -= SnapshotInventory;
+
+            PlayerInputController.actions.Player.Focus.performed -= PressFocus;
+            PlayerInputController.actions.Player.Focus.canceled -= ReleaseFocus;
         }
 
         protected override void WhenStart()
@@ -283,6 +309,9 @@ namespace ChurroIceDungeon
 
             RenderTextureCursorHandler.SetControllerReference(transform);
             GeneralManager.OnStageExitPreLoadingScreen += SnapshotInventory;
+
+            PlayerInputController.actions.Player.Focus.performed += PressFocus;
+            PlayerInputController.actions.Player.Focus.canceled += ReleaseFocus;
         }
     }
 }

@@ -11,11 +11,12 @@ namespace ChurroIceDungeon
         public class AttackTimeSettings
         {
             [SerializeField] bool SpreadVariation;
-            public float NextAttackTime { get; private set; }
+            public float NextAttackTime;
             [field: SerializeField] public float SwingDuration { get; private set; } = 0.2f;
             [field: SerializeField] public float StallDuration { get; private set; } = 0f;
             public AttackTimeSettings SetSwingDuration(float swingDuration)
             {
+                Debug.Log(swingDuration);
                 this.SwingDuration = swingDuration;
                 return this;
             }
@@ -25,6 +26,7 @@ namespace ChurroIceDungeon
                 return this;
             }
             public void TriggerAttackTime() => NextAttackTime = Time.time + SwingDuration * 1f.Spread(SpreadVariation ? 15f : 0f);
+            public void SetNewAttackTime(float time) => NextAttackTime = time + Time.time;
             public bool IsAttackTimeAllowed() => Time.time >= NextAttackTime;
             public float NewStallTime => Time.time + StallDuration * 1f.Spread(SpreadVariation ? 15f : 0f);
             public AttackTimeSettings SetSpreadVariation(bool state)

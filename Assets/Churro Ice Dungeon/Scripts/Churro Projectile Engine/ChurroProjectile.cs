@@ -1,11 +1,41 @@
 using Bremsengine;
 using Core.Extensions;
+using JetBrains.Annotations;
 using Mono.CSharp;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Projectile Events
+    public partial class ChurroProjectile
+    {
+        List<ChurroProjectileEvent> knownEvents;
+        public ChurroProjectile AddEvent(ChurroProjectileEvent e)
+        {
+            knownEvents.Add(e);
+            return this;
+        }
+        public ChurroProjectile RemoveEvent(ChurroProjectileEvent e)
+        {
+            knownEvents.Remove(e);
+            return this;
+        }
+        private void RunEvents(float deltaTime)
+        {
+            for (int i = 0; i < knownEvents.Count; i++)
+            {
+                if (knownEvents[i] == null)
+                {
+                    knownEvents.RemoveAt(i);
+                    i--;
+                }
+                knownEvents[i].TickEvent(this, deltaTime);
+            }
+        }
+    }
+    #endregion
     #region Attack Types
     public partial class ChurroProjectile
     {
@@ -122,6 +152,7 @@ namespace ChurroIceDungeon
         public ChurroProjectile Action_SetVelocity(Vector2 direction, float speed)
         {
             CurrentVelocity = direction.ScaleToMagnitude(speed);
+            projectileSprite.transform.Lookat2D(CurrentPosition + CurrentVelocity);
             return this;
         }
         public ChurroProjectile Action_FacePosition(Vector2 worldPosition)
@@ -166,6 +197,41 @@ namespace ChurroIceDungeon
         {
             TerrainBounceLives = value; return this;
         }
+        public ChurroProjectile Action_ClearDistance(float distance)
+        {
+            offScreenClearDistance = distance; return this;
+        }
+        public struct crawlerPacket
+        {
+            public float delay;
+            public float aimAngle;
+            public float repeatAngle;
+            public int repeatCount;
+            public float repeatTimeInterval;
+            public Action<ChurroProjectile> OnSpawn;
+            public crawlerPacket(float delay, float aimAngle, float repeatAngle, int repeatCount, float repeatTimeInterval)
+            {
+                this.delay = delay;
+                this.aimAngle = aimAngle;
+                this.repeatAngle = repeatAngle;
+                this.repeatCount = repeatCount;
+                this.repeatTimeInterval = repeatTimeInterval;
+                OnSpawn = null;
+            }
+            public crawlerPacket AttachOnSpawnEvent(Action<ChurroProjectile> a)
+            {
+                OnSpawn += a;
+                return this;
+            }
+        }
+        public ChurroProjectile Action_AttachCrawlerEvent(ChurroProjectile crawlerPrefab, ArcSettings arc, crawlerPacket crawlerData)
+        {
+            ChurroEventCrawler crawlerEvent = new ChurroEventCrawler(new(1f, crawlerData.delay), new(crawlerPrefab, arc, crawlerData.aimAngle));
+            crawlerEvent.AttachOnSpawnEvent(crawlerData.OnSpawn);
+            crawlerEvent.SetRepeats(crawlerData.repeatCount, crawlerData.repeatTimeInterval, crawlerData.repeatAngle);
+            this.AddEvent(crawlerEvent);
+            return this;
+        }
     }
     #endregion
     #region Spawning
@@ -175,6 +241,7 @@ namespace ChurroIceDungeon
         private static ChurroProjectile CreateBullet(ChurroProjectile prefab, Vector2 position, Vector2 direction, ProjectileSpawnAction spawnAction, float speed)
         {
             ChurroProjectile p = Instantiate(prefab, position, Quaternion.identity);
+            p.knownEvents = new();
             p.Action_FacePosition(position + direction);
             p.Action_SetVelocity(direction, speed);
             p.Action_MatchOther(prefab);
@@ -362,6 +429,9 @@ namespace ChurroIceDungeon
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class ChurroProjectile : MonoBehaviour
     {
+        float nextEventTickTime;
+        float lastTickTime;
+        float tickTimeLength = 0.05f;
         public Collider2D ProjectileCollider { get; private set; }
         public int TerrainBounceLives { get; private set; }
         public Vector2 CurrentVelocity { get; private set; }
@@ -377,6 +447,13 @@ namespace ChurroIceDungeon
         private void Update()
         {
             ChurroProjectileOffscreen.SetRunnerIfNoneExists(this);
+            if (Time.time > nextEventTickTime)
+            {
+                float tickDuration = Time.time - lastTickTime;
+                lastTickTime = Time.time;
+                nextEventTickTime = Time.time + tickTimeLength;
+                RunEvents(tickDuration);
+            }
         }
         private void Awake()
         {

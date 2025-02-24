@@ -16,9 +16,12 @@ MonoBehaviour:
   - distanceRange: {x: 0, y: 2}
     strafeAngle: 150
     strafeFlipTimeRange: {x: 1.5, y: 2.5}
+    canFlip: 0
   - distanceRange: {x: 2, y: 6}
     strafeAngle: 45
     strafeFlipTimeRange: {x: 0.8, y: 1.8}
-  - distanceRange: {x: 6, y: 14}
+    canFlip: 0
+  - distanceRange: {x: 6, y: 25}
     strafeAngle: 30
     strafeFlipTimeRange: {x: 1.5, y: 2.5}
+    canFlip: 0

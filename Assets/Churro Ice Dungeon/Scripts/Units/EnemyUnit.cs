@@ -37,6 +37,10 @@ namespace ChurroIceDungeon
     #region Strafe
     public partial class EnemyUnit
     {
+        public void SetStrafeProfile(StrafeProfile strafe)
+        {
+            strafeProfile = strafe;
+        }
         [SerializeField] StrafeProfile strafeProfile;
         float targetDistance;
         float strafeFlipTime;
@@ -92,6 +96,20 @@ namespace ChurroIceDungeon
                 }
                 gameObject.SetActive(false);
             }
+        }
+    }
+    #endregion
+    #region Motor
+    public partial class EnemyUnit
+    {
+        public DungeonMotor OverrideMotor;
+        public override DungeonMotor CollapseMotor()
+        {
+            if (OverrideMotor != null)
+            {
+                return OverrideMotor;
+            }
+            return base.CollapseMotor();
         }
     }
     #endregion
@@ -195,7 +213,10 @@ namespace ChurroIceDungeon
         private void Tick()
         {
             if (IsStalled)
+            {
+                RB.VelocityScale(Vector2.zero, 0.9f);
                 return;
+            }
             AttackLoop();
 
             if (gameObject.activeInHierarchy)

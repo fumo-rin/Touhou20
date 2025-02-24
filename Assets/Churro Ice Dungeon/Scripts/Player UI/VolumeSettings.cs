@@ -68,7 +68,6 @@ namespace ChurroIceDungeon
         public void ReadEffectsSlider()
         {
             float value = effectsSlider.value;
-            Debug.Log("value " + value);
             StoreValue("Effects", value);
             SetMixers(effectsMixers, value);
         }

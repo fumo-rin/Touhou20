@@ -155,6 +155,7 @@ MonoBehaviour:
   iFramesLength: 2
   TestPower: 0
   attackHandler: {fileID: 6620270295851291831}
+  focusMotor: {fileID: 11400000, guid: 15d2699e6e2d16f49af106c4de55b374, type: 2}
   movementAnimator: {fileID: 5446593708055821190}
 --- !u!50 &3235564999493768737
 Rigidbody2D:

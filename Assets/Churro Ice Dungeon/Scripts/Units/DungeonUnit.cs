@@ -203,7 +203,10 @@ namespace ChurroIceDungeon
         public static DungeonUnit Player { get; private set; }
         public Vector2 CurrentPosition => transform.position;
         public Vector2 Origin { get; private set; }
-
+        public void ExternalKill()
+        {
+            OnHurt(1000000000f, CurrentPosition);
+        }
         protected abstract void WhenAwake();
         protected abstract void WhenDestroy();
         protected abstract void WhenStart();

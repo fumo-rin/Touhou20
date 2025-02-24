@@ -105,7 +105,7 @@ namespace Core.Input
                     ""name"": ""Focus"",
                     ""type"": ""Button"",
                     ""id"": ""c821f6b1-cad5-4aeb-a7d3-eddab5bb8991"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -611,6 +611,28 @@ namespace Core.Input
                     ""name"": """",
                     ""id"": ""636911b2-920c-4a6b-a866-0c8e878d8b11"",
                     ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bba624fb-0518-40ca-a55b-1e1883e928f7"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f77e452-bd34-4355-9498-d315c6a94d67"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

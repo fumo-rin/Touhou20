@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 245
-    y: 853
+    x: 642
+    y: 785
     width: 350
     height: 150
   ID: 31faf678-b91a-4cee-8fec-2960a80d5b7e
@@ -39,8 +39,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 190
-    y: 1073
+    x: 587
+    y: 1005
     width: 350
     height: 200
   ID: c2b229ca-171a-4852-8363-03426a4e9fb1
@@ -70,16 +70,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: -280
-    y: 717
+    x: 117
+    y: 649
     width: 350
     height: 700
   ID: 19f40bf6-7612-4efc-85b7-e77d1c39a3bd
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -536
-    y: 747
+    x: -139
+    y: 679
     width: 250
     height: 250
   directionalOffset: 5
@@ -89,9 +89,10 @@ MonoBehaviour:
   ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
+  FlareIndex: 0
   linkedProjectileEvents:
   - {fileID: 3018406650859113102}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 45
   AngleCoverage: 360
   startingAngle: 129
@@ -177,6 +178,7 @@ MonoBehaviour:
   - {fileID: 560888909156609607}
   - {fileID: 2656672862934320107}
   - {fileID: -2919338633853713901}
+  componentSelectors: []
   GraphGlobalProjectileSpeed: 1
   addedCooldown: 0.7
   headerTexture: {fileID: 0}
@@ -196,8 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 494
-    y: 1261
+    x: 891
+    y: 1193
     width: 350
     height: 200
   ID: 875b792c-d9fc-4391-a804-c610e5c3d4db
@@ -227,8 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 9
-    y: 396
+    x: 406
+    y: 328
     width: 350
     height: 150
   ID: 26c3924a-558d-4872-b199-e5af12d43eb2
@@ -251,16 +253,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 944
-    y: 621
+    x: 1341
+    y: 553
     width: 350
     height: 700
   ID: c09bc723-d006-4d93-86e5-0ae78d36eb7f
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 688
-    y: 651
+    x: 1085
+    y: 583
     width: 250
     height: 250
   directionalOffset: 5
@@ -270,9 +272,10 @@ MonoBehaviour:
   ReverseDirection: 1
   ProjectileType: {fileID: 11400000, guid: 20e65e1efa1986b40b8fbea7b5d95bf8, type: 2}
   spawnDelay: 0
+  FlareIndex: 0
   linkedProjectileEvents:
   - {fileID: 3018406650859113102}
-  attachedProjectileMods: []
+  linkedProjectileMods: []
   projectileCountFloat: 45
   AngleCoverage: 360
   startingAngle: -129
@@ -339,8 +342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 250
-    y: 626
+    x: 647
+    y: 558
     width: 350
     height: 150
   ID: d9e78ae7-36fb-4bea-b477-62545e64ec6b
@@ -364,8 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 202
-    y: 146
+    x: 599
+    y: 78
     width: 350
     height: 100
   ID: 40e4cd6d-8327-4546-8397-ba38f3b10e7f

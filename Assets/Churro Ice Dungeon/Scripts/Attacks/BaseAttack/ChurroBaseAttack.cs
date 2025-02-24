@@ -2,14 +2,17 @@ using Bremsengine;
 using Core.Extensions;
 using UnityEngine;
 using UnityEditor;
+using Newtonsoft.Json.Linq;
 
 namespace ChurroIceDungeon
 {
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        protected Vector2 DownDirection => (owner.CurrentPosition + Vector2.down) - owner.CurrentPosition;
         [SerializeField] bool shouldOverrideSettings;
         [SerializeField] AttackHandler.AttackTimeSettings overrideSettings;
         protected ChurroProjectile.ArcSettings Arc(float startAngle, float endAngle, float angleInterval, float projectileSpeed) => new(startAngle, endAngle, angleInterval, projectileSpeed);
+        protected ChurroProjectile.crawlerPacket CrawlerPacket(float delay, float aimAngle, float repeatAngle, int repeatCount, float repeatTimeInterval) => new(delay, aimAngle, repeatAngle, repeatCount, repeatTimeInterval);
         public bool TryGetOverrideSettings(out AttackHandler.AttackTimeSettings output)
         {
             output = null;
@@ -28,7 +31,6 @@ namespace ChurroIceDungeon
         [SerializeField] protected AudioClipWrapper attackSound;
         public void TriggerAttackLoad()
         {
-            Debug.Log("Seperate this from start, and move it onto items when i make it pleae for all that is holy");
             if (handler != null && TryGetOverrideSettings(out AttackHandler.AttackTimeSettings settings))
             {
                 handler.settings.ApplySettings(settings);
@@ -41,7 +43,10 @@ namespace ChurroIceDungeon
         }
         private void PerformContainedAttack(Vector2 target)
         {
-            PerformContainedAttack(target, false);
+            if (gameObject.activeInHierarchy)
+            {
+                PerformContainedAttack(target, false);
+            }
         }
         private void PerformContainedAttack(Vector2 target, bool bypassAliveCheck = false)
         {
@@ -83,6 +88,15 @@ namespace ChurroIceDungeon
             }
             this.handler = handler;
             handler.OnAttack += PerformContainedAttack;
+            TriggerAttackLoad();
+        }
+        public void ClearHandler()
+        {
+            if (handler != null)
+            {
+                handler.OnAttack -= PerformContainedAttack;
+            }
+            handler = null;
         }
         public void SetOwner(DungeonUnit unit)
         {
