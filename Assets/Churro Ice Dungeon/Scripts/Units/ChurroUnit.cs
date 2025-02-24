@@ -151,12 +151,13 @@ namespace ChurroIceDungeon
 
         public override float DamageScale(float damage)
         {
-            return ((PowerScaler)this).ScaleDamage(damage);
+            return ScaleDamage(damage);
         }
 
-        float PowerScaler.ScaleDamage(float damage)
+        public float ScaleDamage(float damage)
         {
-            return damage * (CurrentPower / 100f).Max(1f) * (1f + ((ChurroManager.Strength - 100) / 500f)).Max(1f);
+            float scale = (CurrentPower / 100f).Max(1f) * (1f + ((ChurroManager.Strength - 100) / 250f)).Max(1f);
+            return damage * scale;
         }
     }
     #endregion

@@ -524,14 +524,14 @@ MonoBehaviour:
     activeObjects:
     - {fileID: 7158727703297010819}
     profile: {fileID: 11400000, guid: 499fefa67666ef0428dae4912c90f62c, type: 2}
-    phaseDuration: 65
+    phaseDuration: 63
     stallTime: 4
   - anyname: Crawler Final
     motor: {fileID: 0}
     activeObjects:
     - {fileID: 2494298556493945582}
     profile: {fileID: 11400000, guid: 1e533dd7b43eb0144ab8b2e183be20dd, type: 2}
-    phaseDuration: 33
+    phaseDuration: 36
     stallTime: 0
   phaseIndex: 0
   owner: {fileID: 7160802010199300189}
@@ -835,7 +835,7 @@ MonoBehaviour:
   phase3Health: 1e+9
   prefabP1: {fileID: 4912228362202972655, guid: 788fd3e95b81f0348aaeed819d2b62b7, type: 3}
   prefabP3: {fileID: 4912228362202972655, guid: 4ceb7d99d45b70e46847a7e30b737414, type: 3}
-  repeats: 2
+  repeats: 3
 --- !u!1 &4352693702555096037
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ namespace ChurroIceDungeon
                     sideInput.SetOrigin(shot.position);
                     sideInput.SetDirection((Vector2)targetRef.position - (Vector2)shot.position);
                     sideInput.SetDirection(sideInput.Direction.Rotate2D(rotation));
-                    var side = Arc(-65f + 6.5f, 65 + 6.5f, 130 / 6f, 11f).Widen(widen);
+                    var side = Arc(-65f, 65, 130 / 7f, 11f).Widen(widen);
                     side.Spawn(sideInput, sideshotPrefab);
                     attackSound.Play(sideInput.Origin);
                 }

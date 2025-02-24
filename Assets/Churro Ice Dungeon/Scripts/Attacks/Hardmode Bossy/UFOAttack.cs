@@ -50,9 +50,9 @@ namespace ChurroIceDungeon
                 }
                 */
             }
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 16; i++)
             {
-                StartCoroutine(CO_Spawn(i * 30f));
+                StartCoroutine(CO_Spawn(i * 360f / 16f));
             }
         }
     }

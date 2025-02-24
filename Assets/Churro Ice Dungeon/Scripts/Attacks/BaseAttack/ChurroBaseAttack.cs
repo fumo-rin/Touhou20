@@ -3,6 +3,7 @@ using Core.Extensions;
 using UnityEngine;
 using UnityEditor;
 using Newtonsoft.Json.Linq;
+using UnityEngine.UIElements;
 
 namespace ChurroIceDungeon
 {
@@ -54,6 +55,19 @@ namespace ChurroIceDungeon
             {
                 return;
             }
+            if (handler != null && !handler.settings.IsAttackTimeAllowed())
+            {
+                return;
+            }
+            if (handler != null)
+            {
+                if (!handler.settings.IsAttackTimeAllowed())
+                {
+
+                    return;
+                }
+                handler.settings.TriggerAttackTime();
+            }
             ChurroProjectile.InputSettings s = new(owner == null ? transform.position : owner.CurrentPosition, target - (owner == null ? transform.position : (Vector2)owner.CurrentPosition));
             s.OnSpawn += ProjectileSpawnCallback;
             attackSound.Play(transform.position);
@@ -69,7 +83,7 @@ namespace ChurroIceDungeon
             if (owner != null)
             {
                 p.Action_SetFaction(owner.Faction);
-                p.Action_SetDamage(baseDamage);
+                p.Action_SetDamage(owner.DamageScale(baseDamage));
                 p.Action_SetOwnerReference(owner);
             }
             else
@@ -82,11 +96,8 @@ namespace ChurroIceDungeon
         }
         public void SetHandler(AttackHandler handler)
         {
-            if (handler != null)
-            {
-                handler.OnAttack -= PerformContainedAttack;
-            }
             this.handler = handler;
+            handler.OnAttack = null;
             handler.OnAttack += PerformContainedAttack;
             TriggerAttackLoad();
         }

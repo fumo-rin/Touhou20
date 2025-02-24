@@ -16,7 +16,6 @@ namespace ChurroIceDungeon
             [field: SerializeField] public float StallDuration { get; private set; } = 0f;
             public AttackTimeSettings SetSwingDuration(float swingDuration)
             {
-                Debug.Log(swingDuration);
                 this.SwingDuration = swingDuration;
                 return this;
             }
@@ -64,7 +63,6 @@ namespace ChurroIceDungeon
         }
         public void SetOwner(DungeonUnit owner)
         {
-            Debug.Log("Set Owner : " + owner);
             this.Owner = owner;
         }
         private void Start()
@@ -82,7 +80,6 @@ namespace ChurroIceDungeon
                 return false;
             }
             //Handle Sounds elsewhere pleae
-            settings.TriggerAttackTime();
             OnAttack?.Invoke(target);
             return true;
         }

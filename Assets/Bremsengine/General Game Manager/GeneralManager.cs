@@ -188,7 +188,6 @@ namespace Bremsengine
         [SerializeField] AudioClipWrapper funnyExplosionSound;
         public static void FunnyExplosion(Vector2 position, float scale = 1f)
         {
-            Debug.Log("Funny Explosion");
             GameObject x = Instantiate(Instance.funnyExplosion, position, Quaternion.identity);
             Destroy(x, 1.02f);
             x.transform.localScale *= scale;

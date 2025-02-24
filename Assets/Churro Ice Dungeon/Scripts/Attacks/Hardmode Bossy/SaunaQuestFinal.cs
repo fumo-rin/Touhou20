@@ -26,6 +26,7 @@ namespace ChurroIceDungeon
             handler.settings.SetStallDuration(attackLength);
             handler.settings.TriggerAttackTime();
             StartCoroutine(CO_Attack());
+            Debug.Log("TTTT");
             IEnumerator CO_Attack()
             {
                 float repeatDelay = attackLength / iterations;
@@ -54,10 +55,13 @@ namespace ChurroIceDungeon
                     #endregion
                     #region Rings
                     if (i % 40 == 39)
+                    {
                         foreach (var item in Ring(4f, 44, Random.Range(0f, 10f)))
                         {
 
                         }
+                        Debug.Log("T");
+                    }
                     if (i % 80 == 79)
                         foreach (var item in Ring(6f, 52, Random.Range(0f, 10f)))
                         {

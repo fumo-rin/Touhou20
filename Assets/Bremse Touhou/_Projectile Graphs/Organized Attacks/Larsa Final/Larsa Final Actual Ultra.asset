@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 751
-    y: -827
+    x: 735
+    y: -742
     width: 250
     height: 200
   ID: 0dae5f90-edfc-4f5a-88ee-8734d8d5e9e6
@@ -35,8 +35,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1135
-    y: -841
+    x: 1119
+    y: -756
     width: 350
     height: 200
   ID: 6604a943-027b-462a-9b5a-ad156fff838d
@@ -66,16 +66,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1237
-    y: -319
+    x: 1221
+    y: -234
     width: 350
     height: 400
   ID: 2dc212c6-ac16-44c9-a248-3924de69e694
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 981
-    y: -289
+    x: 965
+    y: -204
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 796
-    y: 352
+    x: 780
+    y: 437
     width: 250
     height: 200
   ID: 06c413c9-9c42-496a-bb3f-8a21642fc74c
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 640
-    y: 977
+    x: 624
+    y: 1062
     width: 350
     height: 200
   ID: 09a996a0-b604-4b5c-b0a5-1715da68409e
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 928
-    y: 611
+    x: 912
+    y: 696
     width: 350
     height: 150
   ID: fa86d1c3-284b-4417-b037-ad8e5817864d
@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1636
-    y: -607
+    x: 1620
+    y: -522
     width: 400
     height: 375
   ID: 9f193a0b-4053-4802-a431-6d51945e3841
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 469
-    y: -539
+    x: 453
+    y: -454
     width: 250
     height: 200
   ID: 357b6107-5f87-43bb-9339-6246652804a0
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 583
-    y: 661
+    x: 567
+    y: 746
     width: 350
     height: 200
   ID: 1b2d7232-d619-4de8-9cdd-253cb4e9eb30
@@ -293,16 +293,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1297
-    y: 646
+    x: 1281
+    y: 731
     width: 350
     height: 700
   ID: 3f962938-fc14-4252-a102-64e6a7731106
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: 1041
-    y: 676
+    x: 1025
+    y: 761
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -381,16 +381,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 131
-    y: 393
+    x: 115
+    y: 478
     width: 350
     height: 700
   ID: 29836c75-170c-44ed-82e3-93c6c0c55044
   graph: {fileID: 11400000}
   projectileImagePreview:
     serializedVersion: 2
-    x: -125
-    y: 423
+    x: -141
+    y: 508
     width: 250
     height: 250
   directionalOffset: 0.5
@@ -520,8 +520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 850
-    y: 98
+    x: 834
+    y: 183
     width: 350
     height: 150
   ID: 86068b76-6636-48a0-a033-b719383a3273
@@ -545,8 +545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1646
-    y: -120
+    x: 1630
+    y: -35
     width: 400
     height: 375
   ID: 4c7a81da-c326-4182-8800-ec390688e0ff
@@ -605,8 +605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 843
-    y: -559
+    x: 827
+    y: -474
     width: 350
     height: 200
   ID: 988ad5e4-b975-41e7-8c87-e33665b28045
@@ -636,8 +636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1266
-    y: 241
+    x: 1250
+    y: 326
     width: 350
     height: 150
   ID: 91c57840-7fcf-401b-9d0e-a3a97f91c120
@@ -660,8 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 431
-    y: 142
+    x: 415
+    y: 227
     width: 350
     height: 150
   ID: f9e85bde-8b67-4000-9467-558dc3a41fd4
