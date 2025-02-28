@@ -5,16 +5,17 @@ namespace ChurroIceDungeon
     public class NotSoGoodApple : GroundItem
     {
         [SerializeField] SpriteRenderer modeDisplay;
+        [SerializeField] GameObject[] hardmodeDisplayOn;
+        [SerializeField] GameObject[] hardmodeDisplayOff;
         protected override bool OnTouch(Collider2D other, object playerData)
         {
             SetHardMode(!modeDisplay.enabled);
             return true;
         }
-        private void Start()
+        protected override void WhenStart()
         {
-            SetMode(ChurroManager.HardMode);
+            SetHardMode(ChurroManager.HardMode);
         }
-        [QFSW.QC.Command("Hardmode")]
         public static void SetMode(bool state)
         {
             ChurroManager.HardMode = state;
@@ -24,6 +25,14 @@ namespace ChurroIceDungeon
         {
             modeDisplay.enabled = mode;
             SetMode(mode);
+            foreach (GameObject go in hardmodeDisplayOn)
+            {
+                go.SetActive(mode == true);
+            }
+            foreach (GameObject go in hardmodeDisplayOff)
+            {
+                go.SetActive(mode == false);
+            }
         }
     }
 }

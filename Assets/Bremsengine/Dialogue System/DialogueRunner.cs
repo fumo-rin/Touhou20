@@ -65,6 +65,8 @@ namespace Bremsengine
         }
         private void Update()
         {
+            if (Gamepad.current == null)
+                return;
             float readValue = Gamepad.current.rightTrigger.ReadValue();
             if (readValue > 0.5f)
             {

@@ -1,7 +1,5 @@
 using Bremsengine;
 using Core.Extensions;
-using JetBrains.Annotations;
-using Mono.CSharp;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -141,6 +139,7 @@ namespace ChurroIceDungeon
         {
             Action_SetSprite(other.projectileSprite.sprite);
             offScreenClearDistance = other.offScreenClearDistance;
+            ContainedDamage = other.ContainedDamage;
 
             return this;
         }
@@ -152,7 +151,10 @@ namespace ChurroIceDungeon
         public ChurroProjectile Action_SetVelocity(Vector2 direction, float speed)
         {
             CurrentVelocity = direction.ScaleToMagnitude(speed);
-            projectileSprite.transform.Lookat2D(CurrentPosition + CurrentVelocity);
+            if (direction != Vector2.zero)
+            {
+                projectileSprite.transform.Lookat2D(CurrentPosition + CurrentVelocity);
+            }
             return this;
         }
         public ChurroProjectile Action_FacePosition(Vector2 worldPosition)
@@ -200,6 +202,21 @@ namespace ChurroIceDungeon
         public ChurroProjectile Action_ClearDistance(float distance)
         {
             offScreenClearDistance = distance; return this;
+        }
+        public ChurroProjectile Action_Split(float arcAngle, float arcRotation, int splitCount, bool destroy = true)
+        {
+            float iterationSplitRotation = 0f;
+            for (int i = 0; i < splitCount; i++)
+            {
+                iterationSplitRotation = splitCount > 1 ? (-0.5f * arcAngle + ((arcAngle / splitCount) * i)) : 0f;
+                Instantiate(this, CurrentPosition, transform.rotation).Action_SetVelocity(CurrentVelocity, CurrentVelocity.magnitude).Action_AddRotation(iterationSplitRotation).Action_MatchOther(this);
+            }
+            if (destroy)
+            {
+                ClearProjectile();
+                return null;
+            }
+            return this;
         }
         public struct crawlerPacket
         {

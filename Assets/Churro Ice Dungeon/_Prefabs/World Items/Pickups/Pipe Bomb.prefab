@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7100892632804715839, guid: 04da95581febc8a49b091ecd5147f3b8, type: 3}
+    - target: {fileID: 2174652622892432495, guid: 3f75838236a973042b7e99eba1d1ce44, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2967807653549969826, guid: 3f75838236a973042b7e99eba1d1ce44, type: 3}
       propertyPath: m_Name
       value: Pipe Bomb

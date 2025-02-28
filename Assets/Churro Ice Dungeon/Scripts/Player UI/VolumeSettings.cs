@@ -12,9 +12,12 @@ namespace ChurroIceDungeon
         [SerializeField] Slider musicSlider;
         [SerializeField] AudioMixer[] effectsMixers;
         [SerializeField] AudioMixer[] musicMixers;
+        static float StoredVolume = -7f;
         private bool TryGetSavedValue(string key, out float value)
         {
             value = -7f;
+            value = StoredVolume;
+            return true; 
             if (PlayerPrefs.HasKey(key))
             {
                 value = PlayerPrefs.GetFloat(key);
@@ -47,7 +50,8 @@ namespace ChurroIceDungeon
         }
         private void StoreValue(string key, float value)
         {
-            PlayerPrefs.SetFloat(key, value);
+            StoredVolume = value;
+            //PlayerPrefs.SetFloat(key, value);
         }
         private void SetMixers(AudioMixer[] mixers, float value)
         {

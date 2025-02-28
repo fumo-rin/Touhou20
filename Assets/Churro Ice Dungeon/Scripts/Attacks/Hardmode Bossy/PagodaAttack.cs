@@ -38,16 +38,6 @@ namespace ChurroIceDungeon
                     }
                     yield return lineStall;
                 }
-                /*Vector2 lineStepDirection = (input.Direction - owner.CurrentPosition).Rotate2D(rotation);
-                Vector2 offset = owner.CurrentPosition + lineStepDirection.ScaleToMagnitude(3.5f);
-                for (int ii = 0; ii < 35; ii++)
-                {
-                    iterationInput.SetOrigin(offset + (ii * lineStepDirection.ScaleToMagnitude(0.35f).Rotate2D(rotation)));
-                    iterationInput.SetDirection(iterationInput.Direction.Rotate2D(2f));
-                    ChurroProjectile.SpawnSingle(prefab, iterationInput, single).AddEvent(new ChurroEventAccelerate(new(3f, 0.15f), 12f, 0.9f));
-                    yield return lineStall;
-                }
-                */
             }
             for (int i = 0; i < 6; i++)
             {

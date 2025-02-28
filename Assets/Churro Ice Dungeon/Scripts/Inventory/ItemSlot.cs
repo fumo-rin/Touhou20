@@ -223,14 +223,18 @@ namespace ChurroIceDungeon
         }
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!IsDragging && ChurroUnit.Player != null && ChurroUnit.Player.IsAlive())
+            if (!IsDragging)
             {
-                if (containedItem.containedData.UseItem(out ItemData.UseResult useResult))
+                PressSlot();
+            }
+        }
+        public void PressSlot()
+        {
+            if (containedItem.containedData.UseItem(out ItemData.UseResult useResult) && ChurroUnit.Player != null && ChurroUnit.Player.IsAlive())
+            {
+                if (useResult == ItemData.UseResult.UseLimited)
                 {
-                    if (useResult == ItemData.UseResult.UseLimited)
-                    {
-                        ClearItem();
-                    }
+                    ClearItem();
                 }
             }
         }

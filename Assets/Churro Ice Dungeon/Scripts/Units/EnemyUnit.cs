@@ -214,7 +214,7 @@ namespace ChurroIceDungeon
         {
             if (IsStalled)
             {
-                RB.VelocityScale(Vector2.zero, 0.9f);
+                RB.VelocityTowards(Vector2.zero, 5f);
                 return;
             }
             AttackLoop();

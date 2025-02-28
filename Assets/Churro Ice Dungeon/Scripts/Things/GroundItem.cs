@@ -19,6 +19,14 @@ namespace ChurroIceDungeon
             }
             SetPickedUp(pickedUp);
         }
+        private void Start()
+        {
+            WhenStart();
+        }
+        protected virtual void WhenStart()
+        {
+
+        }
         private void SetPickedUp(bool state)
         {
             pickedUp = state;

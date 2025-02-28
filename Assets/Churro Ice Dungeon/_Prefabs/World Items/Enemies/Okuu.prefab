@@ -131,6 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6330a5406497b341b3a4f7b4bc64552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldOverrideSettings: 0
+  overrideSettings:
+    SpreadVariation: 0
+    NextAttackTime: 0
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 7160802010199300189}
@@ -968,6 +974,10 @@ PrefabInstance:
       propertyPath: isBoss
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: unitMotor
+      value: 
+      objectReference: {fileID: 11400000, guid: f9c976e2eea616746864dedeba77c087, type: 2}
     - target: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: spawnSound
       value: 

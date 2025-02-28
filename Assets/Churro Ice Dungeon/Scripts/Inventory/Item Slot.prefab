@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -190,13 +190,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
-    m_HighlightedColor: {r: 0.227451, g: 0.227451, b: 0.227451, a: 1}
-    m_PressedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
-    m_SelectedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
+    m_NormalColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.14901961}
+    m_HighlightedColor: {r: 1, g: 0.99861157, b: 0.7216981, a: 0.1764706}
+    m_PressedColor: {r: 0.4982848, g: 1, b: 0.3254717, a: 0.5254902}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.25490198}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.15686275}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0
+    m_FadeDuration: 0.05
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -212,4 +212,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4625616868124425263}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1612053621558546600}
+        m_TargetAssemblyTypeName: ChurroIceDungeon.ItemSlot, Churro
+        m_MethodName: PressSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

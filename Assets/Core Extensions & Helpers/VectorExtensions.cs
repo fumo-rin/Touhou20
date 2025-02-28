@@ -90,21 +90,21 @@ namespace Core.Extensions
         {
             return Random.Range(v.x, v.y);
         }
-        public static Vector3 MoveTowards(this Vector3 v, Vector3 target, float speed)
+        public static Vector3 MoveTowards(this Vector3 v, Vector3 worldPosition, float speed)
         {
-            return Vector3.MoveTowards(v, target, speed * Time.deltaTime);
+            return Vector3.MoveTowards(v, worldPosition, speed * Time.deltaTime);
         }
-        public static Vector2 MoveTowards(this Vector2 v, Vector2 target, float speed)
+        public static Vector2 MoveTowards(this Vector2 v, Vector2 worldPosition, float speed)
         {
-            return Vector2.MoveTowards(v, target, speed * Time.deltaTime);
+            return Vector2.MoveTowards(v, worldPosition, speed * Time.deltaTime);
         }
-        public static Vector2 LerpTowardsWithDeltaTime(this Vector2 v, Vector2 target, float speed, float deltaTime)
+        public static Vector2 LerpTowardsWithDeltaTime(this Vector2 v, Vector2 worldPosition, float speed, float deltaTime)
         {
-            return Vector2.Lerp(v, target, speed * deltaTime);
+            return Vector2.Lerp(v, worldPosition, speed * deltaTime);
         }
-        public static Vector2 LerpTowards(this Vector2 v, Vector2 target, float speed)
+        public static Vector2 LerpTowards(this Vector2 v, Vector2 worldPosition, float speed)
         {
-            return Vector2.Lerp(v, target, speed * Time.deltaTime);
+            return Vector2.Lerp(v, worldPosition, speed * Time.deltaTime);
         }
         public static Vector3 X(this Vector3 v, float x)
         {

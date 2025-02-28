@@ -9,6 +9,7 @@ namespace ChurroIceDungeon
 {
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        [SerializeField] BremseFaction noUnitFallbackFaction = BremseFaction.None;
         protected Vector2 DownDirection => (owner.CurrentPosition + Vector2.down) - owner.CurrentPosition;
         [SerializeField] bool shouldOverrideSettings;
         [SerializeField] AttackHandler.AttackTimeSettings overrideSettings;
@@ -75,7 +76,11 @@ namespace ChurroIceDungeon
         }
         public void ExternalForcedAttack()
         {
-            PerformContainedAttack((Vector2)transform.position + Vector2.down, true);
+            ExternalForcedAttack(Vector2.down);
+        }
+        public void ExternalForcedAttack(Vector2 direction)
+        {
+            PerformContainedAttack(direction, true);
         }
         protected abstract void AttackPayload(ChurroProjectile.InputSettings input);
         private void ProjectileSpawnCallback(ChurroProjectile p)
@@ -88,7 +93,7 @@ namespace ChurroIceDungeon
             }
             else
             {
-                p.Action_SetFaction(BremseFaction.None);
+                p.Action_SetFaction(noUnitFallbackFaction);
                 p.Action_SetDamage(baseDamage);
                 p.Action_SetOwnerReference(null);
             }

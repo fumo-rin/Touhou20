@@ -469,14 +469,14 @@ MonoBehaviour:
     - {fileID: 8501305665311550475}
     profile: {fileID: 0}
     phaseDuration: 21
-    stallTime: 0
+    stallTime: 1
   - anyname: UFO 16,5Sec
     motor: {fileID: 0}
     activeObjects:
     - {fileID: 502993176466036074}
     profile: {fileID: 0}
     phaseDuration: 16.5
-    stallTime: 2
+    stallTime: 2.5
   - anyname: Double Bowap 27 sec
     motor: {fileID: 0}
     activeObjects:
@@ -504,14 +504,14 @@ MonoBehaviour:
     - {fileID: 2111541503656623143}
     profile: {fileID: 0}
     phaseDuration: 25
-    stallTime: 0
+    stallTime: 0.75
   - anyname: Larsa Final 38 Sec
     motor: {fileID: 0}
     activeObjects:
     - {fileID: 6095717108867689865}
     profile: {fileID: 11400000, guid: 499fefa67666ef0428dae4912c90f62c, type: 2}
     phaseDuration: 38
-    stallTime: 0
+    stallTime: 2
   - anyname: Aki Ultra
     motor: {fileID: 0}
     activeObjects:
@@ -531,7 +531,7 @@ MonoBehaviour:
     activeObjects:
     - {fileID: 2494298556493945582}
     profile: {fileID: 11400000, guid: 1e533dd7b43eb0144ab8b2e183be20dd, type: 2}
-    phaseDuration: 36
+    phaseDuration: 34
     stallTime: 0
   phaseIndex: 0
   owner: {fileID: 7160802010199300189}
