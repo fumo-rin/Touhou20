@@ -1,3 +1,4 @@
+using Bremsengine;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -18,7 +19,14 @@ namespace ChurroIceDungeon
         }
         public static void SetMode(bool state)
         {
-            ChurroManager.HardMode = state;
+            if (state)
+            {
+                GeneralManager.SetDifficulty(GeneralManager.Difficulty.Ultra);
+            }
+            else
+            {
+                GeneralManager.SetDifficulty(GeneralManager.Difficulty.Normal);
+            }
             ChurroManager.RequestStatsRefresh();
         }
         public void SetHardMode(bool mode)

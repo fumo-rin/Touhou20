@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8163192113419227838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999208655503992510}
+  - component: {fileID: 570706002243309580}
+  m_Layer: 3
+  m_Name: SpreadShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999208655503992510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163192113419227838}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570706002243309580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163192113419227838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2905fd5b916887140b22cbdf7d492161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noUnitFallbackFaction: 1
+  shouldOverrideSettings: 1
+  overrideSettings:
+    SpreadVariation: 0
+    NextAttackTime: 0
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0
+  baseDamage: 5
+  projectileLayerIndex: 100
+  <owner>k__BackingField: {fileID: 0}
+  handler: {fileID: 0}
+  attackSound: {fileID: 11400000, guid: a6895d9c4cfea2b40a99ae60e5dfeb26, type: 2}
+  smallArc: {fileID: 3506629886063210716, guid: 6241b2a604829ef4996f75bff4f65843, type: 3}
+  frontal: {fileID: 6611839576625880385, guid: 421a9f9a90240324ca32a3638de36263, type: 3}

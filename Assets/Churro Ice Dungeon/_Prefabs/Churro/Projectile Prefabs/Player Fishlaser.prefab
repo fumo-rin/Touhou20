@@ -11,7 +11,23 @@ PrefabInstance:
     - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6433127304450283483, guid: d6fb1c65f41f4e94398b6e95c069626f, type: 3}
+      objectReference: {fileID: 1757937406519661826, guid: feadbdbfba52df9499e72909ed0bfd3b, type: 3}
+    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
+      propertyPath: m_Color.a
+      value: 0.44705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16316211
+      objectReference: {fileID: 0}
     - target: {fileID: 2328925295890103779, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -22,19 +38,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3262758443461476301, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955633436608116546, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
+      propertyPath: poolID
+      value: 8671
       objectReference: {fileID: 0}
     - target: {fileID: 6773106329707360286, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_Name
-      value: Player Bowap
+      value: Player Fishlaser
       objectReference: {fileID: 0}
     - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8745104957348562005, guid: 4979a75d27d5f7c4c80c5918e8f23fe4, type: 3}
       propertyPath: m_LocalPosition.x

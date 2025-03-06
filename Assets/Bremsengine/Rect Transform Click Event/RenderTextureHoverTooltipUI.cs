@@ -18,13 +18,19 @@ namespace Bremsengine
         }
         public static void ClearTooltipText()
         {
-            instance.tooltipText.enabled = false;
-            activeTooltip = null;
+            if (instance != null)
+            {
+                instance.tooltipText.enabled = false;
+                activeTooltip = null;
+            }
         }
         public static void SetTooltipText(RenderTextureHoverTooltip text)
         {
-            instance.tooltipText.text = text.Tooltip;
-            instance.tooltipText.enabled = true;
+            if (instance != null)
+            {
+                instance.tooltipText.text = text.Tooltip;
+                instance.tooltipText.enabled = true;
+            }
         }
 
         public void OnPointerMove(PointerEventData eventData)

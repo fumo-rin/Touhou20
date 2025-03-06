@@ -191,6 +191,11 @@ namespace ChurroIceDungeon
             transform.position = (Vector2)transform.position + (Vector2)direction;
             return this;
         }
+        public ChurroProjectile Action_NewPosition(Vector2 position)
+        {
+            transform.position = position;
+            return this;
+        }
         public ChurroProjectile Action_AddRotation(float value)
         {
             return Action_SetVelocity(CurrentVelocity.Rotate2D(value), CurrentVelocity.magnitude);
@@ -257,7 +262,23 @@ namespace ChurroIceDungeon
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
         private static ChurroProjectile CreateBullet(ChurroProjectile prefab, Vector2 position, Vector2 direction, ProjectileSpawnAction spawnAction, float speed)
         {
-            ChurroProjectile p = Instantiate(prefab, position, Quaternion.identity);
+            if (prefab == null)
+                return null;
+            ChurroProjectile p = null;
+            if (TryGetFromPool(prefab.poolID, out p) && p != null)
+            {
+                p.Action_NewPosition(position);
+                p.gameObject.SetActive(true);
+            }
+            else
+            {
+                if (p == null)
+                {
+                    //something bad destroy the queues lemao
+                    DestroyPool(prefab.poolID);
+                }
+                p = Instantiate(prefab, position, Quaternion.identity);
+            }
             p.knownEvents = new();
             p.Action_FacePosition(position + direction);
             p.Action_SetVelocity(direction, speed);
@@ -351,24 +372,79 @@ namespace ChurroIceDungeon
     #region Pooling (for now no pooling lemao)
     public partial class ChurroProjectile
     {
+        [Range(-1, 10000)]
+        [SerializeField] int poolID = -1;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeProjectilePool()
+        {
+            pools = new();
+            GeneralManager.ResetProjectiles = ForceReset;
+        }
+        public static void ForceReset()
+        {
+            Debug.Log("Force Reset");
+            ReinitializeProjectilePool();
+        }
+        private static Queue<ChurroProjectile> GetQueueFor(int poolID)
+        {
+            if (!pools.ContainsKey(poolID))
+            {
+                pools[poolID] = new();
+            }
+            if (pools.ContainsKey(poolID) && pools[poolID] != null)
+            {
+                return pools[poolID];
+            }
+            return null;
+        }
+        static void DestroyPool(int poolID)
+        {
+            if (GetQueueFor(poolID) is Queue<ChurroProjectile> queue and not null)
+            {
+                foreach (var item in queue)
+                {
+                    Destroy(item.gameObject);
+                }
+            }
+        }
+        static bool TryGetFromPool(int poolID, out ChurroProjectile p)
+        {
+            p = null;
+            if (pools.ContainsKey(poolID) && pools[poolID] != null && pools[poolID].Count > 0)
+            {
+                p = pools[poolID].Dequeue();
+                return true;
+            }
+            return false;
+        }
+        static Dictionary<int, Queue<ChurroProjectile>> pools;
         public void ClearProjectile(int bounceCost = 1)
         {
             void Local_Destroy()
             {
-                if (gameObject != null)
-                {
-                    Destroy(gameObject);
-                }
+                Destroy(gameObject);
             }
-            if (TerrainBounceLives <= -1)
+            void TryPool()
             {
-                Local_Destroy();
-                return;
+                if (GetQueueFor(poolID) is not null and Queue<ChurroProjectile> queue)
+                {
+                    queue.Enqueue(this);
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    Local_Destroy();
+                }
             }
             TerrainBounceLives -= bounceCost.Abs();
             if (TerrainBounceLives <= 0)
             {
-                Local_Destroy();
+                if (poolID <= -1)
+                {
+                    Local_Destroy();
+                    return;
+                }
+                TryPool();
                 return;
             }
         }

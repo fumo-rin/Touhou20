@@ -305,7 +305,7 @@ namespace ChurroIceDungeon
             bool strafeSuccess = TryGetStrafeVector(out Vector2 strafe);
             if (strafeSuccess)
             {
-                strafe = pather.rvo.SolveRVO(strafe, CollapseMotor().MaxSpeed);
+                strafe = pather.rvo.SolveRVO(strafe, CollapseMotor() is DungeonMotor m and not null ? m.MaxSpeed : 1f);
                 MoveMotor(strafe, out result);
                 Debug.DrawLine(CurrentPosition, CurrentPosition + strafe, ColorHelper.DeepGreen, 0.1f);
                 return;

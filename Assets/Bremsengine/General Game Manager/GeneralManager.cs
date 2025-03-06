@@ -4,7 +4,6 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace Bremsengine
@@ -23,6 +22,7 @@ namespace Bremsengine
         public static bool IsLoadingScene;
         public delegate void StageExitAction();
         public static StageExitAction OnStageExitPreLoadingScreen;
+        public static StageExitAction ResetProjectiles;
         [QFSW.QC.Command("-loadscene")]
         public static void LoadSceneAfterDelay(string sceneName, float delay, System.Action callback = null)
         {
@@ -35,9 +35,12 @@ namespace Bremsengine
                         Instance.loadingScreenText.text = "Loading: " + (progress * 100f).Clamp(0f, 100f).ToString("F0") + "%";
                     }
                 }
+                float storedTimescale = Time.timeScale;
                 IsLoadingScene = true;
                 yield return new WaitForSecondsRealtime(delay);
+                Time.timeScale = 0f;
                 OnStageExitPreLoadingScreen?.Invoke();
+                ResetProjectiles?.Invoke();
                 if (Instance != null && Instance.loadingScreen != null)
                 {
                     Instance.loadingScreenText.text = "Loading: 0%";
@@ -53,7 +56,6 @@ namespace Bremsengine
                     }
                     SetLoadingProgress(1f);
                     yield return new WaitForSecondsRealtime(0.45f);
-                    yield return new WaitForFixedUpdate();
                     callback?.Invoke();
                     Instance.loadingScreen.SetActive(false);
                     Time.timeScale = 1f;
@@ -63,6 +65,7 @@ namespace Bremsengine
                     yield return new WaitForSecondsRealtime(delay);
                     SceneManager.LoadScene(sceneName);
                 }
+                Time.timeScale = storedTimescale;
                 IsLoadingScene = false;
             }
             if (!IsLoadingScene)
@@ -75,109 +78,20 @@ namespace Bremsengine
     #region Difficulty Multipliers
     public partial class GeneralManager
     {
+        public static bool ChurroHardmode => CurrentDifficulty == Difficulty.Ultra;
         public static Difficulty CurrentDifficulty { get; private set; } = Difficulty.Lunatic;
         public enum Difficulty
         {
             Easy,
             Normal,
             Hard,
-            Lunatic
+            Lunatic,
+            Ultra
         }
-        public static class DifficultyMultipliers
+        [QFSW.QC.Command("difficulty")]
+        public static void SetDifficulty(Difficulty d)
         {
-            public enum Modifier
-            {
-                Damage,
-                Speed,
-                Density,
-                AttackDensity
-            }
-            public static float GetMultiplier(Modifier m, Difficulty d)
-            {
-                float multiplier = 1f;
-                switch (m)
-                {
-                    case Modifier.Damage:
-                        switch (d)
-                        {
-                            case Difficulty.Easy:
-                                multiplier = 0.35f;
-                                break;
-                            case Difficulty.Normal:
-                                multiplier = 0.75f;
-                                break;
-                            case Difficulty.Hard:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Lunatic:
-                                multiplier = 2f;
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case Modifier.Speed:
-                        switch (d)
-                        {
-                            case Difficulty.Easy:
-                                multiplier = 0.65f;
-                                break;
-                            case Difficulty.Normal:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Hard:
-                                multiplier = 1.15f;
-                                break;
-                            case Difficulty.Lunatic:
-                                multiplier = 1.4f;
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case Modifier.Density:
-                        switch (d)
-                        {
-                            case Difficulty.Easy:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Normal:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Hard:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Lunatic:
-                                multiplier = 2f;
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    case Modifier.AttackDensity:
-                        switch (d)
-                        {
-                            case Difficulty.Easy:
-                                multiplier = 0.25f;
-                                break;
-                            case Difficulty.Normal:
-                                multiplier = 0.65f;
-                                break;
-                            case Difficulty.Hard:
-                                multiplier = 1f;
-                                break;
-                            case Difficulty.Lunatic:
-                                multiplier = 2f;
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                return multiplier;
-            }
+            CurrentDifficulty = d;
         }
     }
     #endregion

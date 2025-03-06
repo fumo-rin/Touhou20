@@ -69,6 +69,10 @@ namespace ChurroIceDungeon
                 ChurroUnit.ClearInventorySnapshot();
                 OnRestartGame?.Invoke();
             }
+            if (instance == null)
+            {
+                return;
+            }
             GeneralManager.LoadSceneAfterDelay(instance.MainMenuSceneString, delay, ResetGameState);
         }
     }
@@ -96,7 +100,7 @@ namespace ChurroIceDungeon
         public const int RespawnCost = -1;
         public static int Strength { get; private set; }
         public static int Braincells { get; private set; }
-        public static bool HardMode = false;
+        public static bool HardMode => GeneralManager.ChurroHardmode;
         public static bool CanRespawn => Braincells >= RespawnCost.Abs();
         public delegate void GameState();
         public static GameState OnRestartGame;

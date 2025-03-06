@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 999208655503992510}
   - component: {fileID: 570706002243309580}
   m_Layer: 3
-  m_Name: SpreadShot
+  m_Name: Fishlaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,15 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2905fd5b916887140b22cbdf7d492161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noUnitFallbackFaction: 1
   shouldOverrideSettings: 1
   overrideSettings:
     SpreadVariation: 0
-    <SwingDuration>k__BackingField: 0.2
+    NextAttackTime: 0
+    <SwingDuration>k__BackingField: 0.025
     <StallDuration>k__BackingField: 0
-  baseDamage: 5
+  baseDamage: 4
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
-  attackSound: {fileID: 11400000, guid: a6895d9c4cfea2b40a99ae60e5dfeb26, type: 2}
-  smallArc: {fileID: 3506629886063210716, guid: 6241b2a604829ef4996f75bff4f65843, type: 3}
-  frontal: {fileID: 6611839576625880385, guid: 421a9f9a90240324ca32a3638de36263, type: 3}
+  attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
+  smallArc: {fileID: 0}
+  frontal: {fileID: 3506629886063210716, guid: 275f8a4f56ca35140af36de6734c9575, type: 3}

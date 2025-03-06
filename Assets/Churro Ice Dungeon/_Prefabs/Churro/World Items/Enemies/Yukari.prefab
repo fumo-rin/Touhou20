@@ -131,6 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deea59d85d2ee5649a47206504b6f5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noUnitFallbackFaction: 0
+  shouldOverrideSettings: 0
+  overrideSettings:
+    SpreadVariation: 0
+    NextAttackTime: 0
+    <SwingDuration>k__BackingField: 0.2
+    <StallDuration>k__BackingField: 0
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 7160802010199300189}
@@ -798,6 +805,10 @@ PrefabInstance:
     - target: {fileID: 657281480495809977, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_Size.y
       value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037673031714856360, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1061645349432352249, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_LocalPosition.x

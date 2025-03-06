@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cd7fc4c89910440aa5fab3ca4decd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolID: 5734
   projectileSprite: {fileID: 2328925295890103779}
   offScreenClearDistance: 3
   projectileRB: {fileID: 3081823998064634439}

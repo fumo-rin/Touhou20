@@ -44,7 +44,7 @@ namespace Bremsengine
         {
             float opacity = 0f;
             byte opacityByte = 0;
-            musicText.text = "BGM: "+ QueuedSongText;
+            musicText.text = string.IsNullOrEmpty(QueuedSongText) ? "" : "BGM: "+ QueuedSongText;
             while (opacityByte < 255)
             {
                 opacity = opacity.MoveTowards(256f, fadeSpeed * Time.deltaTime);

@@ -79,7 +79,6 @@ namespace ChurroIceDungeon
             {
                 return false;
             }
-            //Handle Sounds elsewhere pleae
             OnAttack?.Invoke(target);
             return true;
         }

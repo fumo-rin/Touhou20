@@ -170,7 +170,10 @@ namespace ChurroIceDungeon
         bool attackPressed;
         public void Attack(Vector2 worldPosition)
         {
-            attackHandler.TryAttack(worldPosition);
+            if (attackHandler.TryAttack(worldPosition))
+            {
+
+            }
         }
         private void AttackLoop()
         {
@@ -188,7 +191,10 @@ namespace ChurroIceDungeon
         static Dictionary<int, Inventory.itemSlotSnapshot> InventorySnapShot;
         public static void ClearInventorySnapshot()
         {
-            assignedInventory.ClearInventory(ref InventorySnapShot);
+            if (assignedInventory != null)
+            {
+                assignedInventory.ClearInventory(ref InventorySnapShot);
+            }
         }
         public static bool TryGetFromSnapshot(int id, out Inventory.itemSlotSnapshot item)
         {
@@ -216,10 +222,10 @@ namespace ChurroIceDungeon
         }
         public static void SnapshotInventory()
         {
-            Debug.Log("Try Set Player Snapshot");
+            Debug.Log("Try Set Player Inventory Snapshot");
             if (Player != null && assignedInventory == null)
             {
-                Debug.LogError("Bad");
+                return;
             }
             if (assignedInventory.SnapshotCurrent(out Dictionary<int, Inventory.itemSlotSnapshot> snapShot))
             {

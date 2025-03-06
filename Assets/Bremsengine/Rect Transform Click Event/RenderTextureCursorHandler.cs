@@ -15,7 +15,7 @@ namespace Bremsengine
     public class RenderTextureCursorHandler : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerExitHandler, IPointerEnterHandler, IPointerUpHandler
     {
         [SerializeField] RectTransform renderTexture;
-        [SerializeField] Camera renderCamera;
+        Camera renderCamera;
 
         static Transform controllerReference;
 
@@ -31,6 +31,7 @@ namespace Bremsengine
         public static bool IsHovering { get; private set; }
         private void Start()
         {
+            renderCamera = Camera.main;
             SceneManager.activeSceneChanged += (Scene s, Scene ss) => { renderCamera = Camera.main; };
         }
         public static void SetControllerReference(Transform t)
