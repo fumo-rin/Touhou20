@@ -12,6 +12,7 @@ namespace ChurroIceDungeon
         [SerializeField] CinemachineCamera cam;
         [SerializeField] CinemachineConfiner2D confiner;
         float defaultCameraSize;
+        public static float MinCameraSize => instance == null ? 6f : instance.defaultCameraSize;
         private void Recalculate()
         {
             Debug.Log("Recalculate");

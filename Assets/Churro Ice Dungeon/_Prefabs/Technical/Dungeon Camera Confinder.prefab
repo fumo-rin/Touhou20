@@ -148,3 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZoneIndex: 0
+  useHeightAsCameraSize: 1
+  maxOverrideCameraSize: 12

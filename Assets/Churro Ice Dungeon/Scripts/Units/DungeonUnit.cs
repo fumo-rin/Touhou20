@@ -7,6 +7,15 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Conveyor
+    public partial class DungeonUnit : IConveyorable
+    {
+        public void Push(Conveyor c)
+        {
+            RB.VelocityTowards(c.DirectionWithForce, c.Settings.Acceleration);
+        }
+    }
+    #endregion
     #region Damageable
     public partial class DungeonUnit : IDamageable
     {

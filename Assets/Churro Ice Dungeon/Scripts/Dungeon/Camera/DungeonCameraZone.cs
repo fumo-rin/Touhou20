@@ -1,3 +1,4 @@
+using Core.Extensions;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -9,8 +10,8 @@ namespace ChurroIceDungeon
         public int ZoneIndex = 0;
         [SerializeField] bool useHeightAsCameraSize;
         [Range(-1, 12)]
-        [SerializeField] int overrideCameraSize = -1;
-        public float OverrideSize => useHeightAsCameraSize ? zoneConfiner.bounds.extents.y : overrideCameraSize;
+        [SerializeField] int maxOverrideCameraSize = -1;
+        public float OverrideSize => (useHeightAsCameraSize ? zoneConfiner.bounds.extents.y : (float)maxOverrideCameraSize).Clamp(DungeonCamera.MinCameraSize, maxOverrideCameraSize);
         public Collider2D zoneConfiner { get; private set; }
         private void Awake()
         {

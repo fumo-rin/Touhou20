@@ -157,6 +157,9 @@ MonoBehaviour:
   attackHandler: {fileID: 6620270295851291831}
   focusMotor: {fileID: 11400000, guid: 15d2699e6e2d16f49af106c4de55b374, type: 2}
   movementAnimator: {fileID: 5446593708055821190}
+  testUnitLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &3235564999493768737
 Rigidbody2D:
   serializedVersion: 5
@@ -1167,7 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2536334871251253555}
   - component: {fileID: 6865206415811949433}
-  - component: {fileID: 3011276479182525547}
+  - component: {fileID: 21155209377034021}
   - component: {fileID: 3792162647204647443}
   - component: {fileID: 2343808175091276455}
   m_Layer: 3
@@ -1186,7 +1189,7 @@ Transform:
   m_GameObject: {fileID: 3571031585662387528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.464, z: -10}
+  m_LocalPosition: {x: 0, y: 0.46399975, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1235,7 +1238,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &3011276479182525547
+--- !u!114 &21155209377034021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1248,10 +1251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrackerSettings:
-    BindingMode: 4
+    BindingMode: 3
     PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
+    RotationDamping: {x: 0, y: 0, z: 0}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 0, z: -10}
 --- !u!114 &3792162647204647443
@@ -1267,10 +1270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundingShape2D: {fileID: 0}
-  Damping: 0.25
+  Damping: 0
   SlowingDistance: 0
   OversizeWindow:
-    Enabled: 1
+    Enabled: 0
     MaxWindowSize: 15
   m_LegacyMaxWindowSize: -2
 --- !u!114 &2343808175091276455

@@ -303,6 +303,7 @@ namespace ChurroIceDungeon
             PlayerInputController.actions.Player.Focus.canceled -= ReleaseFocus;
         }
 
+        [SerializeField] LayerMask testUnitLayer;
         protected override void WhenStart()
         {
             RenderTextureCursorHandler.ClickDown += OnWorldClick;
@@ -313,6 +314,7 @@ namespace ChurroIceDungeon
 
             PlayerInputController.actions.Player.Focus.performed += PressFocus;
             PlayerInputController.actions.Player.Focus.canceled += ReleaseFocus;
+
         }
     }
 }

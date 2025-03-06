@@ -244,5 +244,5 @@ namespace Core.Extensions
             text += $"y: {b.min.y.ToString()} : {b.max.y.ToString()}".Color(Color.green);
             return text;
         }
-    }
+    } 
 }

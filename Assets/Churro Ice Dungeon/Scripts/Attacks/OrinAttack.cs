@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Core.Extensions;
 using Bremsengine;
+using UnityEngine.Tilemaps;
 
 namespace ChurroIceDungeon
 {
@@ -63,7 +64,6 @@ namespace ChurroIceDungeon
                         if (owner.NavmeshContains(iteration) && iteration.SquareDistanceTo(target) > smallestDistanceToPlayer)
                         {
                             navmeshHit = true;
-                            Debug.Log(iteration.SquareDistanceTo(target));
                             smallestDistanceToPlayer = iteration.SquareDistanceTo(target);
                         }
                     }
@@ -79,7 +79,7 @@ namespace ChurroIceDungeon
                 float projectileSpeed = Hardmode ? this.projectileSpeed * 1.35f : this.projectileSpeed;
                 Vector2 storedSpeed = projectile.CurrentVelocity;
                 float velocity = 0f;
-                projectile.Action_SetVelocity(storedSpeed, 0f);
+                projectile.Action_SetVelocity(storedSpeed, 0.05f);
                 yield return expandDelay;
                 while (projectile.CurrentVelocity.sqrMagnitude < projectileSpeed.Squared())
                 {
