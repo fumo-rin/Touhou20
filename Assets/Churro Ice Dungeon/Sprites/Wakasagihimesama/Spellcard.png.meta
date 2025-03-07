@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 02a40a0b163d7bb4c895bde7eda0e1b5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4097860451933994320
+    second: Spellcard_0
+  - first:
+      213: -7996769181646914722
+    second: Spellcard_1
+  - first:
+      213: 6534843824239105624
+    second: Spellcard_2
+  - first:
+      213: -9046652352542671175
+    second: Spellcard_3
+  - first:
+      213: -805175391786898486
+    second: Spellcard_4
+  - first:
+      213: 8571557869422426868
+    second: Spellcard_5
+  - first:
+      213: 6229967098802345873
+    second: Spellcard_6
+  - first:
+      213: -7583581619678181701
+    second: Spellcard_7
+  - first:
+      213: -7173079932276324660
+    second: Spellcard_8
+  - first:
+      213: 394223206053041508
+    second: Spellcard_9
+  - first:
+      213: -5121744691237944924
+    second: Spellcard_10
+  - first:
+      213: 1577110263740632068
+    second: Spellcard_11
+  - first:
+      213: 7959778002929138181
+    second: Spellcard_12
+  - first:
+      213: 5427223940718272412
+    second: Spellcard_13
+  - first:
+      213: 5454738901703162382
+    second: Spellcard_14
+  - first:
+      213: -7829472368586141635
+    second: Spellcard_15
+  - first:
+      213: -7900785076250492970
+    second: Spellcard_16
+  - first:
+      213: 5526225229977944703
+    second: Spellcard_17
+  - first:
+      213: -7939927694832458601
+    second: Spellcard_18
+  - first:
+      213: -477054202205289383
+    second: Spellcard_19
+  - first:
+      213: 4369296911619973753
+    second: Spellcard_20
+  - first:
+      213: -2747775867185957531
+    second: Spellcard_21
+  - first:
+      213: -6566819092771273576
+    second: Spellcard_22
+  - first:
+      213: 7702528278088126710
+    second: Spellcard_23
+  - first:
+      213: 5693052836569079513
+    second: Spellcard_24
+  - first:
+      213: -3713931304056705348
+    second: Spellcard_25
+  - first:
+      213: -3877101248563922901
+    second: Spellcard_26
+  - first:
+      213: -1902415972829611378
+    second: Spellcard_27
+  - first:
+      213: -7408495581352401685
+    second: Spellcard_28
+  - first:
+      213: 5313182211063373246
+    second: Spellcard_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spellcard_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 469
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b24a5f51a97127c0800000000000000
+      internalID: -4097860451933994320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 492
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bf4294cc4c50190800000000000000
+      internalID: -7996769181646914722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 472
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8565d66c5dd60ba50800000000000000
+      internalID: 6534843824239105624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_3
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 403
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9befd38dd95d37280800000000000000
+      internalID: -9046652352542671175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_4
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 425
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbe7a64f3173d4f0800000000000000
+      internalID: -805175391786898486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_5
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 448
+        width: 50
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fab0aad77a44f670800000000000000
+      internalID: 8571557869422426868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_6
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 348
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1971c7e811a457650800000000000000
+      internalID: 6229967098802345873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_7
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 370
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb686e942b4b1c690800000000000000
+      internalID: -7583581619678181701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_8
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 392
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6cf236ec9147c90800000000000000
+      internalID: -7173079932276324660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_9
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 381
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465d10fcaef887500800000000000000
+      internalID: 394223206053041508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_10
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 304
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a10588e658ebe8b0800000000000000
+      internalID: -5121744691237944924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 326
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c02e1dd6503e510800000000000000
+      internalID: 1577110263740632068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_12
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 238
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a3f83cbefc67e60800000000000000
+      internalID: 7959778002929138181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_13
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 260
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f120f5b6f515b40800000000000000
+      internalID: 5427223940718272412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_14
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 282
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a7582712023bb40800000000000000
+      internalID: 5454738901703162382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_15
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 216
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30dfa3fc50285390800000000000000
+      internalID: -7829472368586141635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_16
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 186
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfb16355d5ca5290800000000000000
+      internalID: -7900785076250492970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_17
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 208
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7203a5419811bc40800000000000000
+      internalID: 5526225229977944703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_18
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 142
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794a93f34d5bfc190800000000000000
+      internalID: -7939927694832458601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_19
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 164
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95442fa0bb92169f0800000000000000
+      internalID: -477054202205289383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_20
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 76
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972e15f346cd2ac30800000000000000
+      internalID: 4369296911619973753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_21
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 98
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5657df93860fdd9d0800000000000000
+      internalID: -2747775867185957531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_22
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 120
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8948d1fd3d8fdd4a0800000000000000
+      internalID: -6566819092771273576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_23
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 24
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f018dfb8a0e4ea60800000000000000
+      internalID: 7702528278088126710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_24
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 46
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9deda3b4469c10f40800000000000000
+      internalID: 5693052836569079513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_25
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 32
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe2f7df727757cc0800000000000000
+      internalID: -3713931304056705348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_26
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 54
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28bf19c4f4c13ac0800000000000000
+      internalID: -3877101248563922901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a367c80c24995e0800000000000000
+      internalID: -1902415972829611378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_28
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 2
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be46079458cbf2990800000000000000
+      internalID: -7408495581352401685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spellcard_29
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd5b5d02173cb940800000000000000
+      internalID: 5313182211063373246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Spellcard_0: -4097860451933994320
+      Spellcard_1: -7996769181646914722
+      Spellcard_10: -5121744691237944924
+      Spellcard_11: 1577110263740632068
+      Spellcard_12: 7959778002929138181
+      Spellcard_13: 5427223940718272412
+      Spellcard_14: 5454738901703162382
+      Spellcard_15: -7829472368586141635
+      Spellcard_16: -7900785076250492970
+      Spellcard_17: 5526225229977944703
+      Spellcard_18: -7939927694832458601
+      Spellcard_19: -477054202205289383
+      Spellcard_2: 6534843824239105624
+      Spellcard_20: 4369296911619973753
+      Spellcard_21: -2747775867185957531
+      Spellcard_22: -6566819092771273576
+      Spellcard_23: 7702528278088126710
+      Spellcard_24: 5693052836569079513
+      Spellcard_25: -3713931304056705348
+      Spellcard_26: -3877101248563922901
+      Spellcard_27: -1902415972829611378
+      Spellcard_28: -7408495581352401685
+      Spellcard_29: 5313182211063373246
+      Spellcard_3: -9046652352542671175
+      Spellcard_4: -805175391786898486
+      Spellcard_5: 8571557869422426868
+      Spellcard_6: 6229967098802345873
+      Spellcard_7: -7583581619678181701
+      Spellcard_8: -7173079932276324660
+      Spellcard_9: 394223206053041508
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -49,7 +49,11 @@ namespace ChurroIceDungeon
         public static void AddPickupScore()
         {
             scoreItemAddedValue += 1;
-            instance.AddScore(instance.baseScorePerPickup + scoreItemAddedValue);
+            float addedScore = instance.AddScore(instance.baseScorePerPickup + scoreItemAddedValue);
+            if (GeneralManager.ShouldAddScoreKey)
+            {
+                GeneralManager.AddScoreAnalysisKey("Pickups", addedScore);
+            }
         }
         private float AddScore(float addedScore)
         {

@@ -1,8 +1,7 @@
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using Dan.Models;
-namespace BremseTouhou
+using UnityEngine;
+
+namespace Bremsengine
 {
     public class TimeSlowHandler : MonoBehaviour
     {
