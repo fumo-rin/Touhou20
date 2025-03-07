@@ -216,9 +216,14 @@ namespace ChurroIceDungeon
             if (optionalAttackHandler != null) optionalAttackHandler.SetOwner(this);
             StartDamageable(startingHealth);
             Origin = transform.position;
-            if (this is ChurroUnit c)
+            if (this is ChurroUnit churro)
             {
-                Player = c;
+                Player = churro;
+                FactionInterface.SetFaction(BremseFaction.Player);
+            }
+            if (this is WakaUnit waka)
+            {
+                Player = waka;
                 FactionInterface.SetFaction(BremseFaction.Player);
             }
             pather.ValidatePather(this);

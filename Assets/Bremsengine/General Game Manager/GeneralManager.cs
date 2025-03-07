@@ -11,8 +11,13 @@ namespace Bremsengine
     #region Key Values
     public partial class GeneralManager
     {
+        public struct Keys
+        {
+            public const string PlayerBombs = "Player Bombs";
+            public const string PlayerLives = "Player Lives";
+        }
         static Dictionary<string, object> gameValues;
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         private static void InitializeGameValues()
         {
             gameValues = new();
@@ -24,8 +29,11 @@ namespace Bremsengine
         public static bool TryFetchGameValue<T>(string key, out T output)
         {
             object value;
-            gameValues.TryGetValue(key, out value);
-            output = (T)value;
+            output = default(T);
+            if (gameValues.TryGetValue(key, out value))
+            {
+                output = (T)value;
+            }
             return output != null;
         }
     }
@@ -45,6 +53,7 @@ namespace Bremsengine
         public delegate void StageExitAction();
         public static StageExitAction OnStageExitPreLoadingScreen;
         public static StageExitAction ResetProjectiles;
+        public static StageExitAction ResetPickupsPool;
         [QFSW.QC.Command("-loadscene")]
         public static void LoadSceneAfterDelay(string sceneName, float delay, System.Action callback = null)
         {
@@ -63,6 +72,7 @@ namespace Bremsengine
                 Time.timeScale = 0f;
                 OnStageExitPreLoadingScreen?.Invoke();
                 ResetProjectiles?.Invoke();
+                ResetPickupsPool?.Invoke();
                 if (Instance != null && Instance.loadingScreen != null)
                 {
                     Instance.loadingScreenText.text = "Loading: 0%";
@@ -97,24 +107,59 @@ namespace Bremsengine
         }
     }
     #endregion
-    #region Difficulty Multipliers
+    #region Difficulty
     public partial class GeneralManager
     {
+        #region Colors & Names
+        public static string GetDifficultyName(Difficulty d)
+        {
+            string difficultyName = "";
+            switch (d)
+            {
+                case Difficulty.Easy: difficultyName += "Easy"; break;
+                case Difficulty.Normal: difficultyName += "Normal"; break;
+                case Difficulty.Hard: difficultyName += "Hard"; break;
+                case Difficulty.Lunatic: difficultyName += "Lunatic"; break;
+                case Difficulty.Ultra: difficultyName += "Ultra"; break;
+                case Difficulty.Extra: difficultyName += "Extra"; break;
+                default: difficultyName = "Normal"; SetDifficulty(Difficulty.Normal); break;
+            }
+            return difficultyName;
+        }
+        public static Color32 GetDifficultyColor(Difficulty d)
+        {
+            switch (d)
+            {
+                case Difficulty.Easy: return ColorHelper.PastelGreen;
+                case Difficulty.Normal: return ColorHelper.PastelBlue;
+                case Difficulty.Hard: return ColorHelper.PastelYellow;
+                case Difficulty.Lunatic: return ColorHelper.PastelPurple;
+                case Difficulty.Ultra: return ColorHelper.PastelOrange;
+                case Difficulty.Extra: return ColorHelper.PastelRed;
+                default: return Color.blue;
+            }
+        }
+        #endregion
         public static bool ChurroHardmode => CurrentDifficulty == Difficulty.Ultra;
         public static Difficulty CurrentDifficulty { get; private set; } = Difficulty.Lunatic;
         public enum Difficulty
         {
-            Easy,
-            Normal,
-            Hard,
-            Lunatic,
-            Ultra
+            Easy = 1,
+            Normal = 2,
+            Hard = 3,
+            Lunatic = 4,
+            Ultra = 5,
+            Extra = 6
         }
+        public delegate void DifficultyChange(Difficulty d);
+        public static event DifficultyChange OnDifficultyChanged;
         [QFSW.QC.Command("difficulty")]
         public static void SetDifficulty(Difficulty d)
         {
             CurrentDifficulty = d;
+            OnDifficultyChanged?.Invoke(d);
         }
+
     }
     #endregion
     #region Funny Explosion

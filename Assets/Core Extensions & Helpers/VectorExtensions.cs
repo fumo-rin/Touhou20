@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 
 namespace Core.Extensions
 {
@@ -105,6 +106,10 @@ namespace Core.Extensions
         public static Vector2 LerpTowards(this Vector2 v, Vector2 worldPosition, float speed)
         {
             return Vector2.Lerp(v, worldPosition, speed * Time.deltaTime);
+        }
+        public static Vector2 Lerp(this Vector2 v, Vector2 other, float lerp)
+        {
+            return Vector2.Lerp(v, other, lerp);
         }
         public static Vector3 X(this Vector3 v, float x)
         {

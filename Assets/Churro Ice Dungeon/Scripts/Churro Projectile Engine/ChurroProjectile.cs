@@ -261,6 +261,13 @@ namespace ChurroIceDungeon
     #region Spawning
     public partial class ChurroProjectile
     {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void InitializeSpawnID()
+        {
+            NextSpawnID = 0;
+        }
+        public int SpawnID { get; private set; }
+        static int NextSpawnID;
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
         private static bool CreateBullet(ChurroProjectile prefab, Vector2 position, Vector2 direction, ProjectileSpawnAction spawnAction, float speed, out ChurroProjectile spawnedBullet)
         {
@@ -282,6 +289,7 @@ namespace ChurroIceDungeon
                 }
                 p = Instantiate(prefab, position, Quaternion.identity);
             }
+            p.SpawnID = NextSpawnID++;
             p.knownEvents = new();
             p.Action_FacePosition(position + direction);
             p.Action_SetVelocity(direction, speed);
@@ -445,6 +453,7 @@ namespace ChurroIceDungeon
                 }
             }
             TerrainBounceLives -= bounceCost.Abs();
+            GrazeBox.Unregister(SpawnID);
             if (TerrainBounceLives <= 0)
             {
                 if (poolID <= -1)

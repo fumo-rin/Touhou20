@@ -107,15 +107,6 @@ MonoBehaviour:
       isFolder: 1
       isAsset: 0
       _id: 1052521637
-    - globalId:
-        globalObjectIdString: GlobalObjectId_V1-1-192faf391bf1b5240b02354124af87e5-102900000-0
-      _typeString: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      _obj: {fileID: 102900000, guid: 192faf391bf1b5240b02354124af87e5, type: 3}
-      isSceneGameObject: 0
-      isFolder: 1
-      isAsset: 0
-      _id: 1028974402
     name: Churro
     _id: 1060451369
   - items: []
