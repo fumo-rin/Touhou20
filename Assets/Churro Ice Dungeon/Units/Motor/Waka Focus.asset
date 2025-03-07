@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf88e67c067cd02448658f24618c1bf1, type: 3}
   m_Name: Waka Focus
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 4.5
+  <MaxSpeed>k__BackingField: 3.8
   FailFriction: 6
   Acceleration: 0
   Friction: 0

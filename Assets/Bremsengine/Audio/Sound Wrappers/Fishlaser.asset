@@ -16,15 +16,15 @@ MonoBehaviour:
   soundVolume: 0.212
   audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
   <soundClips>k__BackingField:
-  - clip: {fileID: 8300000, guid: e16fdc6cdeedd194b9689b3886c08bac, type: 3}
+  - clip: {fileID: 8300000, guid: eb2c9b9f9be559246a1d9dadc03f85fa, type: 3}
     PitchVariancePercent: 3
     PitchOrigin: 2
-    Volume: 0.15
+    Volume: 0.5
     Muted: 0
   - clip: {fileID: 8300000, guid: 9f09476ed99bf724dbc27a4b72c87cf2, type: 3}
     PitchVariancePercent: 3
-    PitchOrigin: 3
+    PitchOrigin: 1
     Volume: 0.35
-    Muted: 0
+    Muted: 1
   <singleChannel>k__BackingField: 1
   <Is3D>k__BackingField: 1

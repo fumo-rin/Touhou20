@@ -8,6 +8,28 @@ using TMPro;
 
 namespace Bremsengine
 {
+    #region Key Values
+    public partial class GeneralManager
+    {
+        static Dictionary<string, object> gameValues;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void InitializeGameValues()
+        {
+            gameValues = new();
+        }
+        public static void StoreGameValue(string key, object data)
+        {
+            gameValues[key] = data;
+        }
+        public static bool TryFetchGameValue<T>(string key, out T output)
+        {
+            object value;
+            gameValues.TryGetValue(key, out value);
+            output = (T)value;
+            return output != null;
+        }
+    }
+    #endregion
     #region Load Scene
     public partial class GeneralManager
     {

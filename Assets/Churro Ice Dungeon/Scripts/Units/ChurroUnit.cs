@@ -298,7 +298,6 @@ namespace ChurroIceDungeon
         {
 
         }
-
         protected override void WhenDestroy()
         {
             RenderTextureCursorHandler.ClickDown -= OnWorldClick;
