@@ -34,7 +34,7 @@ namespace ChurroIceDungeon
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void BindToSceneLoader()
         {
-            GeneralManager.ResetPickupsPool = Reinitialize;
+            GeneralManager.SetStageAction("Reset Pickups Pool", Reinitialize);
         }
         float pickupSpeed = 2.5f;
         public static void SpawnPickup(Pickup prefab, Vector2 position)

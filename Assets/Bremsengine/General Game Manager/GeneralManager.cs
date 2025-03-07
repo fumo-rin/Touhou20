@@ -16,13 +16,13 @@ namespace Bremsengine
             public const string PlayerBombs = "Player Bombs";
             public const string PlayerLives = "Player Lives";
         }
-        static Dictionary<string, object> gameValues;
+        static Dictionary<string, dynamic> gameValues;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         private static void InitializeGameValues()
         {
             gameValues = new();
         }
-        public static void StoreGameValue(string key, object data)
+        public static void StoreGameValue(string key, dynamic data)
         {
             gameValues[key] = data;
         }
@@ -47,13 +47,21 @@ namespace Bremsengine
             IsLoadingScene = false;
             OnStageExitPreLoadingScreen = null;
         }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        private static void InitializeStageActions()
+        {
+            StageActions = new();
+        }
+        public static void SetStageAction(string key, StageExitAction action)
+        {
+            StageActions[key] = action;
+        }
         [SerializeField] GameObject loadingScreen;
         [SerializeField] TMP_Text loadingScreenText;
         public static bool IsLoadingScene;
         public delegate void StageExitAction();
         public static StageExitAction OnStageExitPreLoadingScreen;
-        public static StageExitAction ResetProjectiles;
-        public static StageExitAction ResetPickupsPool;
+        static Dictionary<string, StageExitAction> StageActions;
         [QFSW.QC.Command("-loadscene")]
         public static void LoadSceneAfterDelay(string sceneName, float delay, System.Action callback = null)
         {
@@ -71,8 +79,10 @@ namespace Bremsengine
                 yield return new WaitForSecondsRealtime(delay);
                 Time.timeScale = 0f;
                 OnStageExitPreLoadingScreen?.Invoke();
-                ResetProjectiles?.Invoke();
-                ResetPickupsPool?.Invoke();
+                foreach (var item in StageActions)
+                {
+                    item.Value?.Invoke();
+                }
                 if (Instance != null && Instance.loadingScreen != null)
                 {
                     Instance.loadingScreenText.text = "Loading: 0%";

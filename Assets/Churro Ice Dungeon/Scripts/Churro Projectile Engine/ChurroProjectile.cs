@@ -390,11 +390,10 @@ namespace ChurroIceDungeon
         private static void ReinitializeProjectilePool()
         {
             pools = new();
-            GeneralManager.ResetProjectiles = ForceReset;
+            GeneralManager.SetStageAction("Initialize Projectile Pool" ,ForceReset);
         }
         public static void ForceReset()
         {
-            Debug.Log("Force Reset");
             ReinitializeProjectilePool();
         }
         private static Queue<ChurroProjectile> GetQueueFor(int poolID)
