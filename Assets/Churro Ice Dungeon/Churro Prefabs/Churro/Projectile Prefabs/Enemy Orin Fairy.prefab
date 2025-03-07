@@ -41,6 +41,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3955633436608116546, guid: 83b39f64acaa72544bae6a32063c63a0, type: 3}
+      propertyPath: poolID
+      value: 1787349231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955633436608116546, guid: 83b39f64acaa72544bae6a32063c63a0, type: 3}
       propertyPath: offScreenClearDistance
       value: 10
       objectReference: {fileID: 0}

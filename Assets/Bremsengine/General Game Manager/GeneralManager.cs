@@ -22,6 +22,11 @@ namespace Bremsengine
         {
             gameValues = new();
         }
+        [QFSW.QC.Command("Start-Replay")]
+        public static void StartReplay()
+        {
+            Application.OpenURL("https://obsproject.com/");
+        }
         public static void StoreGameValue(string key, dynamic data)
         {
             gameValues[key] = data;

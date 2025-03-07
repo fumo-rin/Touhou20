@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace ChurroIceDungeon
 {
-    #region Damageable
+    #region Damage Taken
     public partial class WakaUnit
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]

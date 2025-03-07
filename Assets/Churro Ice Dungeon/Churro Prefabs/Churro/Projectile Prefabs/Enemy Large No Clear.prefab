@@ -40,9 +40,13 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3955633436608116546, guid: 83b39f64acaa72544bae6a32063c63a0, type: 3}
+      propertyPath: poolID
+      value: 1548058311
+      objectReference: {fileID: 0}
     - target: {fileID: 6773106329707360286, guid: 83b39f64acaa72544bae6a32063c63a0, type: 3}
       propertyPath: m_Name
-      value: Enemy Large Projectile
+      value: Enemy Large No Clear
       objectReference: {fileID: 0}
     - target: {fileID: 8745104957348562005, guid: 83b39f64acaa72544bae6a32063c63a0, type: 3}
       propertyPath: m_LocalScale.x

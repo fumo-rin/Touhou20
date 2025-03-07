@@ -1,8 +1,13 @@
 using Bremsengine;
+using Core;
 using Core.Extensions;
 using Mono.CSharp;
+using NUnit.Framework.Internal;
+using QFSW.QC.Pooling;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using UnityEditor;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -382,15 +387,42 @@ namespace ChurroIceDungeon
     }
     #endregion
     #region Pooling
+    #region Editor
+#if UNITY_EDITOR
+
+    [CustomEditor(typeof(ChurroProjectile), true)]
+    public class ChurroProjectileEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();  // Draw the default inspector for ChurroBaseAttack.
+
+            // Add a button in the Inspector
+            if (GUILayout.Button("Get New Pool ID"))
+            {
+                // Get the ChurroBaseAttack component
+                ChurroProjectile pTarget = (ChurroProjectile)target;
+                pTarget.poolID = System.Guid.NewGuid().ToString().GetHashCode();
+                pTarget.Dirty();
+                AssetDatabase.SaveAssets();
+
+                // Log to confirm the ID was added
+                Debug.Log($"Added PoolingID to {pTarget.gameObject.name} with ID: {pTarget.poolID}");
+            }
+        }
+    }
+#endif
+    #endregion
     public partial class ChurroProjectile
     {
-        [Range(-1, 10000)]
-        [SerializeField] int poolID = -1;
+        [SerializeField] bool pooling = true;
+        static Dictionary<int, Queue<ChurroProjectile>> pools;
+        public int poolID;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ReinitializeProjectilePool()
         {
             pools = new();
-            GeneralManager.SetStageAction("Initialize Projectile Pool" ,ForceReset);
+            GeneralManager.SetStageAction("Initialize Projectile Pool", ForceReset);
         }
         public static void ForceReset()
         {
@@ -432,7 +464,6 @@ namespace ChurroIceDungeon
             }
             return false;
         }
-        static Dictionary<int, Queue<ChurroProjectile>> pools;
         public void ClearProjectile(int bounceCost = 1)
         {
             void Local_Destroy()
@@ -455,7 +486,7 @@ namespace ChurroIceDungeon
             GrazeBox.Unregister(SpawnID);
             if (TerrainBounceLives <= 0)
             {
-                if (poolID <= -1)
+                if (!pooling)
                 {
                     Local_Destroy();
                     return;

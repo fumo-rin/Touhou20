@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: ed534c9d8de8e324b876570abdad264d
   m_currentHash:
     serializedVersion: 2
-    Hash: 8828692e2da0711701e5b0a72f6646ca
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a6040d8bfa03cb4b8d04ee1806b79e2, type: 2}
   - {fileID: 11400000, guid: d0fb9e6fd136d074f8a2d7ac11653063, type: 2}
   - {fileID: 11400000, guid: 14bbee4283e6ac94cba2bdaf76bbf7b2, type: 2}
+  - {fileID: 11400000, guid: 60f736f9148b7a74784584ff63820e94, type: 2}
   - {fileID: 11400000, guid: 3820109dfe878d640b37703b84fb39df, type: 2}
   - {fileID: 11400000, guid: 702117f5c15837249b5d1e22709b72f9, type: 2}
   m_BuildSettings:
@@ -110,6 +111,8 @@ MonoBehaviour:
     - Projectile Types
     - Projectile Graph
     - All Items
+    - Churro Projectiles
+    - CP
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3f7df906c1e29f34aa7bdfebec3afd69, type: 2}
