@@ -1,5 +1,6 @@
 using Core.Extensions;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -22,7 +23,8 @@ namespace ChurroIceDungeon
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
             StartCoroutine(CO_Burst());
-            foreach (var item in Arc(-15f, 15, 49.9f / miniArcAmount, 13f).Spawn(input, miniArc))
+            Arc(-15f, 15, 49.9f / miniArcAmount, 13f).Spawn(input, miniArc, out List<ChurroProjectile> spawnIteration);
+            foreach (var item in spawnIteration)
             {
                 item.Action_AddRotation(1.5f.Spread(100f)).Action_SetDamage(1f).Action_MultiplyVelocity(1f.Spread(7f));
             }
@@ -36,7 +38,7 @@ namespace ChurroIceDungeon
                 {
                     pos = owner.CurrentPosition;
                     input.SetOrigin(pos);
-                    iteration = ChurroProjectile.SpawnSingle(projectilePrefab, input, single);
+                    ChurroProjectile.SpawnSingle(projectilePrefab, input, single, out iteration);
                     iteration.Action_SetDamage(DamagePerBurst).Action_MultiplyVelocity(1f.Spread(7f)).Action_AddRotation(spread.Spread(100f));
                     yield return wait;
                 }

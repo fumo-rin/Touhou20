@@ -18,8 +18,8 @@ namespace ChurroIceDungeon
                 smallArc = smallArc * 0.6f;
                 bigArc = bigArc * 0.75f;
             }
-
-            foreach (var item in ChurroProjectile.SpawnArc(bigPrefab, input, bigArc))
+            ChurroProjectile.SpawnArc(bigPrefab, input, bigArc, out List<ChurroProjectile> output);
+            foreach (var item in output)
             {
                 item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(1.25f));
                 if (ignoreProjectileCollider)
@@ -27,7 +27,7 @@ namespace ChurroIceDungeon
                     Physics2D.IgnoreCollision(ignoreProjectileCollider, item.ProjectileCollider);
                 }
             }
-            ChurroProjectile.SpawnArc(prefab, input, smallArc);
+            ChurroProjectile.SpawnArc(prefab, input, smallArc, out _);
         }
     }
 }

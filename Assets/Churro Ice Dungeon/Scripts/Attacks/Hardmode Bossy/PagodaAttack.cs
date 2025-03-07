@@ -27,7 +27,10 @@ namespace ChurroIceDungeon
 
                 for (int i = 0; i < 60f; i++)
                 {
-                    ChurroProjectile.SpawnSingle(prefab, iterationInput, single).AddEvent(new ChurroEventAccelerate(new(5f, 0.5f), 16f, 2.5f)).AddEvent(new ChurroEventAccelerate(new(0.45f, 0.05f), 6f, 0.8f));
+                    if (ChurroProjectile.SpawnSingle(prefab, iterationInput, single, out iterationProjectile))
+                    {
+                        iterationProjectile.AddEvent(new ChurroEventAccelerate(new(5f, 0.5f), 16f, 2.5f)).AddEvent(new ChurroEventAccelerate(new(0.45f, 0.05f), 6f, 0.8f));
+                    }
                     direction = direction.Rotate2D(1.5f * i);
                     iterationInput.SetOrigin(iterationInput.Origin + lineStepDirection.ScaleToMagnitude(0.28f));
                     iterationInput.SetDirection(direction);

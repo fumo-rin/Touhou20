@@ -15,7 +15,7 @@ namespace ChurroIceDungeon
             for (int i = 0; i < 7; i++)
             {
                 single.ProjectileSpeed = speed;
-                ChurroProjectile.SpawnSingle(prefab, input, single).Action_SetFaction(Bremsengine.BremseFaction.Enemy);
+                ChurroProjectile.SpawnSingle(prefab, input, single, out _);
                 speed *= 1.15f;
             }
             IEnumerator CO_Lines(float speed)
@@ -26,15 +26,13 @@ namespace ChurroIceDungeon
                 {
                     if (owner == null || !owner.IsAlive())
                         yield break;
-                    ChurroProjectile.ArcSettings arc = new(-7f * repeats + 1, 7f * repeats + 2, 14f * repeats +1, speed);
+                    ChurroProjectile.ArcSettings arc = new(-7f * repeats + 1, 7f * repeats + 2, 14f * repeats + 1, speed);
                     yield return new WaitForSeconds(0.075f);
                     for (int i = 0; i < 4; i++)
                     {
-                        foreach (var item in ChurroProjectile.SpawnArc(prefab, input, arc))
-                        {
-                            item.Action_SetFaction(Bremsengine.BremseFaction.Enemy);
-                        }
-                        arc = arc.Speed(1.25f);
+                        ChurroProjectile.SpawnArc(prefab, input, arc, out iterationList);
+                        foreach (var item in iterationList)
+                            arc = arc.Speed(1.25f);
                     }
                     attackSound.Play(owner.CurrentPosition);
                 }

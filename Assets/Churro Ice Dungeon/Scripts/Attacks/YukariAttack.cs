@@ -51,7 +51,7 @@ namespace ChurroIceDungeon
                     }
 
                     input.SetOrigin(attackOwner.CurrentPosition);
-                    spawnIteration = ChurroProjectile.SpawnArc(bowapProjectile, input, bowap);
+                    ChurroProjectile.SpawnArc(bowapProjectile, input, bowap, out spawnIteration);
                     foreach (ChurroProjectile p in spawnIteration)
                     {
                         p.Action_SetFaction(attackOwner.Faction);

@@ -16,7 +16,7 @@ namespace ChurroIceDungeon
             }
             handler.settings.SetSwingDuration(attackSpeed);
             handler.settings.SetStallDuration(attackSpeed * 0.3f);
-            ChurroProjectile.SpawnSingle(projectile, input, s);
+            ChurroProjectile.SpawnSingle(projectile, input, s, out _);
         }
     }
 }

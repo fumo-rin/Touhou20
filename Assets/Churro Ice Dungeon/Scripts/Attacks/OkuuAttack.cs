@@ -37,8 +37,20 @@ namespace ChurroIceDungeon
                 Destroy(p.gameObject);
             }
             ChurroProjectile.SingleSettings settings = new(0f, 0f);
-            ChurroProjectile p = ChurroProjectile.SpawnSingle(okuuProjectile, input, settings);
-            
+            if (ChurroProjectile.SpawnSingle(okuuProjectile, input, settings, out ChurroProjectile p))
+            {
+                p.StartCoroutine(CO_Okuu(p));
+                if (p.ProjectileCollider != null)
+                {
+                    foreach (var item in this.owner.AllColliders)
+                    {
+                        Physics2D.IgnoreCollision(item, p.ProjectileCollider);
+                    }
+                }
+                p.Action_SetFaction(Bremsengine.BremseFaction.None);
+                p.Action_SetDamage(1000f);
+                p.Action_SetBounceLives(10000);
+            }
             if (Hardmode)
             {
                 handler.settings.SetSwingDuration(handler.settings.SwingDuration.MoveTowards(0.4f, 0.15f));
@@ -49,17 +61,6 @@ namespace ChurroIceDungeon
             {
                 handler.settings.SetSwingDuration(handler.settings.SwingDuration.MoveTowards(1.25f, 0.1f));
             }
-            p.StartCoroutine(CO_Okuu(p));
-            if (p.ProjectileCollider != null)
-            {
-                foreach (var item in this.owner.AllColliders)
-                {
-                    Physics2D.IgnoreCollision(item, p.ProjectileCollider);
-                }
-            }
-            p.Action_SetFaction(Bremsengine.BremseFaction.None);
-            p.Action_SetDamage(1000f);
-            p.Action_SetBounceLives(10000);
         }
     }
 }

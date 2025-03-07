@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -11,7 +12,8 @@ namespace ChurroIceDungeon
         {
             handler.settings.SetSwingDuration(1.6f);
             handler.settings.SetStallDuration(0.4f);
-            foreach (var item in Arc(-20f, 20f, 20f, 2.5f).Spawn(input, projectile))
+            Arc(-20f, 20f, 20f, 2.5f).Spawn(input, projectile, out List<ChurroProjectile> output);
+            foreach (var item in output)
             {
                 item.Action_AttachCrawlerEvent(crawlerPrefab, Arc(-60f, 60f, 20f, 1.5f), CrawlerPacket(1.5f, 180f, 20f, 180 / 20, 0.25f));
             }

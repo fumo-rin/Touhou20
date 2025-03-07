@@ -20,13 +20,19 @@ namespace ChurroIceDungeon
                 for (int i = 0; i < 5; i++)
                 {
                     input.SetOrigin(owner.CurrentPosition);
-                    ChurroProjectile.SpawnSingle(projectile, input, single).Action_AddPosition(new(-horizontalSeperation.Multiply(0.5f), verticalOffset));
-                    ChurroProjectile.SpawnSingle(projectile, input, single).Action_AddPosition(new(horizontalSeperation.Multiply(0.5f), verticalOffset));
+                    if (ChurroProjectile.SpawnSingle(projectile, input, single, out ChurroProjectile left))
+                    {
+                        left.Action_AddPosition(new(-horizontalSeperation.Multiply(0.5f), verticalOffset));
+                    }
+                    if (ChurroProjectile.SpawnSingle(projectile, input, single, out ChurroProjectile right))
+                    {
+                        right.Action_AddPosition(new(horizontalSeperation.Multiply(0.5f), verticalOffset));
+                    }
                     spamSound.Play(input.Origin);
                     yield return repeatStall;
                 }
             }
-            Arc(-25f, 25f, 50f / 8f, 35f).Spawn(input, arcProjectile);
+            Arc(-25f, 25f, 50f / 8f, 35f).Spawn(input, arcProjectile, out _);
             StartCoroutine(CO_Burst());
         }
     }

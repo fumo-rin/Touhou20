@@ -14,11 +14,13 @@ namespace ChurroIceDungeon
         {
             List<ChurroProjectile> Spiral(int arms, float rotation = -90f)
             {
-                return Arc(-135f, 135f, 270f / (arms -1), 6f).Spawn(input.SetDirection(input.Direction.Rotate2D(rotation)), spiralProjectile);
+                Arc(-135f, 135f, 270f / (arms -1), 6f).Spawn(input.SetDirection(input.Direction.Rotate2D(rotation)), spiralProjectile, out iterationList);
+                return iterationList;
             }
             List<ChurroProjectile> Secondary(int arms, float rotation = -180f)
             {
-                return Arc(-180f, 180f, 360f / (arms - 1), 3.5f).Spawn(input.SetDirection(input.Direction.Rotate2D(rotation)), secondaryProjectile);
+                Arc(-180f, 180f, 360f / (arms - 1), 3.5f).Spawn(input.SetDirection(input.Direction.Rotate2D(rotation)), secondaryProjectile, out iterationList);
+                return iterationList;
             }
             void ApplySpiral1Events(List<ChurroProjectile> p)
             {

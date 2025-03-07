@@ -1,5 +1,6 @@
 using Bremsengine;
 using Core.Extensions;
+using Mono.CSharp;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -104,31 +105,32 @@ namespace ChurroIceDungeon
                 this.ArcInterval = arcInterval;
                 this.ProjectileSpeed = projectileSpeed;
             }
-            public List<ChurroProjectile> Spawn(ChurroProjectile.InputSettings input, ChurroProjectile prefab)
+            public bool Spawn(ChurroProjectile.InputSettings input, ChurroProjectile prefab, out List<ChurroProjectile> output)
             {
-                return ChurroProjectile.SpawnArc(prefab, input, this);
+                return SpawnArc(prefab, input, this, out output);
             }
             public float StartingAngle { get; private set; }
             public float EndingAngle { get; private set; }
             public float ArcInterval { get; private set; }
             public float ProjectileSpeed { get; private set; }
         }
-        public static ChurroProjectile SpawnSingle(ChurroProjectile prefab, InputSettings input, SingleSettings settings)
+        public static bool SpawnSingle(ChurroProjectile prefab, InputSettings input, SingleSettings settings, out ChurroProjectile p)
         {
-            return CreateBullet(prefab, input.Origin, input.Direction.normalized.Rotate2D(settings.AddedAngle), input.OnSpawn, settings.ProjectileSpeed);
+            return CreateBullet(prefab, input.Origin, input.Direction.normalized.Rotate2D(settings.AddedAngle), input.OnSpawn, settings.ProjectileSpeed, out p);
         }
-        public static List<ChurroProjectile> SpawnArc(ChurroProjectile prefab, InputSettings input, ArcSettings settings)
+        public static bool SpawnArc(ChurroProjectile prefab, InputSettings input, ArcSettings settings, out List<ChurroProjectile> output)
         {
-            List<ChurroProjectile> output = new();
+            output = new();
             foreach (var item in settings.ArcInterval.StepFromTo(settings.StartingAngle, settings.EndingAngle))
             {
-                ChurroProjectile p = CreateBullet(prefab, input.Origin, input.Direction.Rotate2D(item), input.OnSpawn, settings.ProjectileSpeed);
-                if (p == null)
+                if (!CreateBullet(prefab, input.Origin, input.Direction.Rotate2D(item), input.OnSpawn, settings.ProjectileSpeed, out ChurroProjectile p))
+                {
                     continue;
+                }
                 output.Add(p);
                 p.Action_AddPosition(p.CurrentVelocity.ScaleToMagnitude(0.15f));
             }
-            return output;
+            return output != null && output.Count > 0;
         }
     }
     #endregion
@@ -260,10 +262,11 @@ namespace ChurroIceDungeon
     public partial class ChurroProjectile
     {
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
-        private static ChurroProjectile CreateBullet(ChurroProjectile prefab, Vector2 position, Vector2 direction, ProjectileSpawnAction spawnAction, float speed)
+        private static bool CreateBullet(ChurroProjectile prefab, Vector2 position, Vector2 direction, ProjectileSpawnAction spawnAction, float speed, out ChurroProjectile spawnedBullet)
         {
+            spawnedBullet = null;
             if (prefab == null)
-                return null;
+                return spawnedBullet != null;
             ChurroProjectile p = null;
             if (TryGetFromPool(prefab.poolID, out p) && p != null)
             {
@@ -284,7 +287,8 @@ namespace ChurroIceDungeon
             p.Action_SetVelocity(direction, speed);
             p.Action_MatchOther(prefab);
             spawnAction?.Invoke(p);
-            return p;
+            spawnedBullet = p;
+            return spawnedBullet != null;
         }
     }
     #endregion
@@ -369,7 +373,7 @@ namespace ChurroIceDungeon
         }
     }
     #endregion
-    #region Pooling (for now no pooling lemao)
+    #region Pooling
     public partial class ChurroProjectile
     {
         [Range(-1, 10000)]
@@ -403,8 +407,12 @@ namespace ChurroIceDungeon
             {
                 foreach (var item in queue)
                 {
-                    Destroy(item.gameObject);
+                    if (item.gameObject != null)
+                    {
+                        Destroy(item.gameObject);
+                    }
                 }
+                queue.Clear();
             }
         }
         static bool TryGetFromPool(int poolID, out ChurroProjectile p)

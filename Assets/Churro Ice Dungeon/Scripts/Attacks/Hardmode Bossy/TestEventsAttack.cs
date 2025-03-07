@@ -21,7 +21,8 @@ namespace ChurroIceDungeon
                 var packet = CrawlerPacket(0.2f, 180f, 24f, 15, 0.1f);
                 for (int i = 0; i < 2; i++)
                 {
-                    foreach (var item in Arc(-angle.Multiply(0.5f), angle.Multiply(0.5f), angle / (arms -1), 7f).Spawn(input, prefab))
+                    Arc(-angle.Multiply(0.5f), angle.Multiply(0.5f), angle / (arms - 1), 7f).Spawn(input, prefab, out iterationList);
+                    foreach (var item in iterationList)
                     {
                         ApplyEvent(item);
                         packet.OnSpawn += ApplyEvent;

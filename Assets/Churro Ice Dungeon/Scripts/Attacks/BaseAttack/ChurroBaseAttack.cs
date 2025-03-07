@@ -1,14 +1,15 @@
 using Bremsengine;
 using Core.Extensions;
 using UnityEngine;
-using UnityEditor;
-using Newtonsoft.Json.Linq;
-using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 namespace ChurroIceDungeon
 {
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        protected List<ChurroProjectile> iterationList;
+        protected ChurroProjectile iterationProjectile;
+
         [SerializeField] BremseFaction noUnitFallbackFaction = BremseFaction.None;
         protected Vector2 Down => (owner.CurrentPosition + Vector2.down) - owner.CurrentPosition;
         protected Vector2 Up => (owner.CurrentPosition + Vector2.up) - owner.CurrentPosition;

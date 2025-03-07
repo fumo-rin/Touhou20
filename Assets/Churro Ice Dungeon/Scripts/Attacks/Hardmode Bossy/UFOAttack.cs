@@ -27,7 +27,7 @@ namespace ChurroIceDungeon
                 for (int i = 0; i < 50f; i++)
                 {
                     attackSound.Play(iterationInput.Origin);
-                    ChurroProjectile.SpawnSingle(prefab, iterationInput, single);
+                    ChurroProjectile.SpawnSingle(prefab, iterationInput, single, out _);
                     direction = direction.Rotate2D(Mathf.Sqrt (2f * i * 50f));
                     iterationInput.SetOrigin(iterationInput.Origin + lineStepDirection.ScaleToMagnitude(0.45f).Rotate2D(3f));
                     iterationInput.SetDirection(direction.Rotate2D(randomRotation * i));

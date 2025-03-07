@@ -27,7 +27,7 @@ namespace ChurroIceDungeon
                     float offset = Random.Range(0f, degrees);
                     input.SetOrigin(GetAttackTransform.position);
                     ChurroProjectile.ArcSettings ring = new((0f + offset).Clamp(0f, 360f), 360f + offset, degrees, Hardmode ? 4f : 2f);
-                    ChurroProjectile.SpawnArc(prefabP1, input, ring);
+                    ChurroProjectile.SpawnArc(prefabP1, input, ring, out _);
                     iteration = iteration + 1;
                 }
             }
@@ -43,7 +43,7 @@ namespace ChurroIceDungeon
                     float offset = Random.Range(0f, degrees);
                     input.SetOrigin(GetAttackTransform.position);
                     ChurroProjectile.ArcSettings ring = new((0f + offset).Clamp(0f, 360f), 360f + offset, degrees, Hardmode ? 6f : 3f);
-                    ChurroProjectile.SpawnArc(prefabP3, input, ring);
+                    ChurroProjectile.SpawnArc(prefabP3, input, ring, out _);
                     iteration = iteration + 1;
                 }
             }

@@ -2,6 +2,7 @@ using Bremsengine;
 using Core.Extensions;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChurroIceDungeon
@@ -84,7 +85,8 @@ namespace ChurroIceDungeon
                 return;
             }
             ChurroProjectile.InputSettings input = new(owner.CurrentPosition, owner.CurrentVelocity.Rotate2D(rotation));
-            foreach (var item in ChurroProjectile.SpawnArc(crawler.crawlerPrefab, input, crawler.arc))
+            ChurroProjectile.SpawnArc(crawler.crawlerPrefab, input, crawler.arc, out List<ChurroProjectile> p);
+            foreach (var item in p)
             {
                 crawler.OnSpawn?.Invoke(item);
             } 

@@ -15,7 +15,7 @@ namespace ChurroIceDungeon
                 s.Widen(2f);
                 s = s * 2f;
             }
-            ChurroProjectile.SpawnArc(projectilePrefab, input, s);
+            ChurroProjectile.SpawnArc(projectilePrefab, input, s, out _);
         }
     }
 }

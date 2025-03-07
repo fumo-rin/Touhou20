@@ -1,6 +1,7 @@
 using Bremsengine;
 using UnityEngine;
 using Core.Extensions;
+using System.Collections.Generic;
 
 namespace ChurroIceDungeon
 {
@@ -17,13 +18,9 @@ namespace ChurroIceDungeon
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
             ChurroProjectile.ArcSettings arc = new(-arcCount.MultiplyAndFloorAsFloat(0.51f * arcAngle), arcCount.MultiplyAndFloorAsFloat(0.51f * arcAngle), arcAngle, 16f);
-            ChurroProjectile.ArcSettings big = new(-4f, 4f, 8f/6f, 21f);
-            ChurroProjectile.SpawnArc(bigIcicle, input, big);
-
-            foreach (var item in ChurroProjectile.SpawnArc(arcIcicle, input, arc))
-            {
-
-            }
+            ChurroProjectile.ArcSettings big = new(-4f, 4f, 8f / 6f, 21f);
+            ChurroProjectile.SpawnArc(bigIcicle, input, big, out List<ChurroProjectile> bigIcicles);
+            ChurroProjectile.SpawnArc(arcIcicle, input, arc, out List<ChurroProjectile> arcIcicles);
         }
     }
 }

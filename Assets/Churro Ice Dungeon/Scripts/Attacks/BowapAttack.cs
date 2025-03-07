@@ -17,7 +17,7 @@ namespace ChurroIceDungeon
             spin = spin % 360f;
             spinDex++;
             ChurroProjectile.ArcSettings bowap = new(0f + spin, 360f + spin, 72f, 7f);
-            ChurroProjectile.SpawnArc(prefab, input, bowap);
+            ChurroProjectile.SpawnArc(prefab, input, bowap, out _);
         }
     }
 }

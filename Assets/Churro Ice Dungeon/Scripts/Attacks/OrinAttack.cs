@@ -104,9 +104,9 @@ namespace ChurroIceDungeon
                             yield break;
                         }
                         ChurroProjectile.ArcSettings ring = new((0f + offset).Clamp(0f, 360f), 360f + offset, ringstepAngle, projectileSpeed);
-                        List<ChurroProjectile> spawnedRing = ChurroProjectile.SpawnArc(catwalkProjectile, input, ring);
+                        ChurroProjectile.SpawnArc(catwalkProjectile, input, ring, out iterationList);
 
-                        foreach (var item in spawnedRing)
+                        foreach (var item in iterationList)
                         {
                             item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(startingDistance + (i * stepDistance)));
                             item.StartCoroutine(CO_Catwalk(item));
