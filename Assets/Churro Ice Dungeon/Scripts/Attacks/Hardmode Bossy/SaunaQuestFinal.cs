@@ -33,7 +33,7 @@ namespace ChurroIceDungeon
                 WaitForSeconds stall = new WaitForSeconds(repeatDelay);
                 for (int i = 0; i < iterations; i++)
                 {
-                    input.SetDirection(DownDirection);
+                    input.SetDirection(Down);
                     #region spirals
                     attackSound.Play(input.Origin);
                     foreach (var item in Spiral(4f, 6, -22.5f + (i * 5.7f)))

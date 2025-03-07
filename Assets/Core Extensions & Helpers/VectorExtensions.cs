@@ -244,5 +244,16 @@ namespace Core.Extensions
             text += $"y: {b.min.y.ToString()} : {b.max.y.ToString()}".Color(Color.green);
             return text;
         }
+        public static Vector2 QuantizeToStepSize(this Vector2 vector, float stepSize = 45f)
+        {
+            if (vector == Vector2.zero)
+                return Vector2.zero;
+
+            float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+            float snappedAngle = Mathf.Round(angle / stepSize) * stepSize;
+            float radians = snappedAngle * Mathf.Deg2Rad;
+
+            return new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
+        }
     } 
 }

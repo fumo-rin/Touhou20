@@ -10,7 +10,8 @@ namespace ChurroIceDungeon
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
         [SerializeField] BremseFaction noUnitFallbackFaction = BremseFaction.None;
-        protected Vector2 DownDirection => (owner.CurrentPosition + Vector2.down) - owner.CurrentPosition;
+        protected Vector2 Down => (owner.CurrentPosition + Vector2.down) - owner.CurrentPosition;
+        protected Vector2 Up => (owner.CurrentPosition + Vector2.up) - owner.CurrentPosition;
         [SerializeField] bool shouldOverrideSettings;
         [SerializeField] AttackHandler.AttackTimeSettings overrideSettings;
         protected ChurroProjectile.ArcSettings Arc(float startAngle, float endAngle, float angleInterval, float projectileSpeed) => new(startAngle, endAngle, angleInterval, projectileSpeed);

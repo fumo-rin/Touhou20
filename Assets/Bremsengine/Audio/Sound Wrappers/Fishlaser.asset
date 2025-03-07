@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09db854235a73d49875b8923556209f, type: 3}
+  m_Name: Fishlaser
+  m_EditorClassIdentifier: 
+  SoundName: PDH
+  soundVolume: 0.212
+  audioMixerOverride: {fileID: -1549346045928506887, guid: 76bc17acced13644e9689246d8b6104a, type: 2}
+  <soundClips>k__BackingField:
+  - clip: {fileID: 8300000, guid: e16fdc6cdeedd194b9689b3886c08bac, type: 3}
+    PitchVariancePercent: 3
+    PitchOrigin: 2
+    Volume: 0.15
+    Muted: 0
+  - clip: {fileID: 8300000, guid: 9f09476ed99bf724dbc27a4b72c87cf2, type: 3}
+    PitchVariancePercent: 3
+    PitchOrigin: 3
+    Volume: 0.35
+    Muted: 0
+  <singleChannel>k__BackingField: 1
+  <Is3D>k__BackingField: 1

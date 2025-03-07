@@ -188,7 +188,7 @@ namespace ChurroIceDungeon
         }
         public ChurroProjectile Action_AddPosition(Vector2 direction)
         {
-            transform.position = (Vector2)transform.position + (Vector2)direction;
+            transform.position = (Vector2)transform.position + direction;
             return this;
         }
         public ChurroProjectile Action_NewPosition(Vector2 position)

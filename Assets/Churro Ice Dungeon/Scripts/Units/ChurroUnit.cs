@@ -272,7 +272,7 @@ namespace ChurroIceDungeon
             input = Vector2.zero;
             if (PlayerInputController.actions == null)
                 return;
-            input = PlayerInputController.actions.Player.Move.ReadValue<Vector2>();
+            input = PlayerInputController.actions.Player.Move.ReadValue<Vector2>().QuantizeToStepSize(45f);
         }
         private void Update()
         {

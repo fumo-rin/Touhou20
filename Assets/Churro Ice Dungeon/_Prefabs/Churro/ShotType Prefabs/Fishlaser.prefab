@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999208655503992510}
-  - component: {fileID: 570706002243309580}
+  - component: {fileID: 1994147050266489321}
   m_Layer: 3
   m_Name: Fishlaser
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570706002243309580
+--- !u!114 &1994147050266489321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8163192113419227838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2905fd5b916887140b22cbdf7d492161, type: 3}
+  m_Script: {fileID: 11500000, guid: 36872040ada6aa84593e6b2e6ebb325b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   noUnitFallbackFaction: 1
@@ -49,12 +49,15 @@ MonoBehaviour:
   overrideSettings:
     SpreadVariation: 0
     NextAttackTime: 0
-    <SwingDuration>k__BackingField: 0.025
+    <SwingDuration>k__BackingField: 0.2
     <StallDuration>k__BackingField: 0
-  baseDamage: 4
+  baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 0}
   handler: {fileID: 0}
   attackSound: {fileID: 11400000, guid: a1173b9954956ab48a5481118aaadc11, type: 2}
-  smallArc: {fileID: 0}
-  frontal: {fileID: 3506629886063210716, guid: 275f8a4f56ca35140af36de6734c9575, type: 3}
+  verticalOffset: 1
+  horizontalSeperation: 0.5
+  projectile: {fileID: 3506629886063210716, guid: 275f8a4f56ca35140af36de6734c9575, type: 3}
+  arcProjectile: {fileID: 3506629886063210716, guid: 19bb430c0768f4a40992aa5a914ade5c, type: 3}
+  spamSound: {fileID: 11400000, guid: bdba2a133dfe6aa45a8ac39e0ce99085, type: 2}
