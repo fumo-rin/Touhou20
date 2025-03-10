@@ -214,7 +214,6 @@ namespace Core.Extensions
         {
             return ((Vector2)v).ClampInside(bounds);
         }
-
         public static Vector2 Bounce(this Vector2 v, Vector2 normal, float bounce)
         {
             return (v.normalized - 2 * (Vector2.Dot(v.normalized, normal)) * normal).normalized * bounce * v.magnitude;
