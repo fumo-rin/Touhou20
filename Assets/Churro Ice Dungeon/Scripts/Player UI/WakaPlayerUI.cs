@@ -89,6 +89,7 @@ namespace ChurroIceDungeon
             GeneralManager.OnScoreUpdate += ReceiveScoreValues;
             TickManager.MainTickLightweight += UpdateScoreUI;
             WakaUnit.OnLivesChanged += UpdateLivesUI;
+            WakaUnit.RequestLivesRefresh();
             GrazeBox.OnGraze += ReceiveGrazeValues;
             GeneralManager.OnDifficultyChanged += SetDifficultyUI;
             SetDifficultyUI(GeneralManager.CurrentDifficulty);

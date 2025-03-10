@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <settings>k__BackingField:
     SpreadVariation: 1
+    NextAttackTime: 0
     <SwingDuration>k__BackingField: 1.5
     <StallDuration>k__BackingField: 0.5
 --- !u!1 &2632472823983253411
@@ -328,9 +329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f207e6af10ca6749bdea84e1a028864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noUnitFallbackFaction: 0
   shouldOverrideSettings: 0
   overrideSettings:
     SpreadVariation: 0
+    NextAttackTime: 0
     <SwingDuration>k__BackingField: 0.2
     <StallDuration>k__BackingField: 0
   baseDamage: 5
@@ -339,6 +342,7 @@ MonoBehaviour:
   handler: {fileID: 6373227243597716457}
   attackSound: {fileID: 11400000, guid: e005c651928dab347ac5416cc9721b30, type: 2}
   projectilePrefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
+  projectileSpeed: 4
 --- !u!1 &5498435180959333449
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBoxes:
   - {fileID: 162360737109799303}
-  unitMotor: {fileID: 11400000, guid: 8a554e5f83d1888448461425d8ea89cd, type: 2}
+  unitMotor: {fileID: 11400000, guid: f9c976e2eea616746864dedeba77c087, type: 2}
   pather:
     <seeker>k__BackingField: {fileID: 5032810229681977498}
     patherRadius: 0.6
@@ -890,7 +894,7 @@ MonoBehaviour:
   startingHealth: 100
   maxAttackDistance: 8
   attackHandler: {fileID: 6373227243597716457}
-  strafeProfile: {fileID: 11400000, guid: 221af952eb029964183a139cb383102d, type: 2}
+  strafeProfile: {fileID: 11400000, guid: e82f5cd123cfa8d498bc3fe98407feaa, type: 2}
   OptionalDestructionItem: {fileID: 7107190977447091372}
   OverrideMotor: {fileID: 0}
   Power: 10

@@ -20,6 +20,17 @@ namespace ChurroIceDungeon
         [SerializeField] float iFramesLength = 2f;
         public delegate void DamagedEvent(int newLives, int maxLives);
         public static event DamagedEvent OnLivesChanged;
+        public static void RequestLivesRefresh()
+        {
+            if (GeneralManager.TryFetchGameValue(GeneralManager.Keys.PlayerLives, out int lives))
+            {
+                SendLivesChanged(lives, maxLives);
+            }
+            else
+            {
+                Debug.LogWarning("Failed to find lives");
+            }
+        }
         private static int maxLives = 9;
         public override bool IsAlive()
         {

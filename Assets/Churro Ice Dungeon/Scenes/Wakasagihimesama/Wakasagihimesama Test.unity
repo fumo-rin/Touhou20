@@ -119,68 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &31549895
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.0682535
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &31549896 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 31549895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &36253245
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,130 +206,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &44504523
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (8)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &44504524 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 44504523}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &56702867
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.6999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (18)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &56702868 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 56702867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76215192
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,68 +459,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &179687348
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.0682535
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.148549
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &179687349 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 179687348}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225622788
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,68 +546,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &234377051
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (19)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &234377052 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 234377051}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &266193370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,68 +1020,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05f7c989cc2c0949a4e3a5c0fbace55, type: 3}
---- !u!1001 &383264687
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (13)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &383264688 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 383264687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435711464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,68 +1415,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &496163238
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.148549
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &496163239 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 496163238}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &514609154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,130 +1733,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &623864685
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (17)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &623864686 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 623864685}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &668755754
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.148549
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &668755755 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 668755754}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &691137378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,68 +2169,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &804785326
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.148549
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &804785327 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 804785326}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826700959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,68 +2852,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &934575076
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (9)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &934575077 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 934575076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956739857
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,68 +2939,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1083686448
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.0682535
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.37999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (10)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1083686449 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1083686448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1108760809
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,68 +3287,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1211011069
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (7)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1211011070 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1211011069}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235711944
 GameObject:
   m_ObjectHideFlags: 0
@@ -4286,156 +3480,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 179687349}
-  - {fileID: 31549896}
-  - {fileID: 1083686449}
-  - {fileID: 1409873224}
-  - {fileID: 496163239}
-  - {fileID: 1504903310}
-  - {fileID: 1709062829}
-  - {fileID: 2037781696}
-  - {fileID: 668755755}
-  - {fileID: 1211011070}
-  - {fileID: 1914553657}
-  - {fileID: 623864686}
-  - {fileID: 804785327}
-  - {fileID: 44504524}
-  - {fileID: 383264688}
-  - {fileID: 56702868}
-  - {fileID: 1277967323}
-  - {fileID: 934575077}
-  - {fileID: 1263262957}
-  - {fileID: 234377052}
-  - {fileID: 275434998}
-  - {fileID: 709127382}
   - {fileID: 1886455664}
+  - {fileID: 709127382}
   - {fileID: 1387078875}
   - {fileID: 441612586}
+  - {fileID: 275434998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1258435753
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3519102778914822458, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: targetRef
-      value: 
-      objectReference: {fileID: 1920437815}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5044015686206095166, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167620963758873140, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
-      propertyPath: m_Name
-      value: Ultra Frog (Hourai Elixir)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b8aba72b61aff0947ae3d04351043d6e, type: 3}
---- !u!1001 &1263262956
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.37999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (14)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1263262957 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1263262956}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1264650957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4584,68 +3635,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641f705ab204d534db8bd6a81f0c1197, type: 3}
---- !u!1001 &1277967322
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.148549
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1277967323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1277967322}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1302508402
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,68 +4030,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1248154537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1409873223
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.0682535
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (15)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1409873224 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1409873223}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426600241
 GameObject:
   m_ObjectHideFlags: 0
@@ -6257,68 +5184,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1504903309
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1504903310 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1504903309}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1522369374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,6 +5488,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1602810172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602810173}
+  - component: {fileID: 1602810174}
+  m_Layer: 0
+  m_Name: Stage Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1602810173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602810172}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1602810174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602810172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ffd95b9fa6b584da38ceab9f825c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToSpawn: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
 --- !u!1 &1605634885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,68 +6028,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1709062828
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.37999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (11)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1709062829 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1709062828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1710030025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8079,73 +6927,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1523432145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1914553656
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.37999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (12)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &1914553657 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 1914553656}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1920437815 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 367316601673975916, guid: 27ad1521e40c44d4c8a57e3112cb2a40, type: 3}
-  m_PrefabInstance: {fileID: 1245351771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1948093265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8511,68 +7292,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &2037781695
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1248154537}
-    m_Modifications:
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453347277197540833, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-      propertyPath: m_Name
-      value: Explody Barrel (16)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
---- !u!4 &2037781696 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198490284944085148, guid: 1337f7fae26d54748a632859d0d2c6b1, type: 3}
-  m_PrefabInstance: {fileID: 2037781695}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2068727437
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,15 +7636,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620464063412134239, guid: 8014a438d6a521b48af0e3f0ca2874a7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4620464063412134239, guid: 8014a438d6a521b48af0e3f0ca2874a7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4620464063412134239, guid: 8014a438d6a521b48af0e3f0ca2874a7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4620464063412134239, guid: 8014a438d6a521b48af0e3f0ca2874a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9020,7 +7739,7 @@ SceneRoots:
   - {fileID: 539895508}
   - {fileID: 76215195}
   - {fileID: 1970409257}
+  - {fileID: 6328036259151556630}
   - {fileID: 1523432145}
   - {fileID: 1248154537}
-  - {fileID: 6328036259151556630}
-  - {fileID: 1258435753}
+  - {fileID: 1602810173}

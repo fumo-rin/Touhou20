@@ -114,6 +114,23 @@ namespace ChurroIceDungeon
         }
     }
     #endregion
+    #region Stage Path
+    public partial class EnemyUnit
+    {
+        StagePath activePath;
+        public bool HasPath => activePath.IsPathValid;
+        public bool TryRunPath()
+        {
+            if (!HasPath)
+            {
+                return false;
+            }
+            activePath.DrawPath();
+            return activePath.PerformPath(this);
+        }
+        public void SetStagePath(StagePath path) => activePath = path;
+    }
+    #endregion
     public partial class EnemyUnit : DungeonUnit
     {
         [SerializeField] float Power = 0f;
@@ -301,6 +318,10 @@ namespace ChurroIceDungeon
             if (IsStalled)
             {
                 MoveMotor(Vector2.zero, out result);
+                return;
+            }
+            if (TryRunPath())
+            {
                 return;
             }
             bool strafeSuccess = TryGetStrafeVector(out Vector2 strafe);

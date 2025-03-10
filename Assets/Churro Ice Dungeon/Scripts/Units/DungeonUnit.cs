@@ -70,6 +70,11 @@ namespace ChurroIceDungeon
             speedmod.MoveTowards(speed, step);
             return this;
         }
+        public bool ExternalMove(Vector2 input, out DungeonMotor.MotorOutput result)
+        {
+            MoveMotor(input, out result);
+            return result.Failed;
+        }
         protected void MoveMotor(Vector2 input, out DungeonMotor.MotorOutput result)
         {
             bool FailCondition(out DungeonMotor m)
