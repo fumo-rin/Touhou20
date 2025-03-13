@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooling: 1
-  poolID: -1432289345
+  poolID: 1357418690
+  <ProjectileCollider>k__BackingField: {fileID: 0}
   projectileSprite: {fileID: 2328925295890103779}
   offScreenClearDistance: 5
   projectileRB: {fileID: 3081823998064634439}

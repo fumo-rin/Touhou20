@@ -1,3 +1,4 @@
+using Core.Extensions;
 using System.Collections;
 using UnityEngine;
 
@@ -10,30 +11,38 @@ namespace ChurroIceDungeon
         {
             yield return new WaitForSeconds(3f);
             DungeonUnit iteration;
-            for (int i = 0; i < 1; i++)
+            for (int ii = 0; ii < 4; ii++)
             {
-                Vector2 random = (Vector2)transform.position + Random.insideUnitCircle * 1.5f;
-                if (SpawnUnit(unitToSpawn, random, out iteration))
+                for (int i = 0; i < 9; i++)
                 {
-                    if (iteration is EnemyUnit enemy)
+                    Vector2 random = (Vector2)transform.position + Random.insideUnitCircle * 1.5f + new Vector2(2f.RandomPositiveNegativeRange(), 0f);
+                    if (SpawnUnit(unitToSpawn, random, out iteration))
                     {
-                        StagePath path = new(random, new Vector2[5]
+                        if (iteration is EnemyUnit enemy)
                         {
+                            StagePath path = new(random, new Vector2[6]
+                            {
                             new(2f,-3f),
                             new(-2f, -6f),
                             new(2,-9f),
                             new(-2f,-12f),
-                            new(0,-15f)
-                        });
-                        enemy.SetStagePath(path);
+                            new(0,-15f),
+                            new(6, -25f)
+                            });
+                            enemy.SetStagePath(path);
+                        }
                     }
+                    yield return new WaitForSeconds(0.35f);
                 }
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(2f);
             }
         }
         private void Start()
         {
-            ActivateSection(0f);
+            if (gameObject.activeInHierarchy)
+            {
+                ActivateSection(0f);
+            }
         }
     }
 }

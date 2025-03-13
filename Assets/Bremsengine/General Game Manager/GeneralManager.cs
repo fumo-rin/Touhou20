@@ -156,7 +156,7 @@ namespace Bremsengine
         }
         #endregion
         public static bool ChurroHardmode => CurrentDifficulty == Difficulty.Ultra;
-        public static Difficulty CurrentDifficulty { get; private set; } = Difficulty.Lunatic;
+        public static Difficulty CurrentDifficulty { get; private set; } = Difficulty.Ultra;
         public enum Difficulty
         {
             Easy = 1,

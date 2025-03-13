@@ -46,8 +46,7 @@ namespace ChurroIceDungeon
             bool respawn = lives > 0;
             if (respawn)
             {
-                onHurtFlashMaterial.TriggerFlashMaterial(iFramesLength);
-                iFramesEndTime = Time.time + iFramesLength;
+                TriggerIFrames(iFramesLength);
                 lives -= 1;
             }
             else if (gameObject.activeInHierarchy)
@@ -61,6 +60,14 @@ namespace ChurroIceDungeon
         private static void SendLivesChanged(int newLives, int maxLives)
         {
             OnLivesChanged?.Invoke(newLives, maxLives);
+        }
+        public static void TriggerIFrames(float duration)
+        {
+            if (Player is WakaUnit w)
+            {
+                w.onHurtFlashMaterial.TriggerFlashMaterial(duration);
+                w.iFramesEndTime = Time.time + duration;
+            }
         }
     }
     #endregion

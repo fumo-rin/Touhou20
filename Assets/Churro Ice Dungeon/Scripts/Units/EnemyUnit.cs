@@ -118,7 +118,7 @@ namespace ChurroIceDungeon
     public partial class EnemyUnit
     {
         StagePath activePath;
-        public bool HasPath => activePath.IsPathValid;
+        public bool HasPath => activePath != null && activePath.IsPathValid;
         public bool TryRunPath()
         {
             if (!HasPath)
@@ -236,6 +236,10 @@ namespace ChurroIceDungeon
                 return;
             }
             AttackLoop();
+            if (activePath != null)
+            {
+                activePath.TrimPathAtStart(this, 3);
+            }
 
             if (gameObject.activeInHierarchy)
             {

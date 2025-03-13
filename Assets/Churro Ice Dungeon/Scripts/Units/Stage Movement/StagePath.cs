@@ -41,24 +41,30 @@ namespace ChurroIceDungeon
         }
 
         const int pathAttempts = 5;
+        public void TrimPathAtStart(DungeonUnit unit, int waypointsToSkip)
+        {
+            int currentAttempts = 0;
+            for (int i = 0; i < waypointsToSkip; i++)
+            {
+                while (currentAttempts < pathAttempts && IsPathValid && unit.CurrentPosition.SquareDistanceToLessThan(vectorPath[i.Clamp(0, vectorPath.Count - 1)], 1f))
+                {
+                    currentAttempts++;
+                    vectorPath.RemoveAt(0);
+                }
+            }
+        }
         public bool PerformPath(DungeonUnit unit)
         {
             if (vectorPath == null || vectorPath.Count <= 2)
             {
                 return false;
             }
-            int currentAttempts = 0;
-            while (currentAttempts < pathAttempts && IsPathValid && unit.CurrentPosition.SquareDistanceToLessThan(CurrentPoint, 0.5f))
-            {
-                currentAttempts++;
-                vectorPath.RemoveAt(0);
-            }
             Vector2 direction = vectorPath[0] - unit.CurrentPosition;
             unit.ExternalMove(direction, out DungeonMotor.MotorOutput moveResult);
             Debug.DrawLine(unit.CurrentPosition, unit.CurrentPosition + direction);
             return !moveResult.Failed;
         }
-        private bool LineFromTo(Vector2 origin, Vector2 end, out List<Vector2> line, float randomStepAngle = 5f, float stepDistance = 0.25f)
+        private bool LineFromTo(Vector2 origin, Vector2 end, out List<Vector2> line, float randomStepAngle = 5f, float stepDistance = 0.65f)
         {
             line = new List<Vector2>();
             Vector2 iteration = origin;

@@ -1,12 +1,9 @@
 using Bremsengine;
 using Core;
 using Core.Extensions;
-using Mono.CSharp;
-using NUnit.Framework.Internal;
-using QFSW.QC.Pooling;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
+using System.ComponentModel;
 using UnityEditor;
 using UnityEngine;
 
@@ -121,7 +118,12 @@ namespace ChurroIceDungeon
         }
         public static bool SpawnSingle(ChurroProjectile prefab, InputSettings input, SingleSettings settings, out ChurroProjectile p)
         {
-            return CreateBullet(prefab, input.Origin, input.Direction.normalized.Rotate2D(settings.AddedAngle), input.OnSpawn, settings.ProjectileSpeed, out p);
+            bool spawnedBullet = CreateBullet(prefab, input.Origin, input.Direction.normalized.Rotate2D(settings.AddedAngle), input.OnSpawn, settings.ProjectileSpeed, out p);
+            if (p != null)
+            {
+                p.Action_AddPosition(p.CurrentVelocity.ScaleToMagnitude(0.25f));
+            }
+            return spawnedBullet;
         }
         public static bool SpawnArc(ChurroProjectile prefab, InputSettings input, ArcSettings settings, out List<ChurroProjectile> output)
         {
@@ -271,6 +273,7 @@ namespace ChurroIceDungeon
         {
             NextSpawnID = 0;
         }
+        static Dictionary<int, ChurroProjectile> activeBullets;
         public int SpawnID { get; private set; }
         static int NextSpawnID;
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
@@ -279,6 +282,10 @@ namespace ChurroIceDungeon
             spawnedBullet = null;
             if (prefab == null)
                 return spawnedBullet != null;
+            if (IsSweeping && prefab.sweepable)
+            {
+                return false;
+            }
             ChurroProjectile p = null;
             if (TryGetFromPool(prefab.poolID, out p) && p != null)
             {
@@ -301,88 +308,45 @@ namespace ChurroIceDungeon
             p.Action_MatchOther(prefab);
             spawnAction?.Invoke(p);
             spawnedBullet = p;
+            activeBullets.Add(p.SpawnID, p);
             return spawnedBullet != null;
         }
     }
     #endregion
-    #region Offscreen Tracking
-    [System.Serializable]
-    public partial class ChurroProjectileOffscreen
-    {
-        public static ChurroProjectile offscreenRunner;
-        public static List<ChurroProjectile> trackedOffscreenProjectiles;
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Reinitialize()
-        {
-            offscreenRunner = null;
-            trackedOffscreenProjectiles = new();
-        }
-        public static void SetRunnerIfNoneExists(ChurroProjectile p)
-        {
-            if (offscreenRunner == null || !offscreenRunner.gameObject.activeInHierarchy)
-                offscreenRunner = p;
-        }
-        public static void RunOffscreen()
-        {
-            Bounds cam;
-            ChurroProjectile iteration;
-            for (int i = 0; i < trackedOffscreenProjectiles.Count; i++)
-            {
-                iteration = trackedOffscreenProjectiles[i];
-                if (iteration == null)
-                {
-                    trackedOffscreenProjectiles.RemoveAt(i);
-                    i--;
-                    continue;
-                }
-                cam = CameraBoundsPadOutwards(iteration.offScreenClearDistance);
-
-                if (cam.Contains(iteration.CurrentPosition))
-                    continue;
-
-                trackedOffscreenProjectiles.RemoveAt(i);
-                iteration.ClearProjectile();
-                i--;
-                continue;
-            }
-        }
-        public static Bounds CameraBoundsPadOutwards(float addedPadding = 0f)
-        {
-            static Bounds CameraBounds(float addedPadding)
-            {
-                static Vector2 CalculateSize()
-                {
-                    Vector2 size = new(10f, 10f);
-                    if (Camera.main is not null and Camera c)
-                    {
-                        float height = (c.orthographicSize * 2f);
-                        size = new(height * c.aspect, height);
-                    }
-                    else
-                    {
-                        Debug.Log("Failed to find camera main to calculate stage world size");
-                    }
-                    return size;
-                }
-                Bounds output = new Bounds(Vector2.zero, CalculateSize() + new Vector2(addedPadding * 2f, addedPadding * 2f));
-                if (Camera.main is not null and Camera c)
-                {
-                    output.center = c.transform.position.Z(0f);
-                }
-                return output;
-            }
-            return CameraBounds(addedPadding);
-        }
-    }
+    #region Sweeping
     public partial class ChurroProjectile
     {
-        private void OnBecameVisible()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void ReinitializeSweep()
         {
-            ChurroProjectileOffscreen.trackedOffscreenProjectiles.Remove(this);
+            SweepEndTime = 0;
         }
-        private void OnBecameInvisible()
+        static float SweepEndTime;
+        public static bool IsSweeping => Time.time < SweepEndTime;
+        static byte sweepLootWeight;
+        public static bool SweepLoot => sweepLootWeight > Helper.SeededRandomInt256;
+        [field: SerializeField] public bool sweepable { get; private set; } = true;
+        [QFSW.QC.Command("-sweep")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static void CommandSweep()
         {
-            ChurroProjectileOffscreen.trackedOffscreenProjectiles.AddIfDoesntExist(this);
+            SweepBullets(0.5f, 15);
+        }
+        public static void SweepBullets(float sweepDuration, byte lootWeight)
+        {
+            sweepLootWeight = lootWeight;
+            SweepEndTime = Time.time + sweepDuration;
+            foreach (var item in activeBullets)
+            {
+                if (item.Value.sweepable)
+                {
+                    item.Value.ClearProjectile();
+                }
+                if (SweepLoot)
+                {
+                    WakaScoring.SpawnPickup(item.Value.CurrentPosition);
+                }
+            }
         }
     }
     #endregion
@@ -422,11 +386,8 @@ namespace ChurroIceDungeon
         private static void ReinitializeProjectilePool()
         {
             pools = new();
-            GeneralManager.SetStageAction("Initialize Projectile Pool", ForceReset);
-        }
-        public static void ForceReset()
-        {
-            ReinitializeProjectilePool();
+            activeBullets = new();
+            GeneralManager.SetStageAction("Initialize Projectile Pool", ForceResetProjectileSystem);
         }
         private static Queue<ChurroProjectile> GetQueueFor(int poolID)
         {
@@ -466,6 +427,7 @@ namespace ChurroIceDungeon
         }
         public void ClearProjectile(int bounceCost = 1)
         {
+            Debug.Log("T");
             void Local_Destroy()
             {
                 Destroy(gameObject);
@@ -494,6 +456,7 @@ namespace ChurroIceDungeon
                 TryPool();
                 return;
             }
+            activeBullets.Remove(SpawnID);
         }
     }
     #endregion
@@ -569,10 +532,15 @@ namespace ChurroIceDungeon
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class ChurroProjectile : MonoBehaviour
     {
+        public static void ForceResetProjectileSystem()
+        {
+            ReinitializeProjectilePool();
+            activeBullets = new();
+        }
         float nextEventTickTime;
         float lastTickTime;
         float tickTimeLength = 0.05f;
-        public Collider2D ProjectileCollider { get; private set; }
+        [field: SerializeField] public Collider2D ProjectileCollider { get; private set; }
         public int TerrainBounceLives { get; private set; }
         public Vector2 CurrentVelocity { get; private set; }
         public SpriteRenderer projectileSprite;
@@ -583,10 +551,8 @@ namespace ChurroIceDungeon
         public Vector2 CurrentPosition => transform.position;
         public BremseFaction Faction { get; private set; } = BremseFaction.Enemy;
         public Rigidbody2D RB => projectileRB;
-        public bool IsOffscreenRunner => ChurroProjectileOffscreen.offscreenRunner == this;
         private void Update()
         {
-            ChurroProjectileOffscreen.SetRunnerIfNoneExists(this);
             if (Time.time > nextEventTickTime)
             {
                 float tickDuration = Time.time - lastTickTime;
@@ -597,16 +563,11 @@ namespace ChurroIceDungeon
         }
         private void Awake()
         {
-            ProjectileCollider = GetComponent<Collider2D>();
             TerrainBounceLives = 0;
         }
         private void LateUpdate()
         {
             PerformVelocity(CurrentVelocity);
-            if (IsOffscreenRunner)
-            {
-                ChurroProjectileOffscreen.RunOffscreen();
-            }
         }
         public ChurroProjectile PerformVelocity(Vector2 velocity)
         {

@@ -36,8 +36,8 @@ namespace Core.Input
         public static ControlSchemeEvent OnControlSchemeChanged;
         private void Awake()
         {
-            actions ??= new();
-            actions?.Enable();
+            StartInstance();
+            actions.Enable();
         }
         private void Start()
         {
@@ -74,14 +74,21 @@ namespace Core.Input
         }
         private void OnEnable()
         {
-            actions ??= new();
-            actions?.Enable();
+            StartInstance();
+            actions.Enable();
             playerInput.onControlsChanged += SetControlScheme;
+        }
+        private static void StartInstance()
+        {
+            if (actions == null)
+            {
+                actions = new();
+            }
         }
         private void OnDisable()
         {
-            actions ??= new();
-            actions?.Disable();
+            StartInstance();
+            actions.Disable();
             playerInput.onControlsChanged -= SetControlScheme;
         }
     }

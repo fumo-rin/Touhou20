@@ -3943,6 +3943,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1383708118
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07469702
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.4622793
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167620963758873140, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
+      propertyPath: m_Name
+      value: Mushi Midboss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
 --- !u!1 &1387078873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,7 +5561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1602810173
 Transform:
   m_ObjectHideFlags: 0
@@ -5514,7 +5571,7 @@ Transform:
   m_GameObject: {fileID: 1602810172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.58, z: 0}
+  m_LocalPosition: {x: 0, y: 7.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5532,7 +5589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ffd95b9fa6b584da38ceab9f825c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitToSpawn: {fileID: 5842509158023467023, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+  unitToSpawn: {fileID: 1903587948968491649, guid: 5573e3d25ca8e284d902f893e28ee4b1, type: 3}
 --- !u!1 &1605634885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7743,3 +7800,4 @@ SceneRoots:
   - {fileID: 1523432145}
   - {fileID: 1248154537}
   - {fileID: 1602810173}
+  - {fileID: 1383708118}

@@ -7,6 +7,8 @@ namespace ChurroIceDungeon
 {
     public abstract partial class ChurroBaseAttack : MonoBehaviour
     {
+        protected static GeneralManager.Difficulty Difficulty => GeneralManager.CurrentDifficulty;
+        protected static bool IsDifficulty(GeneralManager.Difficulty d) => Difficulty == d;
         protected List<ChurroProjectile> iterationList;
         protected ChurroProjectile iterationProjectile;
 
