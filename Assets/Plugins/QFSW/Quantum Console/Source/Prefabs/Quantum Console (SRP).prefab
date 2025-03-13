@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: _theme
       value: 
       objectReference: {fileID: 11400000, guid: 769f3deee63c82a4c9896ac917227625, type: 2}
+    - target: {fileID: 114600693638766706, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
+      propertyPath: _supportedState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114689057623555238, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_Size
       value: 1

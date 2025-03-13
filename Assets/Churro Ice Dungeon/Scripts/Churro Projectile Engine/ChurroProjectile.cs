@@ -310,6 +310,7 @@ namespace ChurroIceDungeon
             spawnAction?.Invoke(p);
             spawnedBullet = p;
             activeBullets.Add(p);
+            p.OnScreenExit = null;
             return spawnedBullet != null;
         }
     }
@@ -398,27 +399,28 @@ namespace ChurroIceDungeon
         {
             pools = new();
             activeBullets = new();
-            GeneralManager.SetStageAction("Initialize Projectile Pool", ForceResetProjectileSystem);
+            GeneralManager.SetStageLoadAction("Initialize Projectile Pool", ForceResetProjectileSystem);
         }
-        private static Queue<ChurroProjectile> GetQueueFor(int poolID)
+        private static bool TryGetQueueFor(int poolID, out Queue<ChurroProjectile> queue)
         {
+            queue = null;
             if (!pools.ContainsKey(poolID))
             {
                 pools[poolID] = new();
             }
             if (pools.ContainsKey(poolID) && pools[poolID] != null)
             {
-                return pools[poolID];
+                queue = pools[poolID];
             }
-            return null;
+            return queue != null;
         }
         static void DestroyPool(int poolID)
         {
-            if (GetQueueFor(poolID) is Queue<ChurroProjectile> queue and not null)
+            if (TryGetQueueFor(poolID, out Queue<ChurroProjectile> queue))
             {
                 foreach (var item in queue)
                 {
-                    if (item.gameObject != null)
+                    if (item != null && item.gameObject != null)
                     {
                         Destroy(item.gameObject);
                     }
@@ -445,7 +447,7 @@ namespace ChurroIceDungeon
             }
             void TryPool()
             {
-                if (GetQueueFor(poolID) is not null and Queue<ChurroProjectile> queue)
+                if (TryGetQueueFor(poolID, out Queue<ChurroProjectile> queue))
                 {
                     queue.Enqueue(this);
                     gameObject.SetActive(false);
@@ -472,6 +474,26 @@ namespace ChurroIceDungeon
         }
     }
     #endregion
+    #region Offscreen
+    public partial class ChurroProjectile
+    {
+        static TagHandle stageboxTag => TagHandle.GetExistingTag("Projectile Stagebox");
+        public delegate void ScreenExitAction(ChurroProjectile p);
+        private ScreenExitAction OnScreenExit;
+        public void AddOnScreenExitEvent(ScreenExitAction action)
+        {
+            OnScreenExit += action;
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag(stageboxTag))
+            {
+                OnScreenExit?.Invoke(this);
+                OnScreenExit = null;
+            }
+        }
+    }
+    #endregion
     #region Collide
     public partial class ChurroProjectile
     {
@@ -492,7 +514,10 @@ namespace ChurroIceDungeon
                 case CollisionResult.Friends:
                     break;
                 case CollisionResult.DefaultObject:
-                    ClearProjectile();
+                    if (!collision.CompareTag(stageboxTag))
+                    {
+                        ClearProjectile();
+                    }
                     break;
                 case CollisionResult.Hit:
                     if (collision.GetComponent<TargetBox>() is TargetBox box and not null)
@@ -553,7 +578,7 @@ namespace ChurroIceDungeon
         float lastTickTime;
         float tickTimeLength = 0.05f;
         [field: SerializeField] public Collider2D ProjectileCollider { get; private set; }
-        public int TerrainBounceLives { get; private set; }
+        public int TerrainBounceLives { get; private set; } = 0;
         public Vector2 CurrentVelocity { get; private set; }
         public SpriteRenderer projectileSprite;
         [field: SerializeField] public float offScreenClearDistance;
@@ -563,7 +588,21 @@ namespace ChurroIceDungeon
         public Vector2 CurrentPosition => transform.position;
         public BremseFaction Faction { get; private set; } = BremseFaction.Enemy;
         public Rigidbody2D RB => projectileRB;
-        private void Update()
+        public static void RunActiveBullets()
+        {
+            foreach (var item in activeBullets)
+            {
+                item.RunProjectile();
+            }
+        }
+        public static void LateRunActiveBullets(float velocityScale)
+        {
+            foreach (var item in activeBullets)
+            {
+                item.PerformVelocity(velocityScale);
+            }
+        }
+        public void RunProjectile()
         {
             if (Time.time > nextEventTickTime)
             {
@@ -573,16 +612,20 @@ namespace ChurroIceDungeon
                 RunEvents(tickDuration);
             }
         }
-        private void Awake()
+        public void PerformVelocity(float velocityScale)
         {
-            TerrainBounceLives = 0;
-        }
-        private void LateUpdate()
-        {
-            PerformVelocity(CurrentVelocity);
+            PerformVelocity(CurrentVelocity * velocityScale);
         }
         public ChurroProjectile PerformVelocity(Vector2 velocity)
         {
+            if (RB == null)
+            {
+                activeBullets.Remove(this);
+                if (gameObject != null)
+                {
+                    Destroy(gameObject);
+                }
+            }
             RB.linearVelocity = velocity;
             return this;
         }

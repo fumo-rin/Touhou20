@@ -751,14 +751,14 @@ MonoBehaviour:
   overrideSettings:
     SpreadVariation: 0
     NextAttackTime: 0
-    <SwingDuration>k__BackingField: 5
+    <SwingDuration>k__BackingField: 7
     <StallDuration>k__BackingField: 4
   baseDamage: 5
   projectileLayerIndex: 100
   <owner>k__BackingField: {fileID: 7160802010199300189}
   handler: {fileID: 7640009371742262203}
   attackSound: {fileID: 11400000, guid: 69ed299960fdb084dad0f679782840b7, type: 2}
-  ringCount: 16
+  ringCount: 22
   ringRandom: 0.5
   ringDensity: 20
   prefab: {fileID: 4912228362202972655, guid: 173f51e9cc3ef3842a12e561779c815c, type: 3}

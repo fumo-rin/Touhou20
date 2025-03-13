@@ -50,14 +50,13 @@ namespace Bremsengine
         private static void ReinitializeSceneLoader()
         {
             IsLoadingScene = false;
-            OnStageExitPreLoadingScreen = null;
         }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         private static void InitializeStageActions()
         {
             StageActions = new();
         }
-        public static void SetStageAction(string key, StageExitAction action)
+        public static void SetStageLoadAction(string key, StageExitAction action)
         {
             StageActions[key] = action;
         }
@@ -65,7 +64,6 @@ namespace Bremsengine
         [SerializeField] TMP_Text loadingScreenText;
         public static bool IsLoadingScene;
         public delegate void StageExitAction();
-        public static StageExitAction OnStageExitPreLoadingScreen;
         static Dictionary<string, StageExitAction> StageActions;
         [QFSW.QC.Command("-loadscene")]
         public static void LoadSceneAfterDelay(string sceneName, float delay, System.Action callback = null)
@@ -83,11 +81,12 @@ namespace Bremsengine
                 IsLoadingScene = true;
                 yield return new WaitForSecondsRealtime(delay);
                 Time.timeScale = 0f;
-                OnStageExitPreLoadingScreen?.Invoke();
+                StageExitAction toRun = null;
                 foreach (var item in StageActions)
                 {
-                    item.Value?.Invoke();
+                    toRun += item.Value;
                 }
+                toRun?.Invoke();
                 if (Instance != null && Instance.loadingScreen != null)
                 {
                     Instance.loadingScreenText.text = "Loading: 0%";

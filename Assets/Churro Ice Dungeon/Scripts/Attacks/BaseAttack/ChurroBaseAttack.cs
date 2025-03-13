@@ -60,15 +60,10 @@ namespace ChurroIceDungeon
             {
                 return;
             }
-            if (handler != null && !handler.settings.IsAttackTimeAllowed())
-            {
-                return;
-            }
             if (handler != null)
             {
                 if (!handler.settings.IsAttackTimeAllowed())
                 {
-
                     return;
                 }
                 handler.settings.TriggerAttackTime();

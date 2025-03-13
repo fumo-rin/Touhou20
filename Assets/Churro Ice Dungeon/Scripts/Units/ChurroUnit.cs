@@ -302,7 +302,6 @@ namespace ChurroIceDungeon
         {
             RenderTextureCursorHandler.ClickDown -= OnWorldClick;
             RenderTextureCursorHandler.ClickUp -= OnWorldRelease;
-            GeneralManager.OnStageExitPreLoadingScreen -= SnapshotInventory;
 
             PlayerInputController.actions.Player.Focus.performed -= PressFocus;
             PlayerInputController.actions.Player.Focus.canceled -= ReleaseFocus;
@@ -315,7 +314,7 @@ namespace ChurroIceDungeon
             RenderTextureCursorHandler.ClickUp += OnWorldRelease;
 
             RenderTextureCursorHandler.SetControllerReference(transform);
-            GeneralManager.OnStageExitPreLoadingScreen += SnapshotInventory;
+            GeneralManager.SetStageLoadAction("Snapshot Inventory", SnapshotInventory);
 
             PlayerInputController.actions.Player.Focus.performed += PressFocus;
             PlayerInputController.actions.Player.Focus.canceled += ReleaseFocus;
