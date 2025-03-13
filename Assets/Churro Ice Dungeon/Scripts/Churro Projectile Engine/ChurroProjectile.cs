@@ -1,6 +1,7 @@
 using Bremsengine;
 using Core;
 using Core.Extensions;
+using Mono.CSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -273,7 +274,7 @@ namespace ChurroIceDungeon
         {
             NextSpawnID = 0;
         }
-        static Dictionary<int, ChurroProjectile> activeBullets;
+        static List<ChurroProjectile> activeBullets;
         public int SpawnID { get; private set; }
         static int NextSpawnID;
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
@@ -308,7 +309,7 @@ namespace ChurroIceDungeon
             p.Action_MatchOther(prefab);
             spawnAction?.Invoke(p);
             spawnedBullet = p;
-            activeBullets.Add(p.SpawnID, p);
+            activeBullets.Add(p);
             return spawnedBullet != null;
         }
     }
@@ -320,6 +321,7 @@ namespace ChurroIceDungeon
         private static void ReinitializeSweep()
         {
             SweepEndTime = 0;
+            sweepList = new();
         }
         static float SweepEndTime;
         public static bool IsSweeping => Time.time < SweepEndTime;
@@ -332,20 +334,29 @@ namespace ChurroIceDungeon
         {
             SweepBullets(0.5f, 15);
         }
+        static List<ChurroProjectile> sweepList;
         public static void SweepBullets(float sweepDuration, byte lootWeight)
         {
             sweepLootWeight = lootWeight;
             SweepEndTime = Time.time + sweepDuration;
+            sweepList.Clear();
             foreach (var item in activeBullets)
             {
-                if (item.Value.sweepable)
+                if (item != null && item.sweepable)
                 {
-                    item.Value.ClearProjectile();
+                    sweepList.Add(item);
                 }
+            }
+            for (int i = 0; i < sweepList.Count; i++)
+            {
                 if (SweepLoot)
                 {
-                    WakaScoring.SpawnPickup(item.Value.CurrentPosition);
+                    WakaScoring.SpawnPickup(activeBullets[i].CurrentPosition);
                 }
+                sweepList[i].ClearProjectile();
+                sweepList.RemoveAt(i);
+                i--;
+                continue;
             }
         }
     }
@@ -425,12 +436,12 @@ namespace ChurroIceDungeon
             }
             return false;
         }
-        public void ClearProjectile(int bounceCost = 1)
+        public bool ClearProjectile(int bounceCost = 1)
         {
-            Debug.Log("T");
             void Local_Destroy()
             {
                 Destroy(gameObject);
+                activeBullets.Remove(this);
             }
             void TryPool()
             {
@@ -443,6 +454,7 @@ namespace ChurroIceDungeon
                 {
                     Local_Destroy();
                 }
+                activeBullets.Remove(this);
             }
             TerrainBounceLives -= bounceCost.Abs();
             GrazeBox.Unregister(SpawnID);
@@ -451,12 +463,12 @@ namespace ChurroIceDungeon
                 if (!pooling)
                 {
                     Local_Destroy();
-                    return;
+                    return true;
                 }
                 TryPool();
-                return;
+                return true;
             }
-            activeBullets.Remove(SpawnID);
+            return false;
         }
     }
     #endregion

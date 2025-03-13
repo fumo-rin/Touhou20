@@ -7,6 +7,11 @@ namespace ChurroIceDungeon
 {
     public class PlayerBomb : MonoBehaviour
     {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void ReinitializeBomb()
+        {
+            NextBombTime = 0f;
+        }
         [SerializeField] DungeonUnit owner;
         static float NextBombTime;
         public int BombCount => (currentBombValue / BombUseCost).ToInt();
@@ -37,15 +42,27 @@ namespace ChurroIceDungeon
             ChurroProjectile.SweepBullets(0.5f, 0);
             WakaUnit.TriggerIFrames(bombDuration);
         }
+        private void PressBombInput(InputAction.CallbackContext c)
+        {
+            BombInputHeld = true;
+        }
+        private void ReleaseBombInput(InputAction.CallbackContext c)
+        {
+            BombInputHeld = false;
+        }
+        private void Update()
+        {
+            TryTriggerBomb();
+        }
         private void OnEnable()
         {
-            PlayerInputController.actions.Shmup.Bomb.performed += (InputAction.CallbackContext c) => { BombInputHeld = true; TryTriggerBomb(); };
-            PlayerInputController.actions.Shmup.Bomb.canceled += (InputAction.CallbackContext c) => { BombInputHeld = false; };
+            PlayerInputController.actions.Shmup.Bomb.performed += PressBombInput;
+            PlayerInputController.actions.Shmup.Bomb.canceled += ReleaseBombInput;
         }
         private void OnDisable()
         {
-            PlayerInputController.actions.Shmup.Bomb.performed -= (InputAction.CallbackContext c) => { BombInputHeld = true; TryTriggerBomb(); };
-            PlayerInputController.actions.Shmup.Bomb.canceled -= (InputAction.CallbackContext c) => { BombInputHeld = false; };
+            PlayerInputController.actions.Shmup.Bomb.performed -= PressBombInput;
+            PlayerInputController.actions.Shmup.Bomb.canceled -= ReleaseBombInput;
         }
     }
 }
