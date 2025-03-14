@@ -4,6 +4,61 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Funny Weapon
+    /*
+    public abstract class Weapon
+    {
+        public int ID;
+        public abstract void Attack(Vector2 position);
+    }
+    public enum weaponTypes
+    {
+        ice = 1,
+        fire = 2,
+        milk = 3
+    }
+    public class CirnoIceCannonWOW : Weapon
+    {
+        public override void Attack(Vector2 position)
+        {
+            Debug.Log("Shoot a billion icicles");
+            Debug.Log("Perfect Freeze!");
+        }
+    }
+    public class WeaponInventory : MonoBehaviour
+    {
+        [SerializeField] List<Weapon> knownWeapons = new();
+        static Dictionary<int, Weapon> inventory;
+        int selectedWeapon;
+        private void Awake()
+        {
+            inventory = new Dictionary<int, Weapon>();
+            foreach (var item in knownWeapons)
+            {
+                inventory.Add(item.ID, item);
+            }
+        }
+        public static bool TryFindWeapon(int id, out Weapon item)
+        {
+            return inventory.TryGetValue(id, out item);
+        }
+        public bool Attack(Vector2 position)
+        {
+            if (TryFindWeapon(selectedWeapon, out Weapon w))
+            {
+                w.Attack(position);
+                return true;
+            }
+            return false;
+        }
+        public void SelectWeapon(int id)
+        {
+            selectedWeapon = id;
+        }
+    }
+    */
+    #endregion
+    #region Damageable
     /*
     #region Demo Damageable
         public interface IDemoDamageable
@@ -234,4 +289,5 @@ namespace ChurroIceDungeon
             public string statName => addStat.statName;
         }
     */
+    #endregion
 }

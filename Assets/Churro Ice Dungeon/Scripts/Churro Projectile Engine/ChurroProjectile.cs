@@ -1,7 +1,5 @@
 using Bremsengine;
-using Core;
 using Core.Extensions;
-using Mono.CSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -274,7 +272,6 @@ namespace ChurroIceDungeon
         {
             NextSpawnID = 0;
         }
-        static List<ChurroProjectile> activeBullets;
         public int SpawnID { get; private set; }
         static int NextSpawnID;
         public delegate void ProjectileSpawnAction(ChurroProjectile p);
@@ -346,14 +343,14 @@ namespace ChurroIceDungeon
                 if (item != null && item.sweepable)
                 {
                     sweepList.Add(item);
+                    if (SweepLoot)
+                    {
+                        WakaScoring.SpawnPickup(item.CurrentPosition);
+                    }
                 }
             }
             for (int i = 0; i < sweepList.Count; i++)
             {
-                if (SweepLoot)
-                {
-                    WakaScoring.SpawnPickup(activeBullets[i].CurrentPosition);
-                }
                 sweepList[i].ClearProjectile();
                 sweepList.RemoveAt(i);
                 i--;
@@ -569,6 +566,8 @@ namespace ChurroIceDungeon
     [RequireComponent(typeof(Rigidbody2D))]
     public partial class ChurroProjectile : MonoBehaviour
     {
+        static HashSet<ChurroProjectile> activeBullets;
+        public static int BulletCount => activeBullets == null ? 0 : activeBullets.Count;
         public static void ForceResetProjectileSystem()
         {
             ReinitializeProjectilePool();
