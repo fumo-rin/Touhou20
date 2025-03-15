@@ -1,6 +1,8 @@
 using Bremsengine;
 using Core.Extensions;
+using Mono.CSharp;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEngine;
 
@@ -96,6 +98,7 @@ namespace ChurroIceDungeon
                 }
                 gameObject.SetActive(false);
             }
+            RecalculateAliveEnemy();
         }
     }
     #endregion
@@ -128,6 +131,56 @@ namespace ChurroIceDungeon
             return activePath.PerformPath(this);
         }
         public void SetStagePath(StagePath path) => activePath = path;
+    }
+    #endregion
+    #region Alive Enemies
+    public partial class EnemyUnit
+    {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void InitializeEnemyList()
+        {
+            AliveEnemies = new();
+            GeneralManager.SetStageLoadAction("Reset Alive Enemies", ResetAliveEnemies);
+        }
+        private static void ResetAliveEnemies()
+        {
+            AliveEnemies.Clear();
+        }
+        public static HashSet<EnemyUnit> AliveEnemies;
+        void RecalculateAliveEnemy()
+        {
+            if (Damageable.CurrentHealth > 0f && !AliveEnemies.Contains(this))
+            {
+                AliveEnemies.Add(this);
+                return;
+            }
+            if (Damageable.CurrentHealth <= 0f)
+            {
+                AliveEnemies.Remove(this);
+            }
+        }
+        public static bool AutoAimTowardEnemy(Vector2 origin, float maxAngle, out EnemyUnit selection)
+        {
+            Vector2 iterationDirection;
+            float highestDot = -999f;
+            selection = null;
+            float iterationDot;
+            foreach (var item in AliveEnemies)
+            {
+                iterationDirection = item.CurrentPosition - origin;
+                if (iterationDirection.Angle(Vector2.up).Absolute() > maxAngle)
+                {
+                    continue;
+                }
+                iterationDot = Vector2.Dot(iterationDirection.normalized, Vector2.up);
+                if (iterationDot >= highestDot)
+                {
+                    highestDot = iterationDot;
+                    selection = item;
+                }
+            }
+            return selection != null;
+        }
     }
     #endregion
     public partial class EnemyUnit : DungeonUnit
@@ -217,6 +270,7 @@ namespace ChurroIceDungeon
             {
                 Bossbar.BindBar(this);
             }
+            RecalculateAliveEnemy();
         }
         bool canSeeTarget = false;
         DungeonUnit scanTarget = null;

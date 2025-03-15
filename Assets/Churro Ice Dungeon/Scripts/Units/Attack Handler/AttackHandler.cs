@@ -3,8 +3,22 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
+    #region Target Resolver
+    public partial class AttackHandler
+    {
+        public virtual bool ResolveTarget(out DungeonUnit target)
+        {
+            target = null;
+            if (DungeonUnit.Player != null && DungeonUnit.Player != Owner)
+            {
+                target = DungeonUnit.Player;
+            }
+            return target != null;
+        }
+    }
+    #endregion
     [DefaultExecutionOrder(-1)]
-    public class AttackHandler : MonoBehaviour
+    public partial class AttackHandler : MonoBehaviour
     {
         #region Attack Time Settigns
         [System.Serializable]

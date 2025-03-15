@@ -46,6 +46,17 @@ namespace ChurroIceDungeon
                 this.Origin = origin;
                 this.Direction = direction;
                 this.OnSpawn = null;
+                this.OptionalTarget = null;
+            }
+            public InputSettings Copy()
+            {
+                return new()
+                {
+                    Origin = this.Origin,
+                    Direction = this.Direction,
+                    OnSpawn = this.OnSpawn,
+                    OptionalTarget = this.OptionalTarget
+                };
             }
             public InputSettings SetOrigin(Vector2 position)
             {
@@ -57,9 +68,15 @@ namespace ChurroIceDungeon
                 Direction = direction;
                 return this;
             }
+            public InputSettings AssignTarget(Transform target)
+            {
+                OptionalTarget = target;
+                return this;
+            }
             public Vector2 Origin { get; private set; }
             public Vector2 Direction { get; private set; }
             public ProjectileSpawnAction OnSpawn;
+            public Transform OptionalTarget { get; private set; }
         }
         public struct SingleSettings
         {
@@ -163,6 +180,11 @@ namespace ChurroIceDungeon
             {
                 projectileSprite.transform.Lookat2D(CurrentPosition + CurrentVelocity);
             }
+            return this;
+        }
+        public ChurroProjectile Action_Retarget(Transform t)
+        {
+            Action_SetVelocity((Vector2)t.position - CurrentPosition, CurrentSpeed);
             return this;
         }
         public ChurroProjectile Action_FacePosition(Vector2 worldPosition)
@@ -607,6 +629,7 @@ namespace ChurroIceDungeon
         public DungeonUnit Owner { get; private set; }
         public float ContainedDamage { get; private set; } = 1f;
         public Vector2 CurrentPosition => transform.position;
+        public float CurrentSpeed => CurrentVelocity.magnitude;
         public BremseFaction Faction { get; private set; } = BremseFaction.Enemy;
         public Rigidbody2D RB => projectileRB;
         public static void RunActiveBullets()

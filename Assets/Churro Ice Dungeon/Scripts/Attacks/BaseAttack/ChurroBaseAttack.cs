@@ -69,6 +69,10 @@ namespace ChurroIceDungeon
                 handler.settings.TriggerAttackTime();
             }
             ChurroProjectile.InputSettings s = new(owner == null ? transform.position : owner.CurrentPosition, target - (owner == null ? transform.position : (Vector2)owner.CurrentPosition));
+            if (handler.ResolveTarget(out DungeonUnit t))
+            {
+                s.AssignTarget(t.transform);
+            }
             s.OnSpawn += ProjectileSpawnCallback;
             attackSound.Play(transform.position);
             AttackPayload(s);

@@ -4,7 +4,21 @@ using UnityEngine;
 
 namespace ChurroIceDungeon
 {
-    public class ChurroAttackHandler : AttackHandler
+    #region Target Resolver
+    public partial class ChurroAttackHandler
+    {
+        public override bool ResolveTarget(out DungeonUnit target)
+        {
+            target = null;
+            if (EnemyUnit.AutoAimTowardEnemy(Owner.CurrentPosition, 45f, out EnemyUnit enemy))
+            {
+                target = enemy;
+            }
+            return target != null;
+        }
+    }
+    #endregion
+    public partial class ChurroAttackHandler : AttackHandler
     {
         [SerializeField] Transform shotTypeAnchor;
         List<GameObject> spawnedShots = new List<GameObject>();
