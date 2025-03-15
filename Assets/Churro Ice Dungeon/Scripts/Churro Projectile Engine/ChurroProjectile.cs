@@ -475,7 +475,7 @@ namespace ChurroIceDungeon
     public partial class ChurroProjectile
     {
         static TagHandle stageboxTag => TagHandle.GetExistingTag("Projectile Stagebox");
-        public delegate void ScreenExitAction(ChurroProjectile p);
+        public delegate void ScreenExitAction(ChurroProjectile p, Vector2 edgeNormal);
         private ScreenExitAction OnScreenExit;
         public void AddOnScreenExitEvent(ScreenExitAction action)
         {
@@ -485,8 +485,29 @@ namespace ChurroIceDungeon
         {
             if (collision.CompareTag(stageboxTag))
             {
-                OnScreenExit?.Invoke(this);
+                OnScreenExit?.Invoke(this, -(CurrentVelocity.QuantizeToStepSize(90f)));
                 OnScreenExit = null;
+            }
+        }
+    }
+    #endregion
+    #region Spawn Loot
+    public partial class ChurroProjectile
+    {
+        static float StoredLootDamage;
+        static float DamagePerLootItem = 10f;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void ReinitializeLootDamage()
+        {
+            StoredLootDamage = 0;
+        }
+        public static void ContributeTowardsLoot(float damage, Vector2 position)
+        {
+            StoredLootDamage += damage;
+            while (StoredLootDamage >= DamagePerLootItem)
+            {
+                StoredLootDamage -= DamagePerLootItem;
+                WakaScoring.SpawnPickup(position + UnityEngine.Random.insideUnitCircle);
             }
         }
     }
@@ -523,6 +544,7 @@ namespace ChurroIceDungeon
                         if (Owner != null && box.transform.root.GetComponent<EnemyUnit>() is EnemyUnit enemy and not null)
                         {
                             enemy.Alert(Owner);
+                            ContributeTowardsLoot(ContainedDamage, CurrentPosition);
                             ClearProjectile();
                             return;
                         }

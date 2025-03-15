@@ -194,6 +194,12 @@ namespace Core.Extensions
             v = Quaternion.AngleAxis(angle, Vector3.forward) * v;
             return v;
         }
+        public static void Demo()
+        {
+            Vector2 demo = new Vector2(3f, 3f);
+            Vector2 other = new Vector2(-3f, -3f);
+            float wow = demo.Angle(other);
+        }
         public static float Angle(this Vector2 v, Vector2? other = null)
         {
             Vector2 compare = other ?? Vector2.right;

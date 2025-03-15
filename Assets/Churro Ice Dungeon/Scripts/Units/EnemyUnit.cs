@@ -87,7 +87,6 @@ namespace ChurroIceDungeon
             {
                 return;
             }
-            WakaScoring.SpawnPickup(CurrentPosition + Random.insideUnitCircle);
             Damageable.CurrentHealth -= damage;
             if (Damageable.CurrentHealth <= 0f)
             {

@@ -3957,7 +3957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4622793
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 5044015686206095166, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3993,11 +3993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6167620963758873140, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
       propertyPath: m_Name
-      value: Mushi Midboss
-      objectReference: {fileID: 0}
-    - target: {fileID: 6167620963758873140, guid: 98d428b6cf6f9a94db13e9145d2ede06, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Kong Strong
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

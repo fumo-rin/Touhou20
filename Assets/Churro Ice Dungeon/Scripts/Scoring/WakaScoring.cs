@@ -19,6 +19,8 @@ namespace ChurroIceDungeon
         }
         public static void SpawnPickup(Vector2 worldSpace)
         {
+            if (instance == null)
+                return;
             Pickup.SpawnPickup(instance.pickupPrefab, worldSpace);
         }
     }

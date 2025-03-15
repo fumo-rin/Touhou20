@@ -24,7 +24,7 @@ namespace ChurroIceDungeon
                 bool success = Arc(0f + addedRotation, 360f + addedRotation, 360f / 28, 12f).Spawn(input, prefab, out iterationList);
                 foreach (var item in iterationList)
                 {
-                    item.AddOnScreenExitEvent((ChurroProjectile p) => p.Action_MultiplyVelocity(-1f));
+
                 }
                 return success;
             }
@@ -44,6 +44,7 @@ namespace ChurroIceDungeon
                             output.Action_AddPosition(output.CurrentVelocity.ScaleToMagnitude(0.5f));
                             output.Action_SetSpriteLayerIndex(0);
                             output.AddEvent(new ChurroEventAccelerate(new(1.5f, 0.05f), 8f, 3f));
+                            output.AddOnScreenExitEvent((ChurroProjectile p, Vector2 normal) => p.Action_SetVelocity(p.CurrentVelocity.Bounce(normal, 5f), p.CurrentVelocity.magnitude));
                         }
                     }
                     if (IsDifficulty(GeneralManager.Difficulty.Ultra))
@@ -54,7 +55,7 @@ namespace ChurroIceDungeon
                         {
                             item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(3f));
                             item.Action_AddRotation(180f + 35f);
-                            item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 4f, 12f));
+                            item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 3.25f, 14f));
                         }
                         yield return ringRepeatStall;
                     }
@@ -65,7 +66,7 @@ namespace ChurroIceDungeon
                         {
                             item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(3f));
                             item.Action_AddRotation(180f);
-                            item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 4f, 12f));
+                            item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 3.25f, 14f));
                         }
                         yield return ringRepeatStall;
                     }
@@ -74,7 +75,7 @@ namespace ChurroIceDungeon
                     {
                         item.Action_AddPosition(item.CurrentVelocity.ScaleToMagnitude(3f));
                         item.Action_AddRotation(180f - 15f);
-                        item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 4f, 12f));
+                        item.AddEvent(new ChurroEventAccelerate(new(2f, 0.25f), 3.25f, 14f));
                     }
                     addedRotation += ringRandom.Spread(70f).Multiply((i - 1).Max(0));
                     yield return ringRepeatStall;

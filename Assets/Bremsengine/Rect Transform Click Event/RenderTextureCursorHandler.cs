@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -75,10 +74,6 @@ namespace Bremsengine
                 ScaleRenderClickToCameraWorldPosition(out Vector2 w, click, Camera.main);
                 lastCursorWorldPosition = w;
             }
-        }
-        private void OnDestroy()
-        {
-
         }
         private void Update()
         {
