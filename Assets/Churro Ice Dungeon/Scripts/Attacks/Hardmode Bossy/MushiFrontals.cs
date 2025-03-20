@@ -7,7 +7,6 @@ namespace ChurroIceDungeon
 {
     public class MushiFrontals : ChurroBaseAttack
     {
-        [SerializeField] Transform targetRef;
         [SerializeField] Transform leftShot;
         [SerializeField] Transform rightshot;
         [SerializeField] float duration = 25f;
@@ -18,6 +17,7 @@ namespace ChurroIceDungeon
         [SerializeField] AudioClipWrapper bigShotSound;
         [SerializeField] int ringEvery = 85;
         [SerializeField] ChurroProjectile ringPrefab;
+        [SerializeField] ChurroProjectile ultraPrefab;
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
         {
             handler.settings.SetStallDuration(1f);
@@ -29,9 +29,9 @@ namespace ChurroIceDungeon
                 {
                     sideInput.OnSpawn += input.OnSpawn;
                     sideInput.SetOrigin(shot.position);
-                    sideInput.SetDirection((Vector2)targetRef.position - (Vector2)shot.position);
+                    sideInput.SetDirection((Vector2)input.OptionalTarget.position - (Vector2)shot.position);
                     sideInput.SetDirection(sideInput.Direction.Rotate2D(rotation));
-                    var side = Arc(-65f, 65, 130 / 7f, 11f).Widen(widen);
+                    var side = Arc(-75f, 75, 150f / 7f, 9f).Widen(widen);
                     side.Spawn(sideInput, sideshotPrefab, out _);
                     attackSound.Play(sideInput.Origin);
                 }
@@ -39,29 +39,48 @@ namespace ChurroIceDungeon
                 WaitForSeconds stall = new WaitForSeconds(timeBetweenShots);
                 float time = 0f;
                 float widen = 1f;
-                float widenMultiplier = 0.985f;
+                float widenMultiplier = 0.9935f;
                 for (float i = 0; i < shots; i++)
                 {
                     time += timeBetweenShots;
-                    float rotation = 4.5f * Mathf.Sin(time * 0.43f);
+                    float rotation = (IsDifficulty(Bremsengine.GeneralManager.Difficulty.Ultra) ? 6.5f : 4.5f) * Mathf.Sin(time * 0.43f);
                     widen *= rotation.Sign() < 0 ? (1f / widenMultiplier) : widenMultiplier;
                     SideShot(leftShot, rotation, widen);
                     SideShot(rightshot, rotation, widen);
                     if (i.Floor().ToInt() % frontalEvery == 0)
                     {
+                        input.SetOrigin(owner.CurrentPosition);
+                        if (input.OptionalTarget != null)
+                        {
+                            input.SetDirection((Vector2)input.OptionalTarget.position - input.Origin);
+                        }
                         bigShotSound.Play(input.Origin);
-                        Arc(-15f, 15f, 30f / 3f, 6f).Spawn(input, frontalPrefab, out iterationList);
+                        Arc(-25f, 25f, 50f / 8f, 2f).Spawn(input, frontalPrefab, out iterationList);
                         foreach (var item in iterationList)
                         {
                             item.Action_AddRotation(3f.Spread(100f));
                             item.Action_MultiplyVelocity(1f.Spread(15f));
+                            item.Action_SetSpriteLayerIndex(200);
+                            if (IsDifficulty(Bremsengine.GeneralManager.Difficulty.Ultra))
+                            {
+                                item.AddEvent(new ChurroEventAccelerate(new(1.5f, 0.25f), 9f, 8f));
+                            }
+                            else
+                            {
+                                item.AddEvent(new ChurroEventAccelerate(new(1.5f, 0.25f), 6f, 5f));
+                            }
                         }
                     }
                     bool flip = false;
-                    if (i.Floor().ToInt() % ringEvery == 0)
+                    if (i.Floor().ToInt() % (IsDifficulty(Bremsengine.GeneralManager.Difficulty.Ultra) ? (ringEvery / 10f).ToInt() : ringEvery) == 0)
                     {
+                        input.SetOrigin(owner.CurrentPosition);
+                        if (input.OptionalTarget != null)
+                        {
+                            input.SetDirection((Vector2)input.OptionalTarget.position - input.Origin);
+                        }
                         bigShotSound.Play(input.Origin);
-                        Arc(0f, 360f, 360f / 20f, 6f).Spawn(input, ringPrefab, out iterationList);
+                        Arc(0f, 360f, 360f / 20f, IsDifficulty(Bremsengine.GeneralManager.Difficulty.Ultra) ? 1.5f : 7.5f).Spawn(input, IsDifficulty(Bremsengine.GeneralManager.Difficulty.Ultra) ? ultraPrefab : ringPrefab, out iterationList);
                         foreach (var item in iterationList)
                         {
                             item.Action_AddRotation(360f / 40f);

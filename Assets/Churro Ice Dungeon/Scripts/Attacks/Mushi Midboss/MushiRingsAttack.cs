@@ -8,8 +8,8 @@ namespace ChurroIceDungeon
     public class MushiRingsAttack : ChurroBaseAttack
     {
         [SerializeField] int ringCount = 40;
-        [SerializeField] float ringRandom = 1f;
-        [SerializeField] float ringDensity = 20f;
+        [SerializeField] float ringRandom = 0.5f;
+        [SerializeField] float ringDensity = 28f;
         [SerializeField] ChurroProjectile prefab;
         [SerializeField] ChurroProjectile bigShot;
         protected override void AttackPayload(ChurroProjectile.InputSettings input)
@@ -21,7 +21,7 @@ namespace ChurroIceDungeon
             }
             bool TrySpawnRing(float addedRotation)
             {
-                bool success = Arc(0f + addedRotation, 360f + addedRotation, 360f / 28, 12f).Spawn(input, prefab, out iterationList);
+                bool success = Arc(0f + addedRotation, 360f + addedRotation, 360f / ringDensity, 12f).Spawn(input, prefab, out iterationList);
                 foreach (var item in iterationList)
                 {
 

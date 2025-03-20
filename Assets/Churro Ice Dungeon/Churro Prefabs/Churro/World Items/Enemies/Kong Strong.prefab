@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &435860025276419872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4640879835070272536}
+  m_Layer: 6
+  m_Name: w (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4640879835070272536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435860025276419872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6463422467676912219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433489934777513491
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +466,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5073489182485107903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6463422467676912219}
+  - component: {fileID: 8983256006466207583}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6463422467676912219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073489182485107903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5445349475057704982}
+  - {fileID: 4640879835070272536}
+  m_Father: {fileID: 7251747974235148247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8983256006466207583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073489182485107903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e503de3841df804e884d2d3ba859f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noUnitFallbackFaction: 0
+  shouldOverrideSettings: 1
+  overrideSettings:
+    SpreadVariation: 0
+    NextAttackTime: 0
+    <SwingDuration>k__BackingField: 29
+    <StallDuration>k__BackingField: 25
+  baseDamage: 5
+  projectileLayerIndex: 100
+  <owner>k__BackingField: {fileID: 7160802010199300189}
+  handler: {fileID: 7640009371742262203}
+  attackSound: {fileID: 11400000, guid: 8c47206808f08c449b43ad1c53de3dee, type: 2}
+  leftShot: {fileID: 5445349475057704982}
+  rightshot: {fileID: 4640879835070272536}
+  duration: 25
+  shots: 400
+  sideshotPrefab: {fileID: 4912228362202972655, guid: 173f51e9cc3ef3842a12e561779c815c, type: 3}
+  frontalEvery: 40
+  frontalPrefab: {fileID: 4912228362202972655, guid: 9590c20442d77f643bc3a9204968c58d, type: 3}
+  bigShotSound: {fileID: 11400000, guid: 69ed299960fdb084dad0f679782840b7, type: 2}
+  ringEvery: 120
+  ringPrefab: {fileID: 4912228362202972655, guid: 084e8a2247b18594ca75dbe8d143b31e, type: 3}
+  ultraPrefab: {fileID: 4912228362202972655, guid: 8e419cd66675ab0499ecf7548f52fc07, type: 3}
 --- !u!1 &5467158286465644337
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +802,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7468792227996722301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5445349475057704982}
+  m_Layer: 6
+  m_Name: w
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5445349475057704982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468792227996722301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6463422467676912219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7566464929828348853
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +978,7 @@ MonoBehaviour:
   attackSound: {fileID: 11400000, guid: 69ed299960fdb084dad0f679782840b7, type: 2}
   ringCount: 16
   ringRandom: 0.5
-  ringDensity: 20
+  ringDensity: 28
   prefab: {fileID: 4912228362202972655, guid: 173f51e9cc3ef3842a12e561779c815c, type: 3}
   bigShot: {fileID: 4912228362202972655, guid: 8e419cd66675ab0499ecf7548f52fc07, type: 3}
 --- !u!1001 &3635676359061243986
@@ -1000,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8614108352071235436, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4622793
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 8614108352071235436, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1044,6 +1175,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6257723364317611909, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6174340279707916043}
+    - targetCorrespondingSourceObject: {fileID: 6257723364317611909, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6463422467676912219}
     - targetCorrespondingSourceObject: {fileID: 7867601643618115002, guid: 4992c09e5e8a4db46ba3b51339073871, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5248757813304296652}
