@@ -310,8 +310,8 @@ namespace BremseTouhou
             }
             instance = this;
             transform.SetParent(null);
-            Time.maximumDeltaTime = 1f / 60f;
-            Time.maximumParticleDeltaTime = 1f / 60f;
+            //Time.maximumDeltaTime = 1f / 60f;
+            //Time.maximumParticleDeltaTime = 1f / 60f;
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 120;
             LoadDifficultyFromLastSelected();

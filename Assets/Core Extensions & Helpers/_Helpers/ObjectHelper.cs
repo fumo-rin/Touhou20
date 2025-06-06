@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,6 +32,14 @@ namespace Core.Extensions
 #if UNITY_EDITOR
             EditorUtility.SetDirty(o);
 #endif
+        }
+        public static T Spawn2D<T>(this T reference, Vector2 position) where T : UnityEngine.MonoBehaviour
+        {
+            if (reference == null)
+            {
+                return default(T);
+            }
+            return MonoBehaviour.Instantiate(reference, position, Quaternion.identity);
         }
     }
 }
